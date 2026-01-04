@@ -15,15 +15,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://hotfix-doo.com'),
   title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company",
   description:
     "HOTFIX d.o.o. is a professional full-stack and mobile development company specializing in C#, React, Golang, Kotlin, and Swift. We deliver robust, scalable solutions for modern businesses.",
   keywords: ["Full-Stack Development", "Mobile Development", "C#", "React", "Golang", "Kotlin", "Swift", "Android", "iOS", "Web Development", "HOTFIX"],
   authors: [{ name: "HOTFIX d.o.o." }],
+  icons: {
+    icon: [
+      { url: "/logo_without_bg.png" },
+      { url: "/logo_without_bg.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo_without_bg.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/logo_without_bg.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company",
     description: "Professional full-stack and mobile development services in C#, React, Golang, Kotlin, and Swift",
     type: "website",
+    images: [{ url: "/logo_without_bg.png", width: 1200, height: 630, alt: "HOTFIX Logo" }],
   },
 };
 
