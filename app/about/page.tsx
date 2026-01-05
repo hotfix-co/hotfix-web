@@ -6,7 +6,7 @@ import { founderSchema, aboutPageSchema, generateBreadcrumbSchema } from "@/lib/
 export const metadata: Metadata = {
   title: "About Us | HOTFIX d.o.o.",
   description:
-    "Learn about HOTFIX d.o.o., founded by Josip Budalic in Croatia. Discover our mission, values, and expertise in full-stack and mobile development with C#, React, Golang, Kotlin, and Swift.",
+    "Learn about HOTFIX d.o.o., founded by Josip Budalic in Croatia. Discover our mission, values, and expertise in full-stack and mobile development with C#, React, Golang, Kotlin (KMM), and Swift.",
   alternates: {
     canonical: "https://hotfix-doo.com/about",
   },
@@ -156,7 +156,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* C# / .NET */}
             <div className="text-center p-6">
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg text-[#512BD4] mb-6">
@@ -202,7 +202,20 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Kotlin</h3>
               <p className="text-gray-600">
-                Native Android development with modern Kotlin for powerful mobile apps.
+                Modern, expressive language for Android and backend development.
+              </p>
+            </div>
+
+            {/* KMM (Kotlin Multiplatform Mobile) */}
+            <div className="text-center p-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg text-[#7F52FF] mb-6">
+                <SiKotlin className="text-5xl" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                KMM
+              </h3>
+              <p className="text-gray-600">
+                Kotlin Multiplatform Mobile for sharing code between Android and iOS.
               </p>
             </div>
 

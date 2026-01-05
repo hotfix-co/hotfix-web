@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | HOTFIX d.o.o.",
   },
   description:
-    "HOTFIX d.o.o., founded by Josip Budalic, is a professional Croatian full-stack and mobile development company specializing in C#, React, Golang, Kotlin, and Swift. We deliver robust, scalable solutions for modern businesses worldwide.",
+    "HOTFIX d.o.o., founded by Josip Budalic, is a professional Croatian full-stack and mobile development company specializing in C#, React, Golang, Kotlin (including KMM), and Swift. We deliver robust, scalable, cross-platform solutions for modern businesses worldwide.",
   keywords: [
     "Full-Stack Development",
     "Mobile Development",
@@ -38,9 +38,12 @@ export const metadata: Metadata = {
     "React Development",
     "Golang Development",
     "Kotlin Development",
+    "Kotlin Multiplatform Mobile",
+    "KMM Development",
     "Swift Development",
     "Android Development",
     "iOS Development",
+    "Cross-Platform Mobile Development",
     "Web Development",
     "Software Development Croatia",
     "Croatian Software Developers",

@@ -8,7 +8,7 @@ import { generateBreadcrumbSchema } from "@/lib/structuredData";
 export const metadata: Metadata = {
   title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
   description:
-    "HOTFIX d.o.o., founded by Josip Budalic, is a professional Croatian full-stack and mobile development company specializing in C#, React, Golang, Kotlin, and Swift. We deliver robust, scalable solutions for modern businesses worldwide.",
+    "HOTFIX d.o.o., founded by Josip Budalic, is a professional Croatian full-stack and mobile development company specializing in C#, React, Golang, Kotlin (KMM), and Swift. We deliver robust, scalable, cross-platform solutions for modern businesses worldwide.",
   alternates: {
     canonical: "https://hotfix-doo.com",
   },
@@ -101,10 +101,11 @@ export default function Home() {
               {
                 title: "Frontend & Mobile",
                 description:
-                  "Modern web and native mobile apps built with React, Kotlin, and Swift for exceptional user experiences.",
+                  "Modern web and native mobile apps built with React, Kotlin (including KMM for cross-platform), and Swift for exceptional user experiences.",
                 features: [
                   "React & Next.js Web Apps",
                   "Native Android (Kotlin)",
+                  "Cross-Platform (KMM)",
                   "Native iOS (Swift)",
                 ],
               },

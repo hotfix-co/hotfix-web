@@ -22,9 +22,12 @@ export const metadata: Metadata = {
     "React development services",
     "Golang development services",
     "Kotlin Android development",
+    "Kotlin Multiplatform Mobile",
+    "KMM development",
     "Swift iOS development",
     "full-stack development services",
     "mobile app development services",
+    "cross-platform mobile development",
     "backend development services",
     "frontend development services",
     "microservices development",
@@ -75,11 +78,12 @@ export default function ServicesPage() {
     {
       title: "Mobile Development",
       description:
-        "Native mobile applications for Android and iOS with modern development practices.",
+        "Native mobile applications for Android and iOS with modern development practices, including cross-platform solutions with Kotlin Multiplatform.",
       icon: "📱",
       features: [
         "Native Android Apps (Kotlin)",
         "Native iOS Apps (Swift)",
+        "Cross-Platform with KMM",
         "Modern UI/UX Design",
         "Offline-First Architecture",
         "Push Notifications & Deep Linking",
@@ -137,6 +141,7 @@ export default function ServicesPage() {
       category: "Mobile",
       techs: [
         "Kotlin",
+        "KMM (Kotlin Multiplatform)",
         "Swift",
         "Android SDK",
         "iOS SDK",
