@@ -1,20 +1,35 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import { generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | HOTFIX d.o.o.",
-  description: "Privacy policy for HOTFIX d.o.o. website and services.",
+  description: "Privacy policy for HOTFIX d.o.o. website and services. Learn how we collect, use, and protect your personal information when you contact us or use our software development services.",
+  alternates: {
+    canonical: "https://hotfix-doo.com/privacy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function PrivacyPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Privacy Policy", url: "/privacy" },
+  ]);
+
   return (
     <div className="bg-white py-20">
+      <StructuredData data={breadcrumbSchema} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-5xl font-bold text-gray-900 mb-8">
           Privacy Policy
         </h1>
         <div className="prose prose-lg max-w-none">
           <p className="text-gray-600 mb-6">
-            Last updated: {new Date().toLocaleDateString()}
+            Last updated: January 2026
           </p>
 
           <section className="mb-8">

@@ -1,8 +1,27 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import AnimatedSection from "@/components/AnimatedSection";
 import Link from "next/link";
+import StructuredData from "@/components/StructuredData";
+import { generateBreadcrumbSchema } from "@/lib/structuredData";
+
+export const metadata: Metadata = {
+  title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
+  description:
+    "HOTFIX d.o.o., founded by Josip Budalic, is a professional Croatian full-stack and mobile development company specializing in C#, React, Golang, Kotlin, and Swift. We deliver robust, scalable solutions for modern businesses worldwide.",
+  alternates: {
+    canonical: "https://hotfix-doo.com",
+  },
+  openGraph: {
+    url: "https://hotfix-doo.com",
+    type: "website",
+  },
+};
 
 export default function Home() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+  ]);
   const features = [
     {
       title: "Full-Stack & Mobile Expertise",
@@ -23,18 +42,19 @@ export default function Home() {
 
   return (
     <>
+      <StructuredData data={breadcrumbSchema} />
       <Hero />
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" aria-labelledby="why-choose-us">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 id="why-choose-us" className="text-4xl font-bold text-gray-900 mb-4">
               Why Choose <span className="text-gradient">HOTFIX</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We combine technical expertise with a commitment to excellence,
-              delivering solutions that drive real business results.
+              delivering solutions that drive real business results for businesses worldwide.
             </p>
           </AnimatedSection>
 
@@ -55,10 +75,10 @@ export default function Home() {
       </section>
 
       {/* Services Preview Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-labelledby="our-services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 id="our-services" className="text-4xl font-bold text-gray-900 mb-4">
               Our Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -119,6 +139,7 @@ export default function Home() {
             <Link
               href="/services"
               className="inline-block px-8 py-4 rounded-lg gradient-primary text-white font-semibold text-lg hover:opacity-90 hover:scale-105 transform transition-all shadow-lg"
+              aria-label="View all HOTFIX d.o.o. development services including full-stack, mobile, and backend solutions"
             >
               Explore All Services
             </Link>
@@ -127,18 +148,19 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" aria-labelledby="cta-heading">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 id="cta-heading" className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Ready to Build Something Amazing?
             </h2>
             <p className="text-xl text-gray-600 mb-10">
-              Let's discuss your project and turn your vision into reality.
+              Let's discuss your project and turn your vision into reality with expert full-stack and mobile development.
             </p>
             <Link
               href="/contact"
               className="inline-block px-10 py-4 rounded-lg gradient-primary text-white font-semibold text-lg hover:opacity-90 hover:scale-105 transform transition-all shadow-lg hover:shadow-xl"
+              aria-label="Contact HOTFIX d.o.o. to start your software development project"
             >
               Start Your Project
             </Link>

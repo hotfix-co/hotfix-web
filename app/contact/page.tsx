@@ -1,20 +1,37 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import StructuredData from "@/components/StructuredData";
+import { contactFAQSchema, contactPageSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Contact Us | HOTFIX d.o.o.",
   description:
-    "Get in touch with HOTFIX d.o.o. for your full-stack and mobile development needs. We're here to help bring your project to life.",
+    "Get in touch with HOTFIX d.o.o., a Croatian software development company, for your full-stack and mobile development needs. Contact us at ops@hotfix-doo.com or use our contact form. We respond within 24 hours.",
+  alternates: {
+    canonical: "https://hotfix-doo.com/contact",
+  },
+  openGraph: {
+    url: "https://hotfix-doo.com/contact",
+    type: "website",
+    title: "Contact HOTFIX d.o.o. | Croatian Software Development Company",
+    description: "Get in touch with HOTFIX d.o.o. for your software development needs. We respond within 24 hours.",
+  },
 };
 
 export default function ContactPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Contact", url: "/contact" },
+  ]);
+
   return (
     <div className="bg-white">
+      <StructuredData data={[breadcrumbSchema, contactFAQSchema, contactPageSchema]} />
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white" aria-labelledby="contact-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 id="contact-hero" className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Get In <span className="text-gradient">Touch</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -26,12 +43,12 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20">
+      <section className="py-20" aria-labelledby="contact-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              <h2 id="contact-section" className="text-3xl font-bold text-gray-900 mb-8">
                 Let's Work Together
               </h2>
               <p className="text-lg text-gray-600 mb-8">
@@ -55,6 +72,7 @@ export default function ContactPage() {
                     <a
                       href="mailto:ops@hotfix-doo.com"
                       className="text-[var(--primary-red)] hover:text-[var(--primary-orange)] transition-colors"
+                      aria-label="Email HOTFIX d.o.o. at ops@hotfix-doo.com"
                     >
                       ops@hotfix-doo.com
                     </a>
@@ -133,9 +151,9 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-labelledby="faq-section">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 id="faq-section" className="text-4xl font-bold text-gray-900 mb-12 text-center">
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">

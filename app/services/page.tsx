@@ -1,14 +1,44 @@
 import type { Metadata } from "next";
 import ServiceCard from "@/components/ServiceCard";
 import Link from "next/link";
+import StructuredData from "@/components/StructuredData";
+import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Services | HOTFIX d.o.o.",
   description:
-    "Explore our comprehensive full-stack and mobile development services including C# .NET backend, React frontend, Golang, and native mobile apps with Kotlin and Swift.",
+    "Explore our comprehensive full-stack and mobile development services including C# .NET backend development, React frontend development, Golang microservices, and native mobile apps with Kotlin (Android) and Swift (iOS). Professional software development services from Croatia.",
+  alternates: {
+    canonical: "https://hotfix-doo.com/services",
+  },
+  openGraph: {
+    url: "https://hotfix-doo.com/services",
+    type: "website",
+    title: "Development Services | HOTFIX d.o.o.",
+    description: "Full-stack and mobile development services: C# .NET, React, Golang, Kotlin, Swift. Professional software development from Croatia.",
+  },
+  keywords: [
+    "C# .NET development services",
+    "React development services",
+    "Golang development services",
+    "Kotlin Android development",
+    "Swift iOS development",
+    "full-stack development services",
+    "mobile app development services",
+    "backend development services",
+    "frontend development services",
+    "microservices development",
+    "API development services",
+    "software development Croatia",
+  ],
 };
 
 export default function ServicesPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+  ]);
+
   const services = [
     {
       title: "Backend Development",
@@ -131,13 +161,19 @@ export default function ServicesPage() {
     },
   ];
 
+  // Generate service schemas
+  const serviceSchemas = services.map(service => 
+    generateServiceSchema(service.title, service.description)
+  );
+
   return (
     <div className="bg-white">
+      <StructuredData data={[breadcrumbSchema, ...serviceSchemas]} />
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white" aria-labelledby="services-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 id="services-hero" className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Our <span className="text-gradient">Services</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -167,10 +203,10 @@ export default function ServicesPage() {
       </section>
 
       {/* Technology Stack */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-labelledby="technology-stack">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 id="technology-stack" className="text-4xl font-bold text-gray-900 mb-4">
               Technology Stack
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -205,10 +241,10 @@ export default function ServicesPage() {
       </section>
 
       {/* Development Process */}
-      <section className="py-20">
+      <section className="py-20" aria-labelledby="development-process">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 id="development-process" className="text-4xl font-bold text-gray-900 mb-4">
               Our Development Process
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -266,18 +302,19 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)]">
+      <section className="py-20 bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)]" aria-labelledby="services-cta">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 id="services-cta" className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Start Your Project?
           </h2>
           <p className="text-xl text-white/90 mb-10">
             Let's discuss how we can help bring your vision to life with our
-            full-stack development expertise.
+            full-stack and mobile development expertise.
           </p>
           <Link
             href="/contact"
             className="inline-block px-10 py-4 rounded-lg bg-white text-[var(--primary-red)] font-semibold text-lg hover:bg-gray-100 transition-colors shadow-xl"
+            aria-label="Contact HOTFIX d.o.o. to discuss your software development project"
           >
             Get Started Today
           </Link>

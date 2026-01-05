@@ -1,15 +1,32 @@
 import type { Metadata } from "next";
 import { SiDotnet, SiReact, SiGo, SiKotlin, SiSwift } from "react-icons/si";
+import StructuredData from "@/components/StructuredData";
+import { founderSchema, aboutPageSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "About Us | HOTFIX d.o.o.",
   description:
-    "Learn about HOTFIX d.o.o., our mission, values, and expertise in full-stack and mobile development with C#, React, Golang, Kotlin, and Swift.",
+    "Learn about HOTFIX d.o.o., founded by Josip Budalic in Croatia. Discover our mission, values, and expertise in full-stack and mobile development with C#, React, Golang, Kotlin, and Swift.",
+  alternates: {
+    canonical: "https://hotfix-doo.com/about",
+  },
+  openGraph: {
+    url: "https://hotfix-doo.com/about",
+    type: "website",
+    title: "About HOTFIX d.o.o. | Founded by Josip Budalic",
+    description: "Learn about HOTFIX d.o.o., founded by Josip Budalic in Croatia. Our mission, values, and expertise in full-stack and mobile development.",
+  },
 };
 
 export default function AboutPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "About", url: "/about" },
+  ]);
+
   return (
     <div className="bg-white">
+      <StructuredData data={[breadcrumbSchema, founderSchema, aboutPageSchema]} />
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,24 +35,24 @@ export default function AboutPage() {
               About <span className="text-gradient">HOTFIX</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're a team of passionate developers dedicated to building
-              exceptional software solutions that make a difference.
+              Founded by Josip Budalic, we're a Croatian team of passionate developers dedicated to building
+              exceptional software solutions that make a difference for businesses worldwide.
             </p>
           </div>
         </div>
       </section>
 
       {/* Company Story */}
-      <section className="py-20">
+      <section className="py-20" aria-labelledby="our-story">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 id="our-story" className="text-4xl font-bold text-gray-900 mb-6">
                 Our Story
               </h2>
               <div className="space-y-4 text-gray-600 text-lg">
                 <p>
-                  HOTFIX d.o.o. was founded with a simple yet powerful vision:
+                  HOTFIX d.o.o. was founded by <strong>Josip Budalic</strong> in Croatia with a simple yet powerful vision:
                   to deliver world-class software solutions that empower
                   businesses to thrive in the digital age.
                 </p>
@@ -47,7 +64,7 @@ export default function AboutPage() {
                   systems to beautiful web interfaces and native mobile applications.
                 </p>
                 <p>
-                  Today, we're proud to work with businesses of all sizes,
+                  Under the leadership of founder Josip Budalic, HOTFIX d.o.o. has grown to become a trusted Croatian software development company. Today, we're proud to work with businesses of all sizes worldwide,
                   helping them transform their ideas into reality through
                   cutting-edge technology and innovative solutions across web and mobile platforms.
                 </p>
@@ -74,10 +91,10 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Values */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-labelledby="mission-values">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 id="mission-values" className="text-4xl font-bold text-gray-900 mb-4">
               Our Mission & Values
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -128,10 +145,10 @@ export default function AboutPage() {
       </section>
 
       {/* Expertise */}
-      <section className="py-20">
+      <section className="py-20" aria-labelledby="our-expertise">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 id="our-expertise" className="text-4xl font-bold text-gray-900 mb-4">
               Our Expertise
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -204,10 +221,10 @@ export default function AboutPage() {
       </section>
 
       {/* Approach */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-labelledby="our-approach">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 id="our-approach" className="text-4xl font-bold text-gray-900 mb-4">
               Our Approach
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">

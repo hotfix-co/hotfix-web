@@ -2,5 +2,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hotfix.dev/sitemap.xml
+Sitemap: https://hotfix-doo.com/sitemap.xml
 

@@ -1,20 +1,35 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import { generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Terms of Service | HOTFIX d.o.o.",
-  description: "Terms of service for HOTFIX d.o.o. website and services.",
+  description: "Terms of service for HOTFIX d.o.o. website and software development services. Review our terms and conditions for using our website and engaging with our development services.",
+  alternates: {
+    canonical: "https://hotfix-doo.com/terms",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function TermsPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Terms of Service", url: "/terms" },
+  ]);
+
   return (
     <div className="bg-white py-20">
+      <StructuredData data={breadcrumbSchema} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-5xl font-bold text-gray-900 mb-8">
           Terms of Service
         </h1>
         <div className="prose prose-lg max-w-none">
           <p className="text-gray-600 mb-6">
-            Last updated: {new Date().toLocaleDateString()}
+            Last updated: January 2026
           </p>
 
           <section className="mb-8">
