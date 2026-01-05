@@ -100,14 +100,6 @@ export const websiteSchema: WithContext<WebSite> = {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
   },
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
   inLanguage: 'en-US',
 };
 
