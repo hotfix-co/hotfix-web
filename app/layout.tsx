@@ -83,12 +83,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo_without_bg.png" },
-      { url: "/logo_without_bg.png", sizes: "32x32", type: "image/png" },
-      { url: "/logo_without_bg.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png", sizes: "16x16", type: "image/png" },
     ],
+    shortcut: ["/favicon.ico"],
     apple: [
-      { url: "/logo_without_bg.png", sizes: "180x180", type: "image/png" },
+      { url: "/icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
   openGraph: {
@@ -100,7 +102,7 @@ export const metadata: Metadata = {
     description: "Professional Croatian full-stack and mobile development services in C#, React, Golang, Kotlin, and Swift. Founded by Josip Budalic.",
     images: [
       {
-        url: "/logo_without_bg.png",
+        url: "https://hotfix-doo.com/logo_without_bg.png",
         width: 1200,
         height: 630,
         alt: "HOTFIX d.o.o. - Full-Stack & Mobile Development Company",
@@ -111,7 +113,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
     description: "Professional Croatian full-stack and mobile development services in C#, React, Golang, Kotlin, and Swift.",
-    images: ["/logo_without_bg.png"],
+    images: ["https://hotfix-doo.com/logo_without_bg.png"],
     creator: "@hotfix",
   },
   verification: {

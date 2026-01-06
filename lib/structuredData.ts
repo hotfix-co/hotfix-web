@@ -12,7 +12,7 @@ export const organizationSchema: WithContext<Organization> = {
   url: siteUrl,
   logo: {
     '@type': 'ImageObject',
-    url: `${siteUrl}/logo_without_bg.png`,
+    url: `${siteUrl}/icon.png`,
     width: '512',
     height: '512',
   },
@@ -113,7 +113,7 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
   '@type': 'LocalBusiness',
   '@id': `${siteUrl}/#localbusiness`,
   name: 'HOTFIX d.o.o.',
-  image: `${siteUrl}/logo_without_bg.png`,
+  image: `${siteUrl}/icon.png`,
   url: siteUrl,
   telephone: '', // Add phone if available
   email: 'ops@hotfix-doo.com',
