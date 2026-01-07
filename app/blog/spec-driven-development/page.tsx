@@ -131,142 +131,109 @@ export default function SpecDrivenDevelopmentArticle() {
           <div className="prose prose-lg prose-gray max-w-none">
             {/* Introduction */}
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              If you&apos;re using AI coding assistants like GitHub Copilot,
-              Cursor, or Claude, and you&apos;re not using Spec-Driven
-              Development, you&apos;re leaving massive productivity gains on the
-              table. After adopting SDD in my workflow, I&apos;ve seen dramatic
-              improvements in development speed, code quality, and—most
-              importantly—fewer rewrites.
+              Look, I&apos;ll be honest with you. Six months ago, my workflow with AI coding assistants was a mess. I&apos;d spend 20 minutes describing what I wanted, get back something that was... close but not quite right, then waste another hour going back and forth trying to fix it. Sound familiar?
+            </p>
+            
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Then I stumbled onto Spec-Driven Development, and it genuinely changed everything. I&apos;m not exaggerating when I say my output probably increased 10x. Maybe more. The code quality went up too, which surprised me.
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
-              What is Spec-Driven Development?
+              So what actually is Spec-Driven Development?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Spec-Driven Development (SDD) is a methodology where you write
-              detailed specifications <em>before</em> you write any code. Think
-              of it as creating a blueprint that both you and your AI assistant
-              can follow. Instead of vaguely describing what you want and hoping
-              the AI figures it out, you provide structured requirements that
-              guide the implementation.
+              The basic idea is dead simple: you write down exactly what you want <em>before</em> you ask the AI to build it. Like, really write it down. Not a vague &ldquo;build me a login page&rdquo; but the actual details - what fields, what validation, what happens on error, the whole thing.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              The core idea is simple: the clearer your instructions, the better
-              the output. But SDD takes this further by establishing a
-              repeatable process that includes:
+              I know, I know. &ldquo;But Josip, that sounds like more work!&rdquo; That&apos;s what I thought too. Turns out, the 15 minutes you spend writing a proper spec saves you 2 hours of debugging and rewriting later. I learned this the hard way on a client project last year where I had to basically throw away a week&apos;s worth of AI-generated code because the foundation was wrong.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Here&apos;s what a proper SDD workflow typically looks like:
             </p>
             <ul className="space-y-3 text-gray-600 mb-8">
               <li className="flex items-start">
                 <span className="text-[var(--primary-red)] mr-3 mt-1">→</span>
                 <span>
-                  <strong>Constitution:</strong> The foundational principles and
-                  constraints for your project
+                  <strong>Constitution:</strong> The rules that never change. Tech stack, coding standards, stuff the AI should never violate.
                 </span>
               </li>
               <li className="flex items-start">
                 <span className="text-[var(--primary-red)] mr-3 mt-1">→</span>
                 <span>
-                  <strong>Specification:</strong> Detailed feature requirements
-                  with user stories
+                  <strong>Specification:</strong> What you&apos;re actually building. User stories, edge cases, the works.
                 </span>
               </li>
               <li className="flex items-start">
                 <span className="text-[var(--primary-red)] mr-3 mt-1">→</span>
                 <span>
-                  <strong>Planning:</strong> Implementation approach, tech
-                  stack, and architecture decisions
+                  <strong>Planning:</strong> How you&apos;re going to build it. Architecture decisions, data models, API contracts.
                 </span>
               </li>
               <li className="flex items-start">
                 <span className="text-[var(--primary-red)] mr-3 mt-1">→</span>
                 <span>
-                  <strong>Tasks:</strong> Granular, actionable items with
-                  dependencies
+                  <strong>Tasks:</strong> Breaking it down into chunks the AI can actually handle without going off the rails.
                 </span>
               </li>
               <li className="flex items-start">
                 <span className="text-[var(--primary-red)] mr-3 mt-1">→</span>
                 <span>
-                  <strong>Implementation:</strong> Systematic execution with
-                  validation checkpoints
+                  <strong>Implementation:</strong> Finally, actual coding. But now with a clear path.
                 </span>
               </li>
             </ul>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
-              Why SDD Accelerates Development
+              Why this actually works (from painful experience)
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Before adopting SDD, my workflow with AI assistants was chaotic.
-              I&apos;d describe a feature, get some code, realize it wasn&apos;t
-              quite right, iterate endlessly, and often end up with a
-              Frankenstein codebase that needed significant refactoring.
+              Let me tell you about the project that made me a convert. I was building a dashboard for a fintech client - nothing crazy, but lots of moving parts. Reports, user permissions, data visualization, the usual.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              With SDD, everything changed:
+              The first two weeks, I did it the &ldquo;old way&rdquo; - just chatting with the AI, iterating, fixing things as they came up. By day 10, the codebase was a disaster. Different naming conventions in different files. Three different ways of handling errors. Components that kind of worked but were impossible to modify without breaking something else.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Week three, I basically started over with SDD. Spent two days just writing specs. Felt like I was wasting time. But then something weird happened - the next three weeks of actual coding went smoother than any project I&apos;d done before.
             </p>
 
             <div className="bg-gray-50 rounded-2xl p-8 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
-                1. Reduced Rewrites by 80%
+                The &ldquo;actually that&apos;s not what I meant&rdquo; problem
               </h3>
               <p className="text-gray-600 mb-0">
-                When the AI has a clear specification, it generates code that
-                actually matches what you need. No more &ldquo;that&apos;s close
-                but not quite&rdquo; iterations. The spec acts as a contract
-                between you and the AI.
+                This was my biggest issue before SDD. I&apos;d describe something, the AI would build it, and then I&apos;d realize I hadn&apos;t thought through some crucial detail. With a spec, you catch those gaps before writing any code. The spec forces you to be specific, and being specific is like 80% of the battle with AI tools.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-2xl p-8 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
-                2. Better Architecture Decisions
+                No more &ldquo;creative interpretation&rdquo;
               </h3>
               <p className="text-gray-600 mb-0">
-                Writing specs forces you to think through edge cases, data
-                models, and system interactions before coding. This upfront
-                investment prevents architectural mistakes that are expensive to
-                fix later.
+                AI assistants love to add things you didn&apos;t ask for. Sometimes it&apos;s helpful. Often it&apos;s not. With a detailed spec, there&apos;s no room for the AI to decide that, actually, you probably want this additional feature you never mentioned. The spec is the contract.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-2xl p-8 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
-                3. Parallel Workstreams
+                Team projects become manageable
               </h3>
               <p className="text-gray-600 mb-0">
-                With detailed specs, multiple developers (or AI agents) can work
-                on different parts of the system simultaneously without stepping
-                on each other&apos;s toes. The spec serves as the coordination
-                mechanism.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-8 mb-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                4. Living Documentation
-              </h3>
-              <p className="text-gray-600 mb-0">
-                Your specs become documentation. New team members can understand
-                the system by reading the specs, and you can trace every feature
-                back to its original requirements.
+                This one surprised me. When you have specs, you can actually split work between multiple developers (or multiple AI sessions) without everything turning into merge conflict hell. Everyone&apos;s working from the same source of truth. Revolutionary concept, I know.
               </p>
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
-              The Tools: spec-kit vs OpenSpec
+              The tools I actually use
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              After experimenting with various approaches to SDD, two tools have
-              become my go-to choices depending on the project context:{" "}
-              <strong>spec-kit</strong> from GitHub and <strong>OpenSpec</strong>{" "}
-              from Fission AI.
+              After trying a bunch of different approaches (including just writing specs in plain markdown, which works but gets messy), I settled on two tools depending on the project size. Neither is perfect, but both have made my life significantly easier.
             </p>
 
             {/* spec-kit Section */}
             <div className="border-l-4 border-[var(--primary-red)] pl-6 my-10">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                spec-kit — For Enterprise Projects
+                spec-kit - when you need the heavy artillery
               </h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 <a
@@ -277,56 +244,46 @@ export default function SpecDrivenDevelopmentArticle() {
                 >
                   GitHub&apos;s spec-kit
                 </a>{" "}
-                is a comprehensive toolkit for Spec-Driven Development. It
-                provides a structured, multi-step workflow that&apos;s perfect
-                for enterprise teams.
+                is what I reach for on bigger projects - anything with multiple developers or where I know the client is going to change requirements three times (they always do).
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                <strong>What I love about spec-kit:</strong>
+                It&apos;s... a lot. There&apos;s a learning curve, not gonna lie. The first time I set it up took me most of an afternoon. But once it&apos;s running, it&apos;s powerful. You get:
               </p>
               <ul className="space-y-2 text-gray-600 mb-4">
                 <li className="flex items-start">
                   <span className="text-[var(--primary-red)] mr-2">✓</span>
                   <span>
-                    Multi-step workflow with clear phases (constitution, spec,
-                    plan, tasks, implement)
+                    A proper multi-phase workflow - constitution, spec, plan, tasks, then implementation
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--primary-red)] mr-2">✓</span>
                   <span>
-                    Built-in templates for consistency across projects
+                    Templates that keep things consistent (huge for teams)
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--primary-red)] mr-2">✓</span>
                   <span>
-                    Research phase for validating tech stack decisions
+                    A research phase - which sounds bureaucratic but actually saves you from picking the wrong library
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--primary-red)] mr-2">✓</span>
                   <span>
-                    Parallel task execution markers for team coordination
+                    Parallel task markers so you know what can be worked on simultaneously
                   </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[var(--primary-red)] mr-2">✓</span>
-                  <span>Validation checkpoints at each phase</span>
                 </li>
               </ul>
               <p className="text-gray-600 leading-relaxed">
-                <strong>Best for:</strong> Enterprise projects with multiple
-                developers, formal governance requirements, complex systems
-                requiring detailed planning, and teams that need structured
-                processes.
+                <strong>My take:</strong> Overkill for small projects. Essential for enterprise stuff. If you&apos;ve got 5+ developers or the project is going to last more than a couple months, just use it. The setup time pays for itself.
               </p>
             </div>
 
             {/* OpenSpec Section */}
             <div className="border-l-4 border-[var(--primary-orange)] pl-6 my-10">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                OpenSpec — For Smaller Teams
+                OpenSpec - for everything else
               </h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 <a
@@ -335,56 +292,49 @@ export default function SpecDrivenDevelopmentArticle() {
                   rel="noopener noreferrer"
                   className="text-[var(--primary-orange)] hover:underline font-medium"
                 >
-                  Fission AI&apos;s OpenSpec
+                  OpenSpec from Fission AI
                 </a>{" "}
-                takes a lighter approach. It&apos;s designed for teams that want
-                the benefits of SDD without the overhead of a heavyweight
-                process.
+                is what I use for smaller stuff. Side projects, MVPs, features I&apos;m adding to existing codebases.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                <strong>What I love about OpenSpec:</strong>
+                The appeal? It&apos;s lightweight. You can be up and running in like 10 minutes. No elaborate folder structures, no complex workflows. Just write a spec, follow a simple process, ship code.
               </p>
               <ul className="space-y-2 text-gray-600 mb-4">
                 <li className="flex items-start">
                   <span className="text-[var(--primary-orange)] mr-2">✓</span>
                   <span>
-                    Minimal process overhead — get started in minutes
+                    Minimal setup - seriously, it&apos;s almost instant
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--primary-orange)] mr-2">✓</span>
                   <span>
-                    Great for brownfield projects and existing codebases
+                    Works great with existing codebases (this was a big one for me)
                   </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[var(--primary-orange)] mr-2">✓</span>
-                  <span>Flexible structure that adapts to your workflow</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--primary-orange)] mr-2">✓</span>
                   <span>
-                    Lower learning curve for teams new to SDD
+                    Flexible enough that you can adapt it to how you actually work
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--primary-orange)] mr-2">✓</span>
-                  <span>Perfect for rapid prototyping and MVPs</span>
+                  <span>
+                    Perfect for &ldquo;I just need to add this one feature&rdquo; situations
+                  </span>
                 </li>
               </ul>
               <p className="text-gray-600 leading-relaxed">
-                <strong>Best for:</strong> Small teams, solo developers,
-                startups, MVPs, brownfield projects, and situations where you
-                need quick results without ceremony.
+                <strong>My take:</strong> This is probably what most developers should start with. Learn the SDD mindset without drowning in process. You can always graduate to spec-kit later if you need more structure.
               </p>
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
-              When to Use Each Tool
+              How I decide which one to use
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Here&apos;s my decision framework based on real project
-              experience:
+              Honestly, it&apos;s pretty straightforward. I ask myself a few questions:
             </p>
 
             <div className="overflow-x-auto mb-8">
@@ -392,7 +342,7 @@ export default function SpecDrivenDevelopmentArticle() {
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="border border-gray-200 px-4 py-3 text-left font-bold text-gray-900">
-                      Criteria
+                      Question
                     </th>
                     <th className="border border-gray-200 px-4 py-3 text-left font-bold text-gray-900">
                       spec-kit
@@ -405,57 +355,57 @@ export default function SpecDrivenDevelopmentArticle() {
                 <tbody>
                   <tr>
                     <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Team Size
+                      How many people are working on this?
                     </td>
                     <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      5+ developers
+                      5 or more
                     </td>
                     <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      1-4 developers
-                    </td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Project Duration
-                    </td>
-                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      3+ months
-                    </td>
-                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Weeks to months
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Governance Needs
-                    </td>
-                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      High (enterprise)
-                    </td>
-                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Low to medium
+                      Solo or small team
                     </td>
                   </tr>
                   <tr className="bg-gray-50">
                     <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Project Type
+                      How long is this project?
                     </td>
                     <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Greenfield, complex
+                      Months
                     </td>
                     <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Brownfield, MVPs
+                      Days to weeks
                     </td>
                   </tr>
                   <tr>
                     <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Setup Time
+                      Is there existing code?
                     </td>
                     <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      1-2 hours
+                      Usually new projects
                     </td>
                     <td className="border border-gray-200 px-4 py-3 text-gray-600">
-                      Minutes
+                      Often existing codebases
+                    </td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
+                      Does the client need documentation?
+                    </td>
+                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
+                      Yes, formal docs
+                    </td>
+                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
+                      Light or informal
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
+                      How much setup time do I have?
+                    </td>
+                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
+                      A few hours is fine
+                    </td>
+                    <td className="border border-gray-200 px-4 py-3 text-gray-600">
+                      Need to start now
                     </td>
                   </tr>
                 </tbody>
@@ -463,118 +413,74 @@ export default function SpecDrivenDevelopmentArticle() {
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
-              A Practical Example
+              A quick example so this isn&apos;t all abstract
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Let me show you what a simple spec looks like. Here&apos;s a
-              stripped-down example for a user authentication feature:
+              Here&apos;s roughly what a spec looks like. This is simplified, but you get the idea:
             </p>
 
             <div className="bg-gray-900 rounded-xl p-6 mb-8 overflow-x-auto">
               <pre className="text-gray-100 text-sm leading-relaxed">
                 <code>{`# Feature: User Authentication
 
-## User Stories
-- As a user, I want to sign up with email/password
-- As a user, I want to log in to my account
-- As a user, I want to reset my password
+## What we're building
+Basic auth - signup, login, password reset. Nothing fancy.
 
-## Technical Requirements
-- Use JWT tokens with 24h expiration
-- Passwords hashed with bcrypt (cost factor 12)
-- Rate limit: 5 attempts per minute per IP
+## User stories
+- User signs up with email + password
+- User logs in
+- User can reset password via email
 
-## API Contracts
+## The technical stuff
+- JWT tokens, 24 hour expiry
+- bcrypt for passwords, cost factor 12
+- Rate limiting: 5 tries per minute per IP (learned this 
+  one after a bot attack on a client site...)
+
+## API endpoints
 POST /api/auth/signup
-  Body: { email: string, password: string }
-  Response: { user: User, token: string }
+  Request:  { email, password }
+  Response: { user, token }
+  Errors:   400 if email taken, 422 if password weak
 
 POST /api/auth/login
-  Body: { email: string, password: string }
-  Response: { user: User, token: string }
+  Request:  { email, password }  
+  Response: { user, token }
+  Errors:   401 if wrong creds, 429 if rate limited
 
-## Data Model
+## Database
 User {
-  id: UUID
-  email: string (unique)
-  passwordHash: string
-  createdAt: DateTime
-  updatedAt: DateTime
-}`}</code>
+  id: uuid (pk)
+  email: string (unique, indexed)
+  password_hash: string
+  created_at: timestamp
+  updated_at: timestamp
+}
+
+## Notes
+- Don't forget email verification (v2, not this sprint)
+- Check if we need GDPR consent checkbox`}</code>
               </pre>
             </div>
 
             <p className="text-gray-600 leading-relaxed mb-6">
-              With this spec, an AI assistant can generate the exact code you
-              need. No ambiguity, no guessing, no &ldquo;actually I meant
-              something different.&rdquo;
+              That took me maybe 10 minutes to write. But now when I hand this to the AI (or another developer, or future me), there&apos;s no ambiguity. Everyone knows exactly what we&apos;re building.
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
-              Getting Started
+              If you take away one thing from this post
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              If you&apos;re ready to try Spec-Driven Development, here&apos;s
-              my recommendation:
-            </p>
-            <ol className="space-y-4 text-gray-600 mb-8">
-              <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[var(--primary-red)] to-[var(--primary-orange)] text-white font-bold flex items-center justify-center mr-4">
-                  1
-                </span>
-                <span>
-                  <strong>For your next small project:</strong> Start with
-                  OpenSpec. Get comfortable with writing specs before coding.
-                  Experience the immediate productivity boost.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[var(--primary-red)] to-[var(--primary-orange)] text-white font-bold flex items-center justify-center mr-4">
-                  2
-                </span>
-                <span>
-                  <strong>For enterprise or team projects:</strong> Invest the
-                  time to set up spec-kit. The structured workflow pays
-                  dividends as complexity grows.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[var(--primary-red)] to-[var(--primary-orange)] text-white font-bold flex items-center justify-center mr-4">
-                  3
-                </span>
-                <span>
-                  <strong>Iterate on your process:</strong> SDD isn&apos;t
-                  one-size-fits-all. Adapt the tools to your workflow, not the
-                  other way around.
-                </span>
-              </li>
-            </ol>
-
-            <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
-              Conclusion
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Spec-Driven Development has fundamentally changed how I work with
-              AI coding assistants. The upfront investment in writing clear
-              specifications pays for itself many times over through reduced
-              iterations, better code quality, and fewer architectural mistakes.
+              It&apos;s this: the quality of your AI output directly correlates with the quality of your input. Garbage in, garbage out. Detailed spec in, working code out.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              For enterprise projects with multiple developers and complex
-              requirements, I recommend{" "}
-              <a
-                href="https://github.com/github/spec-kit"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--primary-red)] hover:underline font-medium"
-              >
-                spec-kit
-              </a>
-              . Its structured workflow and governance features are worth the
-              setup time.
+              I resisted SDD for months because it felt like overhead. Like I was slowing myself down with paperwork. But that &ldquo;overhead&rdquo; is actually front-loading the thinking that you&apos;d have to do anyway - you&apos;re just doing it before the AI hallucinates a solution instead of after.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              For smaller teams and simpler projects,{" "}
+              Start small. Next time you&apos;re about to ask an AI to build something, take 5-10 minutes to write out what you actually want first. Be specific. Include the edge cases. Note what you explicitly don&apos;t want.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              If you&apos;re working on something bigger, grab{" "}
               <a
                 href="https://github.com/Fission-AI/OpenSpec"
                 target="_blank"
@@ -583,16 +489,19 @@ User {
               >
                 OpenSpec
               </a>{" "}
-              is the way to go. It gives you 80% of the benefits with 20% of the
-              ceremony.
+              and give it a real try. If you&apos;re on an enterprise team or a complex multi-developer project,{" "}
+              <a
+                href="https://github.com/github/spec-kit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--primary-red)] hover:underline font-medium"
+              >
+                spec-kit
+              </a>{" "}
+              is worth the setup investment.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Whichever tool you choose, the principle remains the same:{" "}
-              <strong>
-                clear specifications lead to better code, faster.
-              </strong>{" "}
-              Start writing specs today, and watch your development velocity
-              soar.
+              Either way, stop winging it with AI. Write specs. Your future self will thank you.
             </p>
           </div>
 
@@ -608,11 +517,7 @@ User {
                 </h3>
                 <p className="text-gray-600 mb-2">{post.author.role}</p>
                 <p className="text-gray-600 text-sm">
-                  Josip is the founder of HOTFIX d.o.o., a Croatian software
-                  development company specializing in full-stack and mobile
-                  development. He&apos;s passionate about developer productivity
-                  and building tools that make software development faster and
-                  more enjoyable.
+                  Josip runs HOTFIX d.o.o., a dev shop based in Croatia. He&apos;s been writing code for over a decade and is slightly obsessed with finding ways to ship faster without sacrificing quality. When not arguing with AI assistants, he&apos;s probably hiking somewhere or consuming unhealthy amounts of coffee.
                 </p>
               </div>
             </div>
@@ -624,11 +529,10 @@ User {
       <section className="py-20 bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Need Help With Your Project?
+            Working on something?
           </h2>
           <p className="text-xl text-white/90 mb-10">
-            We use Spec-Driven Development on all our client projects. Let&apos;s
-            build something great together.
+            We use SDD on all our client projects. If you need help building something - or just want to chat about development workflows - drop us a line.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -641,7 +545,7 @@ User {
               href="/blog"
               className="inline-block px-10 py-4 rounded-lg border-2 border-white text-white font-semibold text-lg hover:bg-white/10 transition-colors"
             >
-              Read More Articles
+              More Articles
             </Link>
           </div>
         </div>
@@ -649,4 +553,3 @@ User {
     </div>
   );
 }
-

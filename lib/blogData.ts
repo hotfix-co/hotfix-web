@@ -18,8 +18,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "spec-driven-development",
     title: "Spec-Driven Development: How I 10x'd My Development Speed with AI",
-    description: "Learn how Spec-Driven Development (SDD) transformed my workflow, comparing spec-kit for enterprise projects and OpenSpec for smaller teams.",
-    excerpt: "Discover how writing specifications before code dramatically accelerates development when working with AI coding assistants. A practical comparison of spec-kit and OpenSpec tools.",
+    description: "My honest experience with Spec-Driven Development - how it fixed my chaotic AI workflow, and when to use spec-kit vs OpenSpec.",
+    excerpt: "Six months ago, my AI coding workflow was a mess. Endless iterations, code that was 'close but not quite right', and a lot of wasted time. Here's how writing specs first changed everything - and the two tools I actually use now.",
     publishedAt: "2026-01-07",
     author: {
       name: "Josip Budalic",
