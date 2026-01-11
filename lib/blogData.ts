@@ -11,10 +11,22 @@ export interface BlogPost {
   };
   tags: string[];
   readingTime: string;
-  featured?: boolean;
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "ai-context-management-lessons",
+    title: "The AI Context Trap: What I Learned After Wasting Weeks of Work",
+    description: "Bigger context windows were supposed to solve everything. Instead, I discovered four hidden problems that kept derailing my AI coding sessions. Here's what actually went wrong.",
+    excerpt: "Million-token context windows sounded like the dream. Throw everything in, let the AI figure it out. After losing weeks to mysterious failures, I finally understood why more context often makes things worse.",
+    publishedAt: "2026-01-11",
+    author: {
+      name: "Josip Budalic",
+      role: "Founder & CEO",
+    },
+    tags: ["AI", "Context Management", "LLM", "Developer Productivity", "Prompt Engineering", "AI Agents"],
+    readingTime: "7 min read",
+  },
   {
     slug: "spec-driven-development",
     title: "Spec-Driven Development: How I 10x'd My Development Speed with AI",
@@ -27,16 +39,11 @@ export const blogPosts: BlogPost[] = [
     },
     tags: ["Spec-Driven Development", "AI", "Productivity", "spec-kit", "OpenSpec", "Development Workflow"],
     readingTime: "8 min read",
-    featured: true,
   },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   return blogPosts.find((post) => post.slug === slug);
-}
-
-export function getFeaturedPosts(): BlogPost[] {
-  return blogPosts.filter((post) => post.featured);
 }
 
 export function getRecentPosts(limit: number = 6): BlogPost[] {
