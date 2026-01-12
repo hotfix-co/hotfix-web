@@ -12,9 +12,9 @@ export const organizationSchema: WithContext<Organization> = {
   url: siteUrl,
   logo: {
     '@type': 'ImageObject',
-    url: `${siteUrl}/icon.png`,
-    width: '512',
-    height: '512',
+    url: `${siteUrl}/logo_without_bg.png`,
+    width: '1200',
+    height: '630',
   },
   description: 'Professional full-stack and mobile development company specializing in C#, React, Golang, Kotlin, and Swift. We deliver robust, scalable solutions for modern businesses.',
   founder: {
@@ -113,7 +113,7 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
   '@type': 'LocalBusiness',
   '@id': `${siteUrl}/#localbusiness`,
   name: 'HOTFIX d.o.o.',
-  image: `${siteUrl}/icon.png`,
+  image: `${siteUrl}/logo_without_bg.png`,
   url: siteUrl,
   telephone: '', // Add phone if available
   email: 'ops@hotfix-doo.com',

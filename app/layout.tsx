@@ -9,11 +9,15 @@ import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/st
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export const viewport: Viewport = {
@@ -84,14 +88,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png" },
-      { url: "/icon.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon.png", sizes: "16x16", type: "image/png" },
     ],
     shortcut: ["/favicon.ico"],
-    apple: [
-      { url: "/icon.png", sizes: "180x180", type: "image/png" },
-    ],
   },
   openGraph: {
     type: "website",

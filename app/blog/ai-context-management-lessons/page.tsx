@@ -49,7 +49,7 @@ const articleSchema = {
     url: "https://hotfix-doo.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://hotfix-doo.com/icon.png",
+      url: "https://hotfix-doo.com/logo_without_bg.png",
     },
   },
   mainEntityOfPage: {
