@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | HOTFIX d.o.o.",
   },
   description:
-    "HOTFIX d.o.o., founded by Josip Budalic, is a professional Croatian full-stack and mobile development company specializing in C#, React, Golang, Kotlin (including KMM), and Swift. We deliver robust, scalable, cross-platform solutions for modern businesses worldwide.",
+    "HOTFIX d.o.o., founded by Josip Budalić, is a professional Croatian full-stack and mobile development company specializing in C#, React, Golang, Kotlin (including KMM), and Swift. We deliver robust, scalable, cross-platform solutions for modern businesses worldwide.",
   keywords: [
     "Full-Stack Development",
     "Mobile Development",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "Web Development",
     "Software Development Croatia",
     "Croatian Software Developers",
-    "Josip Budalic",
+    "Josip Budalić",
     "HOTFIX d.o.o.",
     "C# .NET Development Services",
     "React Next.js Development",
@@ -62,10 +62,10 @@ export const metadata: Metadata = {
     "API Development",
   ],
   authors: [
-    { name: "Josip Budalic", url: "https://hotfix-doo.com/about" },
+    { name: "Josip Budalić", url: "https://hotfix-doo.com/about" },
     { name: "HOTFIX d.o.o." }
   ],
-  creator: "Josip Budalic",
+  creator: "Josip Budalić",
   publisher: "HOTFIX d.o.o.",
   robots: {
     index: true,
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     url: "https://hotfix-doo.com",
     siteName: "HOTFIX d.o.o.",
     title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
-    description: "Professional Croatian full-stack and mobile development services in C#, React, Golang, Kotlin, and Swift. Founded by Josip Budalic.",
+    description: "Professional Croatian full-stack and mobile development services in C#, React, Golang, Kotlin, and Swift. Founded by Josip Budalić.",
     images: [
       {
         url: "https://hotfix-doo.com/logo_without_bg.png",

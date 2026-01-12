@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Million-token context windows sounded like the dream. Throw everything in, let the AI figure it out. After losing weeks to mysterious failures, I finally understood why more context often makes things worse.",
     publishedAt: "2026-01-11",
     author: {
-      name: "Josip Budalic",
+      name: "Josip Budalić",
       role: "Founder & CEO",
     },
     tags: ["AI", "Context Management", "LLM", "Developer Productivity", "Prompt Engineering", "AI Agents"],
@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Six months ago, my AI coding workflow was a mess. Endless iterations, code that was 'close but not quite right', and a lot of wasted time. Here's how writing specs first changed everything - and the two tools I actually use now.",
     publishedAt: "2026-01-07",
     author: {
-      name: "Josip Budalic",
+      name: "Josip Budalić",
       role: "Founder & CEO",
     },
     tags: ["Spec-Driven Development", "AI", "Productivity", "spec-kit", "OpenSpec", "Development Workflow"],

@@ -19,7 +19,7 @@ export const organizationSchema: WithContext<Organization> = {
   description: 'Professional full-stack and mobile development company specializing in C#, React, Golang, Kotlin, and Swift. We deliver robust, scalable solutions for modern businesses.',
   founder: {
     '@type': 'Person',
-    name: 'Josip Budalic',
+    name: 'Josip Budalić',
     '@id': `${siteUrl}/#founder`,
   },
   foundingDate: '2020',
@@ -62,12 +62,12 @@ export const organizationSchema: WithContext<Organization> = {
   },
 };
 
-// Person Schema - Founder: Josip Budalic
+// Person Schema - Founder: Josip Budalić
 export const founderSchema: WithContext<Person> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   '@id': `${siteUrl}/#founder`,
-  name: 'Josip Budalic',
+  name: 'Josip Budalić',
   jobTitle: 'Founder & CEO',
   worksFor: {
     '@type': 'Organization',
@@ -136,7 +136,7 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
   founder: {
     '@type': 'Person',
     '@id': `${siteUrl}/#founder`,
-    name: 'Josip Budalic',
+    name: 'Josip Budalić',
   },
 };
 
@@ -234,7 +234,7 @@ export const aboutPageSchema = {
   '@id': `${siteUrl}/about/#aboutpage`,
   url: `${siteUrl}/about`,
   name: 'About HOTFIX d.o.o.',
-  description: 'Learn about HOTFIX d.o.o., founded by Josip Budalic, our mission, values, and expertise in full-stack and mobile development.',
+  description: 'Learn about HOTFIX d.o.o., founded by Josip Budalić, our mission, values, and expertise in full-stack and mobile development.',
   mainEntity: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,

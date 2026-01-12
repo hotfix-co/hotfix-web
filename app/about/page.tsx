@@ -6,15 +6,15 @@ import { founderSchema, aboutPageSchema, generateBreadcrumbSchema } from "@/lib/
 export const metadata: Metadata = {
   title: "About Us | HOTFIX d.o.o.",
   description:
-    "Learn about HOTFIX d.o.o., founded by Josip Budalic in Croatia. Discover our mission, values, and expertise in full-stack and mobile development with C#, React, Golang, Kotlin (KMM), and Swift.",
+    "Learn about HOTFIX d.o.o., founded by Josip Budalić in Croatia. Discover our mission, values, and expertise in full-stack and mobile development with C#, React, Golang, Kotlin (KMM), and Swift.",
   alternates: {
     canonical: "https://hotfix-doo.com/about",
   },
   openGraph: {
     url: "https://hotfix-doo.com/about",
     type: "website",
-    title: "About HOTFIX d.o.o. | Founded by Josip Budalic",
-    description: "Learn about HOTFIX d.o.o., founded by Josip Budalic in Croatia. Our mission, values, and expertise in full-stack and mobile development.",
+    title: "About HOTFIX d.o.o. | Founded by Josip Budalić",
+    description: "Learn about HOTFIX d.o.o., founded by Josip Budalić in Croatia. Our mission, values, and expertise in full-stack and mobile development.",
   },
 };
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
               About <span className="text-gradient">HOTFIX</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Founded by Josip Budalic, we're a Croatian team of passionate developers dedicated to building
+              Founded by Josip Budalić, we're a Croatian team of passionate developers dedicated to building
               exceptional software solutions that make a difference for businesses worldwide.
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-600 text-lg">
                 <p>
-                  HOTFIX d.o.o. was founded by <strong>Josip Budalic</strong> in Croatia with a simple yet powerful vision:
+                  HOTFIX d.o.o. was founded by <strong>Josip Budalić</strong> in Croatia with a simple yet powerful vision:
                   to deliver world-class software solutions that empower
                   businesses to thrive in the digital age.
                 </p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                   systems to beautiful web interfaces and native mobile applications.
                 </p>
                 <p>
-                  Under the leadership of founder Josip Budalic, HOTFIX d.o.o. has grown to become a trusted Croatian software development company. Today, we're proud to work with businesses of all sizes worldwide,
+                  Under the leadership of founder Josip Budalić, HOTFIX d.o.o. has grown to become a trusted Croatian software development company. Today, we're proud to work with businesses of all sizes worldwide,
                   helping them transform their ideas into reality through
                   cutting-edge technology and innovative solutions across web and mobile platforms.
                 </p>
