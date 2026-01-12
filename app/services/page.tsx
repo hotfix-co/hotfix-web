@@ -7,7 +7,7 @@ import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/structure
 export const metadata: Metadata = {
   title: "Services | HOTFIX d.o.o.",
   description:
-    "Explore our comprehensive full-stack and mobile development services including C# .NET backend development, React frontend development, Golang microservices, and native mobile apps with Kotlin (Android) and Swift (iOS). Professional software development services from Croatia.",
+    "Explore our comprehensive full-stack and mobile development services including C# .NET backend development, React frontend development, Golang microservices, and native mobile apps with Kotlin (Android) and Swift (iOS). Professional EU-based software development services from Croatia.",
   alternates: {
     canonical: "https://hotfix-doo.com/services",
   },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: "https://hotfix-doo.com/services",
     type: "website",
     title: "Development Services | HOTFIX d.o.o.",
-    description: "Full-stack and mobile development services: C# .NET, React, Golang, Kotlin, Swift. Professional software development from Croatia.",
+    description: "Full-stack and mobile development services: C# .NET, React, Golang, Kotlin, Swift. Professional EU-based development from Croatia.",
   },
   keywords: [
     "C# .NET development services",

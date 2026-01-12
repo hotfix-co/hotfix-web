@@ -35,7 +35,7 @@ export default function AboutPage() {
               About <span className="text-gradient">HOTFIX</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Founded by Josip Budalić, we're a Croatian team of passionate developers dedicated to building
+              Founded by Josip Budalić, we're an EU-based team of passionate developers in Croatia dedicated to building
               exceptional software solutions that make a difference for businesses worldwide.
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                   systems to beautiful web interfaces and native mobile applications.
                 </p>
                 <p>
-                  Under the leadership of founder Josip Budalić, HOTFIX d.o.o. has grown to become a trusted Croatian software development company. Today, we're proud to work with businesses of all sizes worldwide,
+                  Under the leadership of founder Josip Budalić, HOTFIX d.o.o. has grown to become a trusted EU-based software development company. Operating from Croatia, we're proud to work with businesses of all sizes worldwide,
                   helping them transform their ideas into reality through
                   cutting-edge technology and innovative solutions across web and mobile platforms.
                 </p>

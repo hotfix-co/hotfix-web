@@ -6,14 +6,14 @@ import { contactFAQSchema, contactPageSchema, generateBreadcrumbSchema } from "@
 export const metadata: Metadata = {
   title: "Contact Us | HOTFIX d.o.o.",
   description:
-    "Get in touch with HOTFIX d.o.o., a Croatian software development company, for your full-stack and mobile development needs. Contact us at ops@hotfix-doo.com or use our contact form. We respond within 24 hours.",
+    "Get in touch with HOTFIX d.o.o., an EU-based software development company in Croatia, for your full-stack and mobile development needs. Contact us at ops@hotfix-doo.com or use our contact form. We respond within 24 hours.",
   alternates: {
     canonical: "https://hotfix-doo.com/contact",
   },
   openGraph: {
     url: "https://hotfix-doo.com/contact",
     type: "website",
-    title: "Contact HOTFIX d.o.o. | Croatian Software Development Company",
+    title: "Contact HOTFIX d.o.o. | EU-Based Software Development Company",
     description: "Get in touch with HOTFIX d.o.o. for your software development needs. We respond within 24 hours.",
   },
 };
