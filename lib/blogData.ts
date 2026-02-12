@@ -15,6 +15,19 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "claude-code-skills-productivity",
+    title: "I Stopped Repeating Myself and Built Claude Code Skills Instead",
+    description: "How Claude Code skills eliminated my repetitive workflows, and a practical guide to writing your own. Plus why the frontend-design skill changed how I build UIs.",
+    excerpt: "I kept copy-pasting the same instructions into Claude Code every single session. Then I discovered skills - and realized they do way more than just save you from repetition. Here's what I learned building my own.",
+    publishedAt: "2026-02-12",
+    author: {
+      name: "Josip Budalić",
+      role: "Founder & CEO",
+    },
+    tags: ["Claude Code", "Skills", "Developer Productivity", "AI Workflow", "Automation", "Claude Code Skills"],
+    readingTime: "9 min read",
+  },
+  {
     slug: "ai-context-management-lessons",
     title: "The AI Context Trap: What I Learned After Wasting Weeks of Work",
     description: "Bigger context windows were supposed to solve everything. Instead, I discovered four hidden problems that kept derailing my AI coding sessions. Here's what actually went wrong.",
