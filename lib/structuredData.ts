@@ -99,6 +99,7 @@ export const websiteSchema: WithContext<WebSite> = {
   '@id': `${siteUrl}/#website`,
   url: siteUrl,
   name: 'HOTFIX d.o.o.',
+  alternateName: ['HOTFIX', 'hotfix-doo.com'],
   description: 'Professional full-stack and mobile development services',
   publisher: {
     '@type': 'Organization',
