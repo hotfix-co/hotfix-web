@@ -4,7 +4,16 @@ import { sendContactEmail } from "@/lib/email";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, company, message } = body;
+    const { name, email, company, message, website } = body;
+
+    // Honeypot check - bots fill this hidden field, humans don't
+    if (website) {
+      // Return 200 so bots think it worked
+      return NextResponse.json(
+        { message: "Message sent successfully" },
+        { status: 200 }
+      );
+    }
 
     // Validate required fields
     if (!name || !email || !message) {

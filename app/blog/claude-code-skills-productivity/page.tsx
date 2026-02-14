@@ -18,8 +18,10 @@ export const metadata: Metadata = {
     title: post.title,
     description: post.description,
     publishedTime: post.publishedAt,
+    modifiedTime: post.updatedAt || post.publishedAt,
     authors: [post.author.name],
     tags: post.tags,
+    section: "Developer Productivity",
   },
   twitter: {
     card: "summary_large_image",
@@ -55,6 +57,9 @@ const articleSchema = {
     "@type": "WebPage",
     "@id": "https://hotfix-doo.com/blog/claude-code-skills-productivity",
   },
+  inLanguage: "en",
+  articleSection: "Developer Productivity",
+  wordCount: 2200,
   keywords: post.tags.join(", "),
 };
 
@@ -384,6 +389,33 @@ Follow the patterns in app/api/users/route.ts as reference.`}</code>
 
             <p className="text-gray-600 leading-relaxed mb-6">
               Project skills are what changed things for our team. We committed our skills to the repo, and suddenly every developer (and every Claude session) was working from the same playbook. No more &ldquo;well, on my machine Claude does it differently.&rdquo; The skills are version-controlled, reviewed in PRs, and evolve with the project.
+            </p>
+
+            <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+              Plot twist: skills aren&apos;t just for Claude
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Here&apos;s something I didn&apos;t realize until recently, and it completely changed how I think about investing time into writing skills: they&apos;re not locked to Claude Code. Skills follow an{" "}
+              <strong>open format</strong> - a simple, standardized structure that any AI coding tool can support. And many already do.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Cursor supports them. OpenAI&apos;s Codex supports them. OpenCode supports them. And the list keeps growing. That means the skills you write today aren&apos;t tied to a single vendor. They&apos;re portable. You can switch tools, try new ones, or use different agents for different tasks - and your skills come with you.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Think about what that means for a second. Every skill you build is an investment that pays off regardless of which AI tool you&apos;re using six months from now. Your API endpoint scaffolding skill, your PR review workflow, your testing conventions - all of it transfers. Write once, use everywhere.
+            </p>
+
+            <div className="border-l-4 border-[var(--primary-orange)] pl-6 my-10">
+              <p className="text-gray-600 leading-relaxed mb-4">
+                This is a big deal because the AI coding tool landscape is moving fast. New tools pop up constantly, each with their own strengths. Having your workflows locked into one tool&apos;s proprietary format would be a nightmare. The open skills format means you can evaluate new tools without starting from scratch every time.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-0">
+                It also means teams can standardize on skills as their source of truth for conventions and workflows, regardless of whether individual developers prefer Claude Code, Cursor, or something else entirely. One set of skills, many tools. That&apos;s how it should work.
+              </p>
+            </div>
+
+            <p className="text-gray-600 leading-relaxed mb-6">
+              For us at HOTFIX, this was the final push to go all-in on skills. We&apos;re not betting on a single tool - we&apos;re betting on the format. And since the format is open and straightforward (just markdown files with YAML frontmatter), there&apos;s zero risk of it becoming obsolete. Even if every AI tool disappeared tomorrow, you&apos;d still have a well-documented set of team conventions and workflows. That has value on its own.
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">

@@ -17,15 +17,16 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "claude-code-skills-productivity",
     title: "I Stopped Repeating Myself and Built Claude Code Skills Instead",
-    description: "How Claude Code skills eliminated my repetitive workflows, and a practical guide to writing your own. Plus why the frontend-design skill changed how I build UIs.",
-    excerpt: "I kept copy-pasting the same instructions into Claude Code every single session. Then I discovered skills - and realized they do way more than just save you from repetition. Here's what I learned building my own.",
+    description: "How Claude Code skills eliminated my repetitive workflows, and a practical guide to writing your own. Plus why skills are an open format that works across Cursor, Codex, OpenCode, and more.",
+    excerpt: "I kept copy-pasting the same instructions into Claude Code every single session. Then I discovered skills - and realized they do way more than just save you from repetition. Plus: skills aren't locked to Claude. They're an open format that works across AI coding tools.",
     publishedAt: "2026-02-12",
+    updatedAt: "2026-02-14",
     author: {
       name: "Josip Budalić",
       role: "Founder & CEO",
     },
-    tags: ["Claude Code", "Skills", "Developer Productivity", "AI Workflow", "Automation", "Claude Code Skills"],
-    readingTime: "9 min read",
+    tags: ["Claude Code", "Skills", "Developer Productivity", "AI Workflow", "Automation", "Claude Code Skills", "Open Skills Format", "Cursor", "Codex"],
+    readingTime: "11 min read",
   },
   {
     slug: "ai-context-management-lessons",
