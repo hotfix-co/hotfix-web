@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface StructuredDataProps {
-  data: Record<string, unknown> | Record<string, unknown>[];
+  data: object | object[];
 }
 
 /**
@@ -13,7 +13,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
     ? JSON.stringify({
         '@context': 'https://schema.org',
         '@graph': data.map((item) => {
-          const normalizedItem = { ...item };
+          const normalizedItem = { ...(item as Record<string, unknown>) };
           delete normalizedItem['@context'];
           return normalizedItem;
         }),
