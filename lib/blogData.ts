@@ -15,6 +15,19 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "notebooklm-workflow-learning-faster",
+    title: "My NotebookLM Workflow for Learning Faster",
+    description: "My NotebookLM workflow starts with Claude research, pipes curated sources through notebooklm-py, and ends in Obsidian notes I keep using in daily work.",
+    excerpt: "I don't learn well from a pile of tabs. So I built a workflow: Claude finds and sorts sources, notebooklm-py pushes them into NotebookLM, and Obsidian gets the final distilled notes.",
+    publishedAt: "2026-03-18",
+    author: {
+      name: "Josip Budalić",
+      role: "Founder & CEO",
+    },
+    tags: ["NotebookLM", "AI Research Workflow", "Claude Code", "Obsidian", "Developer Productivity", "notebooklm-py"],
+    readingTime: "10 min read",
+  },
+  {
     slug: "claude-code-skills-productivity",
     title: "I Stopped Repeating Myself and Built Claude Code Skills Instead",
     description: "How Claude Code skills eliminated my repetitive workflows, and a practical guide to writing your own. Plus why skills are an open format that works across Cursor, Codex, OpenCode, and more.",
@@ -73,4 +86,3 @@ export function formatDate(dateString: string): string {
     day: "numeric",
   });
 }
-
