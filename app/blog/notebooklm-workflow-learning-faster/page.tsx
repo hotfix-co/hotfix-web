@@ -154,11 +154,11 @@ export default function NotebookLMWorkflowArticle() {
               I wasn&apos;t bad at research. I was bad at intake.
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              This took me an embarrassingly long time to admit. My old setup
-              looked productive from the outside. Lots of reading. Lots of
-              saved links. Lots of &ldquo;I&apos;ll come back to this.&rdquo;
-              But if you asked me a week later what actually changed in my
-              thinking, the answer was usually &ldquo;not much.&rdquo;
+              Once I saw the pattern, it was obvious. My old setup looked
+              productive from the outside. Lots of reading. Lots of saved
+              links. Lots of &ldquo;I&apos;ll come back to this.&rdquo; But if
+              you asked me a week later what actually changed in my thinking,
+              the answer was usually &ldquo;not much.&rdquo;
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               The problem wasn&apos;t effort. The problem was shape. Everything
