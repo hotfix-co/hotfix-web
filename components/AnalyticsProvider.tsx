@@ -1,32 +1,29 @@
 "use client";
 
-import { useEffect, useSyncExternalStore } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { initGoogleAnalytics, isAnalyticsEnabled, trackPageView } from "@/lib/analytics";
+import { isAnalyticsEnabled, trackPageView } from "@/lib/analytics";
 
 export default function AnalyticsProvider() {
   const pathname = usePathname();
-  const isHydrated = useSyncExternalStore(
-    () => () => undefined,
-    () => true,
-    () => false,
-  );
+  const previousPathname = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!isHydrated || !isAnalyticsEnabled()) {
+    if (!isAnalyticsEnabled()) {
       return;
     }
 
-    initGoogleAnalytics();
-  }, [isHydrated]);
-
-  useEffect(() => {
-    if (!isHydrated || !isAnalyticsEnabled()) {
+    // The Google tag sends the initial page view from the layout snippet.
+    if (previousPathname.current === null) {
+      previousPathname.current = pathname;
       return;
     }
 
-    trackPageView(pathname);
-  }, [isHydrated, pathname]);
+    if (previousPathname.current !== pathname) {
+      previousPathname.current = pathname;
+      trackPageView(pathname);
+    }
+  }, [pathname]);
 
   return null;
 }

@@ -17,53 +17,13 @@ export type AnalyticsEventName =
 
 type AnalyticsParams = Record<string, string | number | boolean | undefined>;
 
-let gaInitialized = false;
-
 export function isAnalyticsEnabled() {
   return GA_MEASUREMENT_ID.length > 0;
-}
-
-function ensureGoogleTag() {
-  window.dataLayer = window.dataLayer || [];
-  window.gtag =
-    window.gtag ||
-    function gtag(...args: unknown[]) {
-      window.dataLayer.push(args);
-    };
-}
-
-export function initGoogleAnalytics() {
-  if (
-    typeof window === "undefined" ||
-    !isAnalyticsEnabled() ||
-    gaInitialized
-  ) {
-    return;
-  }
-
-  ensureGoogleTag();
-
-  window.gtag?.("js", new Date());
-  window.gtag?.("config", GA_MEASUREMENT_ID, {
-    anonymize_ip: true,
-    send_page_view: false,
-  });
-
-  if (!document.getElementById("ga4-script")) {
-    const script = document.createElement("script");
-    script.id = "ga4-script";
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    document.head.appendChild(script);
-  }
-
-  gaInitialized = true;
 }
 
 export function trackPageView(path: string) {
   if (
     typeof window === "undefined" ||
-    !gaInitialized ||
     !window.gtag ||
     !isAnalyticsEnabled()
   ) {
@@ -80,7 +40,6 @@ export function trackPageView(path: string) {
 export function trackEvent(name: AnalyticsEventName, params?: AnalyticsParams) {
   if (
     typeof window === "undefined" ||
-    !gaInitialized ||
     !window.gtag ||
     !isAnalyticsEnabled()
   ) {
