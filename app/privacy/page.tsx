@@ -58,10 +58,10 @@ export default function PrivacyPage() {
               <li>Message content</li>
             </ul>
             <p className="text-gray-600 mb-4">
-              If you accept analytics, we also collect high-level website usage
-              data through Google Analytics 4, including page views, blog post
-              visits, contact CTA clicks, email link clicks, browser and device
-              details, and approximate location derived from your IP address.
+              We also collect high-level website usage data through Google
+              Analytics 4, including page views, blog post visits, contact CTA
+              clicks, email link clicks, browser and device details, and
+              approximate location derived from your IP address.
             </p>
           </section>
 
@@ -80,20 +80,16 @@ export default function PrivacyPage() {
 
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Analytics and Consent
+              Analytics
             </h2>
             <p className="text-gray-600 mb-4">
               We use Google Analytics 4 to understand which pages and blog posts
-              are being viewed and how visitors reach out to us. Analytics is
-              loaded only after you accept it through the consent banner shown
-              on your first visit.
+              are being viewed and how visitors reach out to us.
             </p>
             <p className="text-gray-600 mb-4">
-              You can refuse analytics by selecting &quot;Reject&quot; in the
-              banner. If you previously accepted, you can stop future analytics
-              collection on this device by clearing this site&apos;s browser
-              storage for hotfix-doo.com and then choosing &quot;Reject&quot;
-              when prompted again.
+              Google Analytics helps us measure overall website performance,
+              understand which blog content is read most, and evaluate which
+              contact paths are most effective.
             </p>
           </section>
 

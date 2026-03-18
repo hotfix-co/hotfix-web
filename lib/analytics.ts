@@ -9,9 +9,6 @@ declare global {
 
 export const GA_MEASUREMENT_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
-export const ANALYTICS_CONSENT_KEY = "hotfix_analytics_consent";
-
-export type AnalyticsConsentState = "accepted" | "rejected" | "unset";
 
 export type AnalyticsEventName =
   | "contact_cta_click"
@@ -24,28 +21,6 @@ let gaInitialized = false;
 
 export function isAnalyticsEnabled() {
   return GA_MEASUREMENT_ID.length > 0;
-}
-
-export function getStoredAnalyticsConsent(): AnalyticsConsentState {
-  if (typeof window === "undefined") {
-    return "unset";
-  }
-
-  const storedValue = window.localStorage.getItem(ANALYTICS_CONSENT_KEY);
-  return storedValue === "accepted" || storedValue === "rejected"
-    ? storedValue
-    : "unset";
-}
-
-export function setStoredAnalyticsConsent(
-  consent: Exclude<AnalyticsConsentState, "unset">,
-) {
-  if (typeof window === "undefined") {
-    return;
-  }
-
-  window.localStorage.setItem(ANALYTICS_CONSENT_KEY, consent);
-  window.dispatchEvent(new Event("analytics-consent-change"));
 }
 
 function ensureGoogleTag() {
@@ -69,18 +44,6 @@ export function initGoogleAnalytics() {
   ensureGoogleTag();
 
   window.gtag?.("js", new Date());
-  window.gtag?.("consent", "default", {
-    analytics_storage: "denied",
-    ad_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
-  });
-  window.gtag?.("consent", "update", {
-    analytics_storage: "granted",
-    ad_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
-  });
   window.gtag?.("config", GA_MEASUREMENT_ID, {
     anonymize_ip: true,
     send_page_view: false,
