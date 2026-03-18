@@ -37,9 +37,10 @@ export default function PrivacyPage() {
               Introduction
             </h2>
             <p className="text-gray-600 mb-4">
-              HOTFIX d.o.o. ("we", "our", or "us") is committed to protecting
-              your privacy. This Privacy Policy explains how we collect, use,
-              and share information about you when you use our website.
+              HOTFIX d.o.o. (&quot;we&quot;, &quot;our&quot;, or
+              &quot;us&quot;) is committed to protecting your privacy. This
+              Privacy Policy explains how we collect, use, and share
+              information about you when you use our website.
             </p>
           </section>
 
@@ -56,6 +57,12 @@ export default function PrivacyPage() {
               <li>Company name (optional)</li>
               <li>Message content</li>
             </ul>
+            <p className="text-gray-600 mb-4">
+              If you accept analytics, we also collect high-level website usage
+              data through Google Analytics 4, including page views, blog post
+              visits, contact CTA clicks, email link clicks, browser and device
+              details, and approximate location derived from your IP address.
+            </p>
           </section>
 
           <section className="mb-8">
@@ -67,7 +74,27 @@ export default function PrivacyPage() {
               <li>Respond to your inquiries</li>
               <li>Provide information about our services</li>
               <li>Improve our website and services</li>
+              <li>Measure blog traffic and website conversions</li>
             </ul>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Analytics and Consent
+            </h2>
+            <p className="text-gray-600 mb-4">
+              We use Google Analytics 4 to understand which pages and blog posts
+              are being viewed and how visitors reach out to us. Analytics is
+              loaded only after you accept it through the consent banner shown
+              on your first visit.
+            </p>
+            <p className="text-gray-600 mb-4">
+              You can refuse analytics by selecting &quot;Reject&quot; in the
+              banner. If you previously accepted, you can stop future analytics
+              collection on this device by clearing this site&apos;s browser
+              storage for hotfix-doo.com and then choosing &quot;Reject&quot;
+              when prompted again.
+            </p>
           </section>
 
           <section className="mb-8">
@@ -95,4 +122,3 @@ export default function PrivacyPage() {
     </div>
   );
 }
-

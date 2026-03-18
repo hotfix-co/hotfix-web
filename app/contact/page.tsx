@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import StructuredData from "@/components/StructuredData";
+import EmailTrackedLink from "@/components/EmailTrackedLink";
 import { contactFAQSchema, contactPageSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
@@ -35,8 +36,8 @@ export default function ContactPage() {
               Get In <span className="text-gradient">Touch</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Have a project in mind? We'd love to hear about it. Send us a
-              message and we'll get back to you as soon as possible.
+              Have a project in mind? We&apos;d love to hear about it. Send us
+              a message and we&apos;ll get back to you as soon as possible.
             </p>
           </div>
         </div>
@@ -49,12 +50,12 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div>
               <h2 id="contact-section" className="text-3xl font-bold text-gray-900 mb-8">
-                Let's Work Together
+                Let&apos;s Work Together
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 Whether you need a complete application built from scratch,
                 want to enhance an existing system, or just have questions
-                about our services, we're here to help.
+                about our services, we&apos;re here to help.
               </p>
 
               <div className="space-y-6">
@@ -69,13 +70,14 @@ export default function ContactPage() {
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">
                       Email
                     </h3>
-                    <a
+                    <EmailTrackedLink
                       href="mailto:ops@hotfix-doo.com"
+                      source="contact_page"
                       className="text-[var(--primary-red)] hover:text-[var(--primary-orange)] transition-colors"
                       aria-label="Email HOTFIX d.o.o. at ops@hotfix-doo.com"
                     >
                       ops@hotfix-doo.com
-                    </a>
+                    </EmailTrackedLink>
                   </div>
                 </div>
 
@@ -164,8 +166,8 @@ export default function ContactPage() {
               <p className="text-gray-600">
                 We work on a wide range of projects including web applications,
                 APIs, microservices, e-commerce platforms, and custom software
-                solutions. Whether it's a startup MVP or enterprise system,
-                we've got you covered.
+                solutions. Whether it&apos;s a startup MVP or enterprise
+                system, we&apos;ve got you covered.
               </p>
             </div>
 
@@ -187,7 +189,7 @@ export default function ContactPage() {
               </h3>
               <p className="text-gray-600">
                 Yes! We offer ongoing maintenance, support, and feature
-                development for all our projects. We're committed to long-term
+                development for all our projects. We&apos;re committed to long-term
                 partnerships with our clients.
               </p>
             </div>
@@ -198,7 +200,7 @@ export default function ContactPage() {
               </h3>
               <p className="text-gray-600">
                 We follow an agile methodology with regular sprints, code
-                reviews, and client communication. You'll have full visibility
+                reviews, and client communication. You&apos;ll have full visibility
                 into the development process with regular updates and demos.
               </p>
             </div>
@@ -208,4 +210,3 @@ export default function ContactPage() {
     </div>
   );
 }
-

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
+import AnalyticsProvider from "@/components/AnalyticsProvider";
 import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/structuredData";
 
 const geistSans = Geist({
@@ -135,6 +136,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <AnalyticsProvider />
         <Navbar />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />

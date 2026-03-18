@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import AnimatedSection from "@/components/AnimatedSection";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
+import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
@@ -156,15 +157,16 @@ export default function Home() {
               Ready to Build Something Amazing?
             </h2>
             <p className="text-xl text-gray-600 mb-10">
-              Let's discuss your project and turn your vision into reality with expert full-stack and mobile development.
+              Let&apos;s discuss your project and turn your vision into reality with expert full-stack and mobile development.
             </p>
-            <Link
+            <ContactTrackedLink
               href="/contact"
+              source="home_cta"
               className="inline-block px-10 py-4 rounded-lg gradient-primary text-white font-semibold text-lg hover:opacity-90 hover:scale-105 transform transition-all shadow-lg hover:shadow-xl"
               aria-label="Contact HOTFIX d.o.o. to start your software development project"
             >
               Start Your Project
-            </Link>
+            </ContactTrackedLink>
           </AnimatedSection>
         </div>
       </section>

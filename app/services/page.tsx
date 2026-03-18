@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ServiceCard from "@/components/ServiceCard";
-import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
+import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
@@ -183,7 +183,7 @@ export default function ServicesPage() {
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive full-stack and mobile development solutions tailored to your
-              business needs. From backend systems to web frontends to native mobile apps, we've
+              business needs. From backend systems to web frontends to native mobile apps, we&apos;ve
               got you covered.
             </p>
           </div>
@@ -313,19 +313,19 @@ export default function ServicesPage() {
             Ready to Start Your Project?
           </h2>
           <p className="text-xl text-white/90 mb-10">
-            Let's discuss how we can help bring your vision to life with our
+            Let&apos;s discuss how we can help bring your vision to life with our
             full-stack and mobile development expertise.
           </p>
-          <Link
+          <ContactTrackedLink
             href="/contact"
+            source="services_page"
             className="inline-block px-10 py-4 rounded-lg bg-white text-[var(--primary-red)] font-semibold text-lg hover:bg-gray-100 transition-colors shadow-xl"
             aria-label="Contact HOTFIX d.o.o. to discuss your software development project"
           >
             Get Started Today
-          </Link>
+          </ContactTrackedLink>
         </div>
       </section>
     </div>
   );
 }
-

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { trackEvent } from "@/lib/analytics";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -46,6 +47,7 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
+        trackEvent("contact_form_submit_success", { source: "contact_form" });
         setSubmitStatus({
           type: "success",
           message:
@@ -192,4 +194,3 @@ export default function ContactForm() {
     </form>
   );
 }
-

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import ContactTrackedLink from "@/components/ContactTrackedLink";
+import EmailTrackedLink from "@/components/EmailTrackedLink";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -55,12 +57,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
+                <ContactTrackedLink
                   href="/contact"
+                  source="footer"
                   className="text-sm hover:text-white transition-colors"
                 >
                   Contact
-                </Link>
+                </ContactTrackedLink>
               </li>
             </ul>
           </div>
@@ -70,12 +73,13 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
+                <EmailTrackedLink
                   href="mailto:ops@hotfix-doo.com"
+                  source="footer"
                   className="hover:text-white transition-colors"
                 >
                   ops@hotfix-doo.com
-                </a>
+                </EmailTrackedLink>
               </li>
               <li className="text-gray-400">Available Mon-Fri, 9AM-5PM</li>
             </ul>
@@ -108,4 +112,3 @@ export default function Footer() {
     </footer>
   );
 }
-

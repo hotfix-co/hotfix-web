@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
+import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 import { blogPosts, formatDate } from "@/lib/blogData";
 
@@ -114,15 +115,15 @@ export default function BlogPage() {
             We share insights from building software for clients worldwide.
             Have a project in mind? Let&apos;s talk.
           </p>
-          <Link
+          <ContactTrackedLink
             href="/contact"
+            source="blog_index"
             className="inline-block px-10 py-4 rounded-lg bg-white text-[var(--primary-red)] font-semibold text-lg hover:bg-gray-100 transition-colors shadow-xl"
           >
             Get in Touch
-          </Link>
+          </ContactTrackedLink>
         </div>
       </section>
     </div>
   );
 }
-

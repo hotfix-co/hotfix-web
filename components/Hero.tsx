@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SiDotnet, SiReact, SiGo, SiKotlin, SiSwift } from "react-icons/si";
+import ContactTrackedLink from "@/components/ContactTrackedLink";
 
 export default function Hero() {
   return (
@@ -69,12 +70,13 @@ export default function Hero() {
           >
             View Our Services
           </Link>
-          <Link
+          <ContactTrackedLink
             href="/contact"
+            source="hero"
             className="px-8 py-4 rounded-lg bg-white text-gray-900 font-semibold text-lg border-2 border-gray-300 hover:border-[var(--primary-red)] transition-colors shadow-md hover:scale-105 transform transition-transform duration-200"
           >
             Get In Touch
-          </Link>
+          </ContactTrackedLink>
         </motion.div>
 
         {/* Tech Stack Icons */}
@@ -118,4 +120,3 @@ export default function Hero() {
     </section>
   );
 }
-

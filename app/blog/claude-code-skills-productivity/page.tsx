@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
+import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 import { getBlogPost, formatDate } from "@/lib/blogData";
 
@@ -483,12 +484,13 @@ Follow the patterns in app/api/users/route.ts as reference.`}</code>
             We build custom Claude Code skills and AI workflows for dev teams. If you&apos;re tired of inconsistent AI output across your team, we can help standardize it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <ContactTrackedLink
               href="/contact"
+              source="blog_post"
               className="inline-block px-10 py-4 rounded-lg bg-white text-[var(--primary-red)] font-semibold text-lg hover:bg-gray-100 transition-colors shadow-xl"
             >
               Get in Touch
-            </Link>
+            </ContactTrackedLink>
             <Link
               href="/blog"
               className="inline-block px-10 py-4 rounded-lg border-2 border-white text-white font-semibold text-lg hover:bg-white/10 transition-colors"

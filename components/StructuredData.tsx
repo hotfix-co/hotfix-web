@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface StructuredDataProps {
-  data: object | object[];
+  data: Record<string, unknown> | Record<string, unknown>[];
 }
 
 /**
@@ -9,12 +9,16 @@ interface StructuredDataProps {
  * This helps search engines understand the content better
  */
 export default function StructuredData({ data }: StructuredDataProps) {
-  const jsonLd = Array.isArray(data) 
-    ? data.map(item => JSON.stringify(item)).join(',')
+  const finalJsonLd = Array.isArray(data)
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': data.map((item) => {
+          const normalizedItem = { ...item };
+          delete normalizedItem['@context'];
+          return normalizedItem;
+        }),
+      })
     : JSON.stringify(data);
-
-  // If array, wrap in array brackets
-  const finalJsonLd = Array.isArray(data) ? `[${jsonLd}]` : jsonLd;
 
   return (
     <script
@@ -24,4 +28,3 @@ export default function StructuredData({ data }: StructuredDataProps) {
     />
   );
 }
-

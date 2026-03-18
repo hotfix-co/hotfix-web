@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import ContactTrackedLink from "@/components/ContactTrackedLink";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -48,12 +49,13 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Link
+            <ContactTrackedLink
               href="/contact"
+              source="navbar"
               className="px-6 py-2.5 text-base rounded-lg gradient-primary text-white font-medium hover:opacity-90 transition-opacity"
             >
               Get Started
-            </Link>
+            </ContactTrackedLink>
           </div>
 
           {/* Mobile menu button */}
@@ -114,17 +116,17 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Link
+            <ContactTrackedLink
               href="/contact"
+              source="navbar_mobile"
               className="block mx-3 my-2 px-6 py-2.5 text-center text-base rounded-lg gradient-primary text-white font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Get Started
-            </Link>
+            </ContactTrackedLink>
           </div>
         </div>
       )}
     </nav>
   );
 }
-
