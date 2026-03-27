@@ -15,6 +15,19 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "openclaw-usage",
+    title: "How I Automate GitHub Issue Tracking with OpenClaw",
+    description: "How I use OpenClaw, Signal, and a tightly scoped custom skill to turn bug notes from my phone into GitHub issues.",
+    excerpt: "GitHub issue filing on a phone is miserable. Here is the OpenClaw setup I use instead: dedicated Signal number, sender allowlist, narrow GitHub access, and a custom issue-writing skill.",
+    publishedAt: "2026-03-27",
+    author: {
+      name: "Josip Budalić",
+      role: "Founder & CEO",
+    },
+    tags: ["OpenClaw", "AI Agent", "Automation", "Workflow", "Signal", "Mobile Development"],
+    readingTime: "6 min read",
+  },
+  {
     slug: "notebooklm-workflow-learning-faster",
     title: "My NotebookLM Workflow for Learning Faster",
     description: "My NotebookLM workflow starts with Claude research, pipes curated sources through notebooklm-py, and ends in Obsidian notes I keep using in daily work.",
