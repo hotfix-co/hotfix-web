@@ -15,6 +15,19 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "claude-code-subagents",
+    title: "How I Use Claude Code Subagents for Unbiased Code Reviews",
+    description: "Instead of carrying all the baggage of my implementation session, I use a fresh subagent to get an honest, unbiased review of my code.",
+    excerpt: "When you build a feature with an AI, it inherits all your blind spots. Here's how I use Claude Code subagents to get a fresh perspective on my code before committing.",
+    publishedAt: "2026-04-09",
+    author: {
+      name: "Josip Budalić",
+      role: "Founder & CEO",
+    },
+    tags: ["Claude Code", "AI Agent", "Subagents", "Code Review", "Developer Productivity", "Workflow"],
+    readingTime: "5 min read",
+  },
+  {
     slug: "openclaw-usage",
     title: "How I Automate GitHub Issue Tracking with OpenClaw",
     description: "How I use OpenClaw, Signal, and a tightly scoped custom skill to turn bug notes from my phone into GitHub issues.",
