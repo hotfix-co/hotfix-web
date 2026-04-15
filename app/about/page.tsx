@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import { SiDotnet, SiReact, SiGo, SiKotlin, SiSwift } from "react-icons/si";
 import StructuredData from "@/components/StructuredData";
 import { founderSchema, aboutPageSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About Us | HOTFIX d.o.o.",
   description:
     "Learn about HOTFIX d.o.o., founded by Josip Budalić in Croatia. Discover our mission, values, and expertise in full-stack and mobile development with C#, React, Golang, Kotlin (KMM), and Swift.",
   alternates: {
-    canonical: "https://hotfix-doo.com/about",
+    canonical: `${SITE_URL}/about`,
   },
   openGraph: {
-    url: "https://hotfix-doo.com/about",
+    url: `${SITE_URL}/about`,
     type: "website",
     title: "About HOTFIX d.o.o. | Founded by Josip Budalić",
     description: "Learn about HOTFIX d.o.o., founded by Josip Budalić in Croatia. Our mission, values, and expertise in full-stack and mobile development.",

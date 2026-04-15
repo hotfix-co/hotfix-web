@@ -3,16 +3,17 @@ import ContactForm from "@/components/ContactForm";
 import StructuredData from "@/components/StructuredData";
 import EmailTrackedLink from "@/components/EmailTrackedLink";
 import { contactFAQSchema, contactPageSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact Us | HOTFIX d.o.o.",
   description:
     "Get in touch with HOTFIX d.o.o., an EU-based software development company in Croatia, for your full-stack and mobile development needs. Contact us at ops@hotfix-doo.com or use our contact form. We respond within 24 hours.",
   alternates: {
-    canonical: "https://hotfix-doo.com/contact",
+    canonical: `${SITE_URL}/contact`,
   },
   openGraph: {
-    url: "https://hotfix-doo.com/contact",
+    url: `${SITE_URL}/contact`,
     type: "website",
     title: "Contact HOTFIX d.o.o. | EU-Based Software Development Company",
     description: "Get in touch with HOTFIX d.o.o. for your software development needs. We respond within 24 hours.",

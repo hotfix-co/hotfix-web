@@ -4,6 +4,7 @@ import StructuredData from "@/components/StructuredData";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 import { getBlogPost, formatDate } from "@/lib/blogData";
+import { SITE_URL } from "@/lib/constants";
 
 const post = getBlogPost("claude-code-subagents")!;
 
@@ -11,10 +12,10 @@ export const metadata: Metadata = {
   title: `${post.title} | HOTFIX d.o.o.`,
   description: post.description,
   alternates: {
-    canonical: `https://hotfix-doo.com/blog/${post.slug}`,
+    canonical: `${SITE_URL}/blog/${post.slug}`,
   },
   openGraph: {
-    url: `https://hotfix-doo.com/blog/${post.slug}`,
+    url: `${SITE_URL}/blog/${post.slug}`,
     type: "article",
     title: post.title,
     description: post.description,
@@ -42,20 +43,20 @@ const articleSchema = {
     "@type": "Person",
     name: post.author.name,
     jobTitle: post.author.role,
-    url: "https://hotfix-doo.com/about",
+    url: `${SITE_URL}/about`,
   },
   publisher: {
     "@type": "Organization",
     name: "HOTFIX d.o.o.",
-    url: "https://hotfix-doo.com",
+    url: SITE_URL,
     logo: {
       "@type": "ImageObject",
-      url: "https://hotfix-doo.com/logo_without_bg.png",
+      url: `${SITE_URL}/logo_without_bg.png`,
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `https://hotfix-doo.com/blog/${post.slug}`,
+    "@id": `${SITE_URL}/blog/${post.slug}`,
   },
   keywords: post.tags.join(", "),
 };

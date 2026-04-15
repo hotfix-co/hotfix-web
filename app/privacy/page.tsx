@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | HOTFIX d.o.o.",
   description: "Privacy policy for HOTFIX d.o.o. website and services. Learn how we collect, use, and protect your personal information when you contact us or use our software development services.",
   alternates: {
-    canonical: "https://hotfix-doo.com/privacy",
+    canonical: `${SITE_URL}/privacy`,
   },
   robots: {
     index: true,

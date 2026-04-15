@@ -1,6 +1,7 @@
 import { Organization, Person, WebSite, LocalBusiness, FAQPage, BreadcrumbList, WithContext } from 'schema-dts';
+import { SITE_URL } from './constants';
 
-const siteUrl = 'https://hotfix-doo.com';
+const siteUrl = SITE_URL;
 
 // Organization Schema - Company Information
 export const organizationSchema: WithContext<Organization> = {

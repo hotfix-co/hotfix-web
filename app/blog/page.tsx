@@ -4,16 +4,17 @@ import StructuredData from "@/components/StructuredData";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 import { blogPosts, formatDate } from "@/lib/blogData";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Blog | HOTFIX d.o.o.",
   description:
     "Insights, tutorials, and best practices in full-stack development, mobile development, and software engineering from the HOTFIX team.",
   alternates: {
-    canonical: "https://hotfix-doo.com/blog",
+    canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
-    url: "https://hotfix-doo.com/blog",
+    url: `${SITE_URL}/blog`,
     type: "website",
     title: "Blog | HOTFIX d.o.o.",
     description:

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service | HOTFIX d.o.o.",
   description: "Terms of service for HOTFIX d.o.o. website and software development services. Review our terms and conditions for using our website and engaging with our development services.",
   alternates: {
-    canonical: "https://hotfix-doo.com/terms",
+    canonical: `${SITE_URL}/terms`,
   },
   robots: {
     index: true,

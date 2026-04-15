@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
 import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/structuredData";
+import { SITE_URL } from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hotfix-doo.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
     template: "%s | HOTFIX d.o.o.",
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
     "API Development",
   ],
   authors: [
-    { name: "Josip Budalić", url: "https://hotfix-doo.com/about" },
+    { name: "Josip Budalić", url: `${SITE_URL}/about` },
     { name: "HOTFIX d.o.o." }
   ],
   creator: "Josip Budalić",
@@ -84,9 +85,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: "https://hotfix-doo.com",
-  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -96,13 +94,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://hotfix-doo.com",
+    url: SITE_URL,
     siteName: "HOTFIX d.o.o.",
     title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
     description: "Professional EU-based full-stack and mobile development services in C#, React, Golang, Kotlin, and Swift. Founded by Josip Budalić in Croatia.",
     images: [
       {
-        url: "https://hotfix-doo.com/logo_without_bg.png",
+        url: `${SITE_URL}/logo_without_bg.png`,
         width: 1200,
         height: 630,
         alt: "HOTFIX d.o.o. - Full-Stack & Mobile Development Company",
@@ -113,7 +111,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
     description: "Professional EU-based full-stack and mobile development services in C#, React, Golang, Kotlin, and Swift from Croatia.",
-    images: ["https://hotfix-doo.com/logo_without_bg.png"],
+    images: [`${SITE_URL}/logo_without_bg.png`],
     creator: "@hotfix",
   },
   verification: {

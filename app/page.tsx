@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import { SITE_URL } from "@/lib/constants";
 import AnimatedSection from "@/components/AnimatedSection";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
@@ -11,10 +12,10 @@ export const metadata: Metadata = {
   description:
     "HOTFIX d.o.o., founded by Josip Budalić, is a professional EU-based full-stack and mobile development company in Croatia specializing in C#, React, Golang, Kotlin (KMM), and Swift. We deliver robust, scalable, cross-platform solutions for businesses worldwide.",
   alternates: {
-    canonical: "https://hotfix-doo.com",
+    canonical: SITE_URL,
   },
   openGraph: {
-    url: "https://hotfix-doo.com",
+    url: SITE_URL,
     type: "website",
   },
 };

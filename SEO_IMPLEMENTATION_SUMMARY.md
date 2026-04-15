@@ -209,7 +209,7 @@ Added `schema-dts@^1.1.2` to devDependencies for TypeScript types for Schema.org
 
 ### Post-Deployment:
 1. **Google Search Console**:
-   - Submit sitemap: `https://hotfix-doo.com/sitemap.xml`
+   - Submit sitemap: `https://www.hotfix-doo.com/sitemap.xml`
    - Monitor indexing status
    - Check structured data validity
    - Add verification code to `app/layout.tsx` metadata.verification.google
@@ -328,7 +328,7 @@ Added `schema-dts@^1.1.2` to devDependencies for TypeScript types for Schema.org
 **Country**: Croatia (HR)  
 **Founder**: Josip Budalić  
 **Company**: HOTFIX d.o.o.  
-**Website**: https://hotfix-doo.com
+**Website**: https://www.hotfix-doo.com
 
 ---
 

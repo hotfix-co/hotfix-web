@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blogData";
+import { SITE_URL } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://hotfix-doo.com";
+  const baseUrl = SITE_URL;
 
   const staticPages: MetadataRoute.Sitemap = [
     {
