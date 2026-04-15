@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: `${SITE_URL}/blog/${post.slug}`,
     type: "article",
+    siteName: "HOTFIX d.o.o.",
     title: post.title,
     description: post.description,
     publishedTime: post.publishedAt,

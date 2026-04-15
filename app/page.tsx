@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: SITE_URL,
     type: "website",
+    siteName: "HOTFIX d.o.o.",
   },
 };
 

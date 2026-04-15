@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: `${SITE_URL}/about`,
     type: "website",
+    siteName: "HOTFIX d.o.o.",
     title: "About HOTFIX d.o.o. | Founded by Josip Budalić",
     description: "Learn about HOTFIX d.o.o., founded by Josip Budalić in Croatia. Our mission, values, and expertise in full-stack and mobile development.",
   },

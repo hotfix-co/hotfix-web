@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: `${SITE_URL}/blog`,
     type: "website",
+    siteName: "HOTFIX d.o.o.",
     title: "Blog | HOTFIX d.o.o.",
     description:
       "Insights, tutorials, and best practices in software development from the HOTFIX team.",

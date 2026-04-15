@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: `${SITE_URL}/services`,
     type: "website",
+    siteName: "HOTFIX d.o.o.",
     title: "Development Services | HOTFIX d.o.o.",
     description: "Full-stack and mobile development services: C# .NET, React, Golang, Kotlin, Swift. Professional EU-based development from Croatia.",
   },
