@@ -49,27 +49,28 @@ export default function Home() {
       <Hero />
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-white" aria-labelledby="why-choose-us">
+      <section className="bg-white py-14 md:py-24" aria-labelledby="why-choose-us">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <h2 id="why-choose-us" className="text-4xl font-bold text-gray-900 mb-4">
-              Why Choose <span className="text-gradient">HOTFIX</span>?
+          <AnimatedSection className="mb-14 max-w-3xl">
+            <span className="section-eyebrow mb-4 block">delivery model</span>
+            <h2 id="why-choose-us" className="section-title mb-5">
+              Software delivery across the whole product surface.
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="section-lede max-w-2xl">
               We combine technical expertise with a commitment to excellence,
               delivering solutions that drive real business results for businesses worldwide.
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {features.map((feature, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
-                <div className="p-8 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-all hover:shadow-lg hover:scale-105 transform duration-300 h-full">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)] rounded-lg mb-6" />
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <div className="card-feature-light h-full transition-transform duration-200 hover:-translate-y-1">
+                  <span className="pill-tag-soft mb-6">0{index + 1}</span>
+                  <h3 className="mb-3 text-[22px] font-bold leading-[1.1] tracking-[-0.22px] text-[var(--ink)]">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">{feature.description}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -78,18 +79,19 @@ export default function Home() {
       </section>
 
       {/* Services Preview Section */}
-      <section className="py-20 bg-gray-50" aria-labelledby="our-services">
+      <section className="bg-[var(--canvas-soft)] py-24" aria-labelledby="our-services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <h2 id="our-services" className="text-4xl font-bold text-gray-900 mb-4">
-              Our Services
+          <AnimatedSection className="mb-14 max-w-3xl">
+            <span className="section-eyebrow mb-4 block">services</span>
+            <h2 id="our-services" className="section-title mb-5">
+              Build the backend, frontend, and mobile layers as one system.
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="section-lede max-w-2xl">
               Comprehensive development solutions tailored to your needs
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="mb-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {[
               {
                 title: "Backend Development",
@@ -124,14 +126,17 @@ export default function Home() {
               },
             ].map((service, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
-                <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all hover:scale-105 transform duration-300 h-full">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <div className="card-pricing flex h-full flex-col">
+                  <h3 className="mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--ink)]">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
-                  <ul className="space-y-2 text-sm text-gray-600">
+                  <p className="mb-6 text-[15px] leading-[1.4] text-[var(--ink-mute)]">{service.description}</p>
+                  <ul className="mt-auto space-y-3 text-[13px] leading-[1.4] text-[var(--ink-secondary)]">
                     {service.features.map((feature, i) => (
-                      <li key={i}>✓ {feature}</li>
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--primary)]" />
+                        <span>{feature}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -142,7 +147,7 @@ export default function Home() {
           <AnimatedSection className="text-center">
             <Link
               href="/services"
-              className="inline-block px-8 py-4 rounded-lg gradient-primary text-white font-semibold text-lg hover:opacity-90 hover:scale-105 transform transition-all shadow-lg"
+              className="button-primary-pill focus-ring"
               aria-label="View all HOTFIX d.o.o. development services including full-stack, mobile, and backend solutions"
             >
               Explore All Services
@@ -152,19 +157,22 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white" aria-labelledby="cta-heading">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection>
-            <h2 id="cta-heading" className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Ready to Build Something Amazing?
-            </h2>
-            <p className="text-xl text-gray-600 mb-10">
-              Let&apos;s discuss your project and turn your vision into reality with expert full-stack and mobile development.
-            </p>
+      <section className="bg-white py-24" aria-labelledby="cta-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="card-cream-band grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <span className="section-eyebrow mb-4 block">next step</span>
+              <h2 id="cta-heading" className="section-title mb-5">
+                Ready to build the next release?
+              </h2>
+              <p className="section-lede max-w-2xl">
+                Let&apos;s discuss your project and turn your vision into reality with expert full-stack and mobile development.
+              </p>
+            </div>
             <ContactTrackedLink
               href="/contact"
               source="home_cta"
-              className="inline-block px-10 py-4 rounded-lg gradient-primary text-white font-semibold text-lg hover:opacity-90 hover:scale-105 transform transition-all shadow-lg hover:shadow-xl"
+              className="button-primary-pill focus-ring w-full sm:w-auto"
               aria-label="Contact HOTFIX d.o.o. to start your software development project"
             >
               Start Your Project

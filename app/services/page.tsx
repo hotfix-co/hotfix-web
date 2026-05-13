@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServiceCard from "@/components/ServiceCard";
+import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/structuredData";
@@ -8,7 +9,7 @@ import { SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Services | HOTFIX d.o.o.",
   description:
-    "Explore our comprehensive full-stack and mobile development services including C# .NET backend development, React frontend development, Golang microservices, and native mobile apps with Kotlin (Android) and Swift (iOS). Professional EU-based software development services from Croatia.",
+    "Explore our comprehensive full-stack and mobile development services including C# .NET backend development, React frontend development, Golang microservices, and native mobile apps with Kotlin (Android) and Swift (iOS). Consulting-led engineering and agentic workflow expertise for reliable product delivery.",
   alternates: {
     canonical: `${SITE_URL}/services`,
   },
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "HOTFIX d.o.o.",
     title: "Development Services | HOTFIX d.o.o.",
-    description: "Full-stack and mobile development services: C# .NET, React, Golang, Kotlin, Swift. Professional EU-based development from Croatia.",
+    description: "Full-stack and mobile development services: C# .NET, React, Golang, Kotlin, Swift. Consulting and engineering focused on robust, production-ready products.",
   },
   keywords: [
     "C# .NET development services",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     "frontend development services",
     "microservices development",
     "API development services",
-    "software development Croatia",
+    "software development",
   ],
 };
 
@@ -177,25 +178,67 @@ export default function ServicesPage() {
     <div className="bg-white">
       <StructuredData data={[breadcrumbSchema, ...serviceSchemas]} />
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white" aria-labelledby="services-hero">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 id="services-hero" className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Our <span className="text-gradient">Services</span>
+      <section className="gradient-mesh relative overflow-hidden py-24" aria-labelledby="services-hero">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:items-end">
+          <div>
+            <span className="pill-tag-soft mb-6">services</span>
+            <h1 id="services-hero" className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-[var(--ink)] md:text-[56px] md:leading-[1.03] md:tracking-[-1.4px]">
+              Product engineering from API to App Store.
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="max-w-2xl text-[16px] leading-[1.4] text-[var(--ink-secondary)]">
               Comprehensive full-stack and mobile development solutions tailored to your
               business needs. From backend systems to web frontends to native mobile apps, we&apos;ve
               got you covered.
             </p>
           </div>
+          <div className="card-dashboard-mockup bg-white p-6">
+            <div className="mb-5 flex items-center justify-between">
+              <span className="section-eyebrow">capability map</span>
+              <span className="tabular text-[13px] text-[var(--primary-deep)]">4 tracks</span>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {services.map((service, index) => (
+                <div key={service.title} className="rounded-[var(--radius-md)] border border-[var(--hairline)] bg-[var(--canvas-soft)] p-4">
+                  <span className="tabular mb-3 block text-[13px] text-[var(--primary-deep)]">0{index + 1}</span>
+                  <h2 className="text-[18px] font-bold leading-[1.4] text-[var(--ink)]">{service.title}</h2>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick links to consulting pages */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="section-title">Consulting & AI Services</h2>
+            <p className="section-lede">Practical consulting and hands-on delivery for AI workflows, privacy, and developer productivity.</p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Link href="/services/ai-consulting" className="rounded-lg border border-[var(--hairline)] bg-white p-6 hover:shadow">
+              <h3 className="mb-2 text-[18px] font-semibold">AI Consulting</h3>
+              <p className="text-[14px] text-[var(--ink-mute)]">Agentic workflows, guardrails, and AI development pipelines.</p>
+            </Link>
+
+            <Link href="/services/gdpr-quality" className="rounded-lg border border-[var(--hairline)] bg-white p-6 hover:shadow">
+              <h3 className="mb-2 text-[18px] font-semibold">Privacy & Quality</h3>
+              <p className="text-[14px] text-[var(--ink-mute)]">Privacy-first delivery, compliance-ready documentation, and QA.</p>
+            </Link>
+
+            <Link href="/services/productivity" className="rounded-lg border border-[var(--hairline)] bg-white p-6 hover:shadow">
+              <h3 className="mb-2 text-[18px] font-semibold">Developer Productivity</h3>
+              <p className="text-[14px] text-[var(--ink-mute)]">CI/CD, tooling, and automation to increase engineering velocity.</p>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => (
               <ServiceCard
                 key={index}
@@ -210,32 +253,33 @@ export default function ServicesPage() {
       </section>
 
       {/* Technology Stack */}
-      <section className="py-20 bg-gray-50" aria-labelledby="technology-stack">
+      <section className="bg-[var(--canvas-soft)] py-24" aria-labelledby="technology-stack">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 id="technology-stack" className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="mb-14 max-w-3xl">
+            <span className="section-eyebrow mb-4 block">technology</span>
+            <h2 id="technology-stack" className="section-title mb-5">
               Technology Stack
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="section-lede max-w-2xl">
               We work with modern, proven technologies to build robust and
               scalable solutions
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {technologies.map((category, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+                className="card-feature-light"
               >
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <h3 className="mb-6 text-[22px] font-bold leading-[1.1] tracking-[-0.22px] text-[var(--ink)]">
                   {category.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {category.techs.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gradient-to-r hover:from-[var(--primary-red)] hover:to-[var(--primary-orange)] hover:text-white transition-all"
+                      className="pill-tag-soft normal-case"
                     >
                       {tech}
                     </span>
@@ -248,19 +292,20 @@ export default function ServicesPage() {
       </section>
 
       {/* Development Process */}
-      <section className="py-20" aria-labelledby="development-process">
+      <section className="py-24" aria-labelledby="development-process">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 id="development-process" className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="mb-14 max-w-3xl">
+            <span className="section-eyebrow mb-4 block">process</span>
+            <h2 id="development-process" className="section-title mb-5">
               Our Development Process
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="section-lede max-w-2xl">
               A proven methodology that ensures quality, transparency, and
               on-time delivery
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="grid gap-4">
             {[
               {
                 step: "01",
@@ -289,18 +334,16 @@ export default function ServicesPage() {
             ].map((phase, index) => (
               <div
                 key={index}
-                className="flex flex-col md:flex-row items-start gap-6 bg-gray-50 p-8 rounded-2xl"
+                className="grid gap-6 rounded-[var(--radius-lg)] border border-[var(--hairline)] bg-white p-8 md:grid-cols-[80px_1fr]"
               >
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)] text-white font-bold text-2xl flex items-center justify-center">
-                    {phase.step}
-                  </div>
+                <div className="tabular text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--primary)]">
+                  {phase.step}
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="mb-3 text-[22px] font-bold leading-[1.1] tracking-[-0.22px] text-[var(--ink)]">
                     {phase.title}
                   </h3>
-                  <p className="text-gray-600 text-lg">{phase.description}</p>
+                  <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">{phase.description}</p>
                 </div>
               </div>
             ))}
@@ -309,19 +352,19 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)]" aria-labelledby="services-cta">
+      <section className="bg-[var(--brand-dark-900)] py-24" aria-labelledby="services-cta">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 id="services-cta" className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 id="services-cta" className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-white">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl text-white/90 mb-10">
+          <p className="mb-10 text-[16px] leading-[1.4] text-white/80">
             Let&apos;s discuss how we can help bring your vision to life with our
             full-stack and mobile development expertise.
           </p>
           <ContactTrackedLink
             href="/contact"
             source="services_page"
-            className="inline-block px-10 py-4 rounded-lg bg-white text-[var(--primary-red)] font-semibold text-lg hover:bg-gray-100 transition-colors shadow-xl"
+            className="button-secondary-pill focus-ring"
             aria-label="Contact HOTFIX d.o.o. to discuss your software development project"
           >
             Get Started Today

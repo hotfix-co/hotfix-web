@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
@@ -19,19 +19,21 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
+    <nav className="fixed top-0 z-50 w-full border-b border-[var(--hairline)] bg-white/90 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-3 focus-ring rounded">
             <Image
-              src="/logo_without_bg.png"
-              alt="HOTFIX Logo"
-              width={120}
-              height={40}
-              className="h-20 w-auto"
-              priority
+              src="/logo.png"
+              alt="Hotfix logo"
+              width={64}
+              height={64}
+              className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 object-contain"
             />
+            <span className="text-[18px] font-medium tracking-[0.1px] text-[var(--ink)]">
+              HOTFIX d.o.o.
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -40,10 +42,10 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-base font-medium transition-colors ${
+                className={`focus-ring rounded text-[15px] font-medium transition-colors ${
                   pathname === item.href
-                    ? "text-[var(--primary-red)]"
-                    : "text-gray-600 hover:text-[var(--primary-red)]"
+                    ? "text-[var(--primary)]"
+                    : "text-[var(--ink-mute-2)] hover:text-[var(--ink)]"
                 }`}
               >
                 {item.name}
@@ -52,7 +54,7 @@ export default function Navbar() {
             <ContactTrackedLink
               href="/contact"
               source="navbar"
-              className="px-6 py-2.5 text-base rounded-lg gradient-primary text-white font-medium hover:opacity-90 transition-opacity"
+              className="button-primary-pill focus-ring"
             >
               Get Started
             </ContactTrackedLink>
@@ -61,7 +63,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            className="focus-ring md:hidden min-h-11 min-w-11 rounded-full text-[var(--ink-mute-2)] hover:bg-[var(--canvas-soft)] hover:text-[var(--ink)]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open menu</span>
@@ -100,16 +102,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden border-t border-[var(--hairline)] bg-white">
+          <div className="px-3 pt-3 pb-4 space-y-1">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block px-3 py-2 rounded-md text-lg font-medium ${
+                className={`block rounded-md px-3 py-3 text-base font-medium ${
                   pathname === item.href
-                    ? "text-[var(--primary-red)] bg-gray-50"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    ? "bg-[var(--canvas-soft)] text-[var(--primary)]"
+                    : "text-[var(--ink-mute-2)] hover:bg-[var(--canvas-soft)] hover:text-[var(--ink)]"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -119,7 +121,7 @@ export default function Navbar() {
             <ContactTrackedLink
               href="/contact"
               source="navbar_mobile"
-              className="block mx-3 my-2 px-6 py-2.5 text-center text-base rounded-lg gradient-primary text-white font-medium"
+              className="button-primary-pill mt-3 w-full"
               onClick={() => setMobileMenuOpen(false)}
             >
               Get Started

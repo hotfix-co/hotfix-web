@@ -47,13 +47,14 @@ export default function BlogPage() {
       <StructuredData data={[breadcrumbSchema]} />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="gradient-mesh relative overflow-hidden py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Our <span className="text-gradient">Blog</span>
+          <div className="max-w-3xl">
+            <span className="pill-tag-soft mb-6">blog</span>
+            <h1 className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-[var(--ink)] md:text-[56px] md:leading-[1.03] md:tracking-[-1.4px]">
+              Engineering notes from the build floor.
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="max-w-2xl text-[16px] leading-[1.4] text-[var(--ink-secondary)]">
               Insights, tutorials, and lessons learned from building software.
               Dive into our thoughts on development practices, tools, and
               technology.
@@ -63,41 +64,41 @@ export default function BlogPage() {
       </section>
 
       {/* All Posts Grid */}
-      <section className="py-16">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {sortedPosts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="block group"
+                className="group block focus-ring rounded-[var(--radius-lg)]"
               >
-                <article className="bg-white border border-gray-200 rounded-2xl p-8 h-full shadow-md hover:shadow-xl transition-all duration-300">
+                <article className="card-feature-light h-full transition-transform duration-200 group-hover:-translate-y-1">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {post.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 text-sm font-medium bg-gradient-to-r from-[var(--primary-red)] to-[var(--primary-orange)] text-white rounded-full"
+                        className="pill-tag-soft"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[var(--primary-red)] transition-colors">
+                  <h2 className="mb-3 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--ink)] transition-colors group-hover:text-[var(--primary)]">
                     {post.title}
                   </h2>
-                  <p className="text-gray-600 mb-6 line-clamp-3">
+                  <p className="mb-6 line-clamp-3 text-[15px] leading-[1.4] text-[var(--ink-mute)]">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
-                    <span className="font-medium text-gray-900">
+                  <div className="flex flex-wrap items-center gap-3 text-[13px] text-[var(--ink-mute)]">
+                    <span className="font-medium text-[var(--ink)]">
                       {post.author.name}
                     </span>
-                    <span>•</span>
+                    <span>/</span>
                     <time dateTime={post.publishedAt}>
                       {formatDate(post.publishedAt)}
                     </time>
-                    <span>•</span>
+                    <span>/</span>
                     <span>{post.readingTime}</span>
                   </div>
                 </article>
@@ -108,19 +109,19 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-20 bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)]">
+      <section className="bg-[var(--brand-dark-900)] py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-white">
             Want to Work Together?
           </h2>
-          <p className="text-xl text-white/90 mb-10">
+          <p className="mb-10 text-[16px] leading-[1.4] text-white/80">
             We share insights from building software for clients worldwide.
             Have a project in mind? Let&apos;s talk.
           </p>
           <ContactTrackedLink
             href="/contact"
             source="blog_index"
-            className="inline-block px-10 py-4 rounded-lg bg-white text-[var(--primary-red)] font-semibold text-lg hover:bg-gray-100 transition-colors shadow-xl"
+            className="button-secondary-pill focus-ring"
           >
             Get in Touch
           </ContactTrackedLink>

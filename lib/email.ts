@@ -30,7 +30,7 @@ ${message}
     `,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <div style="background: linear-gradient(135deg, #DC2626 0%, #F97316 100%); padding: 30px; text-align: center;">
+        <div style="background: #f97316; padding: 30px; text-align: center;">
           <h1 style="color: white; margin: 0;">New Contact Form Submission</h1>
         </div>
         
@@ -45,7 +45,7 @@ ${message}
             
             <p style="margin: 10px 0;">
               <strong style="color: #374151;">Email:</strong><br/>
-              <a href="mailto:${email}" style="color: #DC2626;">${email}</a>
+              <a href="mailto:${email}" style="color: #f97316;">${email}</a>
             </p>
             
             ${
@@ -62,7 +62,7 @@ ${message}
             <p style="margin: 20px 0 10px 0;">
               <strong style="color: #374151;">Message:</strong>
             </p>
-            <div style="background: #f9fafb; padding: 15px; border-radius: 6px; border-left: 4px solid #DC2626;">
+            <div style="background: #f6f9fc; padding: 15px; border-radius: 6px; border-left: 4px solid #f97316;">
               <p style="color: #374151; margin: 0; white-space: pre-wrap;">${message}</p>
             </div>
           </div>
@@ -78,12 +78,12 @@ ${message}
   try {
     await sgMail.send(emailContent);
     return { success: true };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("SendGrid Error:", error);
-    if (error.response) {
-      console.error("Error response:", error.response.body);
+    if (typeof error === "object" && error !== null && "response" in error) {
+      const sendGridError = error as { response?: { body?: unknown } };
+      console.error("Error response:", sendGridError.response?.body);
     }
     throw new Error("Failed to send email");
   }
 }
-

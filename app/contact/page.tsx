@@ -31,13 +31,14 @@ export default function ContactPage() {
     <div className="bg-white">
       <StructuredData data={[breadcrumbSchema, contactFAQSchema, contactPageSchema]} />
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white" aria-labelledby="contact-hero">
+      <section className="gradient-mesh relative overflow-hidden py-24" aria-labelledby="contact-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 id="contact-hero" className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Get In <span className="text-gradient">Touch</span>
+          <div className="max-w-3xl">
+            <span className="pill-tag-soft mb-6">contact</span>
+            <h1 id="contact-hero" className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-[var(--ink)] md:text-[56px] md:leading-[1.03] md:tracking-[-1.4px]">
+              Start the build with a clear technical path.
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="max-w-2xl text-[16px] leading-[1.4] text-[var(--ink-secondary)]">
               Have a project in mind? We&apos;d love to hear about it. Send us
               a message and we&apos;ll get back to you as soon as possible.
             </p>
@@ -46,15 +47,16 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20" aria-labelledby="contact-section">
+      <section className="py-24" aria-labelledby="contact-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             {/* Contact Information */}
             <div>
-              <h2 id="contact-section" className="text-3xl font-bold text-gray-900 mb-8">
+              <span className="section-eyebrow mb-4 block">project intake</span>
+              <h2 id="contact-section" className="mb-6 text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--ink)]">
                 Let&apos;s Work Together
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="mb-8 text-[15px] leading-[1.4] text-[var(--ink-mute)]">
                 Whether you need a complete application built from scratch,
                 want to enhance an existing system, or just have questions
                 about our services, we&apos;re here to help.
@@ -64,18 +66,18 @@ export default function ContactPage() {
                 {/* Email */}
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)] rounded-lg flex items-center justify-center text-white text-xl">
-                      ✉
+                    <div className="tabular flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] bg-[var(--canvas-soft)] text-[15px] text-[var(--primary)]">
+                      @
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="mb-1 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">
                       Email
                     </h3>
                     <EmailTrackedLink
                       href="mailto:ops@hotfix-doo.com"
                       source="contact_page"
-                      className="text-[var(--primary-red)] hover:text-[var(--primary-orange)] transition-colors"
+                      className="text-[15px] text-[var(--primary)] transition-colors hover:text-[var(--primary-deep)]"
                       aria-label="Email HOTFIX d.o.o. at ops@hotfix-doo.com"
                     >
                       ops@hotfix-doo.com
@@ -86,31 +88,31 @@ export default function ContactPage() {
                 {/* Hours */}
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)] rounded-lg flex items-center justify-center text-white text-xl">
-                      🕒
+                    <div className="tabular flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] bg-[var(--canvas-soft)] text-[13px] text-[var(--primary)]">
+                      9-5
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="mb-1 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">
                       Business Hours
                     </h3>
-                    <p className="text-gray-600">Monday - Friday</p>
-                    <p className="text-gray-600">9:00 AM - 5:00 PM CET</p>
+                    <p className="text-[15px] text-[var(--ink-mute)]">Monday - Friday</p>
+                    <p className="text-[15px] text-[var(--ink-mute)]">9:00 AM - 5:00 PM CET</p>
                   </div>
                 </div>
 
                 {/* Response Time */}
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-red)] to-[var(--primary-orange)] rounded-lg flex items-center justify-center text-white text-xl">
-                      ⚡
+                    <div className="tabular flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] bg-[var(--canvas-soft)] text-[13px] text-[var(--primary)]">
+                      24h
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="mb-1 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">
                       Response Time
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-[15px] text-[var(--ink-mute)]">
                       We typically respond within 24 hours
                     </p>
                   </div>
@@ -118,25 +120,25 @@ export default function ContactPage() {
               </div>
 
               {/* Why Choose Us Box */}
-              <div className="mt-12 p-8 bg-gray-50 rounded-2xl">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <div className="card-cream-band mt-12">
+                <h3 className="mb-4 text-[22px] font-bold leading-[1.1] tracking-[-0.22px] text-[var(--ink)]">
                   Why Choose HOTFIX?
                 </h3>
-                <ul className="space-y-3 text-gray-600">
+                <ul className="space-y-3 text-[15px] leading-[1.4] text-[var(--ink-secondary)]">
                   <li className="flex items-start">
-                    <span className="text-[var(--primary-red)] mr-2">✓</span>
+                    <span className="mr-3 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--primary)]" />
                     <span>Expert full-stack & mobile development team</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[var(--primary-red)] mr-2">✓</span>
+                    <span className="mr-3 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--primary)]" />
                     <span>Modern technology stack (C#, React, Golang, Kotlin, Swift)</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[var(--primary-red)] mr-2">✓</span>
+                    <span className="mr-3 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--primary)]" />
                     <span>Transparent communication & pricing</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[var(--primary-red)] mr-2">✓</span>
+                    <span className="mr-3 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--primary)]" />
                     <span>Dedicated support & maintenance</span>
                   </li>
                 </ul>
@@ -144,8 +146,8 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="card-feature-light">
+              <h2 className="mb-6 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--ink)]">
                 Send Us a Message
               </h2>
               <ContactForm />
@@ -155,17 +157,17 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50" aria-labelledby="faq-section">
+      <section className="bg-[var(--canvas-soft)] py-24" aria-labelledby="faq-section">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="faq-section" className="text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 id="faq-section" className="section-title mb-12">
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+            <div className="card-feature-light">
+              <h3 className="mb-2 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">
                 What types of projects do you work on?
               </h3>
-              <p className="text-gray-600">
+              <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">
                 We work on a wide range of projects including web applications,
                 APIs, microservices, e-commerce platforms, and custom software
                 solutions. Whether it&apos;s a startup MVP or enterprise
@@ -173,11 +175,11 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+            <div className="card-feature-light">
+              <h3 className="mb-2 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">
                 How long does a typical project take?
               </h3>
-              <p className="text-gray-600">
+              <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">
                 Project timelines vary based on complexity and requirements.
                 Small projects may take 2-4 weeks, while larger applications
                 can take 3-6 months. We provide detailed timelines during the
@@ -185,22 +187,22 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+            <div className="card-feature-light">
+              <h3 className="mb-2 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">
                 Do you provide ongoing support?
               </h3>
-              <p className="text-gray-600">
+              <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">
                 Yes! We offer ongoing maintenance, support, and feature
                 development for all our projects. We&apos;re committed to long-term
                 partnerships with our clients.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+            <div className="card-feature-light">
+              <h3 className="mb-2 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">
                 What is your development process?
               </h3>
-              <p className="text-gray-600">
+              <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">
                 We follow an agile methodology with regular sprints, code
                 reviews, and client communication. You&apos;ll have full visibility
                 into the development process with regular updates and demos.

@@ -204,7 +204,7 @@ Return findings as a prioritized list with file:line references.`}
               Subagents carry some overhead—they consume their own tokens and take a moment to spin up. You shouldn&apos;t use them for every single task. If you&apos;re just making a quick fix in one file, the main session is perfectly fine. 
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              But when you need an actual second opinion, delegating to a subagent is entirely worth it. It gives you the benefit of a "clean room" code review without forcing you to abandon the helpful context in your main working session. Try asking a fresh subagent to review your next complex feature—you might be surprised by what it finds.
+              But when you need an actual second opinion, delegating to a subagent is entirely worth it. It gives you the benefit of a &quot;clean room&quot; code review without forcing you to abandon the helpful context in your main working session. Try asking a fresh subagent to review your next complex feature—you might be surprised by what it finds.
             </p>
           </div>
 

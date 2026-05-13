@@ -22,17 +22,22 @@ export default function PrivacyPage() {
   ]);
 
   return (
-    <div className="bg-white py-20">
+    <div className="bg-white">
       <StructuredData data={breadcrumbSchema} />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-5xl font-bold text-gray-900 mb-8">
-          Privacy Policy
-        </h1>
-        <div className="prose prose-lg max-w-none">
-          <p className="text-gray-600 mb-6">
+      <section className="gradient-mesh py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="pill-tag-soft mb-6">legal</span>
+          <h1 className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-[var(--ink)]">
+            Privacy Policy
+          </h1>
+          <p className="section-lede">
             Last updated: January 2026
           </p>
+        </div>
+      </section>
 
+      <section className="py-20">
+        <div className="prose prose-lg mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Introduction
@@ -115,7 +120,7 @@ export default function PrivacyPage() {
             </p>
           </section>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

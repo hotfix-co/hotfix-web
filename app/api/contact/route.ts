@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
       { message: "Message sent successfully" },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Contact form error:", error);
     return NextResponse.json(
       { message: "Failed to send message. Please try again later." },
@@ -61,4 +61,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-

@@ -61,7 +61,7 @@ export default function ContactForm() {
           message: error.message || "Something went wrong. Please try again.",
         });
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({
         type: "error",
         message: "Failed to send message. Please try again later.",
@@ -77,7 +77,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="name"
-          className="block text-sm font-medium text-gray-700 mb-2"
+          className="mb-2 block text-[13px] font-medium text-[var(--ink-secondary)]"
         >
           Name *
         </label>
@@ -85,13 +85,13 @@ export default function ContactForm() {
           {...register("name")}
           type="text"
           id="name"
-          className={`w-full px-4 py-3 border rounded-lg text-gray-900 bg-white focus:ring-2 focus:ring-(--primary-red) focus:border-transparent transition-colors ${
-            errors.name ? "border-red-500" : "border-gray-300"
+          className={`min-h-10 w-full rounded-[var(--radius-sm)] border bg-white px-3 py-2 text-[15px] text-[var(--ink)] outline-none transition-colors focus:border-[var(--primary)] focus:ring-2 focus:ring-[rgba(249,115,22,0.18)] ${
+            errors.name ? "border-[var(--ruby)]" : "border-[var(--hairline-input)]"
           }`}
           placeholder="Your name"
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+          <p className="mt-1 text-[13px] text-[var(--ruby)]">{errors.name.message}</p>
         )}
       </div>
 
@@ -99,7 +99,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-gray-700 mb-2"
+          className="mb-2 block text-[13px] font-medium text-[var(--ink-secondary)]"
         >
           Email *
         </label>
@@ -107,13 +107,13 @@ export default function ContactForm() {
           {...register("email")}
           type="email"
           id="email"
-          className={`w-full px-4 py-3 border rounded-lg text-gray-900 bg-white focus:ring-2 focus:ring-(--primary-red) focus:border-transparent transition-colors ${
-            errors.email ? "border-red-500" : "border-gray-300"
+          className={`min-h-10 w-full rounded-[var(--radius-sm)] border bg-white px-3 py-2 text-[15px] text-[var(--ink)] outline-none transition-colors focus:border-[var(--primary)] focus:ring-2 focus:ring-[rgba(249,115,22,0.18)] ${
+            errors.email ? "border-[var(--ruby)]" : "border-[var(--hairline-input)]"
           }`}
           placeholder="your@email.com"
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+          <p className="mt-1 text-[13px] text-[var(--ruby)]">{errors.email.message}</p>
         )}
       </div>
 
@@ -121,7 +121,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="company"
-          className="block text-sm font-medium text-gray-700 mb-2"
+          className="mb-2 block text-[13px] font-medium text-[var(--ink-secondary)]"
         >
           Company
         </label>
@@ -129,7 +129,7 @@ export default function ContactForm() {
           {...register("company")}
           type="text"
           id="company"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 bg-white focus:ring-2 focus:ring-(--primary-red) focus:border-transparent transition-colors"
+          className="min-h-10 w-full rounded-[var(--radius-sm)] border border-[var(--hairline-input)] bg-white px-3 py-2 text-[15px] text-[var(--ink)] outline-none transition-colors focus:border-[var(--primary)] focus:ring-2 focus:ring-[rgba(249,115,22,0.18)]"
           placeholder="Your company (optional)"
         />
       </div>
@@ -138,7 +138,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font-medium text-gray-700 mb-2"
+          className="mb-2 block text-[13px] font-medium text-[var(--ink-secondary)]"
         >
           Message *
         </label>
@@ -146,13 +146,13 @@ export default function ContactForm() {
           {...register("message")}
           id="message"
           rows={6}
-          className={`w-full px-4 py-3 border rounded-lg text-gray-900 bg-white focus:ring-2 focus:ring-(--primary-red) focus:border-transparent transition-colors resize-none ${
-            errors.message ? "border-red-500" : "border-gray-300"
+          className={`w-full resize-none rounded-[var(--radius-sm)] border bg-white px-3 py-2 text-[15px] text-[var(--ink)] outline-none transition-colors focus:border-[var(--primary)] focus:ring-2 focus:ring-[rgba(249,115,22,0.18)] ${
+            errors.message ? "border-[var(--ruby)]" : "border-[var(--hairline-input)]"
           }`}
           placeholder="Tell us about your project..."
         />
         {errors.message && (
-          <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+          <p className="mt-1 text-[13px] text-[var(--ruby)]">{errors.message.message}</p>
         )}
       </div>
 
@@ -174,15 +174,15 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full px-8 py-4 rounded-lg gradient-primary text-white font-semibold text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+        className="button-primary-pill focus-ring w-full disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {isSubmitting ? "Sending..." : "Send Message"}
+        {isSubmitting ? "Sending…" : "Send Message"}
       </button>
 
       {/* Status Messages */}
       {submitStatus.type && (
         <div
-          className={`p-4 rounded-lg ${
+          className={`rounded-[var(--radius-md)] border p-4 text-[15px] ${
             submitStatus.type === "success"
               ? "bg-green-50 text-green-800 border border-green-200"
               : "bg-red-50 text-red-800 border border-red-200"

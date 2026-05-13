@@ -9,21 +9,22 @@ export default function ServiceCard({
   title,
   description,
   features,
-  icon,
 }: ServiceCardProps) {
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-100">
-      <div className="text-5xl mb-6">{icon}</div>
-      <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
-      <p className="text-gray-600 mb-6 text-lg">{description}</p>
-      <div className="border-t border-gray-200 pt-6">
-        <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">
+    <div className="card-feature-light h-full transition-transform duration-200 hover:-translate-y-1">
+      <span className="pill-tag-soft mb-6">{title.split(" ")[0]}</span>
+      <h3 className="mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--ink)]">
+        {title}
+      </h3>
+      <p className="mb-6 text-[15px] leading-[1.4] text-[var(--ink-mute)]">{description}</p>
+      <div className="border-t border-[var(--hairline)] pt-6">
+        <h4 className="section-eyebrow mb-4">
           Key Features
         </h4>
         <ul className="space-y-3">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-start text-gray-600">
-              <span className="text-[var(--primary-red)] mr-3 mt-1">✓</span>
+            <li key={index} className="flex items-start text-[15px] leading-[1.4] text-[var(--ink-secondary)]">
+              <span className="mr-3 mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--primary)]" />
               <span>{feature}</span>
             </li>
           ))}
@@ -32,4 +33,3 @@ export default function ServiceCard({
     </div>
   );
 }
-

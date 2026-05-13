@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-04-09",
     author: {
       name: "Josip Budalić",
-      role: "Founder & CEO",
+      role: "HOTFIX Team",
     },
     tags: ["Claude Code", "AI Agent", "Subagents", "Code Review", "Developer Productivity", "Workflow"],
     readingTime: "5 min read",
@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-03-27",
     author: {
       name: "Josip Budalić",
-      role: "Founder & CEO",
+      role: "HOTFIX Team",
     },
     tags: ["OpenClaw", "AI Agent", "Automation", "Workflow", "Signal", "Mobile Development"],
     readingTime: "6 min read",
@@ -48,7 +48,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-03-18",
     author: {
       name: "Josip Budalić",
-      role: "Founder & CEO",
+      role: "HOTFIX Team",
     },
     tags: ["NotebookLM", "AI Research Workflow", "Claude Code", "Obsidian", "Developer Productivity", "notebooklm-py"],
     readingTime: "10 min read",
@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-02-14",
     author: {
       name: "Josip Budalić",
-      role: "Founder & CEO",
+      role: "HOTFIX Team",
     },
     tags: ["Claude Code", "Skills", "Developer Productivity", "AI Workflow", "Automation", "Claude Code Skills", "Open Skills Format", "Cursor", "Codex"],
     readingTime: "11 min read",
@@ -75,7 +75,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-01-11",
     author: {
       name: "Josip Budalić",
-      role: "Founder & CEO",
+      role: "HOTFIX Team",
     },
     tags: ["AI", "Context Management", "LLM", "Developer Productivity", "Prompt Engineering", "AI Agents"],
     readingTime: "7 min read",
@@ -88,7 +88,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-01-07",
     author: {
       name: "Josip Budalić",
-      role: "Founder & CEO",
+      role: "HOTFIX Team",
     },
     tags: ["Spec-Driven Development", "AI", "Productivity", "spec-kit", "OpenSpec", "Development Workflow"],
     readingTime: "8 min read",
