@@ -94,15 +94,25 @@ const nextConfig: NextConfig = {
         destination: "/en/blog/spec-driven-development",
         permanent: true,
       },
-      // English-only slugs → directory names (these only exist in en blog data)
+      // Croatian slugs for the two newest posts now redirect to English directory names
       {
-        source: "/en/blog/bringing-ai-into-the-development-process",
-        destination: "/en/blog/kako-uvesti-ai-u-razvojni-proces",
+        source: "/blog/kako-uvesti-ai-u-razvojni-proces",
+        destination: "/blog/bringing-ai-into-the-development-process",
         permanent: true,
       },
       {
-        source: "/en/blog/software-modernization-without-downtime",
-        destination: "/en/blog/modernizacija-softwarea-bez-zastoja",
+        source: "/en/blog/kako-uvesti-ai-u-razvojni-proces",
+        destination: "/en/blog/bringing-ai-into-the-development-process",
+        permanent: true,
+      },
+      {
+        source: "/blog/modernizacija-softwarea-bez-zastoja",
+        destination: "/blog/software-modernization-without-downtime",
+        permanent: true,
+      },
+      {
+        source: "/en/blog/modernizacija-softwarea-bez-zastoja",
+        destination: "/en/blog/software-modernization-without-downtime",
         permanent: true,
       },
     ];

@@ -6,8 +6,8 @@ export type Locale = "hr" | "en";
 // For shared posts (BLOG_SLUGS), slug already matches directory.
 // For locale-specific slugs (English-only), maps to the shared directory.
 const SLUG_TO_DIR: Record<string, string> = {
-  "bringing-ai-into-the-development-process": "kako-uvesti-ai-u-razvojni-proces",
-  "software-modernization-without-downtime": "modernizacija-softwarea-bez-zastoja",
+  "kako-uvesti-ai-u-razvojni-proces": "bringing-ai-into-the-development-process",
+  "modernizacija-softwarea-bez-zastoja": "software-modernization-without-downtime",
 };
 
 /** Get the filesystem directory name for a blog post slug */
@@ -188,7 +188,7 @@ const blogPostsHr: BlogPost[] = [
 
 const blogPostsEn: BlogPost[] = [
   {
-    slug: "kako-uvesti-ai-u-razvojni-proces",
+    slug: "bringing-ai-into-the-development-process",
     title: "Bringing AI into the development process without losing control",
     description:
       "A practical framework for introducing AI coding tools into a software team: where to start, what guardrails to set, and how to measure real value.",
@@ -210,7 +210,7 @@ const blogPostsEn: BlogPost[] = [
     readingTime: "8 min read",
   },
   {
-    slug: "modernizacija-softwarea-bez-zastoja",
+    slug: "software-modernization-without-downtime",
     title: "Software modernization without stopping development",
     description:
       "How to modernize an existing codebase through small, controlled changes instead of a big rewrite that halts delivery.",

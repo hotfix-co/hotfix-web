@@ -8,106 +8,124 @@ import { getBlogPost } from "@/lib/blogData";
 import type { Locale } from "@/lib/blogData";
 import { ROUTES, SITE_URL } from "@/lib/constants";
 
+const HR_SLUG = "modernizacija-softwarea-bez-zastoja";
+const EN_SLUG = "software-modernization-without-downtime";
+
 export function generateStaticParams() {
   return [{ locale: "hr" }, { locale: "en" }];
 }
 
-const post = getBlogPost("modernizacija-softwarea-bez-zastoja")!;
+const postHr = getBlogPost(HR_SLUG, "hr")!;
+const postEn = getBlogPost(EN_SLUG, "en")!;
 
-export const metadata: Metadata = {
-  title: post.title,
-  description: post.description,
-  alternates: {
-    canonical: `${SITE_URL}/blog/${post.slug}`,
-    languages: {
-      "hr-HR": `${SITE_URL}${ROUTES.blog}/${post.slug}`,
-      "x-default": `${SITE_URL}${ROUTES.blog}/${post.slug}`,
-    },
-  },
-  openGraph: {
-    url: `${SITE_URL}/blog/${post.slug}`,
-    type: "article",
-    siteName: "HOTFIX d.o.o.",
-    locale: "hr_HR",
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEn = locale === "en";
+  const post = isEn ? postEn : postHr;
+  const slug = isEn ? EN_SLUG : HR_SLUG;
+
+  return {
     title: post.title,
     description: post.description,
-    publishedTime: post.publishedAt,
-    authors: [post.author.name],
-    tags: post.tags,
-    images: [`${SITE_URL}/logo.png`],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: post.title,
-    description: post.description,
-    images: [`${SITE_URL}/logo.png`],
-  },
-  keywords: post.tags,
-};
-
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: post.title,
-  description: post.description,
-  datePublished: post.publishedAt,
-  dateModified: post.updatedAt || post.publishedAt,
-  inLanguage: "hr-HR",
-  articleSection: "Modernizacija softwarea",
-  author: {
-    "@type": "Person",
-    name: post.author.name,
-    jobTitle: post.author.role,
-    url: `${SITE_URL}${ROUTES.about}`,
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "HOTFIX d.o.o.",
-    url: SITE_URL,
-    logo: {
-      "@type": "ImageObject",
-      url: `${SITE_URL}/logo.png`,
+    alternates: {
+      canonical: `${SITE_URL}/blog/${slug}`,
+      languages: {
+        "hr-HR": `${SITE_URL}/blog/${HR_SLUG}`,
+        en: `${SITE_URL}/en/blog/${EN_SLUG}`,
+        "x-default": `${SITE_URL}/blog/${HR_SLUG}`,
+      },
     },
-  },
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": `${SITE_URL}/blog/${post.slug}`,
-  },
-  keywords: post.tags.join(", "),
-};
+    openGraph: {
+      url: `${SITE_URL}/blog/${slug}`,
+      type: "article",
+      siteName: "HOTFIX d.o.o.",
+      locale: isEn ? "en_US" : "hr_HR",
+      title: post.title,
+      description: post.description,
+      publishedTime: post.publishedAt,
+      authors: [post.author.name],
+      tags: post.tags,
+      images: [`${SITE_URL}/logo.png`],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [`${SITE_URL}/logo.png`],
+    },
+    keywords: post.tags,
+  };
+}
 
 export default async function SoftwareModernizationArticle({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const loc = locale as Locale;
   setRequestLocale(locale);
-  const currentPost = getBlogPost("modernizacija-softwarea-bez-zastoja", loc) ?? post;
+  const isEn = loc === "en";
+  const post = isEn ? postEn : postHr;
+  const slug = isEn ? EN_SLUG : HR_SLUG;
   const t = await getTranslations("blog");
 
-  const ctaTitle = loc === "en"
+  const ctaTitle = isEn
     ? "Need to modernize existing software?"
     : "Trebate modernizirati postojeći software?";
-  const ctaDescription = loc === "en"
+  const ctaDescription = isEn
     ? "We help teams map technical debt, choose a safe modernization strategy, and deliver changes without stopping development."
     : "Pomažemo timovima mapirati tehnički dug, odabrati sigurnu strategiju modernizacije i isporučivati promjene bez zaustavljanja razvoja.";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: t("breadcrumbHome"), url: "/" },
     { name: "Blog", url: ROUTES.blog },
-    { name: currentPost.title, url: `${ROUTES.blog}/${currentPost.slug}` },
+    { name: post.title, url: `${ROUTES.blog}/${slug}` },
   ]);
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt || post.publishedAt,
+    inLanguage: isEn ? "en-US" : "hr-HR",
+    articleSection: isEn ? "Software modernization" : "Modernizacija softwarea",
+    author: {
+      "@type": "Person",
+      name: post.author.name,
+      jobTitle: isEn && post.author.roleEn ? post.author.roleEn : post.author.role,
+      url: `${SITE_URL}${ROUTES.about}`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "HOTFIX d.o.o.",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${slug}`,
+    },
+    keywords: post.tags.join(", "),
+  };
 
   return (
     <div className="bg-white">
       <StructuredData data={[breadcrumbSchema, articleSchema]} />
 
       <BlogArticleLayout
-        post={currentPost}
+        post={post}
         locale={loc}
         ctaTitle={ctaTitle}
         ctaDescription={ctaDescription}
         ctaSource="blog_software_modernization"
       >
-        {loc === "en" ? (
+        {isEn ? (
           <>
             <section className="space-y-5">
               <p className="text-[20px] leading-[1.55] text-[var(--ink-secondary)]">
