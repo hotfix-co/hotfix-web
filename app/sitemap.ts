@@ -1,61 +1,71 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blogData";
-import { SITE_URL } from "@/lib/constants";
+import { ROUTES, SITE_URL } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL;
+  const contentUpdatedAt = new Date("2026-05-14");
 
-  const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+  const routes = [
+    ROUTES.home,
+    ROUTES.about,
+    ROUTES.services,
+    ROUTES.aiConsulting,
+    ROUTES.productivity,
+    ROUTES.quality,
+    ROUTES.contact,
+    ROUTES.privacy,
+    ROUTES.terms,
+    ROUTES.blog,
   ];
 
+  const routeMeta: Record<string, { changeFrequency: "monthly" | "weekly" | "yearly"; priority: number }> = {
+    [ROUTES.home]: { changeFrequency: "monthly", priority: 1 },
+    [ROUTES.about]: { changeFrequency: "monthly", priority: 0.8 },
+    [ROUTES.services]: { changeFrequency: "monthly", priority: 0.8 },
+    [ROUTES.aiConsulting]: { changeFrequency: "monthly", priority: 0.75 },
+    [ROUTES.productivity]: { changeFrequency: "monthly", priority: 0.7 },
+    [ROUTES.quality]: { changeFrequency: "monthly", priority: 0.7 },
+    [ROUTES.contact]: { changeFrequency: "monthly", priority: 0.7 },
+    [ROUTES.privacy]: { changeFrequency: "yearly", priority: 0.3 },
+    [ROUTES.terms]: { changeFrequency: "yearly", priority: 0.3 },
+    [ROUTES.blog]: { changeFrequency: "weekly", priority: 0.8 },
+  };
+
+  // Croatian pages (no prefix — default locale)
+  const hrPages: MetadataRoute.Sitemap = routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: contentUpdatedAt,
+    changeFrequency: routeMeta[route].changeFrequency,
+    priority: routeMeta[route].priority,
+    alternates: {
+      languages: {
+        hr: `${baseUrl}${route}`,
+        en: `${baseUrl}/en${route === "/" ? "" : route}`,
+      },
+    },
+  }));
+
+  // English pages (/en/ prefix)
+  const enPages: MetadataRoute.Sitemap = routes.map((route) => ({
+    url: `${baseUrl}/en${route === "/" ? "" : route}`,
+    lastModified: contentUpdatedAt,
+    changeFrequency: routeMeta[route].changeFrequency,
+    priority: routeMeta[route].priority * 0.9,
+    alternates: {
+      languages: {
+        hr: `${baseUrl}${route}`,
+        en: `${baseUrl}/en${route === "/" ? "" : route}`,
+      },
+    },
+  }));
+
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+    url: `${baseUrl}${ROUTES.blog}/${post.slug}`,
     lastModified: new Date(post.updatedAt || post.publishedAt),
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
-  return [...staticPages, ...blogPages];
+  return [...hrPages, ...enPages, ...blogPages];
 }

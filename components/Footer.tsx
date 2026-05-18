@@ -1,8 +1,12 @@
-import Link from "next/link";
-import ContactTrackedLink from "@/components/ContactTrackedLink";
+"use client";
+
+import { useTranslations } from "next-intl";
 import EmailTrackedLink from "@/components/EmailTrackedLink";
+import { Link as IntlLink } from "@/i18n/navigation";
+import { ROUTES } from "@/lib/constants";
 
 export default function Footer() {
+  const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -15,55 +19,52 @@ export default function Footer() {
               HOTFIX
             </div>
             <p className="max-w-md text-[13px] leading-relaxed text-[var(--ink-mute)]">
-              HOTFIX d.o.o. is a full-stack and mobile development company specializing in
-              C#, React, Golang, Kotlin, and Swift. We deliver robust, scalable solutions for
-              modern businesses.
+              {t("description")}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 text-[13px] font-medium text-[var(--ink)]">Quick Links</h3>
+            <h3 className="mb-4 text-[13px] font-medium text-[var(--ink)]">{t("navigation")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="/"
+                <IntlLink
+                  href={ROUTES.home}
                   className="text-[13px] hover:text-[var(--primary)] transition-colors"
                 >
-                  Home
-                </Link>
+                  Početna
+                </IntlLink>
               </li>
               <li>
-                <Link
-                  href="/about"
+                <IntlLink
+                  href={ROUTES.about}
                   className="text-[13px] hover:text-[var(--primary)] transition-colors"
                 >
-                  About
-                </Link>
+                  O nama
+                </IntlLink>
               </li>
               <li>
-                <Link
-                  href="/services"
+                <IntlLink
+                  href={ROUTES.services}
                   className="text-[13px] hover:text-[var(--primary)] transition-colors"
                 >
-                  Services
-                </Link>
+                  Usluge
+                </IntlLink>
               </li>
               <li>
-                <ContactTrackedLink
-                  href="/contact"
-                  source="footer"
+                <IntlLink
+                  href={ROUTES.contact}
                   className="text-[13px] hover:text-[var(--primary)] transition-colors"
                 >
-                  Contact
-                </ContactTrackedLink>
+                  Kontakt
+                </IntlLink>
               </li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="mb-4 text-[13px] font-medium text-[var(--ink)]">Contact</h3>
+            <h3 className="mb-4 text-[13px] font-medium text-[var(--ink)]">{t("contact")}</h3>
             <ul className="space-y-2 text-[13px]">
               <li>
                 <EmailTrackedLink
@@ -74,7 +75,7 @@ export default function Footer() {
                   ops@hotfix-doo.com
                 </EmailTrackedLink>
               </li>
-              <li>Available Mon-Fri, 9AM-5PM</li>
+              <li>{t("hours")}</li>
             </ul>
           </div>
         </div>
@@ -83,21 +84,21 @@ export default function Footer() {
         <div className="mt-10 border-t border-[var(--hairline)] pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-[13px]">
-              © {currentYear} HOTFIX d.o.o. All rights reserved.
+              &copy; {currentYear} HOTFIX d.o.o. {t("rights")}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link
-                href="/privacy"
+              <IntlLink
+                href={ROUTES.privacy}
                 className="text-[13px] hover:text-[var(--primary)] transition-colors"
               >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
+                {t("privacy")}
+              </IntlLink>
+              <IntlLink
+                href={ROUTES.terms}
                 className="text-[13px] hover:text-[var(--primary)] transition-colors"
               >
-                Terms of Service
-              </Link>
+                {t("terms")}
+              </IntlLink>
             </div>
           </div>
         </div>

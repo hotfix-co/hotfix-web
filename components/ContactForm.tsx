@@ -3,24 +3,26 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 import * as z from "zod";
 import { trackEvent } from "@/lib/analytics";
 
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  company: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
 export default function ContactForm() {
+  const t = useTranslations("contactForm");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
     message: string;
   }>({ type: null, message: "" });
+
+  const contactSchema = z.object({
+    name: z.string().min(2, t("nameError")),
+    email: z.string().email(t("emailError")),
+    company: z.string().optional(),
+    message: z.string().min(10, t("messageError")),
+  });
+
+  type ContactFormData = z.infer<typeof contactSchema>;
 
   const {
     register,
@@ -50,21 +52,20 @@ export default function ContactForm() {
         trackEvent("contact_form_submit_success", { source: "contact_form" });
         setSubmitStatus({
           type: "success",
-          message:
-            "Thank you for your message! We'll get back to you as soon as possible.",
+          message: t("success"),
         });
         reset();
       } else {
         const error = await response.json();
         setSubmitStatus({
           type: "error",
-          message: error.message || "Something went wrong. Please try again.",
+          message: error.message || t("errorGeneral"),
         });
       }
     } catch {
       setSubmitStatus({
         type: "error",
-        message: "Failed to send message. Please try again later.",
+        message: t("errorNetwork"),
       });
     } finally {
       setIsSubmitting(false);
@@ -79,7 +80,7 @@ export default function ContactForm() {
           htmlFor="name"
           className="mb-2 block text-[13px] font-medium text-[var(--ink-secondary)]"
         >
-          Name *
+          {t("nameLabel")}
         </label>
         <input
           {...register("name")}
@@ -88,7 +89,7 @@ export default function ContactForm() {
           className={`min-h-10 w-full rounded-[var(--radius-sm)] border bg-white px-3 py-2 text-[15px] text-[var(--ink)] outline-none transition-colors focus:border-[var(--primary)] focus:ring-2 focus:ring-[rgba(249,115,22,0.18)] ${
             errors.name ? "border-[var(--ruby)]" : "border-[var(--hairline-input)]"
           }`}
-          placeholder="Your name"
+          placeholder={t("namePlaceholder")}
         />
         {errors.name && (
           <p className="mt-1 text-[13px] text-[var(--ruby)]">{errors.name.message}</p>
@@ -101,7 +102,7 @@ export default function ContactForm() {
           htmlFor="email"
           className="mb-2 block text-[13px] font-medium text-[var(--ink-secondary)]"
         >
-          Email *
+          {t("emailLabel")}
         </label>
         <input
           {...register("email")}
@@ -110,7 +111,7 @@ export default function ContactForm() {
           className={`min-h-10 w-full rounded-[var(--radius-sm)] border bg-white px-3 py-2 text-[15px] text-[var(--ink)] outline-none transition-colors focus:border-[var(--primary)] focus:ring-2 focus:ring-[rgba(249,115,22,0.18)] ${
             errors.email ? "border-[var(--ruby)]" : "border-[var(--hairline-input)]"
           }`}
-          placeholder="your@email.com"
+          placeholder={t("emailPlaceholder")}
         />
         {errors.email && (
           <p className="mt-1 text-[13px] text-[var(--ruby)]">{errors.email.message}</p>
@@ -123,14 +124,14 @@ export default function ContactForm() {
           htmlFor="company"
           className="mb-2 block text-[13px] font-medium text-[var(--ink-secondary)]"
         >
-          Company
+          {t("companyLabel")}
         </label>
         <input
           {...register("company")}
           type="text"
           id="company"
           className="min-h-10 w-full rounded-[var(--radius-sm)] border border-[var(--hairline-input)] bg-white px-3 py-2 text-[15px] text-[var(--ink)] outline-none transition-colors focus:border-[var(--primary)] focus:ring-2 focus:ring-[rgba(249,115,22,0.18)]"
-          placeholder="Your company (optional)"
+          placeholder={t("companyPlaceholder")}
         />
       </div>
 
@@ -140,7 +141,7 @@ export default function ContactForm() {
           htmlFor="message"
           className="mb-2 block text-[13px] font-medium text-[var(--ink-secondary)]"
         >
-          Message *
+          {t("messageLabel")}
         </label>
         <textarea
           {...register("message")}
@@ -149,16 +150,16 @@ export default function ContactForm() {
           className={`w-full resize-none rounded-[var(--radius-sm)] border bg-white px-3 py-2 text-[15px] text-[var(--ink)] outline-none transition-colors focus:border-[var(--primary)] focus:ring-2 focus:ring-[rgba(249,115,22,0.18)] ${
             errors.message ? "border-[var(--ruby)]" : "border-[var(--hairline-input)]"
           }`}
-          placeholder="Tell us about your project..."
+          placeholder={t("messagePlaceholder")}
         />
         {errors.message && (
           <p className="mt-1 text-[13px] text-[var(--ruby)]">{errors.message.message}</p>
         )}
       </div>
 
-      {/* Honeypot - hidden from humans, bots will fill it */}
+      {/* Honeypot */}
       <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10 overflow-hidden" aria-hidden="true">
-        <label htmlFor="website">Website</label>
+        <label htmlFor="website">{t("honeypotLabel")}</label>
         <input
           type="text"
           id="website"
@@ -176,7 +177,7 @@ export default function ContactForm() {
         disabled={isSubmitting}
         className="button-primary-pill focus-ring w-full disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {isSubmitting ? "Sending…" : "Send Message"}
+        {isSubmitting ? t("submitting") : t("submit")}
       </button>
 
       {/* Status Messages */}

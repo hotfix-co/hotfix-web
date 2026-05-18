@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "HOTFIX d.o.o. - Full-Stack & Mobile Development Company",
+    name: "HOTFIX d.o.o. - AI i software consulting",
     short_name: "HOTFIX",
     description:
-      "Professional full-stack and mobile development services in C#, React, Golang, Kotlin (KMM), and Swift",
+      "AI consulting, software consulting, custom development i modernizacija softwarea.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
@@ -17,7 +17,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/x-icon",
       },
       {
-        src: "/logo_without_bg.png",
+        src: "/logo.png",
         sizes: "512x512",
         type: "image/png",
       },

@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentProps, MouseEvent } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 
 type ContactTrackedLinkProps = ComponentProps<typeof Link> & {

@@ -3,12 +3,14 @@ interface ServiceCardProps {
   description: string;
   features: string[];
   icon: string;
+  includesLabel?: string;
 }
 
 export default function ServiceCard({
   title,
   description,
   features,
+  includesLabel = "Što uključuje",
 }: ServiceCardProps) {
   return (
     <div className="card-feature-light h-full transition-transform duration-200 hover:-translate-y-1">
@@ -19,7 +21,7 @@ export default function ServiceCard({
       <p className="mb-6 text-[15px] leading-[1.4] text-[var(--ink-mute)]">{description}</p>
       <div className="border-t border-[var(--hairline)] pt-6">
         <h4 className="section-eyebrow mb-4">
-          Key Features
+          {includesLabel}
         </h4>
         <ul className="space-y-3">
           {features.map((feature, index) => (

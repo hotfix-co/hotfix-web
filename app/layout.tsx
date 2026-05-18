@@ -1,12 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
-import AnalyticsProvider from "@/components/AnalyticsProvider";
-import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/structuredData";
 import { SITE_URL } from "@/lib/constants";
 
 const inter = Inter({
@@ -34,44 +28,26 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
+    default: "HOTFIX d.o.o. | AI & Software Consulting",
     template: "%s | HOTFIX d.o.o.",
   },
   description:
-    "HOTFIX d.o.o., founded by Josip Budalić, is a professional EU-based full-stack and mobile development company in Croatia specializing in C#, React, Golang, Kotlin (including KMM), and Swift. We deliver robust, scalable, cross-platform solutions for businesses worldwide.",
+    "AI and software consulting for companies that want to integrate AI into real processes, make clearer technical decisions, and deliver software more reliably.",
   keywords: [
-    "Full-Stack Development",
-    "Mobile Development",
-    "C# Development",
-    "React Development",
-    "Golang Development",
-    "Kotlin Development",
-    "Kotlin Multiplatform Mobile",
-    "KMM Development",
-    "Swift Development",
-    "Android Development",
-    "iOS Development",
-    "Cross-Platform Mobile Development",
-    "Web Development",
-    "Software Development Croatia",
-    "Croatian Software Developers",
-    "Josip Budalić",
+    "AI consulting Croatia",
+    "software consulting",
+    "Claude Code consulting",
+    "AI-assisted development",
+    "multi-agent systems",
+    "software architecture",
+    "custom software development",
+    "software modernization",
+    "engineering process consulting",
     "HOTFIX d.o.o.",
-    "C# .NET Development Services",
-    "React Next.js Development",
-    "Kotlin Android Development",
-    "Swift iOS Development",
-    "Custom Software Development",
-    "Enterprise Web Application Development",
-    "Backend Development Services",
-    "Frontend Development Services",
-    "Mobile App Development",
-    "Microservices Architecture",
-    "API Development",
   ],
   authors: [
     { name: "Josip Budalić", url: `${SITE_URL}/about` },
-    { name: "HOTFIX d.o.o." }
+    { name: "HOTFIX d.o.o." },
   ],
   creator: "Josip Budalić",
   publisher: "HOTFIX d.o.o.",
@@ -94,31 +70,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
     url: SITE_URL,
     siteName: "HOTFIX d.o.o.",
-    title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
-    description: "Professional EU-based full-stack and mobile development services in C#, React, Golang, Kotlin, and Swift. Founded by Josip Budalić in Croatia.",
+    title: "HOTFIX d.o.o. | AI & Software Consulting from Croatia",
+    description: "Practical AI and software consulting: AI adoption, Claude Code workflows, software architecture, custom development, and more reliable delivery.",
     images: [
       {
-        url: `${SITE_URL}/logo_without_bg.png`,
+        url: `${SITE_URL}/logo.png`,
         width: 1200,
         height: 630,
-        alt: "HOTFIX d.o.o. - Full-Stack & Mobile Development Company",
-      }
+        alt: "HOTFIX d.o.o. logo",
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "HOTFIX d.o.o. | Full-Stack & Mobile Development Company Croatia",
-    description: "Professional EU-based full-stack and mobile development services in C#, React, Golang, Kotlin, and Swift from Croatia.",
-    images: [`${SITE_URL}/logo_without_bg.png`],
-    creator: "@hotfix",
-  },
-  verification: {
-    // Add these when you set up Google Search Console and Bing Webmaster Tools
-    // google: 'your-google-verification-code',
-    // bing: 'your-bing-verification-code',
+    title: "HOTFIX d.o.o. | AI & Software Consulting",
+    description: "AI consulting, software consulting, Claude Code enablement, architecture, and custom software development.",
+    images: [`${SITE_URL}/logo.png`],
   },
   category: 'technology',
 };
@@ -128,41 +97,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-
-  return (
-    <html lang="en">
-      <head>
-        <StructuredData data={[organizationSchema, websiteSchema, localBusinessSchema]} />
-        {measurementId ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                window.gtag = window.gtag || gtag;
-                gtag('js', new Date());
-                gtag('config', '${measurementId}', {
-                  anonymize_ip: true,
-                  send_page_view: true
-                });
-              `}
-            </Script>
-          </>
-        ) : null}
-      </head>
-      <body
-        className={`${inter.variable} ${geistMono.variable} antialiased`}
-      >
-        <AnalyticsProvider />
-        <Navbar />
-        <main className="min-h-screen pt-16">{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
+  return children;
 }

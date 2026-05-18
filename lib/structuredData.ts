@@ -1,9 +1,8 @@
 import { Organization, Person, WebSite, LocalBusiness, FAQPage, BreadcrumbList, WithContext } from 'schema-dts';
-import { SITE_URL } from './constants';
+import { ROUTES, SITE_URL } from './constants';
 
 const siteUrl = SITE_URL;
 
-// Organization Schema - Company Information
 export const organizationSchema: WithContext<Organization> = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -13,11 +12,11 @@ export const organizationSchema: WithContext<Organization> = {
   url: siteUrl,
   logo: {
     '@type': 'ImageObject',
-    url: `${siteUrl}/logo_without_bg.png`,
-    width: '1200',
-    height: '630',
+    url: `${siteUrl}/logo.png`,
+    width: '512',
+    height: '512',
   },
-  description: 'Professional full-stack and mobile development company specializing in C#, React, Golang, Kotlin, and Swift. We deliver robust, scalable solutions for modern businesses.',
+  description: 'AI i software consulting tvrtka iz Hrvatske. HOTFIX pomaže timovima uvoditi AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software.',
   founder: {
     '@type': 'Person',
     name: 'Josip Budalić',
@@ -29,71 +28,63 @@ export const organizationSchema: WithContext<Organization> = {
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'HR',
-      addressLocality: 'Croatia',
     },
   },
   email: 'ops@hotfix-doo.com',
   contactPoint: {
     '@type': 'ContactPoint',
     email: 'ops@hotfix-doo.com',
-    contactType: 'Customer Service',
-    availableLanguage: ['English', 'Croatian'],
+    contactType: 'customer support',
+    availableLanguage: ['Croatian'],
   },
-  sameAs: [
-    // Add social media profiles when available
-  ],
   knowsAbout: [
-    'Full-Stack Development',
-    'Mobile Development',
-    'C# Development',
-    'React Development',
-    'Golang Development',
-    'Kotlin Development',
-    'Kotlin Multiplatform Mobile',
-    'Swift Development',
-    'Cross-Platform Mobile Development',
-    'Web Development',
-    'Android Development',
-    'iOS Development',
-    'Software Engineering',
+    'AI consulting',
+    'AI adoption strategy',
+    'Claude Code',
+    'AI-assisted development',
+    'Multi-agent systems',
+    'Software architecture',
+    'Software delivery',
+    'Custom software development',
+    '.NET',
+    'TypeScript',
+    'React',
+    'Go',
+    'Kotlin',
+    'Swift',
+    'Python',
   ],
   areaServed: {
     '@type': 'Place',
-    name: 'Worldwide',
+    name: 'Hrvatska i međunarodna tržišta',
   },
 };
 
-// Person Schema - Founder: Josip Budalić
 export const founderSchema: WithContext<Person> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   '@id': `${siteUrl}/#founder`,
   name: 'Josip Budalić',
-  jobTitle: 'Founder & CEO',
+  jobTitle: 'Osnivač i software consultant',
   worksFor: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
     name: 'HOTFIX d.o.o.',
   },
   knowsAbout: [
-    'Software Development',
-    'Full-Stack Development',
-    'Mobile Development',
-    'C# Programming',
+    'Software architecture',
+    'AI-assisted development',
+    'Claude Code',
+    'Engineering process consulting',
+    '.NET',
     'React',
-    'Golang',
+    'Go',
     'Kotlin',
-    'Kotlin Multiplatform Mobile',
     'Swift',
-    'Cross-Platform Development',
+    'Python',
   ],
-  alumniOf: {
-    '@type': 'EducationalOrganization',
-    name: 'Software Engineering',
-  },
 };
 
-// WebSite Schema
 export const websiteSchema: WithContext<WebSite> = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -101,32 +92,25 @@ export const websiteSchema: WithContext<WebSite> = {
   url: siteUrl,
   name: 'HOTFIX d.o.o.',
   alternateName: ['HOTFIX', 'hotfix-doo.com'],
-  description: 'Professional full-stack and mobile development services',
+  description: 'AI i software consulting za tvrtke koje žele kvalitetniji razvojni proces, održivu arhitekturu i pouzdaniju isporuku softwarea.',
   publisher: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
   },
-  inLanguage: 'en-US',
+  inLanguage: 'hr-HR',
 };
 
-// LocalBusiness Schema - Croatian Company
 export const localBusinessSchema: WithContext<LocalBusiness> = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': `${siteUrl}/#localbusiness`,
   name: 'HOTFIX d.o.o.',
-  image: `${siteUrl}/logo_without_bg.png`,
+  image: `${siteUrl}/logo.png`,
   url: siteUrl,
-  telephone: '', // Add phone if available
   email: 'ops@hotfix-doo.com',
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'HR',
-    addressLocality: 'Croatia',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    // Add latitude and longitude when available
   },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
@@ -142,47 +126,45 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
   },
 };
 
-// FAQ Schema for Contact Page
 export const contactFAQSchema: WithContext<FAQPage> = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What types of projects do you work on?',
+      name: 'Na kakvim projektima radite?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We work on a wide range of projects including web applications, APIs, microservices, e-commerce platforms, native mobile apps (Android with Kotlin, iOS with Swift), and custom software solutions. Whether it\'s a startup MVP or enterprise system, we\'ve got you covered.',
+        text: 'Radimo na AI adopciji, software arhitekturi, internim alatima, web i mobile aplikacijama, backend sustavima, integracijama, automatizacijama i modernizaciji postojećeg softwarea.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How long does a typical project take?',
+      name: 'Kako izgleda početak suradnje?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Project timelines vary based on complexity and requirements. Small projects may take 2-4 weeks, while larger applications can take 3-6 months. We provide detailed timelines during the planning phase.',
+        text: 'Krećemo s kratkim razgovorom i pregledom ciljeva, postojećeg stanja i rizika. Nakon toga predlažemo jasan opseg rada, tehnički smjer i prve korake.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Do you provide ongoing support?',
+      name: 'Možete li pomoći postojećem timu?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes! We offer ongoing maintenance, support, and feature development for all our projects. We\'re committed to long-term partnerships with our clients.',
+        text: 'Da. Možemo raditi kao savjetnici, kao hands-on engineering podrška ili kao partner za specifičan dio isporuke, uz transfer znanja prema internom timu.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What is your development process?',
+      name: 'Radite li s AI alatima poput Claude Codea?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We follow an agile methodology with regular sprints, code reviews, and client communication. You\'ll have full visibility into the development process with regular updates and demos.',
+        text: 'Da. Pomažemo timovima uvesti Claude Code i slične AI coding workflowe odgovorno, uz standarde za review, sigurnost, testiranje, dokumentaciju i ownership.',
       },
     },
   ],
 };
 
-// Breadcrumb Schema Generator
 export function generateBreadcrumbSchema(items: { name: string; url: string }[]): WithContext<BreadcrumbList> {
   return {
     '@context': 'https://schema.org',
@@ -196,7 +178,6 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
   };
 }
 
-// Service Schema Generator
 export function generateServiceSchema(serviceName: string, description: string) {
   return {
     '@context': 'https://schema.org',
@@ -210,11 +191,12 @@ export function generateServiceSchema(serviceName: string, description: string) 
     },
     areaServed: {
       '@type': 'Place',
-      name: 'Worldwide',
+      name: 'Hrvatska i međunarodna tržišta',
     },
+    inLanguage: 'hr-HR',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Development Services',
+      name: 'AI i software consulting usluge',
       itemListElement: [
         {
           '@type': 'Offer',
@@ -229,14 +211,14 @@ export function generateServiceSchema(serviceName: string, description: string) 
   };
 }
 
-// About Page Schema
 export const aboutPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
-  '@id': `${siteUrl}/about/#aboutpage`,
-  url: `${siteUrl}/about`,
-  name: 'About HOTFIX d.o.o.',
-  description: 'Learn about HOTFIX d.o.o., founded by Josip Budalić, our mission, values, and expertise in full-stack and mobile development.',
+  '@id': `${siteUrl}${ROUTES.about}/#aboutpage`,
+  url: `${siteUrl}${ROUTES.about}`,
+  name: 'O HOTFIX d.o.o.',
+  description: 'HOTFIX d.o.o. je hrvatska AI i software consulting tvrtka usmjerena na praktičnu isporuku softwarea, arhitekturu, AI workflowe i modernizaciju.',
+  inLanguage: 'hr-HR',
   mainEntity: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
@@ -247,17 +229,16 @@ export const aboutPageSchema = {
   },
 };
 
-// Contact Page Schema
 export const contactPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  '@id': `${siteUrl}/contact/#contactpage`,
-  url: `${siteUrl}/contact`,
-  name: 'Contact HOTFIX d.o.o.',
-  description: 'Get in touch with HOTFIX d.o.o. for your full-stack and mobile development needs.',
+  '@id': `${siteUrl}${ROUTES.contact}/#contactpage`,
+  url: `${siteUrl}${ROUTES.contact}`,
+  name: 'Kontakt - HOTFIX d.o.o.',
+  description: 'Pošaljite upit za AI consulting, software consulting, custom development, modernizaciju ili poboljšanje engineering procesa.',
+  inLanguage: 'hr-HR',
   mainEntity: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
   },
 };
-

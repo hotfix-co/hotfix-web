@@ -219,6 +219,11 @@ section.relative.bg-gradient-to-br {
   font-feature-settings: "ss01", "tnum";
 }
 
+.card-dashboard-mockup-dark {
+  background: var(--brand-dark-900);
+  color: var(--on-primary);
+}
+
 .tabular {
   font-feature-settings: "ss01", "tnum";
   letter-spacing: -0.42px;

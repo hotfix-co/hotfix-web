@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     if (website) {
       // Return 200 so bots think it worked
       return NextResponse.json(
-        { message: "Message sent successfully" },
+        { message: "Poruka je uspješno poslana" },
         { status: 200 }
       );
     }
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     // Validate required fields
     if (!name || !email || !message) {
       return NextResponse.json(
-        { message: "Missing required fields" },
+        { message: "Nedostaju obavezna polja" },
         { status: 400 }
       );
     }
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { message: "Invalid email address" },
+        { message: "Email adresa nije ispravna" },
         { status: 400 }
       );
     }
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
     if (!process.env.SENDGRID_API_KEY) {
       console.error("SENDGRID_API_KEY is not configured");
       return NextResponse.json(
-        { message: "Email service is not configured" },
+        { message: "Email servis nije konfiguriran" },
         { status: 500 }
       );
     }
@@ -50,13 +50,13 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(
-      { message: "Message sent successfully" },
+      { message: "Poruka je uspješno poslana" },
       { status: 200 }
     );
   } catch (error: unknown) {
     console.error("Contact form error:", error);
     return NextResponse.json(
-      { message: "Failed to send message. Please try again later." },
+      { message: "Poruku nije bilo moguće poslati. Pokušajte ponovno kasnije." },
       { status: 500 }
     );
   }

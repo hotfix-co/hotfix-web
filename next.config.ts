@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
   // Enable image optimization
@@ -23,6 +26,46 @@ const nextConfig: NextConfig = {
 
   // Compression
   compress: true,
+
+  turbopack: {
+    root: process.cwd(),
+  },
+
+  async redirects() {
+    return [
+      // Legacy English blog slugs → Croatian (default locale)
+      {
+        source: "/blog/claude-code-subagents",
+        destination: "/blog/claude-code-subagenti-code-review",
+        permanent: true,
+      },
+      {
+        source: "/blog/openclaw-usage",
+        destination: "/blog/openclaw-automatizacija-github-issuea",
+        permanent: true,
+      },
+      {
+        source: "/blog/notebooklm-workflow-learning-faster",
+        destination: "/blog/notebooklm-workflow-brze-ucenje",
+        permanent: true,
+      },
+      {
+        source: "/blog/claude-code-skills-productivity",
+        destination: "/blog/claude-code-skills-produktivnost",
+        permanent: true,
+      },
+      {
+        source: "/blog/ai-context-management-lessons",
+        destination: "/blog/upravljanje-ai-kontekstom",
+        permanent: true,
+      },
+      {
+        source: "/blog/spec-driven-development",
+        destination: "/blog/spec-driven-development-ai",
+        permanent: true,
+      },
+    ];
+  },
 
   // Add headers for better caching and font loading
   async headers() {
@@ -62,4 +105,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

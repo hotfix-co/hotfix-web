@@ -19,27 +19,27 @@ export async function sendContactEmail(data: ContactEmailData) {
     to: process.env.CONTACT_EMAIL || "ops@hotfix-doo.com",
     from: process.env.SENDGRID_FROM_EMAIL || "noreply@hotfix-doo.com",
     replyTo: email,
-    subject: `New Contact Form Submission from ${name}`,
+    subject: `Novi upit s HOTFIX web stranice - ${name}`,
     text: `
-Name: ${name}
+Ime: ${name}
 Email: ${email}
-${company ? `Company: ${company}` : ""}
+${company ? `Tvrtka: ${company}` : ""}
 
-Message:
+Poruka:
 ${message}
     `,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: #f97316; padding: 30px; text-align: center;">
-          <h1 style="color: white; margin: 0;">New Contact Form Submission</h1>
+          <h1 style="color: white; margin: 0;">Novi upit s web stranice</h1>
         </div>
         
         <div style="padding: 30px; background: #f9fafb;">
           <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <h2 style="color: #111827; margin-top: 0;">Contact Details</h2>
+            <h2 style="color: #111827; margin-top: 0;">Podaci za kontakt</h2>
             
             <p style="margin: 10px 0;">
-              <strong style="color: #374151;">Name:</strong><br/>
+              <strong style="color: #374151;">Ime:</strong><br/>
               <span style="color: #6b7280;">${name}</span>
             </p>
             
@@ -52,7 +52,7 @@ ${message}
               company
                 ? `
             <p style="margin: 10px 0;">
-              <strong style="color: #374151;">Company:</strong><br/>
+              <strong style="color: #374151;">Tvrtka:</strong><br/>
               <span style="color: #6b7280;">${company}</span>
             </p>
             `
@@ -60,7 +60,7 @@ ${message}
             }
             
             <p style="margin: 20px 0 10px 0;">
-              <strong style="color: #374151;">Message:</strong>
+              <strong style="color: #374151;">Poruka:</strong>
             </p>
             <div style="background: #f6f9fc; padding: 15px; border-radius: 6px; border-left: 4px solid #f97316;">
               <p style="color: #374151; margin: 0; white-space: pre-wrap;">${message}</p>
@@ -69,7 +69,7 @@ ${message}
         </div>
         
         <div style="padding: 20px; text-align: center; color: #6b7280; font-size: 12px;">
-          <p>This email was sent from the HOTFIX contact form</p>
+          <p>Ova poruka poslana je putem HOTFIX kontakt forme.</p>
         </div>
       </div>
     `,
