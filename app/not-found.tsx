@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <section className="gradient-mesh flex min-h-[70vh] items-center py-24">
@@ -10,12 +12,12 @@ export default function NotFound() {
           Tražena adresa više ne postoji ili je premještena. Najvažnije stranice dostupne su kroz hrvatske URL-ove.
         </p>
         <div className="flex flex-col justify-center gap-3 sm:flex-row">
-          <a href="/" className="button-primary-pill focus-ring">
+          <Link href="/" className="button-primary-pill focus-ring">
             Povratak na početnu
-          </a>
-          <a href="/kontakt" className="button-secondary-pill focus-ring">
+          </Link>
+          <Link href="/kontakt" className="button-secondary-pill focus-ring">
             Pošaljite upit
-          </a>
+          </Link>
         </div>
       </div>
     </section>

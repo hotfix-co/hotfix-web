@@ -3,8 +3,13 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { SiDotnet, SiReact, SiGo, SiKotlin, SiSwift } from "react-icons/si";
 import StructuredData from "@/components/StructuredData";
-import { founderSchema, aboutPageSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
-import { ROUTES, SITE_URL } from "@/lib/constants";
+import { founderSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
+import { ROUTES } from "@/lib/constants";
+import {
+  getLanguageAlternates,
+  getLocalizedPath,
+  getLocalizedUrl,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return [{ locale: "hr" }, { locale: "en" }];
@@ -17,6 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const isEn = locale === "en";
+  const canonicalUrl = getLocalizedUrl(ROUTES.about, isEn ? "en" : "hr");
 
   return {
     title: isEn
@@ -26,15 +32,11 @@ export async function generateMetadata({
       ? "HOTFIX d.o.o. is a Croatian AI and software consulting company that helps teams make better technical decisions, modernize software, and deliver more reliably."
       : "HOTFIX d.o.o. je hrvatska AI i software consulting tvrtka koja pomaže timovima donositi bolje tehničke odluke, modernizirati software i pouzdanije isporučivati.",
     alternates: {
-      canonical: `${SITE_URL}${ROUTES.about}`,
-      languages: {
-        "hr-HR": `${SITE_URL}/o-nama`,
-        "en": `${SITE_URL}/en/about`,
-        "x-default": `${SITE_URL}/o-nama`,
-      },
+      canonical: canonicalUrl,
+      languages: getLanguageAlternates(ROUTES.about),
     },
     openGraph: {
-      url: `${SITE_URL}${ROUTES.about}`,
+      url: canonicalUrl,
       type: "website",
       siteName: "HOTFIX d.o.o.",
       locale: isEn ? "en_US" : "hr_HR",
@@ -56,11 +58,35 @@ export default async function AboutPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "about" });
+  const loc = locale === "en" ? "en" : "hr";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === "en" ? "Home" : "Početna", url: "/" },
-    { name: locale === "en" ? "About" : "O nama", url: ROUTES.about },
+    {
+      name: locale === "en" ? "Home" : "Početna",
+      url: getLocalizedPath(ROUTES.home, locale === "en" ? "en" : "hr"),
+    },
+    {
+      name: locale === "en" ? "About" : "O nama",
+      url: getLocalizedPath(ROUTES.about, locale === "en" ? "en" : "hr"),
+    },
   ]);
+  const aboutPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${getLocalizedUrl(ROUTES.about, loc)}/#aboutpage`,
+    url: getLocalizedUrl(ROUTES.about, loc),
+    name: t("title"),
+    description: t("description"),
+    inLanguage: loc === "en" ? "en-US" : "hr-HR",
+    mainEntity: {
+      "@type": "Organization",
+      "@id": `${getLocalizedUrl(ROUTES.home, "hr")}/#organization`,
+    },
+    about: {
+      "@type": "Organization",
+      "@id": `${getLocalizedUrl(ROUTES.home, "hr")}/#organization`,
+    },
+  };
 
   return (
     <div className="bg-white">

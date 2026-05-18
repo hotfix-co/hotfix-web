@@ -5,7 +5,12 @@ import { Link } from "@/i18n/navigation";
 import StructuredData from "@/components/StructuredData";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/structuredData";
-import { SITE_URL } from "@/lib/constants";
+import { ROUTES } from "@/lib/constants";
+import {
+  getLanguageAlternates,
+  getLocalizedPath,
+  getLocalizedUrl,
+} from "@/lib/seo";
 
 const I18N_ROUTES = {
   aiConsulting: "/services/ai-consulting" as const,
@@ -25,6 +30,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const isEn = locale === "en";
+  const canonicalUrl = getLocalizedUrl(ROUTES.services, isEn ? "en" : "hr");
 
   return {
     title: isEn
@@ -34,15 +40,11 @@ export async function generateMetadata({
       ? "AI consulting, Claude Code enablement, multi-agent systems, software architecture, engineering processes, custom software development, integrations, and modernization."
       : "AI consulting, Claude Code enablement, multi-agent sustavi, software arhitektura, engineering procesi, custom software development, integracije i modernizacija.",
     alternates: {
-      canonical: `${SITE_URL}/usluge`,
-      languages: {
-        "hr-HR": `${SITE_URL}/usluge`,
-        "en": `${SITE_URL}/en/services`,
-        "x-default": `${SITE_URL}/usluge`,
-      },
+      canonical: canonicalUrl,
+      languages: getLanguageAlternates(ROUTES.services),
     },
     openGraph: {
-      url: `${SITE_URL}/usluge`,
+      url: canonicalUrl,
       type: "website",
       siteName: "HOTFIX d.o.o.",
       locale: isEn ? "en_US" : "hr_HR",
@@ -81,8 +83,8 @@ export default async function ServicesPage({
   const includesLabel = isEn ? "What's included" : "Što uključuje";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: isEn ? "Home" : "Početna", url: "/" },
-    { name: isEn ? "Services" : "Usluge", url: isEn ? "/en/services" : "/usluge" },
+    { name: isEn ? "Home" : "Početna", url: getLocalizedPath(ROUTES.home, isEn ? "en" : "hr") },
+    { name: isEn ? "Services" : "Usluge", url: getLocalizedPath(ROUTES.services, isEn ? "en" : "hr") },
   ]);
 
   const services = [
@@ -137,7 +139,7 @@ export default async function ServicesPage({
 
   // Generate service schemas
   const serviceSchemas = services.map(service =>
-    generateServiceSchema(service.title, service.description)
+    generateServiceSchema(service.title, service.description, isEn ? "en" : "hr")
   );
 
   return (

@@ -1,8 +1,8 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { usePathname as useNativePathname } from "next/navigation";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useTransition } from "react";
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 const locales = [
   { code: "hr" as const, label: "HR", full: "Hrvatski" },
@@ -11,8 +11,10 @@ const locales = [
 
 export default function LanguagePicker() {
   const locale = useLocale();
-  const nativePathname = useNativePathname();
+  const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,15 +30,21 @@ export default function LanguagePicker() {
   const current = locales.find((l) => l.code === locale) || locales[0];
 
   function handleSwitch(newLocale: "hr" | "en") {
-    setOpen(false);
-    // Strip existing locale prefix from the current URL path
-    let path = nativePathname;
-    if (path.startsWith("/en")) {
-      path = path.slice(3) || "/";
+    if (newLocale === locale) {
+      setOpen(false);
+      return;
     }
-    // Build new URL with target locale prefix
-    const newPath = newLocale === "en" ? `/en${path}` : path;
-    window.location.href = newPath;
+
+    setOpen(false);
+    const query = Object.fromEntries(
+      new URLSearchParams(window.location.search).entries()
+    );
+    const href =
+      Object.keys(query).length > 0 ? { pathname, query } : pathname;
+
+    startTransition(() => {
+      router.replace(href, { locale: newLocale });
+    });
   }
 
   return (
@@ -44,6 +52,7 @@ export default function LanguagePicker() {
       <button
         type="button"
         onClick={() => setOpen(!open)}
+        disabled={isPending}
         className="focus-ring flex min-h-9 items-center gap-1.5 rounded-full border border-[var(--hairline)] px-3 text-[13px] font-medium text-[var(--ink-mute-2)] transition-colors hover:border-[var(--primary)] hover:text-[var(--ink)]"
         aria-expanded={open}
         aria-haspopup="listbox"
@@ -71,6 +80,7 @@ export default function LanguagePicker() {
               type="button"
               role="option"
               aria-selected={l.code === locale}
+              disabled={isPending}
               onClick={() => handleSwitch(l.code)}
               className={`flex w-full items-center gap-2 px-3 py-2 text-left text-[13px] transition-colors ${
                 l.code === locale

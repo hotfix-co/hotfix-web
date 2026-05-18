@@ -7,6 +7,7 @@ import { ROUTES } from "@/lib/constants";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const navT = useTranslations("nav");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -32,7 +33,7 @@ export default function Footer() {
                   href={ROUTES.home}
                   className="text-[13px] hover:text-[var(--primary)] transition-colors"
                 >
-                  Početna
+                  {navT("home")}
                 </IntlLink>
               </li>
               <li>
@@ -40,7 +41,7 @@ export default function Footer() {
                   href={ROUTES.about}
                   className="text-[13px] hover:text-[var(--primary)] transition-colors"
                 >
-                  O nama
+                  {navT("about")}
                 </IntlLink>
               </li>
               <li>
@@ -48,7 +49,7 @@ export default function Footer() {
                   href={ROUTES.services}
                   className="text-[13px] hover:text-[var(--primary)] transition-colors"
                 >
-                  Usluge
+                  {navT("services")}
                 </IntlLink>
               </li>
               <li>
@@ -56,7 +57,7 @@ export default function Footer() {
                   href={ROUTES.contact}
                   className="text-[13px] hover:text-[var(--primary)] transition-colors"
                 >
-                  Kontakt
+                  {navT("contact")}
                 </IntlLink>
               </li>
             </ul>

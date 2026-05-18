@@ -1,11 +1,19 @@
-import type { Metadata } from "next";
+import type { ComponentProps } from "react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import StructuredData from "@/components/StructuredData";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
+import { Link } from "@/i18n/navigation";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
-import { blogPosts, getBlogPosts, formatDate, slugToDirectory } from "@/lib/blogData";
+import { getBlogPosts, formatDate, slugToInternalBlogPath } from "@/lib/blogData";
 import type { Locale } from "@/lib/blogData";
-import { ROUTES, SITE_URL } from "@/lib/constants";
+import { ROUTES } from "@/lib/constants";
+import {
+  getLanguageAlternates,
+  getLocalizedPath,
+  getLocalizedUrl,
+} from "@/lib/seo";
+
+type IntlHref = ComponentProps<typeof Link>["href"];
 
 export function generateStaticParams() {
   return [{ locale: "hr" }, { locale: "en" }];
@@ -17,7 +25,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const isEn = locale === "en";
+  const loc = locale as Locale;
+  const isEn = loc === "en";
+  const canonicalUrl = getLocalizedUrl(ROUTES.blog, loc);
 
   return {
     title: isEn
@@ -27,15 +37,11 @@ export async function generateMetadata({
       ? "Practical notes on AI-assisted development, Claude Code workflows, software delivery, specifications, automation, and engineering processes."
       : "Praktične bilješke o AI-assisted developmentu, Claude Code workflowima, software deliveryju, specifikacijama, automatizaciji i engineering procesima.",
     alternates: {
-      canonical: `${SITE_URL}${ROUTES.blog}`,
-      languages: {
-        "hr-HR": `${SITE_URL}${ROUTES.blog}`,
-        en: `${SITE_URL}/en/blog`,
-        "x-default": `${SITE_URL}${ROUTES.blog}`,
-      },
+      canonical: canonicalUrl,
+      languages: getLanguageAlternates(ROUTES.blog),
     },
     openGraph: {
-      url: `${SITE_URL}${ROUTES.blog}`,
+      url: canonicalUrl,
       type: "website",
       siteName: "HOTFIX d.o.o.",
       locale: isEn ? "en_US" : "hr_HR",
@@ -70,8 +76,8 @@ export default async function BlogPage({
   const posts = getBlogPosts(loc);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: t("breadcrumbHome"), url: "/" },
-    { name: "Blog", url: ROUTES.blog },
+    { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
+    { name: "Blog", url: getLocalizedPath(ROUTES.blog, loc) },
   ]);
 
   const sortedPosts = [...posts].sort(
@@ -103,10 +109,9 @@ export default async function BlogPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {sortedPosts.map((post) => {
-              const dirSlug = slugToDirectory(post.slug);
-              const blogHref = loc === "en" ? `/en/blog/${dirSlug}` : `/blog/${dirSlug}`;
+              const blogHref = slugToInternalBlogPath(post.slug) as IntlHref;
               return (
-              <a
+              <Link
                 key={post.slug}
                 href={blogHref}
                 className="group block focus-ring rounded-[var(--radius-lg)]"
@@ -137,7 +142,7 @@ export default async function BlogPage({
                     <span>{post.readingTime}</span>
                   </div>
                 </article>
-              </a>
+              </Link>
               );
             })}
           </div>

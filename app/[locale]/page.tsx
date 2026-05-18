@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Hero from "@/components/Hero";
-import { SITE_URL } from "@/lib/constants";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "@/i18n/navigation";
 import StructuredData from "@/components/StructuredData";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 import { ROUTES } from "@/lib/constants";
+import {
+  getLanguageAlternates,
+  getLocalizedPath,
+  getLocalizedUrl,
+} from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -16,6 +20,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const isEn = locale === "en";
+  const canonicalUrl = getLocalizedUrl(ROUTES.home, isEn ? "en" : "hr");
 
   return {
     title: isEn
@@ -25,15 +30,11 @@ export async function generateMetadata({
       ? "HOTFIX helps companies integrate AI into real processes, improve software delivery, modernize codebases, and build custom software without hype."
       : "HOTFIX pomaže tvrtkama uvesti AI u stvarne procese, poboljšati software delivery, modernizirati codebase i graditi custom software bez hypea.",
     alternates: {
-      canonical: `${SITE_URL}`,
-      languages: {
-        "hr-HR": SITE_URL,
-        "en": `${SITE_URL}/en`,
-        "x-default": SITE_URL,
-      },
+      canonical: canonicalUrl,
+      languages: getLanguageAlternates(ROUTES.home),
     },
     openGraph: {
-      url: SITE_URL,
+      url: canonicalUrl,
       type: "website",
       siteName: "HOTFIX d.o.o.",
       locale: isEn ? "en_US" : "hr_HR",
@@ -56,7 +57,10 @@ export default async function Home({
   const t = await getTranslations({ locale, namespace: "home" });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === "en" ? "Home" : "Početna", url: "/" },
+    {
+      name: locale === "en" ? "Home" : "Početna",
+      url: getLocalizedPath(ROUTES.home, locale === "en" ? "en" : "hr"),
+    },
   ]);
 
   const features = [

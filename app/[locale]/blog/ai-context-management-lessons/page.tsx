@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { Link } from "@/i18n/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import StructuredData from "@/components/StructuredData";
 import BlogArticleLayout from "@/components/BlogArticleLayout";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 import { getBlogPost, type Locale } from "@/lib/blogData";
-import { BLOG_SLUGS, ROUTES, SITE_URL } from "@/lib/constants";
+import { BLOG_ARTICLE_ROUTES, ROUTES } from "@/lib/constants";
+import {
+  generateBlogMetadata,
+  generateBlogPostingSchema,
+} from "@/lib/blogSeo";
+import { getLocalizedPath } from "@/lib/seo";
 
 export function generateStaticParams() {
   return [{ locale: "hr" }, { locale: "en" }];
@@ -12,67 +18,21 @@ export function generateStaticParams() {
 
 const post = getBlogPost("ai-context-management-lessons")!;
 
-export const metadata: Metadata = {
-  title: post.title,
-  description: post.description,
-  alternates: {
-    canonical: `${SITE_URL}/blog/${post.slug}`,
-    languages: {
-      "hr-HR": `${SITE_URL}${ROUTES.blog}/${post.slug}`,
-      "x-default": `${SITE_URL}${ROUTES.blog}/${post.slug}`,
-    },
-  },
-  openGraph: {
-    url: `${SITE_URL}/blog/${post.slug}`,
-    type: "article",
-    siteName: "HOTFIX d.o.o.",
-    locale: "hr_HR",
-    title: post.title,
-    description: post.description,
-    publishedTime: post.publishedAt,
-    authors: [post.author.name],
-    tags: post.tags,
-    images: [`${SITE_URL}/logo.png`],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: post.title,
-    description: post.description,
-    images: [`${SITE_URL}/logo.png`],
-  },
-  keywords: post.tags,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const loc = locale === "en" ? "en" : "hr";
+  const currentPost = getBlogPost("ai-context-management-lessons", loc) ?? post;
 
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: post.title,
-  description: post.description,
-  datePublished: post.publishedAt,
-  dateModified: post.updatedAt || post.publishedAt,
-  inLanguage: "hr-HR",
-  articleSection: "AI context management",
-  author: {
-    "@type": "Person",
-    name: post.author.name,
-    jobTitle: post.author.role,
-    url: `${SITE_URL}${ROUTES.about}`,
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "HOTFIX d.o.o.",
-    url: SITE_URL,
-    logo: {
-      "@type": "ImageObject",
-      url: `${SITE_URL}/logo.png`,
-    },
-  },
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": `${SITE_URL}/blog/${post.slug}`,
-  },
-  keywords: post.tags.join(", "),
-};
+  return generateBlogMetadata({
+    post: currentPost,
+    pathname: BLOG_ARTICLE_ROUTES.aiContextManagement,
+    locale: loc,
+  });
+}
 
 export default async function AIContextManagementArticle({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -80,6 +40,12 @@ export default async function AIContextManagementArticle({ params }: { params: P
   setRequestLocale(locale);
   const currentPost = getBlogPost("ai-context-management-lessons", loc) ?? post;
   const t = await getTranslations("blog");
+  const articleSchema = generateBlogPostingSchema({
+    post: currentPost,
+    pathname: BLOG_ARTICLE_ROUTES.aiContextManagement,
+    locale: loc,
+    articleSection: "AI context management",
+  });
 
   const ctaTitle =
     loc === "en"
@@ -91,9 +57,12 @@ export default async function AIContextManagementArticle({ params }: { params: P
       : "Pomažemo timovima dizajnirati AI-assisted development proces, granice konteksta, specifikacije i evaluacije koje smanjuju šum.";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: t("breadcrumbHome"), url: "/" },
-    { name: "Blog", url: ROUTES.blog },
-    { name: currentPost.title, url: `${ROUTES.blog}/${currentPost.slug}` },
+    { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
+    { name: "Blog", url: getLocalizedPath(ROUTES.blog, loc) },
+    {
+      name: currentPost.title,
+      url: getLocalizedPath(BLOG_ARTICLE_ROUTES.aiContextManagement, loc),
+    },
   ]);
 
   return (
@@ -157,9 +126,9 @@ export default async function AIContextManagementArticle({ params }: { params: P
               </p>
               <p>
                 That&apos;s why AI-assisted development works better when combined with a{" "}
-                <a href={`${ROUTES.blog}/${BLOG_SLUGS.specDrivenDevelopment}`} className="text-[var(--primary)]">
+                <Link href={BLOG_ARTICLE_ROUTES.specDrivenDevelopment} className="text-[var(--primary)]">
                   spec-driven approach
-                </a>
+                </Link>
                 . The specification gives the model intent, and selective context gives it enough local knowledge for implementation.
               </p>
             </section>
@@ -257,9 +226,9 @@ export default async function AIContextManagementArticle({ params }: { params: P
               </p>
               <p>
                 Zato AI-assisted development bolje radi kada ga spojite sa{" "}
-                <a href={`${ROUTES.blog}/${BLOG_SLUGS.specDrivenDevelopment}`} className="text-[var(--primary)]">
+                <Link href={BLOG_ARTICLE_ROUTES.specDrivenDevelopment} className="text-[var(--primary)]">
                   spec-driven pristupom
-                </a>
+                </Link>
                 . Specifikacija modelu daje namjeru, a selektivni kontekst mu daje
                 dovoljno lokalnog znanja za implementaciju.
               </p>

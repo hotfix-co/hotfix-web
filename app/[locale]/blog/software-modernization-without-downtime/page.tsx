@@ -6,7 +6,12 @@ import BlogArticleLayout from "@/components/BlogArticleLayout";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 import { getBlogPost } from "@/lib/blogData";
 import type { Locale } from "@/lib/blogData";
-import { ROUTES, SITE_URL } from "@/lib/constants";
+import { BLOG_ARTICLE_ROUTES, ROUTES } from "@/lib/constants";
+import {
+  generateBlogMetadata,
+  generateBlogPostingSchema,
+} from "@/lib/blogSeo";
+import { getLocalizedPath } from "@/lib/seo";
 
 const HR_SLUG = "modernizacija-softwarea-bez-zastoja";
 const EN_SLUG = "software-modernization-without-downtime";
@@ -26,39 +31,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const isEn = locale === "en";
   const post = isEn ? postEn : postHr;
-  const slug = isEn ? EN_SLUG : HR_SLUG;
 
-  return {
-    title: post.title,
-    description: post.description,
-    alternates: {
-      canonical: `${SITE_URL}/blog/${slug}`,
-      languages: {
-        "hr-HR": `${SITE_URL}/blog/${HR_SLUG}`,
-        en: `${SITE_URL}/en/blog/${EN_SLUG}`,
-        "x-default": `${SITE_URL}/blog/${HR_SLUG}`,
-      },
-    },
-    openGraph: {
-      url: `${SITE_URL}/blog/${slug}`,
-      type: "article",
-      siteName: "HOTFIX d.o.o.",
-      locale: isEn ? "en_US" : "hr_HR",
-      title: post.title,
-      description: post.description,
-      publishedTime: post.publishedAt,
-      authors: [post.author.name],
-      tags: post.tags,
-      images: [`${SITE_URL}/logo.png`],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.description,
-      images: [`${SITE_URL}/logo.png`],
-    },
-    keywords: post.tags,
-  };
+  return generateBlogMetadata({
+    post,
+    pathname: BLOG_ARTICLE_ROUTES.softwareModernization,
+    locale: isEn ? "en" : "hr",
+  });
 }
 
 export default async function SoftwareModernizationArticle({ params }: { params: Promise<{ locale: string }> }) {
@@ -67,7 +45,6 @@ export default async function SoftwareModernizationArticle({ params }: { params:
   setRequestLocale(locale);
   const isEn = loc === "en";
   const post = isEn ? postEn : postHr;
-  const slug = isEn ? EN_SLUG : HR_SLUG;
   const t = await getTranslations("blog");
 
   const ctaTitle = isEn
@@ -78,41 +55,20 @@ export default async function SoftwareModernizationArticle({ params }: { params:
     : "Pomažemo timovima mapirati tehnički dug, odabrati sigurnu strategiju modernizacije i isporučivati promjene bez zaustavljanja razvoja.";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: t("breadcrumbHome"), url: "/" },
-    { name: "Blog", url: ROUTES.blog },
-    { name: post.title, url: `${ROUTES.blog}/${slug}` },
+    { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
+    { name: "Blog", url: getLocalizedPath(ROUTES.blog, loc) },
+    {
+      name: post.title,
+      url: getLocalizedPath(BLOG_ARTICLE_ROUTES.softwareModernization, loc),
+    },
   ]);
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description,
-    datePublished: post.publishedAt,
-    dateModified: post.updatedAt || post.publishedAt,
-    inLanguage: isEn ? "en-US" : "hr-HR",
+  const articleSchema = generateBlogPostingSchema({
+    post,
+    pathname: BLOG_ARTICLE_ROUTES.softwareModernization,
+    locale: loc,
     articleSection: isEn ? "Software modernization" : "Modernizacija softwarea",
-    author: {
-      "@type": "Person",
-      name: post.author.name,
-      jobTitle: isEn && post.author.roleEn ? post.author.roleEn : post.author.role,
-      url: `${SITE_URL}${ROUTES.about}`,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "HOTFIX d.o.o.",
-      url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/logo.png`,
-      },
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${SITE_URL}/blog/${slug}`,
-    },
-    keywords: post.tags.join(", "),
-  };
+  });
 
   return (
     <div className="bg-white">

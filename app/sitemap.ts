@@ -1,71 +1,67 @@
 import { MetadataRoute } from "next";
-import { blogPosts } from "@/lib/blogData";
-import { ROUTES, SITE_URL } from "@/lib/constants";
+import { getBlogPost } from "@/lib/blogData";
+import {
+  BLOG_ARTICLE_LOCALIZED_SLUGS,
+  BLOG_ARTICLE_ROUTES,
+  ROUTES,
+  SUPPORTED_LOCALES,
+  type SiteLocale,
+} from "@/lib/constants";
+import {
+  getLanguageAlternates,
+  getLocalizedUrl,
+  type InternalPathname,
+} from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = SITE_URL;
   const contentUpdatedAt = new Date("2026-05-14");
 
-  const routes = [
-    ROUTES.home,
-    ROUTES.about,
-    ROUTES.services,
-    ROUTES.aiConsulting,
-    ROUTES.productivity,
-    ROUTES.quality,
-    ROUTES.contact,
-    ROUTES.privacy,
-    ROUTES.terms,
-    ROUTES.blog,
+  const routeEntries: Array<{
+    path: InternalPathname;
+    changeFrequency: "monthly" | "weekly" | "yearly";
+    priority: number;
+    lastModified?: Date;
+  }> = [
+    { path: ROUTES.home, changeFrequency: "monthly", priority: 1 },
+    { path: ROUTES.about, changeFrequency: "monthly", priority: 0.8 },
+    { path: ROUTES.services, changeFrequency: "monthly", priority: 0.8 },
+    { path: ROUTES.aiConsulting, changeFrequency: "monthly", priority: 0.75 },
+    { path: ROUTES.productivity, changeFrequency: "monthly", priority: 0.7 },
+    { path: ROUTES.quality, changeFrequency: "monthly", priority: 0.7 },
+    { path: ROUTES.contact, changeFrequency: "monthly", priority: 0.7 },
+    { path: ROUTES.privacy, changeFrequency: "yearly", priority: 0.3 },
+    { path: ROUTES.terms, changeFrequency: "yearly", priority: 0.3 },
+    { path: ROUTES.blog, changeFrequency: "weekly", priority: 0.8 },
   ];
 
-  const routeMeta: Record<string, { changeFrequency: "monthly" | "weekly" | "yearly"; priority: number }> = {
-    [ROUTES.home]: { changeFrequency: "monthly", priority: 1 },
-    [ROUTES.about]: { changeFrequency: "monthly", priority: 0.8 },
-    [ROUTES.services]: { changeFrequency: "monthly", priority: 0.8 },
-    [ROUTES.aiConsulting]: { changeFrequency: "monthly", priority: 0.75 },
-    [ROUTES.productivity]: { changeFrequency: "monthly", priority: 0.7 },
-    [ROUTES.quality]: { changeFrequency: "monthly", priority: 0.7 },
-    [ROUTES.contact]: { changeFrequency: "monthly", priority: 0.7 },
-    [ROUTES.privacy]: { changeFrequency: "yearly", priority: 0.3 },
-    [ROUTES.terms]: { changeFrequency: "yearly", priority: 0.3 },
-    [ROUTES.blog]: { changeFrequency: "weekly", priority: 0.8 },
-  };
+  const blogEntries = Object.entries(BLOG_ARTICLE_ROUTES).map(
+    ([key, path]) => {
+      const localizedSlugs =
+        BLOG_ARTICLE_LOCALIZED_SLUGS[
+          key as keyof typeof BLOG_ARTICLE_LOCALIZED_SLUGS
+        ];
+      const post =
+        getBlogPost(localizedSlugs.en, "en") ??
+        getBlogPost(localizedSlugs.hr, "hr");
 
-  // Croatian pages (no prefix — default locale)
-  const hrPages: MetadataRoute.Sitemap = routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: contentUpdatedAt,
-    changeFrequency: routeMeta[route].changeFrequency,
-    priority: routeMeta[route].priority,
-    alternates: {
-      languages: {
-        hr: `${baseUrl}${route}`,
-        en: `${baseUrl}/en${route === "/" ? "" : route}`,
+      return {
+        path: path as InternalPathname,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        lastModified: new Date(post?.updatedAt || post?.publishedAt || "2026-05-14"),
+      };
+    }
+  );
+
+  return [...routeEntries, ...blogEntries].flatMap((entry) =>
+    SUPPORTED_LOCALES.map((locale: SiteLocale) => ({
+      url: getLocalizedUrl(entry.path, locale),
+      lastModified: entry.lastModified ?? contentUpdatedAt,
+      changeFrequency: entry.changeFrequency,
+      priority: entry.priority,
+      alternates: {
+        languages: getLanguageAlternates(entry.path),
       },
-    },
-  }));
-
-  // English pages (/en/ prefix)
-  const enPages: MetadataRoute.Sitemap = routes.map((route) => ({
-    url: `${baseUrl}/en${route === "/" ? "" : route}`,
-    lastModified: contentUpdatedAt,
-    changeFrequency: routeMeta[route].changeFrequency,
-    priority: routeMeta[route].priority * 0.9,
-    alternates: {
-      languages: {
-        hr: `${baseUrl}${route}`,
-        en: `${baseUrl}/en${route === "/" ? "" : route}`,
-      },
-    },
-  }));
-
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}${ROUTES.blog}/${post.slug}`,
-    lastModified: new Date(post.updatedAt || post.publishedAt),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
-  return [...hrPages, ...enPages, ...blogPages];
+    }))
+  );
 }

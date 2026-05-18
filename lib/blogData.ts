@@ -1,4 +1,9 @@
-import { BLOG_SLUGS } from "@/lib/constants";
+import {
+  BLOG_ARTICLE_LOCALIZED_SLUGS,
+  BLOG_ARTICLE_ROUTES,
+  BLOG_SLUGS,
+  ROUTES,
+} from "@/lib/constants";
 
 export type Locale = "hr" | "en";
 
@@ -10,9 +15,23 @@ const SLUG_TO_DIR: Record<string, string> = {
   "modernizacija-softwarea-bez-zastoja": "software-modernization-without-downtime",
 };
 
+const SLUG_TO_INTERNAL_PATH = Object.entries(BLOG_ARTICLE_LOCALIZED_SLUGS).reduce(
+  (acc, [key, localizedSlugs]) => {
+    const route = BLOG_ARTICLE_ROUTES[key as keyof typeof BLOG_ARTICLE_ROUTES];
+    acc[localizedSlugs.hr] = route;
+    acc[localizedSlugs.en] = route;
+    return acc;
+  },
+  {} as Record<string, string>
+);
+
 /** Get the filesystem directory name for a blog post slug */
 export function slugToDirectory(slug: string): string {
   return SLUG_TO_DIR[slug] ?? slug;
+}
+
+export function slugToInternalBlogPath(slug: string): string {
+  return SLUG_TO_INTERNAL_PATH[slug] ?? `${ROUTES.blog}/${slugToDirectory(slug)}`;
 }
 
 export interface BlogPost {

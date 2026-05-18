@@ -33,20 +33,10 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // Blog slug redirects — old BLOG_SLUGS values → actual filesystem directory names
-      {
-        source: "/blog/claude-code-subagenti-code-review",
-        destination: "/blog/claude-code-subagents",
-        permanent: true,
-      },
+      // Croatian slugs on English-prefixed URLs should resolve to the English URL.
       {
         source: "/en/blog/claude-code-subagenti-code-review",
         destination: "/en/blog/claude-code-subagents",
-        permanent: true,
-      },
-      {
-        source: "/blog/openclaw-automatizacija-github-issuea",
-        destination: "/blog/openclaw-usage",
         permanent: true,
       },
       {
@@ -55,18 +45,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/blog/notebooklm-workflow-brze-ucenje",
-        destination: "/blog/notebooklm-workflow-learning-faster",
-        permanent: true,
-      },
-      {
         source: "/en/blog/notebooklm-workflow-brze-ucenje",
         destination: "/en/blog/notebooklm-workflow-learning-faster",
-        permanent: true,
-      },
-      {
-        source: "/blog/claude-code-skills-produktivnost",
-        destination: "/blog/claude-code-skills-productivity",
         permanent: true,
       },
       {
@@ -75,18 +55,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/blog/upravljanje-ai-kontekstom",
-        destination: "/blog/ai-context-management-lessons",
-        permanent: true,
-      },
-      {
         source: "/en/blog/upravljanje-ai-kontekstom",
         destination: "/en/blog/ai-context-management-lessons",
-        permanent: true,
-      },
-      {
-        source: "/blog/spec-driven-development-ai",
-        destination: "/blog/spec-driven-development",
         permanent: true,
       },
       {
@@ -94,20 +64,9 @@ const nextConfig: NextConfig = {
         destination: "/en/blog/spec-driven-development",
         permanent: true,
       },
-      // Croatian slugs for the two newest posts now redirect to English directory names
-      {
-        source: "/blog/kako-uvesti-ai-u-razvojni-proces",
-        destination: "/blog/bringing-ai-into-the-development-process",
-        permanent: true,
-      },
       {
         source: "/en/blog/kako-uvesti-ai-u-razvojni-proces",
         destination: "/en/blog/bringing-ai-into-the-development-process",
-        permanent: true,
-      },
-      {
-        source: "/blog/modernizacija-softwarea-bez-zastoja",
-        destination: "/blog/software-modernization-without-downtime",
         permanent: true,
       },
       {

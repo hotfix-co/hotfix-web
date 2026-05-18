@@ -4,8 +4,13 @@ import { setRequestLocale } from "next-intl/server";
 import ContactForm from "@/components/ContactForm";
 import StructuredData from "@/components/StructuredData";
 import EmailTrackedLink from "@/components/EmailTrackedLink";
-import { contactFAQSchema, contactPageSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
-import { ROUTES, SITE_URL } from "@/lib/constants";
+import { generateBreadcrumbSchema } from "@/lib/structuredData";
+import { ROUTES } from "@/lib/constants";
+import {
+  getLanguageAlternates,
+  getLocalizedPath,
+  getLocalizedUrl,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return [{ locale: "hr" }, { locale: "en" }];
@@ -18,20 +23,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
+  const loc = locale === "en" ? "en" : "hr";
+  const canonicalUrl = getLocalizedUrl(ROUTES.contact, loc);
 
   return {
     title: t("title"),
     description: t("description"),
     alternates: {
-      canonical: `${SITE_URL}${ROUTES.contact}`,
-      languages: {
-        "hr-HR": `${SITE_URL}/kontakt`,
-        "en": `${SITE_URL}/en/contact`,
-        "x-default": `${SITE_URL}/kontakt`,
-      },
+      canonical: canonicalUrl,
+      languages: getLanguageAlternates(ROUTES.contact),
     },
     openGraph: {
-      url: `${SITE_URL}${ROUTES.contact}`,
+      url: canonicalUrl,
       type: "website",
       siteName: "HOTFIX d.o.o.",
       locale: locale === "en" ? "en_US" : "hr_HR",
@@ -49,11 +52,43 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "contact" });
+  const loc = locale === "en" ? "en" : "hr";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === "en" ? "Home" : "Početna", url: "/" },
-    { name: locale === "en" ? "Contact" : "Kontakt", url: ROUTES.contact },
+    {
+      name: locale === "en" ? "Home" : "Početna",
+      url: getLocalizedPath(ROUTES.home, locale === "en" ? "en" : "hr"),
+    },
+    {
+      name: locale === "en" ? "Contact" : "Kontakt",
+      url: getLocalizedPath(ROUTES.contact, locale === "en" ? "en" : "hr"),
+    },
   ]);
+  const contactFAQSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [1, 2, 3, 4].map((index) => ({
+      "@type": "Question",
+      name: t(`faq${index}Q`),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: t(`faq${index}A`),
+      },
+    })),
+  };
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${getLocalizedUrl(ROUTES.contact, loc)}/#contactpage`,
+    url: getLocalizedUrl(ROUTES.contact, loc),
+    name: t("title"),
+    description: t("description"),
+    inLanguage: loc === "en" ? "en-US" : "hr-HR",
+    mainEntity: {
+      "@type": "Organization",
+      "@id": `${getLocalizedUrl(ROUTES.home, "hr")}/#organization`,
+    },
+  };
 
   return (
     <div className="bg-white">

@@ -1,5 +1,6 @@
 import { Organization, Person, WebSite, LocalBusiness, FAQPage, BreadcrumbList, WithContext } from 'schema-dts';
-import { ROUTES, SITE_URL } from './constants';
+import { ROUTES, SITE_URL, type SiteLocale } from './constants';
+import { getLocalizedUrl } from './seo';
 
 const siteUrl = SITE_URL;
 
@@ -35,7 +36,7 @@ export const organizationSchema: WithContext<Organization> = {
     '@type': 'ContactPoint',
     email: 'ops@hotfix-doo.com',
     contactType: 'customer support',
-    availableLanguage: ['Croatian'],
+    availableLanguage: ['Croatian', 'English'],
   },
   knowsAbout: [
     'AI consulting',
@@ -178,7 +179,11 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
   };
 }
 
-export function generateServiceSchema(serviceName: string, description: string) {
+export function generateServiceSchema(
+  serviceName: string,
+  description: string,
+  locale: SiteLocale = "hr"
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -191,12 +196,12 @@ export function generateServiceSchema(serviceName: string, description: string) 
     },
     areaServed: {
       '@type': 'Place',
-      name: 'Hrvatska i međunarodna tržišta',
+      name: locale === "en" ? 'Croatia and international markets' : 'Hrvatska i međunarodna tržišta',
     },
-    inLanguage: 'hr-HR',
+    inLanguage: locale === "en" ? 'en-US' : 'hr-HR',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'AI i software consulting usluge',
+      name: locale === "en" ? 'AI and software consulting services' : 'AI i software consulting usluge',
       itemListElement: [
         {
           '@type': 'Offer',
@@ -214,8 +219,8 @@ export function generateServiceSchema(serviceName: string, description: string) 
 export const aboutPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
-  '@id': `${siteUrl}${ROUTES.about}/#aboutpage`,
-  url: `${siteUrl}${ROUTES.about}`,
+  '@id': `${getLocalizedUrl(ROUTES.about, "hr")}/#aboutpage`,
+  url: getLocalizedUrl(ROUTES.about, "hr"),
   name: 'O HOTFIX d.o.o.',
   description: 'HOTFIX d.o.o. je hrvatska AI i software consulting tvrtka usmjerena na praktičnu isporuku softwarea, arhitekturu, AI workflowe i modernizaciju.',
   inLanguage: 'hr-HR',
@@ -232,8 +237,8 @@ export const aboutPageSchema = {
 export const contactPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  '@id': `${siteUrl}${ROUTES.contact}/#contactpage`,
-  url: `${siteUrl}${ROUTES.contact}`,
+  '@id': `${getLocalizedUrl(ROUTES.contact, "hr")}/#contactpage`,
+  url: getLocalizedUrl(ROUTES.contact, "hr"),
   name: 'Kontakt - HOTFIX d.o.o.',
   description: 'Pošaljite upit za AI consulting, software consulting, custom development, modernizaciju ili poboljšanje engineering procesa.',
   inLanguage: 'hr-HR',

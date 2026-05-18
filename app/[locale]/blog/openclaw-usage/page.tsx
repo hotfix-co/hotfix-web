@@ -5,7 +5,12 @@ import StructuredData from "@/components/StructuredData";
 import BlogArticleLayout from "@/components/BlogArticleLayout";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 import { getBlogPost, type Locale } from "@/lib/blogData";
-import { ROUTES, SITE_URL } from "@/lib/constants";
+import { BLOG_ARTICLE_ROUTES, ROUTES } from "@/lib/constants";
+import {
+  generateBlogMetadata,
+  generateBlogPostingSchema,
+} from "@/lib/blogSeo";
+import { getLocalizedPath } from "@/lib/seo";
 
 export function generateStaticParams() {
   return [{ locale: "hr" }, { locale: "en" }];
@@ -13,67 +18,21 @@ export function generateStaticParams() {
 
 const post = getBlogPost("openclaw-usage")!;
 
-export const metadata: Metadata = {
-  title: post.title,
-  description: post.description,
-  alternates: {
-    canonical: `${SITE_URL}/blog/${post.slug}`,
-    languages: {
-      "hr-HR": `${SITE_URL}${ROUTES.blog}/${post.slug}`,
-      "x-default": `${SITE_URL}${ROUTES.blog}/${post.slug}`,
-    },
-  },
-  openGraph: {
-    url: `${SITE_URL}/blog/${post.slug}`,
-    type: "article",
-    siteName: "HOTFIX d.o.o.",
-    locale: "hr_HR",
-    title: post.title,
-    description: post.description,
-    publishedTime: post.publishedAt,
-    authors: [post.author.name],
-    tags: post.tags,
-    images: [`${SITE_URL}/logo.png`],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: post.title,
-    description: post.description,
-    images: [`${SITE_URL}/logo.png`],
-  },
-  keywords: post.tags,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const loc = locale === "en" ? "en" : "hr";
+  const currentPost = getBlogPost("openclaw-usage", loc) ?? post;
 
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: post.title,
-  description: post.description,
-  datePublished: post.publishedAt,
-  dateModified: post.updatedAt || post.publishedAt,
-  inLanguage: "hr-HR",
-  articleSection: "Automation",
-  author: {
-    "@type": "Person",
-    name: post.author.name,
-    jobTitle: post.author.role,
-    url: `${SITE_URL}${ROUTES.about}`,
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "HOTFIX d.o.o.",
-    url: SITE_URL,
-    logo: {
-      "@type": "ImageObject",
-      url: `${SITE_URL}/logo.png`,
-    },
-  },
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": `${SITE_URL}/blog/${post.slug}`,
-  },
-  keywords: post.tags.join(", "),
-};
+  return generateBlogMetadata({
+    post: currentPost,
+    pathname: BLOG_ARTICLE_ROUTES.openClawUsage,
+    locale: loc,
+  });
+}
 
 export default async function OpenClawUsageArticle({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -81,6 +40,12 @@ export default async function OpenClawUsageArticle({ params }: { params: Promise
   setRequestLocale(locale);
   const currentPost = getBlogPost("openclaw-usage", loc) ?? post;
   const t = await getTranslations("blog");
+  const articleSchema = generateBlogPostingSchema({
+    post: currentPost,
+    pathname: BLOG_ARTICLE_ROUTES.openClawUsage,
+    locale: loc,
+    articleSection: "Automation",
+  });
 
   const ctaTitle =
     loc === "en"
@@ -92,9 +57,12 @@ export default async function OpenClawUsageArticle({ params }: { params: Promise
       : "Pomažemo timovima pretvoriti ponavljive zadatke u kontrolirane workflowe: od GitHub issue intakea do release checklisti, runbooka i AI-assisted procesa.";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: t("breadcrumbHome"), url: "/" },
-    { name: "Blog", url: ROUTES.blog },
-    { name: currentPost.title, url: `${ROUTES.blog}/${currentPost.slug}` },
+    { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
+    { name: "Blog", url: getLocalizedPath(ROUTES.blog, loc) },
+    {
+      name: currentPost.title,
+      url: getLocalizedPath(BLOG_ARTICLE_ROUTES.openClawUsage, loc),
+    },
   ]);
 
   return (
