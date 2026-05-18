@@ -3,7 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import StructuredData from "@/components/StructuredData";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
-import { blogPosts, getBlogPosts, formatDate } from "@/lib/blogData";
+import { blogPosts, getBlogPosts, formatDate, slugToDirectory } from "@/lib/blogData";
 import type { Locale } from "@/lib/blogData";
 import { ROUTES, SITE_URL } from "@/lib/constants";
 
@@ -102,10 +102,13 @@ export default async function BlogPage({
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {sortedPosts.map((post) => (
+            {sortedPosts.map((post) => {
+              const dirSlug = slugToDirectory(post.slug);
+              const blogHref = loc === "en" ? `/en/blog/${dirSlug}` : `/blog/${dirSlug}`;
+              return (
               <a
                 key={post.slug}
-                href={`${ROUTES.blog}/${post.slug}`}
+                href={blogHref}
                 className="group block focus-ring rounded-[var(--radius-lg)]"
               >
                 <article className="card-feature-light h-full transition-transform duration-200 group-hover:-translate-y-1">
@@ -135,7 +138,8 @@ export default async function BlogPage({
                   </div>
                 </article>
               </a>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

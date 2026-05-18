@@ -16,19 +16,19 @@ export const ROUTES = {
 } as const;
 
 export const BLOG_SLUGS = {
-  claudeCodeSubagents: "claude-code-subagenti-code-review",
-  openClawUsage: "openclaw-automatizacija-github-issuea",
-  notebookLmWorkflow: "notebooklm-workflow-brze-ucenje",
-  claudeCodeSkills: "claude-code-skills-produktivnost",
-  aiContextManagement: "upravljanje-ai-kontekstom",
-  specDrivenDevelopment: "spec-driven-development-ai",
+  claudeCodeSubagents: "claude-code-subagents",
+  openClawUsage: "openclaw-usage",
+  notebookLmWorkflow: "notebooklm-workflow-learning-faster",
+  claudeCodeSkills: "claude-code-skills-productivity",
+  aiContextManagement: "ai-context-management-lessons",
+  specDrivenDevelopment: "spec-driven-development",
 } as const;
 
 export const LEGACY_BLOG_SLUGS: Record<string, string> = {
-  "claude-code-subagents": BLOG_SLUGS.claudeCodeSubagents,
-  "openclaw-usage": BLOG_SLUGS.openClawUsage,
-  "notebooklm-workflow-learning-faster": BLOG_SLUGS.notebookLmWorkflow,
-  "claude-code-skills-productivity": BLOG_SLUGS.claudeCodeSkills,
-  "ai-context-management-lessons": BLOG_SLUGS.aiContextManagement,
-  "spec-driven-development": BLOG_SLUGS.specDrivenDevelopment,
+  "claude-code-subagenti-code-review": BLOG_SLUGS.claudeCodeSubagents,
+  "openclaw-automatizacija-github-issuea": BLOG_SLUGS.openClawUsage,
+  "notebooklm-workflow-brze-ucenje": BLOG_SLUGS.notebookLmWorkflow,
+  "claude-code-skills-produktivnost": BLOG_SLUGS.claudeCodeSkills,
+  "upravljanje-ai-kontekstom": BLOG_SLUGS.aiContextManagement,
+  "spec-driven-development-ai": BLOG_SLUGS.specDrivenDevelopment,
 };

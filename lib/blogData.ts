@@ -2,6 +2,19 @@ import { BLOG_SLUGS } from "@/lib/constants";
 
 export type Locale = "hr" | "en";
 
+// Maps blog data slugs to their filesystem directory names under app/[locale]/blog/
+// For shared posts (BLOG_SLUGS), slug already matches directory.
+// For locale-specific slugs (English-only), maps to the shared directory.
+const SLUG_TO_DIR: Record<string, string> = {
+  "bringing-ai-into-the-development-process": "kako-uvesti-ai-u-razvojni-proces",
+  "software-modernization-without-downtime": "modernizacija-softwarea-bez-zastoja",
+};
+
+/** Get the filesystem directory name for a blog post slug */
+export function slugToDirectory(slug: string): string {
+  return SLUG_TO_DIR[slug] ?? slug;
+}
+
 export interface BlogPost {
   slug: string;
   legacySlug?: string;
@@ -64,7 +77,6 @@ const blogPostsHr: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.claudeCodeSubagents,
-    legacySlug: "claude-code-subagents",
     title: "Claude Code subagenti za objektivniji code review",
     description:
       "Kako koristiti svježi subagent za kritičniji pregled koda, bez konteksta i predrasuda iz implementacijske sesije.",
@@ -80,7 +92,6 @@ const blogPostsHr: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.openClawUsage,
-    legacySlug: "openclaw-usage",
     title: "Kako automatiziram GitHub issue tracking s OpenClawom",
     description:
       "Praktičan workflow za pretvaranje kratkih bilješki iz Signala u jasne GitHub issuee, uz ograničen pristup i kontrolu kvalitete.",
@@ -96,7 +107,6 @@ const blogPostsHr: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.notebookLmWorkflow,
-    legacySlug: "notebooklm-workflow-learning-faster",
     title: "NotebookLM workflow za brže učenje bez gomile tabova",
     description:
       "Kako kombiniram Claude istraživanje, notebooklm-py, NotebookLM i Obsidian u workflow koji završava upotrebljivim bilješkama.",
@@ -112,7 +122,6 @@ const blogPostsHr: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.claudeCodeSkills,
-    legacySlug: "claude-code-skills-productivity",
     title: "Claude Code skills: standardizacija AI workflowa u timu",
     description:
       "Kako skills uklanjaju ponavljanje, čuvaju timske konvencije i pomažu da AI coding alati daju konzistentnije rezultate.",
@@ -135,7 +144,6 @@ const blogPostsHr: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.aiContextManagement,
-    legacySlug: "ai-context-management-lessons",
     title: "Zamka velikog AI konteksta: što sam naučio u praksi",
     description:
       "Veći context window ne rješava loš proces. Ovo su lekcije iz AI coding rada gdje je previše konteksta stvaralo više šuma nego vrijednosti.",
@@ -157,7 +165,6 @@ const blogPostsHr: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.specDrivenDevelopment,
-    legacySlug: "spec-driven-development",
     title: "Spec-driven development i AI: brži razvoj bez gubitka kontrole",
     description:
       "Kako jasne specifikacije pomažu AI coding workflowu, kada koristiti spec-kit ili OpenSpec i zašto brzina bez kontrole nije dobar cilj.",
@@ -181,7 +188,7 @@ const blogPostsHr: BlogPost[] = [
 
 const blogPostsEn: BlogPost[] = [
   {
-    slug: "bringing-ai-into-the-development-process",
+    slug: "kako-uvesti-ai-u-razvojni-proces",
     title: "Bringing AI into the development process without losing control",
     description:
       "A practical framework for introducing AI coding tools into a software team: where to start, what guardrails to set, and how to measure real value.",
@@ -203,7 +210,7 @@ const blogPostsEn: BlogPost[] = [
     readingTime: "8 min read",
   },
   {
-    slug: "software-modernization-without-downtime",
+    slug: "modernizacija-softwarea-bez-zastoja",
     title: "Software modernization without stopping development",
     description:
       "How to modernize an existing codebase through small, controlled changes instead of a big rewrite that halts delivery.",
@@ -226,7 +233,6 @@ const blogPostsEn: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.claudeCodeSubagents,
-    legacySlug: "claude-code-subagents",
     title: "Claude Code subagents for more objective code reviews",
     description:
       "How to use a fresh subagent for a more critical code review, free from the context and biases of the implementation session.",
@@ -243,7 +249,6 @@ const blogPostsEn: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.openClawUsage,
-    legacySlug: "openclaw-usage",
     title: "How I automate GitHub issue tracking with OpenClaw",
     description:
       "A practical workflow for turning short Signal notes into clear GitHub issues, with limited access and quality control.",
@@ -260,7 +265,6 @@ const blogPostsEn: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.notebookLmWorkflow,
-    legacySlug: "notebooklm-workflow-learning-faster",
     title: "NotebookLM workflow for faster learning without a pile of tabs",
     description:
       "How I combine Claude research, notebooklm-py, NotebookLM, and Obsidian into a workflow that ends with reusable notes.",
@@ -277,7 +281,6 @@ const blogPostsEn: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.claudeCodeSkills,
-    legacySlug: "claude-code-skills-productivity",
     title: "Claude Code skills: standardizing AI workflows in a team",
     description:
       "How skills eliminate repetition, preserve team conventions, and help AI coding tools produce more consistent results.",
@@ -301,7 +304,6 @@ const blogPostsEn: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.aiContextManagement,
-    legacySlug: "ai-context-management-lessons",
     title: "The big AI context trap: lessons from practice",
     description:
       "A bigger context window doesn't fix a bad process. These are lessons from AI coding work where too much context created more noise than value.",
@@ -324,7 +326,6 @@ const blogPostsEn: BlogPost[] = [
   },
   {
     slug: BLOG_SLUGS.specDrivenDevelopment,
-    legacySlug: "spec-driven-development",
     title: "Spec-driven development and AI: faster development without losing control",
     description:
       "How clear specifications help AI coding workflows, when to use spec-kit or OpenSpec, and why speed without control isn't a good goal.",

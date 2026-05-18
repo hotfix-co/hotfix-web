@@ -1,7 +1,7 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
+import { usePathname as useNativePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 
 const locales = [
@@ -11,8 +11,7 @@ const locales = [
 
 export default function LanguagePicker() {
   const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
+  const nativePathname = useNativePathname();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -30,7 +29,14 @@ export default function LanguagePicker() {
 
   function handleSwitch(newLocale: "hr" | "en") {
     setOpen(false);
-    router.replace(pathname, { locale: newLocale });
+    // Strip existing locale prefix from the current URL path
+    let path = nativePathname;
+    if (path.startsWith("/en")) {
+      path = path.slice(3) || "/";
+    }
+    // Build new URL with target locale prefix
+    const newPath = newLocale === "en" ? `/en${path}` : path;
+    window.location.href = newPath;
   }
 
   return (

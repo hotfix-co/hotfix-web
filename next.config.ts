@@ -33,35 +33,76 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // Legacy English blog slugs → Croatian (default locale)
+      // Blog slug redirects — old BLOG_SLUGS values → actual filesystem directory names
       {
-        source: "/blog/claude-code-subagents",
-        destination: "/blog/claude-code-subagenti-code-review",
+        source: "/blog/claude-code-subagenti-code-review",
+        destination: "/blog/claude-code-subagents",
         permanent: true,
       },
       {
-        source: "/blog/openclaw-usage",
-        destination: "/blog/openclaw-automatizacija-github-issuea",
+        source: "/en/blog/claude-code-subagenti-code-review",
+        destination: "/en/blog/claude-code-subagents",
         permanent: true,
       },
       {
-        source: "/blog/notebooklm-workflow-learning-faster",
-        destination: "/blog/notebooklm-workflow-brze-ucenje",
+        source: "/blog/openclaw-automatizacija-github-issuea",
+        destination: "/blog/openclaw-usage",
         permanent: true,
       },
       {
-        source: "/blog/claude-code-skills-productivity",
-        destination: "/blog/claude-code-skills-produktivnost",
+        source: "/en/blog/openclaw-automatizacija-github-issuea",
+        destination: "/en/blog/openclaw-usage",
         permanent: true,
       },
       {
-        source: "/blog/ai-context-management-lessons",
-        destination: "/blog/upravljanje-ai-kontekstom",
+        source: "/blog/notebooklm-workflow-brze-ucenje",
+        destination: "/blog/notebooklm-workflow-learning-faster",
         permanent: true,
       },
       {
-        source: "/blog/spec-driven-development",
-        destination: "/blog/spec-driven-development-ai",
+        source: "/en/blog/notebooklm-workflow-brze-ucenje",
+        destination: "/en/blog/notebooklm-workflow-learning-faster",
+        permanent: true,
+      },
+      {
+        source: "/blog/claude-code-skills-produktivnost",
+        destination: "/blog/claude-code-skills-productivity",
+        permanent: true,
+      },
+      {
+        source: "/en/blog/claude-code-skills-produktivnost",
+        destination: "/en/blog/claude-code-skills-productivity",
+        permanent: true,
+      },
+      {
+        source: "/blog/upravljanje-ai-kontekstom",
+        destination: "/blog/ai-context-management-lessons",
+        permanent: true,
+      },
+      {
+        source: "/en/blog/upravljanje-ai-kontekstom",
+        destination: "/en/blog/ai-context-management-lessons",
+        permanent: true,
+      },
+      {
+        source: "/blog/spec-driven-development-ai",
+        destination: "/blog/spec-driven-development",
+        permanent: true,
+      },
+      {
+        source: "/en/blog/spec-driven-development-ai",
+        destination: "/en/blog/spec-driven-development",
+        permanent: true,
+      },
+      // English-only slugs → directory names (these only exist in en blog data)
+      {
+        source: "/en/blog/bringing-ai-into-the-development-process",
+        destination: "/en/blog/kako-uvesti-ai-u-razvojni-proces",
+        permanent: true,
+      },
+      {
+        source: "/en/blog/software-modernization-without-downtime",
+        destination: "/en/blog/modernizacija-softwarea-bez-zastoja",
         permanent: true,
       },
     ];
