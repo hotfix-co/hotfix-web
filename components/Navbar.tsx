@@ -37,7 +37,7 @@ export default function Navbar() {
               width={128}
               height={128}
               priority
-              className="h-14 w-14 object-contain sm:h-16 sm:w-16 lg:h-16 lg:w-16"
+              className="h-10 w-10 object-contain sm:h-11 sm:w-11 lg:h-12 lg:w-12"
             />
             <span className="whitespace-nowrap text-[17px] font-medium tracking-[-0.005em] text-[var(--ink)] sm:text-[18px]">
               HOTFIX d.o.o.
