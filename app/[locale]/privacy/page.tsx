@@ -180,7 +180,7 @@ export default async function PrivacyPage({
       <section className="gradient-mesh py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="pill-tag-soft mb-6">{text.eyebrow}</span>
-          <h1 className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-[var(--ink)]">
+          <h1 className="mb-6 hero-title">
             {text.title}
           </h1>
           <p className="section-lede">{text.updated}</p>

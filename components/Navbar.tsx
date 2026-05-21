@@ -37,21 +37,21 @@ export default function Navbar() {
               width={64}
               height={64}
               priority
-              className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 object-contain"
+              className="h-9 w-9 object-contain sm:h-10 sm:w-10 lg:h-12 lg:w-12"
             />
-            <span className="text-[18px] font-medium tracking-[0.1px] text-[var(--ink)]">
+            <span className="whitespace-nowrap text-[17px] font-medium tracking-[-0.005em] text-[var(--ink)] sm:text-[18px]">
               HOTFIX d.o.o.
             </span>
           </ContactTrackedLink>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center gap-x-7">
             {navigation.map((item) => (
               <ContactTrackedLink
                 key={item.name}
                 href={item.href}
                 source="navbar"
-                className={`focus-ring rounded text-[15px] font-medium transition-colors ${
+                className={`focus-ring rounded text-[14px] font-medium transition-colors ${
                   pathname === item.href
                     ? "text-[var(--primary)]"
                     : "text-[var(--ink-mute-2)] hover:text-[var(--ink)]"
@@ -64,14 +64,14 @@ export default function Navbar() {
             <ContactTrackedLink
               href={ROUTES.contact}
               source="navbar"
-              className="button-primary-pill focus-ring"
+              className="button-primary-pill focus-ring whitespace-nowrap"
             >
               {t("cta")}
             </ContactTrackedLink>
           </div>
 
           {/* Mobile menu button + language picker */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <LanguagePicker />
             <button
               type="button"
@@ -97,7 +97,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[var(--hairline)] bg-white">
+        <div className="lg:hidden border-t border-[var(--hairline)] bg-white">
           <div className="px-3 pt-3 pb-4 space-y-1">
             {navigation.map((item) => (
               <ContactTrackedLink

@@ -15,34 +15,31 @@ export default function Hero() {
     { label: t("webLabel"), value: "A", tone: "bg-[var(--primary)]" },
   ];
 
-  const techTags = [t("techAI"), t("techSoftware"), t("techCustom"), t("techClaude")];
+  const techTags = [t("techAI"), t("techSoftware"), t("techClaude")];
 
   return (
-    <section className="relative isolate overflow-hidden bg-white lg:min-h-[760px]" aria-labelledby="home-hero">
-      <div className="gradient-mesh absolute inset-x-0 top-0 -z-10 h-[58%]" />
+    <section className="relative isolate overflow-hidden bg-white lg:min-h-[720px]" aria-labelledby="home-hero">
+      <div className="gradient-mesh absolute inset-x-0 top-0 -z-10 h-[62%]" />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-12 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8 lg:py-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8 lg:py-24">
         <motion.div
           className="max-w-2xl"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="pill-tag-soft mb-6">{t("tagline")}</span>
+          <span className="pill-tag-soft mb-7">{t("tagline")}</span>
           <h1
             id="home-hero"
-            className="mb-6 text-[56px] font-bold leading-[1.03] tracking-[-1.4px] text-[var(--ink)] max-sm:text-[40px]"
+            className="mb-7 text-[36px] font-light leading-[1.08] tracking-[-0.022em] text-[var(--ink)] text-balance sm:text-[44px] sm:leading-[1.05] lg:text-[50px] lg:leading-[1.05]"
           >
-            HOTFIX d.o.o.
-          </h1>
-          <p className="mb-8 max-w-xl text-[22px] font-light leading-[1.22] tracking-[-0.22px] text-[var(--ink-secondary)] sm:text-[26px] sm:leading-[1.12]">
             {t("subtitle")}
-          </p>
-          <p className="mb-10 max-w-xl text-[16px] leading-[1.4] text-[var(--ink-mute)]">
+          </h1>
+          <p className="mb-10 max-w-xl text-[17px] leading-[1.5] text-[var(--ink-mute)] sm:text-[18px]">
             {t("description")}
           </p>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href={ROUTES.services}
               className="button-primary-pill focus-ring"
@@ -58,10 +55,11 @@ export default function Hero() {
             </ContactTrackedLink>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-2">
-            {techTags.map((tech) => (
-              <span key={tech} className="pill-tag-soft bg-white/70">
-                {tech}
+          <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2">
+            {techTags.map((tech, i) => (
+              <span key={tech} className="flex items-center gap-x-5">
+                <span className="text-[13px] tracking-[-0.01em] text-[var(--ink-secondary)]">{tech}</span>
+                {i < techTags.length - 1 && <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--hairline-input)]" />}
               </span>
             ))}
           </div>

@@ -131,7 +131,7 @@ export default async function ContactPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="pill-tag-soft mb-6">{t("heroEyebrow")}</span>
-            <h1 id="contact-hero" className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-[var(--ink)] md:text-[56px] md:leading-[1.03] md:tracking-[-1.4px]">
+            <h1 id="contact-hero" className="mb-6 hero-title">
               {t("heroTitle")}
             </h1>
             <p className="max-w-2xl text-[16px] leading-[1.4] text-[var(--ink-secondary)]">
@@ -240,7 +240,7 @@ export default async function ContactPage({
 
             {/* Contact Form */}
             <div className="card-feature-light">
-              <h2 className="mb-6 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--ink)]">
+              <h2 className="mb-6 card-title-lg text-[var(--ink)]">
                 {t("formTitle")}
               </h2>
               <ContactForm />

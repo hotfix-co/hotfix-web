@@ -135,7 +135,7 @@ export default async function Home({
       <StructuredData data={breadcrumbSchema} />
       <Hero />
 
-      <section className="bg-white py-20 md:py-24" aria-labelledby="why-choose-us">
+      <section className="bg-white pt-12 pb-20 md:pt-20 md:pb-24" aria-labelledby="why-choose-us">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="mb-12 max-w-3xl md:mb-14">
             <span className="section-eyebrow mb-4 block">{t("eyebrow")}</span>
@@ -194,7 +194,7 @@ export default async function Home({
             ].map((service, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
                 <div className="card-pricing flex h-full flex-col">
-                  <h3 className="mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--ink)]">
+                  <h3 className="mb-4 card-title-lg text-[var(--ink)]">
                     {service.title}
                   </h3>
                   <p className="mb-6 text-[15px] leading-[1.4] text-[var(--ink-mute)]">{service.description}</p>

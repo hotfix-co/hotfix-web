@@ -21,7 +21,10 @@
     "hours": "Available Mon-Fri, 9:00-17:00 CET",
     "rights": "All rights reserved.",
     "privacy": "Privacy",
-    "terms": "Terms of Service"
+    "terms": "Terms of Service",
+    "availability": "Currently accepting new projects",
+    "founded": "Est. 2020",
+    "location": "Zagreb, Croatia"
   },
   "hero": {
     "tagline": "AI Workflows • Consulting • Engineering",

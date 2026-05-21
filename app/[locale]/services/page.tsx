@@ -192,7 +192,7 @@ export default async function ServicesPage({
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:items-end">
           <div>
             <span className="pill-tag-soft mb-6">{t("heroEyebrow")}</span>
-            <h1 id="services-hero" className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-[var(--ink)] md:text-[56px] md:leading-[1.03] md:tracking-[-1.4px]">
+            <h1 id="services-hero" className="mb-6 hero-title">
               {t("heroTitle")}
             </h1>
             <p className="max-w-2xl text-[16px] leading-[1.4] text-[var(--ink-secondary)]">
@@ -351,18 +351,18 @@ export default async function ServicesPage({
         </div>
       </section>
 
-      <section className="bg-[var(--brand-dark-900)] py-24" aria-labelledby="services-cta">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 id="services-cta" className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-white">
+      <section className="bg-[var(--brand-dark-900)] py-20 md:py-24" aria-labelledby="services-cta">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 id="services-cta" className="mb-5 text-[32px] font-light leading-[1.1] tracking-[-0.022em] text-white text-balance md:text-[44px]">
             {t("darkCtaTitle")}
           </h2>
-          <p className="mb-10 text-[16px] leading-[1.4] text-white/80">
+          <p className="mx-auto mb-9 max-w-xl text-[16px] leading-[1.55] text-white/70">
             {t("darkCtaDesc")}
           </p>
           <ContactTrackedLink
             href={I18N_ROUTES.contact}
             source="services_page"
-            className="button-secondary-pill focus-ring"
+            className="button-primary-pill focus-ring"
             aria-label={isEn ? "Contact HOTFIX d.o.o. to discuss an AI or software project" : "Kontaktirajte HOTFIX d.o.o. za razgovor o AI ili software projektu"}
           >
             {t("darkCtaButton")}

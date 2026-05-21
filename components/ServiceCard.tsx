@@ -15,7 +15,7 @@ export default function ServiceCard({
   return (
     <div className="card-feature-light h-full transition-transform duration-200 hover:-translate-y-1">
       <span className="pill-tag-soft mb-6">{title.split(" ")[0]}</span>
-      <h3 className="mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--ink)]">
+      <h3 className="mb-4 card-title-lg text-[var(--ink)]">
         {title}
       </h3>
       <p className="mb-6 text-[15px] leading-[1.4] text-[var(--ink-mute)]">{description}</p>

@@ -218,7 +218,7 @@ export default async function GDPRQualityPage({
       <section className="gradient-mesh relative overflow-hidden py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="pill-tag-soft mb-6">{text.eyebrow}</span>
-          <h1 className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-[var(--ink)] md:text-[56px] md:leading-[1.03] md:tracking-[-1.4px]">
+          <h1 className="mb-6 hero-title">
             {text.heroTitle}
           </h1>
           <p className="max-w-2xl text-[16px] leading-[1.4] text-[var(--ink-secondary)]">

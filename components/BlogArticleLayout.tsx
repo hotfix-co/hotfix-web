@@ -41,11 +41,11 @@ export default function BlogArticleLayout({
 
   return (
     <>
-      <header className="gradient-mesh relative overflow-hidden py-16 md:py-24">
+      <header className="gradient-mesh relative overflow-hidden pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Link
             href={ROUTES.blog}
-            className="focus-ring mb-8 inline-flex items-center rounded text-[15px] text-[var(--ink-mute)] transition-colors hover:text-[var(--primary)]"
+            className="focus-ring mb-8 inline-flex items-center rounded text-[14px] text-[var(--ink-mute)] transition-colors hover:text-[var(--primary)]"
           >
             <span className="mr-2" aria-hidden="true">
               ←
@@ -61,26 +61,26 @@ export default function BlogArticleLayout({
             ))}
           </div>
 
-          <h1 className="mb-6 text-[42px] font-bold leading-[1.12] tracking-[-0.96px] text-[var(--ink)] md:text-[56px] md:leading-[1.03] md:tracking-[-1.4px]">
+          <h1 className="mb-6 text-[36px] font-light leading-[1.1] tracking-[-0.022em] text-[var(--ink)] text-balance md:text-[48px] md:leading-[1.06] lg:text-[56px] lg:leading-[1.04]">
             {post.title}
           </h1>
 
-          <p className="mb-8 max-w-3xl text-[18px] leading-[1.4] text-[var(--ink-secondary)]">
+          <p className="mb-8 max-w-3xl text-[18px] leading-[1.5] text-[var(--ink-secondary)] text-pretty">
             {post.description}
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 text-[13px] text-[var(--ink-mute)]">
-            <span className="font-medium text-[var(--ink)]">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[12px] text-[var(--ink-mute)]">
+            <span className="text-[var(--ink-secondary)]">
               {post.author.name}
             </span>
-            <span>/</span>
+            <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--hairline-input)]" />
             <span>{authorRole}</span>
-            <span>/</span>
-            <time dateTime={post.publishedAt}>
+            <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--hairline-input)]" />
+            <time className="tabular" dateTime={post.publishedAt}>
               {formatDate(post.publishedAt, locale)}
             </time>
-            <span>/</span>
-            <span>{post.readingTime}</span>
+            <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--hairline-input)]" />
+            <span className="tabular">{post.readingTime}</span>
           </div>
         </div>
       </header>
@@ -113,30 +113,30 @@ export default function BlogArticleLayout({
       </article>
 
       <section
-        className="bg-[var(--brand-dark-900)] py-20"
+        className="bg-[var(--brand-dark-900)] py-20 md:py-24"
         aria-labelledby={`${post.slug}-cta`}
       >
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h2
             id={`${post.slug}-cta`}
-            className="mb-6 text-[40px] font-bold leading-[1.15] tracking-[-0.96px] text-white md:text-[48px]"
+            className="mb-5 text-[32px] font-light leading-[1.1] tracking-[-0.022em] text-white text-balance md:text-[42px]"
           >
             {ctaTitle ?? defaultCtaTitle}
           </h2>
-          <p className="mx-auto mb-10 max-w-2xl text-[16px] leading-[1.4] text-white/80">
+          <p className="mx-auto mb-9 max-w-xl text-[16px] leading-[1.55] text-white/70">
             {ctaDescription ?? defaultCtaDescription}
           </p>
           <div className="flex flex-col justify-center gap-3 sm:flex-row">
             <ContactTrackedLink
               href={ROUTES.contact}
               source={ctaSource}
-              className="button-secondary-pill focus-ring"
+              className="button-primary-pill focus-ring"
             >
               {ctaButton}
             </ContactTrackedLink>
             <Link
               href={ROUTES.services}
-              className="button-on-dark focus-ring border border-white/20"
+              className="button-on-dark focus-ring border border-white/15"
             >
               {servicesButton}
             </Link>

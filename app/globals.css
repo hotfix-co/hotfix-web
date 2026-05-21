@@ -199,7 +199,29 @@ section.relative.bg-gradient-to-br {
 .card-pricing {
   background: var(--canvas);
   border: 1px solid var(--hairline);
-  box-shadow: rgba(var(--shadow-blue), 0.08) 0 1px 3px;
+  box-shadow: rgba(var(--shadow-blue), 0.06) 0 1px 3px;
+  transition:
+    border-color 200ms ease-out,
+    box-shadow 200ms ease-out,
+    transform 200ms ease-out;
+}
+
+.card-feature-light:hover,
+.card-pricing:hover {
+  border-color: rgba(249, 115, 22, 0.28);
+  box-shadow:
+    rgba(var(--shadow-blue), 0.08) 0 10px 24px,
+    rgba(var(--shadow-blue), 0.04) 0 2px 6px;
+}
+
+a.card-feature-light:focus-visible,
+button.card-feature-light:focus-visible,
+a.card-pricing:focus-visible {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow:
+    0 0 0 3px rgba(249, 115, 22, 0.22),
+    rgba(var(--shadow-blue), 0.08) 0 10px 24px;
 }
 
 .card-feature-light,
@@ -246,6 +268,15 @@ section.relative.bg-gradient-to-br {
   text-transform: uppercase;
 }
 
+.hero-title {
+  color: var(--ink);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.022em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
 .section-title {
   color: var(--ink);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -253,6 +284,21 @@ section.relative.bg-gradient-to-br {
   letter-spacing: -0.02em;
   line-height: 1.12;
   text-wrap: balance;
+}
+
+.card-title-lg {
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .card-title-lg {
+    font-size: 26px;
+    line-height: 1.15;
+  }
 }
 
 .section-lede {

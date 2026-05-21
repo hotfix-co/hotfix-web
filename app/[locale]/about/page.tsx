@@ -132,7 +132,7 @@ export default async function AboutPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="pill-tag-soft mb-6">{t("heroEyebrow")}</span>
-            <h1 className="mb-6 text-[48px] font-bold leading-[1.15] tracking-[-0.96px] text-[var(--ink)] md:text-[56px] md:leading-[1.03] md:tracking-[-1.4px]">
+            <h1 className="mb-6 hero-title">
               {t("heroTitle")}
             </h1>
             <p className="text-[16px] leading-[1.4] text-[var(--ink-secondary)]">
@@ -167,15 +167,15 @@ export default async function AboutPage({
             <div className="card-dashboard-mockup card-dashboard-mockup-dark p-8">
               <div className="space-y-8">
                 <div>
-                  <div className="mb-2 text-[26px] font-bold leading-[1.12] tracking-[-0.26px]">{t("clearDecisions")}</div>
+                  <div className="mb-2 card-title-lg">{t("clearDecisions")}</div>
                   <div className="text-[15px] opacity-80">{t("clearDecisionsDesc")}</div>
                 </div>
                 <div>
-                  <div className="mb-2 text-[26px] font-bold leading-[1.12] tracking-[-0.26px]">{t("responsibleAI")}</div>
+                  <div className="mb-2 card-title-lg">{t("responsibleAI")}</div>
                   <div className="text-[15px] opacity-80">{t("responsibleAIDesc")}</div>
                 </div>
                 <div>
-                  <div className="mb-2 text-[26px] font-bold leading-[1.12] tracking-[-0.26px]">{t("sustainableDelivery")}</div>
+                  <div className="mb-2 card-title-lg">{t("sustainableDelivery")}</div>
                   <div className="text-[15px] opacity-80">{t("sustainableDeliveryDesc")}</div>
                 </div>
               </div>
@@ -200,7 +200,7 @@ export default async function AboutPage({
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {/* Mission */}
             <div className="card-feature-light">
-              <h3 className="mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--ink)]">
+              <h3 className="mb-4 card-title-lg text-[var(--ink)]">
                 {t("mission")}
               </h3>
               <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">
@@ -209,7 +209,7 @@ export default async function AboutPage({
             </div>
 
             <div className="card-feature-light">
-              <h3 className="mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--ink)]">
+              <h3 className="mb-4 card-title-lg text-[var(--ink)]">
                 {t("values")}
               </h3>
               <ul className="space-y-3 text-[15px] leading-[1.4] text-[var(--ink-mute)]">
@@ -350,7 +350,7 @@ export default async function AboutPage({
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             <div className="card-feature-light">
-              <div className="tabular mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--primary)]">
+              <div className="tabular mb-4 card-title-lg text-[var(--primary)]">
                 1
               </div>
               <h3 className="mb-2 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">
@@ -362,7 +362,7 @@ export default async function AboutPage({
             </div>
 
             <div className="card-feature-light">
-              <div className="tabular mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--primary)]">
+              <div className="tabular mb-4 card-title-lg text-[var(--primary)]">
                 2
               </div>
               <h3 className="mb-2 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">{t("step2Title")}</h3>
@@ -372,7 +372,7 @@ export default async function AboutPage({
             </div>
 
             <div className="card-feature-light">
-              <div className="tabular mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--primary)]">
+              <div className="tabular mb-4 card-title-lg text-[var(--primary)]">
                 3
               </div>
               <h3 className="mb-2 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">
@@ -384,7 +384,7 @@ export default async function AboutPage({
             </div>
 
             <div className="card-feature-light">
-              <div className="tabular mb-4 text-[26px] font-bold leading-[1.12] tracking-[-0.26px] text-[var(--primary)]">
+              <div className="tabular mb-4 card-title-lg text-[var(--primary)]">
                 4
               </div>
               <h3 className="mb-2 text-[18px] font-bold leading-[1.4] text-[var(--ink)]">{t("step4Title")}</h3>
