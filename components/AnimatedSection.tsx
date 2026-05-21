@@ -16,7 +16,7 @@ export default function AnimatedSection({
   delay = 0,
 }: AnimatedSectionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-15% 0px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
   const reduceMotion = useReducedMotion();
 
   if (reduceMotion) {
