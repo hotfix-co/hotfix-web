@@ -3,8 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { SiDotnet, SiReact, SiGo, SiKotlin, SiSwift } from "react-icons/si";
 import StructuredData from "@/components/StructuredData";
-import { founderSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
-import { ROUTES } from "@/lib/constants";
+import { getFounderSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
+import { ROUTES, SITE_URL, type SiteLocale } from "@/lib/constants";
 import {
   getLanguageAlternates,
   getLocalizedPath,
@@ -26,26 +26,59 @@ export async function generateMetadata({
 
   return {
     title: isEn
-      ? "About - AI & software consulting"
-      : "O nama - AI i software consulting",
+      ? "About — AI & Software Consulting from Croatia"
+      : "O nama — AI i software consulting iz Hrvatske",
     description: isEn
-      ? "HOTFIX d.o.o. is a Croatian AI and software consulting company that helps teams make better technical decisions, modernize software, and deliver more reliably."
-      : "HOTFIX d.o.o. je hrvatska AI i software consulting tvrtka koja pomaže timovima donositi bolje tehničke odluke, modernizirati software i pouzdanije isporučivati.",
+      ? "HOTFIX d.o.o. is a Croatian AI and software consulting firm. We help teams make better technical decisions, modernize software, and deliver reliably."
+      : "HOTFIX d.o.o. je hrvatska AI i software consulting tvrtka. Pomažemo timovima donositi bolje tehničke odluke, modernizirati software i pouzdano isporučivati.",
     alternates: {
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.about),
     },
+    keywords: isEn
+      ? [
+          "HOTFIX d.o.o.",
+          "Josip Budalić",
+          "AI consulting Croatia",
+          "software consulting Croatia",
+          "software architecture",
+          "Claude Code consultant",
+          "AI-assisted development",
+          "EU software consulting",
+        ]
+      : [
+          "HOTFIX d.o.o.",
+          "Josip Budalić",
+          "AI consulting Hrvatska",
+          "software consulting Hrvatska",
+          "software arhitektura",
+          "Claude Code",
+          "AI-assisted development",
+          "softverska tvrtka Hrvatska",
+        ],
     openGraph: {
       url: canonicalUrl,
       type: "website",
       siteName: "HOTFIX d.o.o.",
       locale: isEn ? "en_US" : "hr_HR",
       title: isEn
-        ? "About HOTFIX d.o.o. | AI & software consulting from Croatia"
-        : "O HOTFIX d.o.o. | AI i software consulting iz Hrvatske",
+        ? "About HOTFIX d.o.o. — AI & software consulting from Croatia"
+        : "O HOTFIX d.o.o. — AI i software consulting iz Hrvatske",
       description: isEn
         ? "Practical AI consulting, software architecture, engineering processes, and custom software development."
         : "Praktičan AI consulting, software arhitektura, engineering procesi i custom software development.",
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "HOTFIX d.o.o. — AI and software consulting",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -58,18 +91,21 @@ export default async function AboutPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "about" });
-  const loc = locale === "en" ? "en" : "hr";
+  const loc = (locale === "en" ? "en" : "hr") satisfies SiteLocale;
 
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    {
-      name: locale === "en" ? "Home" : "Početna",
-      url: getLocalizedPath(ROUTES.home, locale === "en" ? "en" : "hr"),
-    },
-    {
-      name: locale === "en" ? "About" : "O nama",
-      url: getLocalizedPath(ROUTES.about, locale === "en" ? "en" : "hr"),
-    },
-  ]);
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    [
+      {
+        name: loc === "en" ? "Home" : "Početna",
+        url: getLocalizedPath(ROUTES.home, loc),
+      },
+      {
+        name: loc === "en" ? "About" : "O nama",
+        url: getLocalizedPath(ROUTES.about, loc),
+      },
+    ],
+    loc
+  );
   const aboutPageSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -77,20 +113,20 @@ export default async function AboutPage({
     url: getLocalizedUrl(ROUTES.about, loc),
     name: t("title"),
     description: t("description"),
-    inLanguage: loc === "en" ? "en-US" : "hr-HR",
+    inLanguage: loc === "en" ? "en" : "hr-HR",
     mainEntity: {
       "@type": "Organization",
-      "@id": `${getLocalizedUrl(ROUTES.home, "hr")}/#organization`,
+      "@id": `${SITE_URL}/#organization`,
     },
     about: {
       "@type": "Organization",
-      "@id": `${getLocalizedUrl(ROUTES.home, "hr")}/#organization`,
+      "@id": `${SITE_URL}/#organization`,
     },
   };
 
   return (
     <div className="bg-white">
-      <StructuredData data={[breadcrumbSchema, founderSchema, aboutPageSchema]} />
+      <StructuredData data={[breadcrumbSchema, getFounderSchema(loc), aboutPageSchema]} />
       {/* Hero Section */}
       <section className="gradient-mesh relative overflow-hidden py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

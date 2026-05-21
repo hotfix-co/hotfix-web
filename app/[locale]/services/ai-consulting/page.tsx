@@ -23,7 +23,7 @@ const copy = {
     title: "AI consulting i Claude Code workflowi",
     description:
       "AI consulting za tvrtke koje žele uvesti AI u stvarne procese: Claude Code enablement, AI-assisted development, multi-agent sustavi, guardraili i integracije.",
-    ogTitle: "AI consulting i AI-assisted development | HOTFIX",
+    ogTitle: "AI consulting i AI-assisted development | HOTFIX d.o.o.",
     ogDescription:
       "Praktična AI adopcija, Claude Code workflowi, multi-agent sustavi i produkcijski guardraili bez hypea.",
     keywords: [
@@ -95,7 +95,7 @@ const copy = {
     title: "AI consulting and Claude Code workflows",
     description:
       "AI consulting for companies that want to bring AI into real processes: Claude Code enablement, AI-assisted development, multi-agent systems, guardrails, and integrations.",
-    ogTitle: "AI consulting and AI-assisted development | HOTFIX",
+    ogTitle: "AI consulting and AI-assisted development | HOTFIX d.o.o.",
     ogDescription:
       "Practical AI adoption, Claude Code workflows, multi-agent systems, and production guardrails without hype.",
     keywords: [
@@ -184,9 +184,22 @@ export async function generateMetadata({
     },
     openGraph: {
       url: canonicalUrl,
+      siteName: "HOTFIX d.o.o.",
       locale: loc === "en" ? "en_US" : "hr_HR",
       title: text.ogTitle,
       description: text.ogDescription,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "HOTFIX d.o.o. — AI and software consulting",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/opengraph-image"],
     },
     keywords: [...text.keywords],
   };
@@ -202,15 +215,20 @@ export default async function AIConsultingPage({
   const text = copy[loc];
   setRequestLocale(locale);
 
-  const breadcrumb = generateBreadcrumbSchema([
-    { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
-    { name: text.breadcrumbServices, url: getLocalizedPath(ROUTES.services, loc) },
-    { name: text.breadcrumbCurrent, url: getLocalizedPath(ROUTES.aiConsulting, loc) },
-  ]);
+  const breadcrumb = generateBreadcrumbSchema(
+    [
+      { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
+      { name: text.breadcrumbServices, url: getLocalizedPath(ROUTES.services, loc) },
+      { name: text.breadcrumbCurrent, url: getLocalizedPath(ROUTES.aiConsulting, loc) },
+    ],
+    loc
+  );
 
   const serviceSchema = generateServiceSchema(text.title, text.serviceDescription, loc);
   const faqSchema = {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
+    inLanguage: loc === "en" ? "en" : "hr-HR",
     mainEntity: text.faq.map((item) => ({
       "@type": "Question",
       name: item.question,

@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import StructuredData from "@/components/StructuredData";
 import EmailTrackedLink from "@/components/EmailTrackedLink";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
-import { ROUTES } from "@/lib/constants";
+import { ROUTES, SITE_URL, type SiteLocale } from "@/lib/constants";
 import {
   getLanguageAlternates,
   getLocalizedPath,
@@ -33,6 +33,23 @@ export async function generateMetadata({
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.contact),
     },
+    keywords: loc === "en"
+      ? [
+          "contact HOTFIX d.o.o.",
+          "AI consulting inquiry",
+          "software consulting Croatia",
+          "Claude Code consultant",
+          "hire AI consultant",
+          "Josip Budalić contact",
+        ]
+      : [
+          "kontakt HOTFIX d.o.o.",
+          "AI consulting upit",
+          "software consulting Hrvatska",
+          "Claude Code consultant",
+          "angažirati AI savjetnika",
+          "Josip Budalić kontakt",
+        ],
     openGraph: {
       url: canonicalUrl,
       type: "website",
@@ -40,6 +57,18 @@ export async function generateMetadata({
       locale: locale === "en" ? "en_US" : "hr_HR",
       title: t("title"),
       description: t("description"),
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "HOTFIX d.o.o. — AI and software consulting",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -52,21 +81,25 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "contact" });
-  const loc = locale === "en" ? "en" : "hr";
+  const loc = (locale === "en" ? "en" : "hr") satisfies SiteLocale;
 
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    {
-      name: locale === "en" ? "Home" : "Početna",
-      url: getLocalizedPath(ROUTES.home, locale === "en" ? "en" : "hr"),
-    },
-    {
-      name: locale === "en" ? "Contact" : "Kontakt",
-      url: getLocalizedPath(ROUTES.contact, locale === "en" ? "en" : "hr"),
-    },
-  ]);
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    [
+      {
+        name: loc === "en" ? "Home" : "Početna",
+        url: getLocalizedPath(ROUTES.home, loc),
+      },
+      {
+        name: loc === "en" ? "Contact" : "Kontakt",
+        url: getLocalizedPath(ROUTES.contact, loc),
+      },
+    ],
+    loc
+  );
   const contactFAQSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    inLanguage: loc === "en" ? "en" : "hr-HR",
     mainEntity: [1, 2, 3, 4].map((index) => ({
       "@type": "Question",
       name: t(`faq${index}Q`),
@@ -83,10 +116,10 @@ export default async function ContactPage({
     url: getLocalizedUrl(ROUTES.contact, loc),
     name: t("title"),
     description: t("description"),
-    inLanguage: loc === "en" ? "en-US" : "hr-HR",
+    inLanguage: loc === "en" ? "en" : "hr-HR",
     mainEntity: {
       "@type": "Organization",
-      "@id": `${getLocalizedUrl(ROUTES.home, "hr")}/#organization`,
+      "@id": `${SITE_URL}/#organization`,
     },
   };
 

@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="mb-4 text-[22px] font-medium tracking-[0.1px] text-[var(--ink)]">
-              HOTFIX
+              HOTFIX d.o.o.
             </div>
             <p className="max-w-md text-[13px] leading-relaxed text-[var(--ink-mute)]">
               {t("description")}
@@ -50,6 +50,14 @@ export default function Footer() {
                   className="text-[13px] hover:text-[var(--primary)] transition-colors"
                 >
                   {navT("services")}
+                </IntlLink>
+              </li>
+              <li>
+                <IntlLink
+                  href={ROUTES.blog}
+                  className="text-[13px] hover:text-[var(--primary)] transition-colors"
+                >
+                  {navT("blog")}
                 </IntlLink>
               </li>
               <li>

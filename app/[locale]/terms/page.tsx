@@ -118,10 +118,13 @@ export default async function TermsPage({
   const text = copy[loc];
   setRequestLocale(locale);
 
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
-    { name: text.title, url: getLocalizedPath(ROUTES.terms, loc) },
-  ]);
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    [
+      { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
+      { name: text.title, url: getLocalizedPath(ROUTES.terms, loc) },
+    ],
+    loc
+  );
 
   return (
     <div className="bg-white">

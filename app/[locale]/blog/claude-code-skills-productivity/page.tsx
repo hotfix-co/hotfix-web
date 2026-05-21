@@ -63,7 +63,7 @@ export default async function ClaudeCodeSkillsProductivityArticle({ params }: { 
       name: currentPost.title,
       url: getLocalizedPath(BLOG_ARTICLE_ROUTES.claudeCodeSkills, loc),
     },
-  ]);
+  ], loc);
 
   const skillCode = loc === "en"
     ? `---

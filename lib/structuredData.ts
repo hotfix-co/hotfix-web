@@ -4,128 +4,202 @@ import { getLocalizedUrl } from './seo';
 
 const siteUrl = SITE_URL;
 
-export const organizationSchema: WithContext<Organization> = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': `${siteUrl}/#organization`,
-  name: 'HOTFIX d.o.o.',
-  legalName: 'HOTFIX d.o.o.',
-  url: siteUrl,
-  logo: {
-    '@type': 'ImageObject',
-    url: `${siteUrl}/logo.png`,
-    width: '512',
-    height: '512',
-  },
-  description: 'AI i software consulting tvrtka iz Hrvatske. HOTFIX pomaže timovima uvoditi AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software.',
-  founder: {
-    '@type': 'Person',
-    name: 'Josip Budalić',
-    '@id': `${siteUrl}/#founder`,
-  },
-  foundingDate: '2020',
-  foundingLocation: {
-    '@type': 'Place',
+const ORG_DESCRIPTION: Record<SiteLocale, string> = {
+  hr: 'AI i software consulting tvrtka iz Hrvatske. HOTFIX d.o.o. pomaže timovima uvesti AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software.',
+  en: 'Croatian AI and software consulting firm. HOTFIX d.o.o. helps teams integrate AI into real processes, make clearer technical decisions, and deliver software more reliably.',
+};
+
+const WEBSITE_DESCRIPTION: Record<SiteLocale, string> = {
+  hr: 'AI i software consulting za tvrtke koje žele kvalitetniji razvojni proces, održivu arhitekturu i pouzdaniju isporuku softwarea.',
+  en: 'AI and software consulting for teams that want a better development process, sustainable architecture, and more reliable software delivery.',
+};
+
+const AREA_SERVED_NAME: Record<SiteLocale, string> = {
+  hr: 'Hrvatska i međunarodna tržišta',
+  en: 'Croatia and international markets',
+};
+
+const SCHEMA_LANG: Record<SiteLocale, string> = {
+  hr: 'hr-HR',
+  en: 'en',
+};
+
+export function getOrganizationSchema(
+  locale: SiteLocale = 'en'
+): WithContext<Organization> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'HOTFIX d.o.o.',
+    legalName: 'HOTFIX d.o.o.',
+    alternateName: 'HOTFIX',
+    url: siteUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/logo.png`,
+      width: '512',
+      height: '512',
+    },
+    image: `${siteUrl}/opengraph-image`,
+    description: ORG_DESCRIPTION[locale],
+    founder: {
+      '@type': 'Person',
+      name: 'Josip Budalić',
+      '@id': `${siteUrl}/#founder`,
+    },
+    foundingDate: '2020',
+    foundingLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'HR',
+      },
+    },
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'HR',
     },
-  },
-  email: 'ops@hotfix-doo.com',
-  contactPoint: {
-    '@type': 'ContactPoint',
     email: 'ops@hotfix-doo.com',
-    contactType: 'customer support',
-    availableLanguage: ['Croatian', 'English'],
-  },
-  knowsAbout: [
-    'AI consulting',
-    'AI adoption strategy',
-    'Claude Code',
-    'AI-assisted development',
-    'Multi-agent systems',
-    'Software architecture',
-    'Software delivery',
-    'Custom software development',
-    '.NET',
-    'TypeScript',
-    'React',
-    'Go',
-    'Kotlin',
-    'Swift',
-    'Python',
-  ],
-  areaServed: {
-    '@type': 'Place',
-    name: 'Hrvatska i međunarodna tržišta',
-  },
-};
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'ops@hotfix-doo.com',
+      contactType: 'customer support',
+      availableLanguage: ['Croatian', 'English'],
+      areaServed: ['HR', 'EU', 'Worldwide'],
+    },
+    knowsAbout: [
+      'AI consulting',
+      'AI adoption strategy',
+      'Claude Code',
+      'AI-assisted development',
+      'Multi-agent systems',
+      'Software architecture',
+      'Software delivery',
+      'Software modernization',
+      'Custom software development',
+      'Engineering process consulting',
+      'CI/CD',
+      'GDPR',
+      'Privacy by design',
+      '.NET',
+      'TypeScript',
+      'React',
+      'Next.js',
+      'Go',
+      'Kotlin',
+      'Swift',
+      'KMM',
+      'Python',
+    ],
+    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'Croatia',
+      },
+      {
+        '@type': 'Place',
+        name: AREA_SERVED_NAME[locale],
+      },
+    ],
+  };
+}
 
-export const founderSchema: WithContext<Person> = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  '@id': `${siteUrl}/#founder`,
-  name: 'Josip Budalić',
-  jobTitle: 'Osnivač i software consultant',
-  worksFor: {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-    name: 'HOTFIX d.o.o.',
-  },
-  knowsAbout: [
-    'Software architecture',
-    'AI-assisted development',
-    'Claude Code',
-    'Engineering process consulting',
-    '.NET',
-    'React',
-    'Go',
-    'Kotlin',
-    'Swift',
-    'Python',
-  ],
-};
-
-export const websiteSchema: WithContext<WebSite> = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': `${siteUrl}/#website`,
-  url: siteUrl,
-  name: 'HOTFIX d.o.o.',
-  alternateName: ['HOTFIX', 'hotfix-doo.com'],
-  description: 'AI i software consulting za tvrtke koje žele kvalitetniji razvojni proces, održivu arhitekturu i pouzdaniju isporuku softwarea.',
-  publisher: {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-  },
-  inLanguage: 'en',
-};
-
-export const localBusinessSchema: WithContext<LocalBusiness> = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': `${siteUrl}/#localbusiness`,
-  name: 'HOTFIX d.o.o.',
-  image: `${siteUrl}/logo.png`,
-  url: siteUrl,
-  email: 'ops@hotfix-doo.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'HR',
-  },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '17:00',
-  },
-  priceRange: '$$',
-  founder: {
+export function getFounderSchema(locale: SiteLocale = 'en'): WithContext<Person> {
+  return {
+    '@context': 'https://schema.org',
     '@type': 'Person',
     '@id': `${siteUrl}/#founder`,
     name: 'Josip Budalić',
-  },
-};
+    jobTitle:
+      locale === 'hr'
+        ? 'Osnivač i software consultant'
+        : 'Founder and software consultant',
+    worksFor: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'HOTFIX d.o.o.',
+    },
+    url: getLocalizedUrl(ROUTES.about, locale),
+    knowsAbout: [
+      'Software architecture',
+      'AI-assisted development',
+      'Claude Code',
+      'Engineering process consulting',
+      '.NET',
+      'React',
+      'Go',
+      'Kotlin',
+      'Swift',
+      'Python',
+    ],
+  };
+}
+
+export function getWebsiteSchema(locale: SiteLocale = 'en'): WithContext<WebSite> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
+    url: siteUrl,
+    name: 'HOTFIX d.o.o.',
+    alternateName: ['HOTFIX', 'HOTFIX consulting'],
+    description: WEBSITE_DESCRIPTION[locale],
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+    },
+    inLanguage: SCHEMA_LANG[locale],
+  };
+}
+
+export function getLocalBusinessSchema(
+  locale: SiteLocale = 'en'
+): WithContext<LocalBusiness> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${siteUrl}/#localbusiness`,
+    name: 'HOTFIX d.o.o.',
+    description: ORG_DESCRIPTION[locale],
+    image: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/logo.png`,
+    url: siteUrl,
+    email: 'ops@hotfix-doo.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'HR',
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '17:00',
+    },
+    priceRange: '$$',
+    founder: {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#founder`,
+      name: 'Josip Budalić',
+    },
+    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'Croatia',
+      },
+      {
+        '@type': 'Place',
+        name: AREA_SERVED_NAME[locale],
+      },
+    ],
+  };
+}
+
+// Backward-compatible exports (default to English, used where locale isn't available)
+export const organizationSchema = getOrganizationSchema('en');
+export const founderSchema = getFounderSchema('en');
+export const websiteSchema = getWebsiteSchema('en');
+export const localBusinessSchema = getLocalBusinessSchema('en');
 
 export const contactFAQSchema: WithContext<FAQPage> = {
   '@context': 'https://schema.org',
@@ -166,7 +240,10 @@ export const contactFAQSchema: WithContext<FAQPage> = {
   ],
 };
 
-export function generateBreadcrumbSchema(items: { name: string; url: string }[]): WithContext<BreadcrumbList> {
+export function generateBreadcrumbSchema(
+  items: { name: string; url: string }[],
+  locale: SiteLocale = 'en'
+): WithContext<BreadcrumbList> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -176,18 +253,21 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
       name: item.name,
       item: `${siteUrl}${item.url}`,
     })),
+    // schema-dts doesn't type inLanguage on BreadcrumbList, but Google accepts it
+    ...({ inLanguage: SCHEMA_LANG[locale] } as Record<string, unknown>),
   };
 }
 
 export function generateServiceSchema(
   serviceName: string,
   description: string,
-  locale: SiteLocale = "en"
+  locale: SiteLocale = 'en'
 ) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     serviceType: serviceName,
+    name: serviceName,
     description: description,
     provider: {
       '@type': 'Organization',
@@ -196,12 +276,12 @@ export function generateServiceSchema(
     },
     areaServed: {
       '@type': 'Place',
-      name: locale === "en" ? 'International markets' : 'Hrvatska i međunarodna tržišta',
+      name: locale === 'en' ? 'Croatia and international markets' : 'Hrvatska i međunarodna tržišta',
     },
-    inLanguage: locale === "en" ? 'en-US' : 'hr-HR',
+    inLanguage: SCHEMA_LANG[locale],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: locale === "en" ? 'AI and software consulting services' : 'AI i software consulting usluge',
+      name: locale === 'en' ? 'AI and software consulting services' : 'AI i software consulting usluge',
       itemListElement: [
         {
           '@type': 'Offer',
@@ -216,34 +296,20 @@ export function generateServiceSchema(
   };
 }
 
-export const aboutPageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'AboutPage',
-  '@id': `${getLocalizedUrl(ROUTES.about, "en")}/#aboutpage`,
-  url: getLocalizedUrl(ROUTES.about, "en"),
-  name: 'About HOTFIX d.o.o.',
-  description: 'HOTFIX d.o.o. is an AI and software consulting company focused on practical software delivery, architecture, AI workflows, and modernization.',
-  inLanguage: 'en',
-  mainEntity: {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-  },
-  about: {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-  },
-};
-
-export const contactPageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  '@id': `${getLocalizedUrl(ROUTES.contact, "en")}/#contactpage`,
-  url: getLocalizedUrl(ROUTES.contact, "en"),
-  name: 'Contact - HOTFIX d.o.o.',
-  description: 'Send an inquiry for AI consulting, software consulting, custom development, modernization, or engineering process improvement.',
-  inLanguage: 'en',
-  mainEntity: {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-  },
-};
+export function generateItemListSchema(
+  items: { name: string; url: string; description?: string }[],
+  locale: SiteLocale = 'en'
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    inLanguage: SCHEMA_LANG[locale],
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: `${siteUrl}${item.url}`,
+      ...(item.description ? { description: item.description } : {}),
+    })),
+  };
+}

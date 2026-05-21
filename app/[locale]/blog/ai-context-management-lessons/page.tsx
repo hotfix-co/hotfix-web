@@ -63,7 +63,7 @@ export default async function AIContextManagementArticle({ params }: { params: P
       name: currentPost.title,
       url: getLocalizedPath(BLOG_ARTICLE_ROUTES.aiContextManagement, loc),
     },
-  ]);
+  ], loc);
 
   return (
     <div className="bg-white">

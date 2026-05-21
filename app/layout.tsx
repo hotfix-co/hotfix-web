@@ -27,12 +27,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: "HOTFIX d.o.o.",
   title: {
-    default: "HOTFIX d.o.o. | AI & Software Consulting",
-    template: "%s | HOTFIX d.o.o.",
+    default: "HOTFIX d.o.o. — AI & Software Consulting",
+    template: "%s — HOTFIX d.o.o.",
   },
   description:
-    "AI and software consulting for companies that want to integrate AI into real processes, make clearer technical decisions, and deliver software more reliably.",
+    "HOTFIX d.o.o. is a Croatian AI and software consulting firm. We help teams adopt Claude Code, modernize codebases, and deliver software more reliably.",
   keywords: [
     "AI consulting",
     "software consulting",
@@ -44,6 +45,9 @@ export const metadata: Metadata = {
     "software modernization",
     "engineering process consulting",
     "HOTFIX d.o.o.",
+    "HOTFIX",
+    "Croatia",
+    "Hrvatska",
   ],
   authors: [
     { name: "Josip Budalić", url: `${SITE_URL}/about` },
@@ -72,24 +76,27 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "HOTFIX d.o.o.",
-    title: "HOTFIX d.o.o. | AI & Software Consulting",
+    title: "HOTFIX d.o.o. — AI & Software Consulting",
     description: "Practical AI and software consulting: AI adoption, Claude Code workflows, software architecture, custom development, and more reliable delivery.",
     images: [
       {
-        url: `${SITE_URL}/logo.png`,
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "HOTFIX d.o.o. logo",
+        alt: "HOTFIX d.o.o. — AI and software consulting",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "HOTFIX d.o.o. | AI & Software Consulting",
+    title: "HOTFIX d.o.o. — AI & Software Consulting",
     description: "AI consulting, software consulting, Claude Code enablement, architecture, and custom software development.",
-    images: [`${SITE_URL}/logo.png`],
+    images: [`${SITE_URL}/opengraph-image`],
   },
   category: 'technology',
+  other: {
+    "apple-mobile-web-app-title": "HOTFIX d.o.o.",
+  },
 };
 
 export default function RootLayout({

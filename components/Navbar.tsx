@@ -33,9 +33,10 @@ export default function Navbar() {
           >
             <Image
               src="/logo.png"
-              alt="HOTFIX logo"
+              alt="HOTFIX d.o.o. logo"
               width={64}
               height={64}
+              priority
               className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 object-contain"
             />
             <span className="text-[18px] font-medium tracking-[0.1px] text-[var(--ink)]">

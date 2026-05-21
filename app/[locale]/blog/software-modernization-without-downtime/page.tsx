@@ -61,7 +61,7 @@ export default async function SoftwareModernizationArticle({ params }: { params:
       name: post.title,
       url: getLocalizedPath(BLOG_ARTICLE_ROUTES.softwareModernization, loc),
     },
-  ]);
+  ], loc);
 
   const articleSchema = generateBlogPostingSchema({
     post,

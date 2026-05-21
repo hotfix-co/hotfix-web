@@ -55,7 +55,7 @@ export default async function ClaudeCodeSubagentsArticle({ params }: { params: P
       name: currentPost.title,
       url: getLocalizedPath(BLOG_ARTICLE_ROUTES.claudeCodeSubagents, loc),
     },
-  ]);
+  ], loc);
 
   return (
     <div className="bg-white">

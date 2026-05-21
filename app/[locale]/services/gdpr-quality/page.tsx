@@ -23,7 +23,7 @@ const copy = {
     title: "Privatnost, kvaliteta i spremnost za produkciju",
     description:
       "Software consulting za privatnost, sigurnije rukovanje podacima, kvalitetu isporuke, testiranje, observability i production readiness.",
-    ogTitle: "Privatnost i kvaliteta software isporuke | HOTFIX",
+    ogTitle: "Privatnost i kvaliteta software isporuke | HOTFIX d.o.o.",
     ogDescription:
       "Privatnost po dizajnu, sigurnije rukovanje podacima, dokumentacija, testiranje i operativna spremnost.",
     keywords: [
@@ -81,7 +81,7 @@ const copy = {
     title: "Privacy, quality, and production readiness",
     description:
       "Software consulting for privacy, safer data handling, delivery quality, testing, observability, and production readiness.",
-    ogTitle: "Privacy and software delivery quality | HOTFIX",
+    ogTitle: "Privacy and software delivery quality | HOTFIX d.o.o.",
     ogDescription:
       "Privacy by design, safer data handling, documentation, testing, and operational readiness.",
     keywords: [
@@ -156,9 +156,22 @@ export async function generateMetadata({
     },
     openGraph: {
       url: canonicalUrl,
+      siteName: "HOTFIX d.o.o.",
       locale: loc === "en" ? "en_US" : "hr_HR",
       title: text.ogTitle,
       description: text.ogDescription,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "HOTFIX d.o.o. — AI and software consulting",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/opengraph-image"],
     },
     keywords: [...text.keywords],
   };
@@ -174,15 +187,20 @@ export default async function GDPRQualityPage({
   const text = copy[loc];
   setRequestLocale(locale);
 
-  const breadcrumb = generateBreadcrumbSchema([
-    { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
-    { name: text.breadcrumbServices, url: getLocalizedPath(ROUTES.services, loc) },
-    { name: text.breadcrumbCurrent, url: getLocalizedPath(ROUTES.quality, loc) },
-  ]);
+  const breadcrumb = generateBreadcrumbSchema(
+    [
+      { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
+      { name: text.breadcrumbServices, url: getLocalizedPath(ROUTES.services, loc) },
+      { name: text.breadcrumbCurrent, url: getLocalizedPath(ROUTES.quality, loc) },
+    ],
+    loc
+  );
 
   const serviceSchema = generateServiceSchema(text.title, text.serviceDescription, loc);
   const faqSchema = {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
+    inLanguage: loc === "en" ? "en" : "hr-HR",
     mainEntity: text.faq.map((item) => ({
       "@type": "Question",
       name: item.question,

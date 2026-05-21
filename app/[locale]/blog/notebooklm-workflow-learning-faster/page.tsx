@@ -63,7 +63,7 @@ export default async function NotebookLMWorkflowArticle({ params }: { params: Pr
       name: currentPost.title,
       url: getLocalizedPath(BLOG_ARTICLE_ROUTES.notebookLmWorkflow, loc),
     },
-  ]);
+  ], loc);
 
   return (
     <div className="bg-white">

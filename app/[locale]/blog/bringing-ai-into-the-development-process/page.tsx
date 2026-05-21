@@ -61,7 +61,7 @@ export default async function AIAdoptionArticle({ params }: { params: Promise<{ 
       name: post.title,
       url: getLocalizedPath(BLOG_ARTICLE_ROUTES.aiAdoption, loc),
     },
-  ]);
+  ], loc);
 
   const articleSchema = generateBlogPostingSchema({
     post,

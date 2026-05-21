@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 import { getBlogPosts, formatDate, slugToInternalBlogPath } from "@/lib/blogData";
 import type { Locale } from "@/lib/blogData";
-import { ROUTES } from "@/lib/constants";
+import { ROUTES, SITE_URL } from "@/lib/constants";
 import {
   getLanguageAlternates,
   getLocalizedPath,
@@ -46,11 +46,23 @@ export async function generateMetadata({
       siteName: "HOTFIX d.o.o.",
       locale: isEn ? "en_US" : "hr_HR",
       title: isEn
-        ? "HOTFIX blog | AI and software engineering"
-        : "HOTFIX blog | AI i software engineering",
+        ? "HOTFIX d.o.o. blog — AI and software engineering"
+        : "HOTFIX d.o.o. blog — AI i software engineering",
       description: isEn
         ? "Practical articles about AI workflows, Claude Code, software delivery, and development processes."
         : "Praktični tekstovi o AI workflowima, Claude Codeu, software deliveryju i razvojnim procesima.",
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "HOTFIX d.o.o. — AI and software consulting",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/opengraph-image"],
     },
     keywords: [
       "AI-assisted development",
@@ -75,19 +87,65 @@ export default async function BlogPage({
   const t = await getTranslations("blog");
   const posts = getBlogPosts(loc);
 
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
-    { name: "Blog", url: getLocalizedPath(ROUTES.blog, loc) },
-  ]);
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    [
+      { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
+      { name: "Blog", url: getLocalizedPath(ROUTES.blog, loc) },
+    ],
+    loc
+  );
 
   const sortedPosts = [...posts].sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 
+  const blogListSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${getLocalizedUrl(ROUTES.blog, loc)}#blog`,
+    name: loc === "en"
+      ? "HOTFIX d.o.o. blog — AI and software engineering"
+      : "HOTFIX d.o.o. blog — AI i software engineering",
+    description: loc === "en"
+      ? "Practical notes on AI-assisted development, Claude Code workflows, software delivery, and engineering processes."
+      : "Praktične bilješke o AI-assisted developmentu, Claude Code workflowima, software deliveryju i engineering procesima.",
+    url: getLocalizedUrl(ROUTES.blog, loc),
+    inLanguage: loc === "en" ? "en" : "hr-HR",
+    publisher: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+    },
+    blogPost: sortedPosts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.description,
+      url: `${SITE_URL}${slugToInternalBlogPath(post.slug)}`,
+      datePublished: post.publishedAt,
+      dateModified: post.updatedAt || post.publishedAt,
+      author: {
+        "@type": "Person",
+        name: post.author.name,
+      },
+      keywords: post.tags.join(", "),
+    })),
+  };
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    inLanguage: loc === "en" ? "en" : "hr-HR",
+    itemListElement: sortedPosts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${SITE_URL}${slugToInternalBlogPath(post.slug)}`,
+      name: post.title,
+    })),
+  };
+
   return (
     <div className="bg-white">
-      <StructuredData data={[breadcrumbSchema]} />
+      <StructuredData data={[breadcrumbSchema, blogListSchema, itemListSchema]} />
 
       {/* Hero Section */}
       <section className="gradient-mesh relative overflow-hidden py-24">

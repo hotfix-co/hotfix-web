@@ -4,7 +4,11 @@ import ServiceCard from "@/components/ServiceCard";
 import { Link } from "@/i18n/navigation";
 import StructuredData from "@/components/StructuredData";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
-import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/structuredData";
+import {
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+  generateItemListSchema,
+} from "@/lib/structuredData";
 import { ROUTES } from "@/lib/constants";
 import {
   getLanguageAlternates,
@@ -54,6 +58,18 @@ export async function generateMetadata({
       description: isEn
         ? "From AI adoption and Claude Code workflows to architecture, custom development, integrations, and software modernization."
         : "Od AI adopcije i Claude Code workflowa do arhitekture, custom developmenta, integracija i modernizacije softwarea.",
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "HOTFIX d.o.o. — AI and software consulting",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/opengraph-image"],
     },
     keywords: [
       "AI consulting",
@@ -82,10 +98,14 @@ export default async function ServicesPage({
   const isEn = locale === "en";
   const includesLabel = isEn ? "What's included" : "Što uključuje";
 
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: isEn ? "Home" : "Početna", url: getLocalizedPath(ROUTES.home, isEn ? "en" : "hr") },
-    { name: isEn ? "Services" : "Usluge", url: getLocalizedPath(ROUTES.services, isEn ? "en" : "hr") },
-  ]);
+  const loc = isEn ? "en" : "hr";
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    [
+      { name: isEn ? "Home" : "Početna", url: getLocalizedPath(ROUTES.home, loc) },
+      { name: isEn ? "Services" : "Usluge", url: getLocalizedPath(ROUTES.services, loc) },
+    ],
+    loc
+  );
 
   const services = [
     {
@@ -139,12 +159,34 @@ export default async function ServicesPage({
 
   // Generate service schemas
   const serviceSchemas = services.map(service =>
-    generateServiceSchema(service.title, service.description, isEn ? "en" : "hr")
+    generateServiceSchema(service.title, service.description, loc)
+  );
+
+  // ItemList of specialized service entry points (better rich-result eligibility)
+  const itemListSchema = generateItemListSchema(
+    [
+      {
+        name: t("specAI"),
+        url: getLocalizedPath(ROUTES.aiConsulting, loc),
+        description: t("specAIDesc"),
+      },
+      {
+        name: t("specQuality"),
+        url: getLocalizedPath(ROUTES.quality, loc),
+        description: t("specQualityDesc"),
+      },
+      {
+        name: t("specProductivity"),
+        url: getLocalizedPath(ROUTES.productivity, loc),
+        description: t("specProductivityDesc"),
+      },
+    ],
+    loc
   );
 
   return (
     <div className="bg-white">
-      <StructuredData data={[breadcrumbSchema, ...serviceSchemas]} />
+      <StructuredData data={[breadcrumbSchema, itemListSchema, ...serviceSchemas]} />
       {/* Hero Section */}
       <section className="gradient-mesh relative overflow-hidden py-24" aria-labelledby="services-hero">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:items-end">

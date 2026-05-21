@@ -63,7 +63,7 @@ export default async function SpecDrivenDevelopmentArticle({ params }: { params:
       name: currentPost.title,
       url: getLocalizedPath(BLOG_ARTICLE_ROUTES.specDrivenDevelopment, loc),
     },
-  ]);
+  ], loc);
 
   return (
     <div className="bg-white">

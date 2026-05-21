@@ -166,10 +166,13 @@ export default async function PrivacyPage({
   const text = copy[loc];
   setRequestLocale(locale);
 
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
-    { name: text.title, url: getLocalizedPath(ROUTES.privacy, loc) },
-  ]);
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    [
+      { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
+      { name: text.title, url: getLocalizedPath(ROUTES.privacy, loc) },
+    ],
+    loc
+  );
 
   return (
     <div className="bg-white">

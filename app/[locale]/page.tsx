@@ -23,27 +23,75 @@ export async function generateMetadata({
   const canonicalUrl = getLocalizedUrl(ROUTES.home, isEn ? "en" : "hr");
 
   return {
-    title: isEn
-      ? "AI & software consulting for reliable delivery"
-      : "AI i software consulting za pouzdanu isporuku",
+    title: {
+      absolute: isEn
+        ? "HOTFIX d.o.o. — AI & Software Consulting from Croatia"
+        : "HOTFIX d.o.o. — AI i software consulting iz Hrvatske",
+    },
     description: isEn
-      ? "HOTFIX helps companies integrate AI into real processes, improve software delivery, modernize codebases, and build custom software without hype."
-      : "HOTFIX pomaže tvrtkama uvesti AI u stvarne procese, poboljšati software delivery, modernizirati codebase i graditi custom software bez hypea.",
+      ? "HOTFIX d.o.o. helps companies integrate AI into real processes, modernize codebases, and deliver software more reliably. Croatia-based, EU-wide."
+      : "HOTFIX d.o.o. pomaže tvrtkama uvesti AI u stvarne procese, modernizirati codebase i pouzdanije isporučivati software. Iz Hrvatske, za cijelu EU.",
     alternates: {
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.home),
     },
+    keywords: isEn
+      ? [
+          "AI consulting",
+          "software consulting",
+          "Claude Code consulting",
+          "AI-assisted development",
+          "software modernization",
+          "software architecture",
+          "custom software development",
+          "Croatia",
+          "EU",
+          "HOTFIX d.o.o.",
+        ]
+      : [
+          "AI consulting Hrvatska",
+          "software consulting",
+          "Claude Code",
+          "AI-assisted development",
+          "modernizacija softwarea",
+          "software arhitektura",
+          "custom software development",
+          "razvoj softwarea Hrvatska",
+          "HOTFIX d.o.o.",
+        ],
     openGraph: {
       url: canonicalUrl,
       type: "website",
       siteName: "HOTFIX d.o.o.",
       locale: isEn ? "en_US" : "hr_HR",
       title: isEn
-        ? "HOTFIX d.o.o. | AI & Software Consulting"
-        : "HOTFIX d.o.o. | AI i software consulting",
+        ? "HOTFIX d.o.o. — AI & Software Consulting"
+        : "HOTFIX d.o.o. — AI i software consulting",
       description: isEn
-        ? "AI adoption, Claude Code workflows, software architecture, custom development, and more reliable delivery."
-        : "AI adopcija, Claude Code workflowi, software arhitektura, custom development i engineering procesi za pouzdaniju isporuku.",
+        ? "AI adoption, Claude Code workflows, software architecture, modernization, and reliable software delivery — by HOTFIX d.o.o."
+        : "AI adopcija, Claude Code workflowi, software arhitektura, modernizacija i pouzdana isporuka softwarea — HOTFIX d.o.o.",
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "HOTFIX d.o.o. — AI and software consulting",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: isEn
+        ? "HOTFIX d.o.o. — AI & Software Consulting"
+        : "HOTFIX d.o.o. — AI i software consulting",
+      description: isEn
+        ? "AI adoption, Claude Code workflows, architecture, modernization, and reliable delivery."
+        : "AI adopcija, Claude Code workflowi, arhitektura, modernizacija i pouzdana isporuka.",
+      images: ["/opengraph-image"],
+    },
+    other: {
+      "application-name": "HOTFIX d.o.o.",
+      "apple-mobile-web-app-title": "HOTFIX d.o.o.",
     },
   };
 }
@@ -56,12 +104,16 @@ export default async function Home({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home" });
 
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    {
-      name: locale === "en" ? "Home" : "Početna",
-      url: getLocalizedPath(ROUTES.home, locale === "en" ? "en" : "hr"),
-    },
-  ]);
+  const loc = locale === "en" ? "en" : "hr";
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    [
+      {
+        name: loc === "en" ? "Home" : "Početna",
+        url: getLocalizedPath(ROUTES.home, loc),
+      },
+    ],
+    loc
+  );
 
   const features = [
     {

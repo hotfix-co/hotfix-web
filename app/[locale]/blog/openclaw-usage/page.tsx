@@ -63,7 +63,7 @@ export default async function OpenClawUsageArticle({ params }: { params: Promise
       name: currentPost.title,
       url: getLocalizedPath(BLOG_ARTICLE_ROUTES.openClawUsage, loc),
     },
-  ]);
+  ], loc);
 
   return (
     <div className="bg-white">

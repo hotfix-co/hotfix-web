@@ -23,7 +23,7 @@ const copy = {
     title: "Engineering produktivnost i software delivery procesi",
     description:
       "Consulting za engineering produktivnost: CI/CD, automatizacija, developer tooling, Claude Code workflowi, observability i bolji delivery procesi.",
-    ogTitle: "Engineering produktivnost i delivery procesi | HOTFIX",
+    ogTitle: "Engineering produktivnost i delivery procesi | HOTFIX d.o.o.",
     ogDescription:
       "CI/CD, tooling, automatizacija, AI-assisted development workflowi i procesi koji smanjuju trenje u software timu.",
     keywords: [
@@ -86,7 +86,7 @@ const copy = {
     title: "Engineering productivity and software delivery processes",
     description:
       "Engineering productivity consulting: CI/CD, automation, developer tooling, Claude Code workflows, observability, and better delivery processes.",
-    ogTitle: "Engineering productivity and delivery processes | HOTFIX",
+    ogTitle: "Engineering productivity and delivery processes | HOTFIX d.o.o.",
     ogDescription:
       "CI/CD, tooling, automation, AI-assisted development workflows, and processes that reduce friction in software teams.",
     keywords: [
@@ -166,9 +166,22 @@ export async function generateMetadata({
     },
     openGraph: {
       url: canonicalUrl,
+      siteName: "HOTFIX d.o.o.",
       locale: loc === "en" ? "en_US" : "hr_HR",
       title: text.ogTitle,
       description: text.ogDescription,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "HOTFIX d.o.o. — AI and software consulting",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/opengraph-image"],
     },
     keywords: [...text.keywords],
   };
@@ -184,15 +197,20 @@ export default async function ProductivityPage({
   const text = copy[loc];
   setRequestLocale(locale);
 
-  const breadcrumb = generateBreadcrumbSchema([
-    { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
-    { name: text.breadcrumbServices, url: getLocalizedPath(ROUTES.services, loc) },
-    { name: text.breadcrumbCurrent, url: getLocalizedPath(ROUTES.productivity, loc) },
-  ]);
+  const breadcrumb = generateBreadcrumbSchema(
+    [
+      { name: text.breadcrumbHome, url: getLocalizedPath(ROUTES.home, loc) },
+      { name: text.breadcrumbServices, url: getLocalizedPath(ROUTES.services, loc) },
+      { name: text.breadcrumbCurrent, url: getLocalizedPath(ROUTES.productivity, loc) },
+    ],
+    loc
+  );
 
   const serviceSchema = generateServiceSchema(text.title, text.serviceDescription, loc);
   const faqSchema = {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
+    inLanguage: loc === "en" ? "en" : "hr-HR",
     mainEntity: text.faq.map((item) => ({
       "@type": "Question",
       name: item.question,

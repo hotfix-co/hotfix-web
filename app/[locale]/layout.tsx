@@ -7,7 +7,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
-import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/structuredData";
+import {
+  getOrganizationSchema,
+  getWebsiteSchema,
+  getLocalBusinessSchema,
+} from "@/lib/structuredData";
+import type { SiteLocale } from "@/lib/constants";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -29,11 +34,19 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const messages = await getMessages();
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const loc = locale as SiteLocale;
+  const htmlLang = loc === "hr" ? "hr-HR" : "en";
 
   return (
-    <html lang={locale}>
+    <html lang={htmlLang}>
       <head>
-        <StructuredData data={[organizationSchema, websiteSchema, localBusinessSchema]} />
+        <StructuredData
+          data={[
+            getOrganizationSchema(loc),
+            getWebsiteSchema(loc),
+            getLocalBusinessSchema(loc),
+          ]}
+        />
         {measurementId ? (
           <>
             <Script
