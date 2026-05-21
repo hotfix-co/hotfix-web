@@ -32,7 +32,7 @@ export default function Navbar() {
             className="flex items-center space-x-3 focus-ring rounded"
           >
             <Image
-              src="/logo.png"
+              src="/hotfix-logo.png"
               alt="HOTFIX d.o.o. logo"
               width={64}
               height={64}
