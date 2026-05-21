@@ -135,9 +135,9 @@ export default async function Home({
       <StructuredData data={breadcrumbSchema} />
       <Hero />
 
-      <section className="bg-white py-14 md:py-24" aria-labelledby="why-choose-us">
+      <section className="bg-white py-20 md:py-24" aria-labelledby="why-choose-us">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-14 max-w-3xl">
+          <AnimatedSection className="mb-12 max-w-3xl md:mb-14">
             <span className="section-eyebrow mb-4 block">{t("eyebrow")}</span>
             <h2 id="why-choose-us" className="section-title mb-5">
               {t("title")}
@@ -149,13 +149,12 @@ export default async function Home({
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {features.map((feature, index) => (
-              <AnimatedSection key={index} delay={index * 0.1}>
+              <AnimatedSection key={index} delay={index * 0.08}>
                 <div className="card-feature-light h-full transition-transform duration-200 hover:-translate-y-1">
-                  <span className="pill-tag-soft mb-6">0{index + 1}</span>
-                  <h3 className="mb-3 text-[22px] font-bold leading-[1.1] tracking-[-0.22px] text-[var(--ink)]">
+                  <h3 className="mb-3 text-[22px] font-light leading-[1.15] tracking-[-0.22px] text-[var(--ink)]">
                     {feature.title}
                   </h3>
-                  <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">{feature.description}</p>
+                  <p className="text-[15px] leading-[1.5] text-[var(--ink-mute)]">{feature.description}</p>
                 </div>
               </AnimatedSection>
             ))}

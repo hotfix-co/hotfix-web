@@ -1,0 +1,250 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "HOTFIX d.o.o. logo HOTFIX d.o.o." [ref=e5] [cursor=pointer]:
+        - /url: /en
+        - img "HOTFIX d.o.o. logo" [ref=e6]
+        - generic [ref=e7]: HOTFIX d.o.o.
+      - generic [ref=e8]:
+        - button "EN" [ref=e10]:
+          - generic [ref=e11]: EN
+          - img [ref=e12]
+        - button "Open menu" [ref=e14]:
+          - generic [ref=e15]: Open menu
+          - img [ref=e16]
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - region "AI and software consulting from decision to delivery." [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]: services
+            - heading "AI and software consulting from decision to delivery." [level=1] [ref=e24]
+            - paragraph [ref=e25]: We help teams integrate AI into real processes, improve software delivery, modernize existing systems, and build custom solutions with a clear business purpose.
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic [ref=e28]: service map
+              - generic [ref=e29]: 4 areas
+            - generic [ref=e30]:
+              - generic [ref=e31]:
+                - generic [ref=e32]: "01"
+                - heading "AI consulting & adoption" [level=3] [ref=e33]
+              - generic [ref=e34]:
+                - generic [ref=e35]: "02"
+                - heading "Claude Code & AI-assisted development" [level=3] [ref=e36]
+              - generic [ref=e37]:
+                - generic [ref=e38]: "03"
+                - heading "Software architecture & delivery process" [level=3] [ref=e39]
+              - generic [ref=e40]:
+                - generic [ref=e41]: "04"
+                - heading "Custom software development" [level=3] [ref=e42]
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - heading "Specialized consulting services" [level=2] [ref=e46]
+          - paragraph [ref=e47]: Three specialized entry points when you need a quick assessment, a structured plan, or hands-on support.
+        - generic [ref=e48]:
+          - link "AI consulting AI adoption, Claude Code, multi-agent workflows, guardrails, and production integration." [ref=e49] [cursor=pointer]:
+            - /url: /en/services/ai-consulting
+            - heading "AI consulting" [level=3] [ref=e50]
+            - paragraph [ref=e51]: AI adoption, Claude Code, multi-agent workflows, guardrails, and production integration.
+          - link "Privacy & quality Privacy by design, documentation, testing, and production readiness." [ref=e52] [cursor=pointer]:
+            - /url: /en/services/gdpr-quality
+            - heading "Privacy & quality" [level=3] [ref=e53]
+            - paragraph [ref=e54]: Privacy by design, documentation, testing, and production readiness.
+          - link "Engineering productivity CI/CD, tooling, automation, and better workflows for less friction in development." [ref=e55] [cursor=pointer]:
+            - /url: /en/services/productivity
+            - heading "Engineering productivity" [level=3] [ref=e56]
+            - paragraph [ref=e57]: CI/CD, tooling, automation, and better workflows for less friction in development.
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e62]: AI
+          - heading "AI consulting & adoption" [level=3] [ref=e63]
+          - paragraph [ref=e64]: We help select AI use cases that make business sense, define guardrails, and embed AI into existing workflows without unnecessary risk.
+          - generic [ref=e65]:
+            - heading "What's included" [level=4] [ref=e66]
+            - list [ref=e67]:
+              - listitem [ref=e68]:
+                - generic [ref=e70]: AI adoption strategy & use case prioritization
+              - listitem [ref=e71]:
+                - generic [ref=e73]: Risk, security, and data assessment
+              - listitem [ref=e74]:
+                - generic [ref=e76]: LLM integration into internal tools and business processes
+              - listitem [ref=e77]:
+                - generic [ref=e79]: Evaluations, testing, and AI feature monitoring
+              - listitem [ref=e80]:
+                - generic [ref=e82]: Team handover and decision documentation
+        - generic [ref=e83]:
+          - generic [ref=e84]: Claude
+          - heading "Claude Code & AI-assisted development" [level=3] [ref=e85]
+          - paragraph [ref=e86]: We introduce Claude Code, Codex, and similar tools into the development process so they accelerate work without bypassing quality, review, and ownership.
+          - generic [ref=e87]:
+            - heading "What's included" [level=4] [ref=e88]
+            - list [ref=e89]:
+              - listitem [ref=e90]:
+                - generic [ref=e92]: AI coding workflows for teams
+              - listitem [ref=e93]:
+                - generic [ref=e95]: Claude Code skills, subagents, and review standards
+              - listitem [ref=e96]:
+                - generic [ref=e98]: Spec-driven development and clearer task handoff
+              - listitem [ref=e99]:
+                - generic [ref=e101]: Security rules, code review, and test disciplines
+              - listitem [ref=e102]:
+                - generic [ref=e104]: Impact measurement without losing control of the codebase
+        - generic [ref=e105]:
+          - generic [ref=e106]: Software
+          - heading "Software architecture & delivery process" [level=3] [ref=e107]
+          - paragraph [ref=e108]: We help leadership and teams make technical decisions, reduce delivery friction, and set up a process that better maintains quality.
+          - generic [ref=e109]:
+            - heading "What's included" [level=4] [ref=e110]
+            - list [ref=e111]:
+              - listitem [ref=e112]:
+                - generic [ref=e114]: Architecture review & technical planning
+              - listitem [ref=e115]:
+                - generic [ref=e117]: Product discovery and development specifications
+              - listitem [ref=e118]:
+                - generic [ref=e120]: CI/CD, testing, observability, and release process
+              - listitem [ref=e121]:
+                - generic [ref=e123]: Legacy codebase modernization without stopping development
+              - listitem [ref=e124]:
+                - generic [ref=e126]: Roadmap of decisions, risks, and trade-offs
+        - generic [ref=e127]:
+          - generic [ref=e128]: Custom
+          - heading "Custom software development" [level=3] [ref=e129]
+          - paragraph [ref=e130]: We design and build web, mobile, backend, integrations, internal tools, and automations that solve concrete business problems.
+          - generic [ref=e131]:
+            - heading "What's included" [level=4] [ref=e132]
+            - list [ref=e133]:
+              - listitem [ref=e134]:
+                - generic [ref=e136]: Web applications, dashboards, and internal tools
+              - listitem [ref=e137]:
+                - generic [ref=e139]: Backend systems, APIs, and integrations
+              - listitem [ref=e140]:
+                - generic [ref=e142]: Mobile development with Kotlin, Swift, and KMM
+              - listitem [ref=e143]:
+                - generic [ref=e145]: Automations and modernization of existing systems
+              - listitem [ref=e146]:
+                - generic [ref=e148]: .NET, TypeScript, React, Go, Python, and other proven stacks
+      - region "Technology is a tool, not a starting point." [ref=e149]:
+        - generic [ref=e150]:
+          - generic [ref=e151]:
+            - generic [ref=e152]: stack
+            - heading "Technology is a tool, not a starting point." [level=2] [ref=e153]
+            - paragraph [ref=e154]: We use proven technologies when they naturally fit the problem, team, and existing codebase. We don't push stacks for marketing.
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - heading "AI & workflows" [level=3] [ref=e157]
+              - generic [ref=e158]:
+                - generic [ref=e159]: Claude Code
+                - generic [ref=e160]: Codex
+                - generic [ref=e161]: LLM evaluations
+                - generic [ref=e162]: Multi-agent systems
+                - generic [ref=e163]: MCP
+                - generic [ref=e164]: RAG
+                - generic [ref=e165]: Prompt rules
+            - generic [ref=e166]:
+              - heading "Backend & integrations" [level=3] [ref=e167]
+              - generic [ref=e168]:
+                - generic [ref=e169]: .NET
+                - generic [ref=e170]: Go
+                - generic [ref=e171]: Python
+                - generic [ref=e172]: Node.js
+                - generic [ref=e173]: PostgreSQL
+                - generic [ref=e174]: REST API
+                - generic [ref=e175]: GraphQL
+                - generic [ref=e176]: Cloud
+            - generic [ref=e177]:
+              - heading "Frontend & mobile" [level=3] [ref=e178]
+              - generic [ref=e179]:
+                - generic [ref=e180]: TypeScript
+                - generic [ref=e181]: React
+                - generic [ref=e182]: Next.js
+                - generic [ref=e183]: Kotlin
+                - generic [ref=e184]: KMM
+                - generic [ref=e185]: Swift
+                - generic [ref=e186]: SwiftUI
+                - generic [ref=e187]: Jetpack Compose
+            - generic [ref=e188]:
+              - heading "Delivery & quality" [level=3] [ref=e189]
+              - generic [ref=e190]:
+                - generic [ref=e191]: GitHub Actions
+                - generic [ref=e192]: Docker
+                - generic [ref=e193]: Playwright
+                - generic [ref=e194]: Automated tests
+                - generic [ref=e195]: Observability
+                - generic [ref=e196]: Runbooks
+                - generic [ref=e197]: Git
+                - generic [ref=e198]: CI/CD
+      - region "A process that reduces risk before the codebase takes it on." [ref=e199]:
+        - generic [ref=e200]:
+          - generic [ref=e201]:
+            - generic [ref=e202]: process
+            - heading "A process that reduces risk before the codebase takes it on." [level=2] [ref=e203]
+            - paragraph [ref=e204]: We work structured enough that decisions are clear, but practical enough that delivery momentum isn't lost.
+          - generic [ref=e205]:
+            - generic [ref=e206]:
+              - generic [ref=e207]: "01"
+              - generic [ref=e208]:
+                - heading "Discovery & technical mapping" [level=3] [ref=e209]
+                - paragraph [ref=e210]: We understand the business goal, existing system, team capacity, data, risks, and where AI or a better process can bring real value.
+            - generic [ref=e211]:
+              - generic [ref=e212]: "02"
+              - generic [ref=e213]:
+                - heading "Architecture & delivery plan" [level=3] [ref=e214]
+                - paragraph [ref=e215]: We define decisions, system boundaries, integrations, quality criteria, and an implementation plan the team can understand and maintain.
+            - generic [ref=e216]:
+              - generic [ref=e217]: "03"
+              - generic [ref=e218]:
+                - heading "Implementation & quality assurance" [level=3] [ref=e219]
+                - paragraph [ref=e220]: We build iteratively, with code review, automated checks, clear task handoff, and feedback from real usage.
+            - generic [ref=e221]:
+              - generic [ref=e222]: "04"
+              - generic [ref=e223]:
+                - heading "Handover & ongoing development" [level=3] [ref=e224]
+                - paragraph [ref=e225]: We prepare documentation, runbooks, decisions, and recommendations for continuing development — whether the internal team takes over or we keep working together.
+      - region "Have a process, codebase, or AI idea that needs grounding?" [ref=e226]:
+        - generic [ref=e227]:
+          - heading "Have a process, codebase, or AI idea that needs grounding?" [level=2] [ref=e228]
+          - paragraph [ref=e229]: Send us a brief context. In the first conversation, we can map the problem, risks, and the most useful next step.
+          - link "Contact HOTFIX d.o.o. to discuss an AI or software project" [ref=e230] [cursor=pointer]:
+            - /url: /en/contact
+            - text: Book a call
+  - contentinfo [ref=e231]:
+    - generic [ref=e232]:
+      - generic [ref=e233]:
+        - generic [ref=e234]:
+          - generic [ref=e235]: HOTFIX d.o.o.
+          - paragraph [ref=e236]: AI and software consulting for companies that want clearer technical decisions, a better development process, and more reliable software delivery.
+        - generic [ref=e237]:
+          - heading "Navigation" [level=3] [ref=e238]
+          - list [ref=e239]:
+            - listitem [ref=e240]:
+              - link "Home" [ref=e241] [cursor=pointer]:
+                - /url: /en
+            - listitem [ref=e242]:
+              - link "About" [ref=e243] [cursor=pointer]:
+                - /url: /en/about
+            - listitem [ref=e244]:
+              - link "Services" [ref=e245] [cursor=pointer]:
+                - /url: /en/services
+            - listitem [ref=e246]:
+              - link "Blog" [ref=e247] [cursor=pointer]:
+                - /url: /en/blog
+            - listitem [ref=e248]:
+              - link "Contact" [ref=e249] [cursor=pointer]:
+                - /url: /en/contact
+        - generic [ref=e250]:
+          - heading "Contact" [level=3] [ref=e251]
+          - list [ref=e252]:
+            - listitem [ref=e253]:
+              - link "ops@hotfix-doo.com" [ref=e254] [cursor=pointer]:
+                - /url: mailto:ops@hotfix-doo.com
+            - listitem [ref=e255]: Available Mon-Fri, 9:00-17:00 CET
+      - generic [ref=e257]:
+        - paragraph [ref=e258]: © 2026 HOTFIX d.o.o. All rights reserved.
+        - generic [ref=e259]:
+          - link "Privacy" [ref=e260] [cursor=pointer]:
+            - /url: /en/privacy
+          - link "Terms of Service" [ref=e261] [cursor=pointer]:
+            - /url: /en/terms
+  - button "Open Next.js Dev Tools" [ref=e267] [cursor=pointer]:
+    - img [ref=e268]
+  - alert [ref=e271]

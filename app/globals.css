@@ -205,7 +205,15 @@ section.relative.bg-gradient-to-br {
 .card-feature-light,
 .card-pricing,
 .card-cream-band {
-  padding: 32px;
+  padding: 24px;
+}
+
+@media (min-width: 768px) {
+  .card-feature-light,
+  .card-pricing,
+  .card-cream-band {
+    padding: 32px;
+  }
 }
 
 .card-cream-band {
@@ -242,8 +250,8 @@ section.relative.bg-gradient-to-br {
   color: var(--ink);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 300;
-  letter-spacing: -0.96px;
-  line-height: 1.15;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
   text-wrap: balance;
 }
 
@@ -251,7 +259,8 @@ section.relative.bg-gradient-to-br {
   color: var(--ink-mute);
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.5;
+  text-wrap: pretty;
 }
 
 .focus-ring {

@@ -216,27 +216,27 @@ export default async function ServicesPage({
         </div>
       </section>
 
-      <section className="py-12">
+      <section className="py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <h2 className="section-title">{t("specializedTitle")}</h2>
+          <div className="mb-10 max-w-3xl md:mb-12">
+            <h2 className="section-title mb-4">{t("specializedTitle")}</h2>
             <p className="section-lede">{t("specializedDesc")}</p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3">
-            <Link href={I18N_ROUTES.aiConsulting} className="card-feature-light transition-transform duration-200 hover:-translate-y-1">
-              <h3 className="mb-2 text-[18px] font-semibold">{t("specAI")}</h3>
-              <p className="text-[14px] text-[var(--ink-mute)]">{t("specAIDesc")}</p>
+          <div className="grid gap-5 sm:grid-cols-3">
+            <Link href={I18N_ROUTES.aiConsulting} className="card-feature-light group transition-transform duration-200 hover:-translate-y-1">
+              <h3 className="mb-2 text-[20px] font-light leading-[1.3] tracking-[-0.2px] text-[var(--ink)]">{t("specAI")}</h3>
+              <p className="text-[14px] leading-[1.45] text-[var(--ink-mute)]">{t("specAIDesc")}</p>
             </Link>
 
-            <Link href={I18N_ROUTES.quality} className="card-feature-light transition-transform duration-200 hover:-translate-y-1">
-              <h3 className="mb-2 text-[18px] font-semibold">{t("specQuality")}</h3>
-              <p className="text-[14px] text-[var(--ink-mute)]">{t("specQualityDesc")}</p>
+            <Link href={I18N_ROUTES.quality} className="card-feature-light group transition-transform duration-200 hover:-translate-y-1">
+              <h3 className="mb-2 text-[20px] font-light leading-[1.3] tracking-[-0.2px] text-[var(--ink)]">{t("specQuality")}</h3>
+              <p className="text-[14px] leading-[1.45] text-[var(--ink-mute)]">{t("specQualityDesc")}</p>
             </Link>
 
-            <Link href={I18N_ROUTES.productivity} className="card-feature-light transition-transform duration-200 hover:-translate-y-1">
-              <h3 className="mb-2 text-[18px] font-semibold">{t("specProductivity")}</h3>
-              <p className="text-[14px] text-[var(--ink-mute)]">{t("specProductivityDesc")}</p>
+            <Link href={I18N_ROUTES.productivity} className="card-feature-light group transition-transform duration-200 hover:-translate-y-1">
+              <h3 className="mb-2 text-[20px] font-light leading-[1.3] tracking-[-0.2px] text-[var(--ink)]">{t("specProductivity")}</h3>
+              <p className="text-[14px] leading-[1.45] text-[var(--ink-mute)]">{t("specProductivityDesc")}</p>
             </Link>
           </div>
         </div>

@@ -1,0 +1,183 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "HOTFIX d.o.o. logo HOTFIX d.o.o." [ref=e5] [cursor=pointer]:
+        - /url: /en
+        - img "HOTFIX d.o.o. logo" [ref=e6]
+        - generic [ref=e7]: HOTFIX d.o.o.
+      - generic [ref=e8]:
+        - link "Home" [ref=e9] [cursor=pointer]:
+          - /url: /en
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: /en/about
+        - link "Services" [ref=e11] [cursor=pointer]:
+          - /url: /en/services
+        - link "Blog" [ref=e12] [cursor=pointer]:
+          - /url: /en/blog
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: /en/contact
+        - button "EN" [ref=e15]:
+          - generic [ref=e16]: EN
+          - img [ref=e17]
+        - link "Book a call" [ref=e19] [cursor=pointer]:
+          - /url: /en/contact
+  - main [ref=e20]:
+    - region "HOTFIX d.o.o." [ref=e21]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: AI Workflows • Consulting • Engineering
+          - heading "HOTFIX d.o.o." [level=1] [ref=e26]
+          - paragraph [ref=e27]: AI and software consulting for companies that want to make faster technical decisions and deliver software more reliably.
+          - paragraph [ref=e28]: We help teams integrate AI into real processes, use Claude Code and similar tools responsibly, modernize existing systems, and build custom software without hype or unnecessary complexity.
+          - generic [ref=e29]:
+            - link "View services" [ref=e30] [cursor=pointer]:
+              - /url: /en/services
+            - link "Book a call" [ref=e31] [cursor=pointer]:
+              - /url: /en/contact
+          - generic [ref=e32]:
+            - generic [ref=e33]: AI workflows
+            - generic [ref=e34]: Software consulting
+            - generic [ref=e35]: Custom software
+            - generic [ref=e36]: Claude Code
+        - generic [ref=e37]:
+          - generic [ref=e43]: delivery console
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - generic [ref=e47]: hotfix.deploy.ts
+                - generic [ref=e48]: live
+              - generic [ref=e49]: "const release = await ship({ web: \"Next.js\", api: \".NET + Go\", mobile: \"KMM + Swift\", checks: [\"typed\", \"tested\", \"observed\"] });"
+            - generic [ref=e50]:
+              - generic [ref=e52]:
+                - generic [ref=e53]: Release readiness
+                - generic [ref=e54]: 94%
+              - generic [ref=e57]:
+                - generic [ref=e58]:
+                  - paragraph [ref=e60]: API layer
+                  - paragraph [ref=e61]: 99.98%
+                - generic [ref=e62]:
+                  - paragraph [ref=e64]: Mobile release
+                  - paragraph [ref=e65]: 1.4s
+                - generic [ref=e66]:
+                  - paragraph [ref=e68]: Web vitals
+                  - paragraph [ref=e69]: A
+              - generic [ref=e70]:
+                - generic [ref=e71]:
+                  - generic [ref=e72]: Area
+                  - generic [ref=e73]: Status
+                  - generic [ref=e74]: Deadline
+                - generic [ref=e75]:
+                  - generic [ref=e76]: Backend API
+                  - generic [ref=e77]: stable
+                  - generic [ref=e78]: 2 d
+                - generic [ref=e79]:
+                  - generic [ref=e80]: React UI
+                  - generic [ref=e81]: review
+                  - generic [ref=e82]: 1 d
+                - generic [ref=e83]:
+                  - generic [ref=e84]: Mobile build
+                  - generic [ref=e85]: beta
+                  - generic [ref=e86]: 4 d
+    - region "From strategy and process to architecture, implementation, and delivery." [ref=e87]:
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]: how we work
+          - heading "From strategy and process to architecture, implementation, and delivery." [level=2] [ref=e91]
+          - paragraph [ref=e92]: HOTFIX d.o.o. combines consulting with hands-on engineering. We don't sell generic AI narratives. We work with concrete problems, existing teams, and software that must work in production.
+        - generic [ref=e93]:
+          - generic [ref=e95]:
+            - heading "AI in real workflows" [level=3] [ref=e96]
+            - paragraph [ref=e97]: We help identify where AI genuinely shortens the work, how to integrate it into existing processes, and when it's better to stick with a simpler solution.
+          - generic [ref=e99]:
+            - heading "Clear technical decisions" [level=3] [ref=e100]
+            - paragraph [ref=e101]: We break down options, risks, and trade-offs so product and engineering teams can decide faster what to build, what to postpone, and what to avoid.
+          - generic [ref=e103]:
+            - heading "Delivery that stays sustainable" [level=3] [ref=e104]
+            - paragraph [ref=e105]: We build and modernize software with a focus on code quality, testing, security, observability, and ownership after delivery.
+    - region "We help where decisions, process, and codebase meet." [ref=e106]:
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - generic [ref=e109]: services
+          - heading "We help where decisions, process, and codebase meet." [level=2] [ref=e110]
+          - paragraph [ref=e111]: "We can lead technical planning, help a team adopt AI-assisted development, or take on part of the implementation: web, mobile, backend, integrations, automations, and modernization."
+        - generic [ref=e112]:
+          - generic [ref=e114]:
+            - heading "AI consulting & AI adoption" [level=3] [ref=e115]
+            - paragraph [ref=e116]: "We integrate AI into real business and development processes: from assessing use cases to guardrails, testing, and production integration."
+            - list [ref=e117]:
+              - listitem [ref=e118]:
+                - generic [ref=e120]: AI adoption strategy
+              - listitem [ref=e121]:
+                - generic [ref=e123]: Claude Code & AI coding workflows
+              - listitem [ref=e124]:
+                - generic [ref=e126]: Multi-agent systems when they make sense
+          - generic [ref=e128]:
+            - heading "Software consulting" [level=3] [ref=e129]
+            - paragraph [ref=e130]: We help with architecture, delivery processes, technical decisions, prioritization, and modernization of existing software.
+            - list [ref=e131]:
+              - listitem [ref=e132]:
+                - generic [ref=e134]: Architecture & technical planning
+              - listitem [ref=e135]:
+                - generic [ref=e137]: Engineering processes & delivery
+              - listitem [ref=e138]:
+                - generic [ref=e140]: Codebase modernization
+          - generic [ref=e142]:
+            - heading "Custom software development" [level=3] [ref=e143]
+            - paragraph [ref=e144]: We design and build internal tools, web and mobile applications, backend systems, integrations, and automations.
+            - list [ref=e145]:
+              - listitem [ref=e146]:
+                - generic [ref=e148]: .NET, TypeScript, React, Go, Python
+              - listitem [ref=e149]:
+                - generic [ref=e151]: Kotlin, Swift & mobile development
+              - listitem [ref=e152]:
+                - generic [ref=e154]: APIs, integrations & automations
+        - link "View all services" [ref=e156] [cursor=pointer]:
+          - /url: /en/services
+    - region "Let's check where AI or a better development process can bring real value." [ref=e157]:
+      - generic [ref=e159]:
+        - generic [ref=e160]:
+          - generic [ref=e161]: next step
+          - heading "Let's check where AI or a better development process can bring real value." [level=2] [ref=e162]
+          - paragraph [ref=e163]: "Send us context: what you're building, where delivery stalls, and what you want to achieve. We'll get back with a clear proposal for a first conversation."
+        - link "Let's talk about your project" [ref=e164] [cursor=pointer]:
+          - /url: /en/contact
+  - contentinfo [ref=e165]:
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - generic [ref=e168]:
+          - generic [ref=e169]: HOTFIX d.o.o.
+          - paragraph [ref=e170]: AI and software consulting for companies that want clearer technical decisions, a better development process, and more reliable software delivery.
+        - generic [ref=e171]:
+          - heading "Navigation" [level=3] [ref=e172]
+          - list [ref=e173]:
+            - listitem [ref=e174]:
+              - link "Home" [ref=e175] [cursor=pointer]:
+                - /url: /en
+            - listitem [ref=e176]:
+              - link "About" [ref=e177] [cursor=pointer]:
+                - /url: /en/about
+            - listitem [ref=e178]:
+              - link "Services" [ref=e179] [cursor=pointer]:
+                - /url: /en/services
+            - listitem [ref=e180]:
+              - link "Blog" [ref=e181] [cursor=pointer]:
+                - /url: /en/blog
+            - listitem [ref=e182]:
+              - link "Contact" [ref=e183] [cursor=pointer]:
+                - /url: /en/contact
+        - generic [ref=e184]:
+          - heading "Contact" [level=3] [ref=e185]
+          - list [ref=e186]:
+            - listitem [ref=e187]:
+              - link "ops@hotfix-doo.com" [ref=e188] [cursor=pointer]:
+                - /url: mailto:ops@hotfix-doo.com
+            - listitem [ref=e189]: Available Mon-Fri, 9:00-17:00 CET
+      - generic [ref=e191]:
+        - paragraph [ref=e192]: © 2026 HOTFIX d.o.o. All rights reserved.
+        - generic [ref=e193]:
+          - link "Privacy" [ref=e194] [cursor=pointer]:
+            - /url: /en/privacy
+          - link "Terms of Service" [ref=e195] [cursor=pointer]:
+            - /url: /en/terms
+  - button "Open Next.js Dev Tools" [ref=e201] [cursor=pointer]:
+    - img [ref=e202]

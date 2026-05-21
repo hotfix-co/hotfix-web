@@ -66,12 +66,12 @@ export default function Hero() {
             ))}
           </div>
 
-          <div className="card-dashboard-mockup mt-6 grid grid-cols-3 gap-2 p-2 md:hidden">
+          <div className="card-dashboard-mockup mt-8 grid grid-cols-3 gap-2.5 p-3 md:hidden">
             {deliveryRows.map((row) => (
-              <div key={row.label} className="rounded-[var(--radius-md)] border border-[var(--hairline)] bg-white p-2">
-                <div className={`mb-2 h-1.5 w-7 rounded-full ${row.tone}`} />
-                <p className="text-[9px] leading-[1.2] text-[var(--ink-mute)]">{row.label}</p>
-                <p className="tabular mt-1 text-[15px] leading-[1.1] text-[var(--ink)]">{row.value}</p>
+              <div key={row.label} className="rounded-[var(--radius-md)] border border-[var(--hairline)] bg-white px-2.5 py-3">
+                <div className={`mb-2.5 h-1.5 w-7 rounded-full ${row.tone}`} />
+                <p className="text-[10px] leading-[1.3] text-[var(--ink-mute)]">{row.label}</p>
+                <p className="tabular mt-1 text-[16px] leading-[1.1] tracking-[-0.2px] text-[var(--ink)]">{row.value}</p>
               </div>
             ))}
           </div>

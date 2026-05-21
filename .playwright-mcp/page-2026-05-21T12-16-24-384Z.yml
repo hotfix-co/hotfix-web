@@ -1,0 +1,169 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "HOTFIX d.o.o. logo HOTFIX d.o.o." [ref=e5] [cursor=pointer]:
+        - /url: /en
+        - img "HOTFIX d.o.o. logo" [ref=e6]
+        - generic [ref=e7]: HOTFIX d.o.o.
+      - generic [ref=e8]:
+        - button "EN" [ref=e10]:
+          - generic [ref=e11]: EN
+          - img [ref=e12]
+        - button "Open menu" [ref=e14]:
+          - generic [ref=e15]: Open menu
+          - img [ref=e16]
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e22]:
+        - generic [ref=e23]: about HOTFIX
+        - heading "Practical software consulting." [level=1] [ref=e24]
+        - paragraph [ref=e25]: HOTFIX d.o.o. helps companies integrate AI into real workflows, streamline the development process, modernize existing software, and build solutions that remain maintainable after the first delivery.
+      - 'region "We started from a simple idea: software should help the business, not produce new complexity." [ref=e26]':
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e30]: story
+            - 'heading "We started from a simple idea: software should help the business, not produce new complexity." [level=2] [ref=e31]'
+            - generic [ref=e32]:
+              - paragraph [ref=e33]:
+                - text: HOTFIX d.o.o. was founded by
+                - strong [ref=e34]: Josip Budalić
+                - text: ", with a focus on product engineering, software architecture, and practical delivery. We work with companies that need a clearer technical direction, a better development process, or a reliable implementation partner."
+              - paragraph [ref=e35]: "We use AI where it genuinely shortens the path to a better result: in codebase analysis, specification preparation, review, automation, internal tools, and controlled AI-agent workflows. The focus remains on code quality, security, sustainability, and measurable impact."
+              - paragraph [ref=e36]: "Beyond consulting, we also do traditional software development: backend, frontend, mobile, integrations, automations, and modernization. We choose technologies based on the problem, not the trend."
+          - generic [ref=e38]:
+            - generic [ref=e39]:
+              - generic [ref=e40]: Clear decisions
+              - generic [ref=e41]: We break down options, risks, and trade-offs before a team spends months on the wrong direction.
+            - generic [ref=e42]:
+              - generic [ref=e43]: Responsible AI
+              - generic [ref=e44]: We introduce AI-assisted development with rules, review, security, and ownership — not as a replacement for engineering judgment.
+            - generic [ref=e45]:
+              - generic [ref=e46]: Sustainable delivery
+              - generic [ref=e47]: The goal isn't just to deliver faster, but to leave a codebase, process, and documentation that the team can continue using.
+      - region "How we approach our work" [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: principles
+            - heading "How we approach our work" [level=2] [ref=e52]
+            - paragraph [ref=e53]: The best result comes when business goals, technical decisions, and the delivery process are aligned.
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - heading "Mission" [level=3] [ref=e56]
+              - paragraph [ref=e57]: We help companies build and change software without unnecessary complexity. That means better preparation, clearer architecture, controlled use of AI tools, and maintainable delivery.
+            - generic [ref=e58]:
+              - heading "Values" [level=3] [ref=e59]
+              - list [ref=e60]:
+                - listitem [ref=e61]:
+                  - generic [ref=e63]: Technical clarity before implementation
+                - listitem [ref=e64]:
+                  - generic [ref=e66]: Transparent communication and realistic scope
+                - listitem [ref=e67]:
+                  - generic [ref=e69]: AI as a tool, not an excuse for a weak process
+                - listitem [ref=e70]:
+                  - generic [ref=e72]: Code, documentation, and workflows the team can take over
+      - region "We use technologies pragmatically." [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]: technologies
+            - heading "We use technologies pragmatically." [level=2] [ref=e77]
+            - paragraph [ref=e78]: We don't start from the stack. We start from the problem, the existing system and team, then choose the technology with the best balance of speed, quality, and maintainability.
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - img [ref=e82]
+              - heading "C# & .NET" [level=3] [ref=e84]
+              - paragraph [ref=e85]: Backend systems, APIs, business logic, and modernization of existing .NET applications.
+            - generic [ref=e86]:
+              - img [ref=e88]
+              - heading "React & Next.js" [level=3] [ref=e90]
+              - paragraph [ref=e91]: Frontend applications, internal platforms, dashboards, and web products with TypeScript.
+            - generic [ref=e92]:
+              - img [ref=e94]
+              - heading "Golang" [level=3] [ref=e96]
+              - paragraph [ref=e97]: Services, APIs, and integrations where deployment simplicity and performance matter.
+            - generic [ref=e98]:
+              - img [ref=e100]
+              - heading "Kotlin" [level=3] [ref=e102]
+              - paragraph [ref=e103]: Android applications, shared mobile logic, and backend components where Kotlin makes sense.
+            - generic [ref=e104]:
+              - img [ref=e106]
+              - heading "KMM" [level=3] [ref=e108]
+              - paragraph [ref=e109]: Sharing business logic between Android and iOS when it reduces long-term cost.
+            - generic [ref=e110]:
+              - img [ref=e112]
+              - heading "Swift" [level=3] [ref=e114]
+              - paragraph [ref=e115]: Native iOS development for apps that need good UX and reliable Apple platform integration.
+            - generic [ref=e116]:
+              - img [ref=e118]
+              - heading "Python" [level=3] [ref=e120]
+              - paragraph [ref=e121]: Data processing, automation, internal tools, and AI/ML pipelines where Python is the right tool for the job.
+      - region "Collaboration starts with understanding the problem." [ref=e122]:
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - generic [ref=e125]: process
+            - heading "Collaboration starts with understanding the problem." [level=2] [ref=e126]
+            - paragraph [ref=e127]: "Before implementation, we look for the shortest reliable path: enough research for a good decision, enough specification for quality work, and enough feedback to adjust course."
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - generic [ref=e130]: "1"
+              - heading "Discovery" [level=3] [ref=e131]
+              - paragraph [ref=e132]: We understand the business goal, existing system, constraints, and risks.
+            - generic [ref=e133]:
+              - generic [ref=e134]: "2"
+              - heading "Planning" [level=3] [ref=e135]
+              - paragraph [ref=e136]: We define architecture, scope, priorities, and quality criteria.
+            - generic [ref=e137]:
+              - generic [ref=e138]: "3"
+              - heading "Implementation" [level=3] [ref=e139]
+              - paragraph [ref=e140]: We build iteratively, with review, testing, and transparent progress.
+            - generic [ref=e141]:
+              - generic [ref=e142]: "4"
+              - heading "Handover" [level=3] [ref=e143]
+              - paragraph [ref=e144]: We deliver documentation, decisions, runbooks, and knowledge to the internal team.
+      - region "Need a partner for a technical decision, AI workflow, or delivery?" [ref=e145]:
+        - generic [ref=e147]:
+          - generic [ref=e148]:
+            - generic [ref=e149]: collaboration
+            - heading "Need a partner for a technical decision, AI workflow, or delivery?" [level=2] [ref=e150]
+            - paragraph [ref=e151]: We'll quickly map where the biggest risk is, what the realistic scope is, and whether consulting, implementation, or a combination makes more sense.
+          - link "Send us an inquiry" [ref=e152] [cursor=pointer]:
+            - /url: /en/contact
+  - contentinfo [ref=e153]:
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - generic [ref=e156]:
+          - generic [ref=e157]: HOTFIX d.o.o.
+          - paragraph [ref=e158]: AI and software consulting for companies that want clearer technical decisions, a better development process, and more reliable software delivery.
+        - generic [ref=e159]:
+          - heading "Navigation" [level=3] [ref=e160]
+          - list [ref=e161]:
+            - listitem [ref=e162]:
+              - link "Home" [ref=e163] [cursor=pointer]:
+                - /url: /en
+            - listitem [ref=e164]:
+              - link "About" [ref=e165] [cursor=pointer]:
+                - /url: /en/about
+            - listitem [ref=e166]:
+              - link "Services" [ref=e167] [cursor=pointer]:
+                - /url: /en/services
+            - listitem [ref=e168]:
+              - link "Blog" [ref=e169] [cursor=pointer]:
+                - /url: /en/blog
+            - listitem [ref=e170]:
+              - link "Contact" [ref=e171] [cursor=pointer]:
+                - /url: /en/contact
+        - generic [ref=e172]:
+          - heading "Contact" [level=3] [ref=e173]
+          - list [ref=e174]:
+            - listitem [ref=e175]:
+              - link "ops@hotfix-doo.com" [ref=e176] [cursor=pointer]:
+                - /url: mailto:ops@hotfix-doo.com
+            - listitem [ref=e177]: Available Mon-Fri, 9:00-17:00 CET
+      - generic [ref=e179]:
+        - paragraph [ref=e180]: © 2026 HOTFIX d.o.o. All rights reserved.
+        - generic [ref=e181]:
+          - link "Privacy" [ref=e182] [cursor=pointer]:
+            - /url: /en/privacy
+          - link "Terms of Service" [ref=e183] [cursor=pointer]:
+            - /url: /en/terms
+  - button "Open Next.js Dev Tools" [ref=e189] [cursor=pointer]:
+    - img [ref=e190]
