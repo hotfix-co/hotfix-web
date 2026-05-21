@@ -50,7 +50,7 @@ export function getOrganizationSchema(
     url: siteUrl,
     logo: {
       '@type': 'ImageObject',
-      url: `${siteUrl}/hotfix-logo.png`,
+      url: `${siteUrl}/logo.png`,
       width: '512',
       height: '512',
     },
@@ -200,7 +200,7 @@ export function getProfessionalServiceSchema(
     alternateName: 'HOTFIX',
     description: ORG_DESCRIPTION[locale],
     image: `${siteUrl}/opengraph-image`,
-    logo: `${siteUrl}/hotfix-logo.png`,
+    logo: `${siteUrl}/logo.png`,
     url: siteUrl,
     email: 'ops@hotfix-doo.com',
     address: {
