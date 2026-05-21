@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-[var(--hairline)] bg-white/90 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <ContactTrackedLink
             href={ROUTES.home}
@@ -34,10 +34,10 @@ export default function Navbar() {
             <Image
               src="/hotfix-logo.png"
               alt="HOTFIX d.o.o. logo"
-              width={64}
-              height={64}
+              width={128}
+              height={128}
               priority
-              className="h-12 w-12 object-contain sm:h-14 sm:w-14 lg:h-16 lg:w-16"
+              className="h-14 w-14 object-contain sm:h-16 sm:w-16 lg:h-16 lg:w-16"
             />
             <span className="whitespace-nowrap text-[17px] font-medium tracking-[-0.005em] text-[var(--ink)] sm:text-[18px]">
               HOTFIX d.o.o.
