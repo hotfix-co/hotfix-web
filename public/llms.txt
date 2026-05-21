@@ -4,10 +4,12 @@
 > AI into real processes, modernize codebases, and deliver software more
 > reliably. Hands-on engineering plus consulting — not generic AI narratives.
 
-HOTFIX d.o.o. is a Croatian limited liability company (d.o.o.) operating
-bilingually in Croatian and English, serving clients across Croatia and the
-broader EU. Engagements are project-based or retainer, scoped after a discovery
-conversation. Working hours Mon–Fri, 09:00–17:00 CET.
+HOTFIX d.o.o. is a Croatian limited liability company (d.o.o.) founded in 2022
+by Josip Budalić, headquartered in Zagreb, Croatia. We operate bilingually in
+Croatian and English, serving clients across the EU and the United States.
+Engagements are project-based or monthly retainer, invoiced in EUR from Croatia
+with VAT applied per EU rules where required. Working hours Mon–Fri, 09:00–17:00
+CET, with strong overlap with US East Coast business hours.
 
 ## What we do
 

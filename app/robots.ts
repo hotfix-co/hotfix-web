@@ -20,7 +20,11 @@ const ALLOWED_AI_BOTS = [
   "Perplexity-User", // Perplexity live browsing
   "Google-Extended", // Google Gemini + AI Overviews opt-in
   "Applebot-Extended", // Apple Intelligence opt-in
+  "meta-externalagent", // Meta AI
 ] as const;
+
+// Training-only crawlers we don't want scraping the site without citation.
+const BLOCKED_TRAINING_BOTS = ["CCBot"] as const;
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -33,6 +37,10 @@ export default function robots(): MetadataRoute.Robots {
       ...ALLOWED_AI_BOTS.map((userAgent) => ({
         userAgent,
         allow: "/",
+      })),
+      ...BLOCKED_TRAINING_BOTS.map((userAgent) => ({
+        userAgent,
+        disallow: "/",
       })),
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

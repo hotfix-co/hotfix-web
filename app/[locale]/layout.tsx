@@ -11,6 +11,7 @@ import {
   getOrganizationSchema,
   getWebsiteSchema,
   getLocalBusinessSchema,
+  getFounderSchema,
 } from "@/lib/structuredData";
 import type { SiteLocale } from "@/lib/constants";
 
@@ -45,6 +46,7 @@ export default async function LocaleLayout({
             getOrganizationSchema(loc),
             getWebsiteSchema(loc),
             getLocalBusinessSchema(loc),
+            getFounderSchema(loc),
           ]}
         />
         {measurementId ? (

@@ -29,8 +29,8 @@ const WEBSITE_DESCRIPTION: Record<SiteLocale, string> = {
 };
 
 const AREA_SERVED_NAME: Record<SiteLocale, string> = {
-  hr: 'Hrvatska i međunarodna tržišta',
-  en: 'Croatia and international markets',
+  hr: 'Europska unija i Sjedinjene Američke Države',
+  en: 'European Union and United States',
 };
 
 const SCHEMA_LANG: Record<SiteLocale, string> = {
@@ -62,7 +62,7 @@ export function getOrganizationSchema(
       name: 'Josip Budalić',
       '@id': `${siteUrl}/#founder`,
     },
-    foundingDate: '2020',
+    foundingDate: '2022',
     foundingLocation: {
       '@type': 'Place',
       address: {
@@ -111,6 +111,14 @@ export function getOrganizationSchema(
       {
         '@type': 'Country',
         name: 'Croatia',
+      },
+      {
+        '@type': 'Place',
+        name: 'European Union',
+      },
+      {
+        '@type': 'Country',
+        name: 'United States',
       },
       {
         '@type': 'Place',
@@ -222,6 +230,14 @@ export function getProfessionalServiceSchema(
       },
       {
         '@type': 'Place',
+        name: 'European Union',
+      },
+      {
+        '@type': 'Country',
+        name: 'United States',
+      },
+      {
+        '@type': 'Place',
         name: AREA_SERVED_NAME[locale],
       },
     ],
@@ -325,6 +341,51 @@ export const contactFAQSchema: WithContext<FAQPage> = {
     },
   ],
 };
+
+export function getHomepageFAQSchema(
+  locale: SiteLocale = 'en',
+  qa?: Array<{ q: string; a: string }>
+): WithContext<FAQPage> {
+  const fallback = locale === 'hr' ? contactFAQSchema.mainEntity : [];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${siteUrl}/#faq`,
+    mainEntity: qa
+      ? qa.map(({ q, a }) => ({
+          '@type': 'Question',
+          name: q,
+          acceptedAnswer: { '@type': 'Answer', text: a },
+        }))
+      : (fallback as never),
+    ...({ inLanguage: SCHEMA_LANG[locale] } as Record<string, unknown>),
+  };
+}
+
+export function getHomepageWebPageSchema(locale: SiteLocale = 'en') {
+  const url = getLocalizedUrl(ROUTES.home, locale);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name:
+      locale === 'en'
+        ? 'HOTFIX d.o.o. — AI & Software Consulting from Croatia'
+        : 'HOTFIX d.o.o. — AI i software consulting iz Hrvatske',
+    description: ORG_DESCRIPTION[locale],
+    inLanguage: SCHEMA_LANG[locale],
+    isPartOf: { '@id': `${siteUrl}/#website` },
+    about: { '@id': `${siteUrl}/#business` },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/opengraph-image`,
+      width: '1200',
+      height: '630',
+    },
+    reviewedBy: { '@id': `${siteUrl}/#founder` },
+  };
+}
 
 export function generateBreadcrumbSchema(
   items: { name: string; url: string }[],
