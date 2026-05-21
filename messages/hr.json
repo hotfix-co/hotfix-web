@@ -119,6 +119,7 @@
     "kmmTitle": "KMM",
     "kmmDesc": "Dijeljenje poslovne logike između Androida i iOS-a kada to smanjuje dugoročni trošak.",
     "swiftDesc": "Native iOS razvoj za aplikacije koje trebaju dobar UX i pouzdanu integraciju s Apple platformom.",
+    "pythonDesc": "Obrada podataka, automatizacije, interni alati i AI/ML pipelinei gdje je Python pravi izbor za posao.",
     "processEyebrow": "proces",
     "processTitle": "Suradnja počinje razumijevanjem problema.",
     "processLede": "Prije implementacije tražimo najkraći pouzdan put: dovoljno istraživanja za dobru odluku, dovoljno specifikacije za kvalitetan rad i dovoljno povratne informacije da se smjer može korigirati.",

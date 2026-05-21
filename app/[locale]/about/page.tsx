@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
-import { SiDotnet, SiReact, SiGo, SiKotlin, SiSwift } from "react-icons/si";
+import { SiDotnet, SiReact, SiGo, SiKotlin, SiSwift, SiPython } from "react-icons/si";
 import StructuredData from "@/components/StructuredData";
 import { getFounderSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
 import { ROUTES, SITE_URL, type SiteLocale } from "@/lib/constants";
@@ -318,6 +318,17 @@ export default async function AboutPage({
               <h3 className="mb-3 text-[20px] font-bold leading-[1.4] tracking-[-0.2px] text-[var(--ink)]">Swift</h3>
               <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">
                 {t("swiftDesc")}
+              </p>
+            </div>
+
+            {/* Python */}
+            <div className="card-feature-light">
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] bg-[var(--canvas-soft)] text-[var(--primary)]">
+                <SiPython className="text-3xl" />
+              </div>
+              <h3 className="mb-3 text-[20px] font-bold leading-[1.4] tracking-[-0.2px] text-[var(--ink)]">Python</h3>
+              <p className="text-[15px] leading-[1.4] text-[var(--ink-mute)]">
+                {t("pythonDesc")}
               </p>
             </div>
           </div>

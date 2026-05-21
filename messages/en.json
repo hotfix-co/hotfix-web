@@ -119,6 +119,7 @@
     "kmmTitle": "KMM",
     "kmmDesc": "Sharing business logic between Android and iOS when it reduces long-term cost.",
     "swiftDesc": "Native iOS development for apps that need good UX and reliable Apple platform integration.",
+    "pythonDesc": "Data processing, automation, internal tools, and AI/ML pipelines where Python is the right tool for the job.",
     "processEyebrow": "process",
     "processTitle": "Collaboration starts with understanding the problem.",
     "processLede": "Before implementation, we look for the shortest reliable path: enough research for a good decision, enough specification for quality work, and enough feedback to adjust course.",
