@@ -206,8 +206,8 @@ Return prioritized findings with file:line references.`;
                 Ako svaki developer u timu svaki dan ponavlja Claude Codeu iste
                 upute, problem nije u alatu nego u procesu. &quot;Koristi naše naming
                 konvencije&quot;, &quot;testovi idu ovako&quot;, &quot;ne diraj migracije bez reviewa&quot; -
-                sve su to timska pravila koja ne bi smjela živjeti samo u nečijoj
-                glavi ili historyju jedne sesije.
+                sve su to timska pravila koja ne bi smjela ostati samo u nečijoj
+                glavi ili u historyju jedne sesije.
               </p>
               <p>
                 Claude Code skills su praktičan način da se ponavljive upute pretvore
@@ -221,9 +221,9 @@ Return prioritized findings with file:line references.`;
                 Skill nije dugačak prompt
               </h2>
               <p>
-                Loš skill je dokument u koji ste ubacili sve što znate o projektu.
+                Loš skill je dokument u koji ste natrpali sve i svašta o projektu.
                 Dobar skill je usko definiran: kada se koristi, koji input očekuje,
-                koje korake agent smije napraviti, što mora provjeriti i kakav
+                koje korake agent smije poduzeti, što mora provjeriti i kakav
                 output treba vratiti.
               </p>
               <div className="card-dashboard-mockup card-dashboard-mockup-dark overflow-x-auto p-6">
@@ -233,7 +233,7 @@ Return prioritized findings with file:line references.`;
               </div>
               <p>
                 Ovakav skill ima jasnu granicu. Ne pokušava biti &quot;naš cijeli
-                engineering proces&quot;, nego jedan ponovljiv review zadatak.
+                engineering proces&quot;, nego jedan review zadatak koji se ponavlja.
               </p>
             </section>
 
@@ -245,7 +245,7 @@ Return prioritized findings with file:line references.`;
                 <div className="card-feature-light">
                   <h3 className="mb-3 text-[20px] font-bold text-[var(--ink)]">Dobri kandidati</h3>
                   <ul className="list-inside list-disc space-y-2 text-[15px] text-[var(--ink-mute)]">
-                    <li>code review checklisti</li>
+                    <li>code review checkliste</li>
                     <li>generiranje API endpointa po lokalnom standardu</li>
                     <li>priprema migracija uz sigurnosna pravila</li>
                     <li>pisanje release notesa iz diff-a</li>
@@ -270,13 +270,13 @@ Return prioritized findings with file:line references.`;
               </h2>
               <p>
                 Osobni skills su korisni za individualne navike, ali pravi pomak
-                dolazi kada projektni skills žive uz codebase. Tada se reviewaju u
+                je kad projektni skills stoje uz codebase. Tada se reviewaju u
                 pull requestovima, mijenjaju zajedno s arhitekturom i postaju dio
                 onboarding materijala.
               </p>
               <p>
-                To je važna razlika: AI workflow postaje engineering artefakt, ne
-                privatna magija jednog developera. Kada se promijeni standard za
+                To je važna razlika: AI workflow postaje dio engineeringa, a ne
+                privatni štos jednog developera. Kada se promijeni standard za
                 testiranje ili deploy, mijenja se i skill.
               </p>
             </section>
@@ -287,7 +287,7 @@ Return prioritized findings with file:line references.`;
               </h2>
               <p>
                 Skill definira kako raditi. Specifikacija definira što se gradi i
-                zašto. Najbolji rezultati dolaze kada koristite oboje: spec-driven
+                zašto. Najbolje rezultate dobijete kad kombinirate oboje: spec-driven
                 pristup daje modelu jasan problem, a skill mu daje timske standarde
                 za implementaciju.
               </p>
@@ -296,8 +296,7 @@ Return prioritized findings with file:line references.`;
                 <Link href={BLOG_ARTICLE_ROUTES.specDrivenDevelopment} className="text-[var(--primary)]">
                   spec-driven development i AI
                 </Link>
-                . U praksi su skills i specifikacije dvije strane istog odgovornog
-                AI-assisted development procesa.
+                . Skills i specifikacije se nadopunjuju u ozbiljnom AI-assisted developmentu.
               </p>
             </section>
 
@@ -306,15 +305,14 @@ Return prioritized findings with file:line references.`;
                 Zaključak
               </h2>
               <p>
-                Claude Code skills imaju smisla kada uklanjaju ponavljanje i čuvaju
-                standarde. Ako ih pišete kao kratke, uske i održavane workflowe,
+                Claude Code skills imaju smisla kada uklanjaju ponavljanje i drže standard.
+                Ako ih pišete kao kratke, uske i održavane workflowe,
                 mogu ozbiljno poboljšati konzistentnost AI outputa u timu.
               </p>
               <p>
                 Ako ih koristite kao mjesto za sve moguće upute, samo ste stvorili
                 novi oblik dokumentacije koju nitko ne čita. Kao i kod svakog
-                engineering procesa, vrijednost dolazi iz jasnoće, granica i redovitog
-                održavanja.
+                engineering procesa, vrijednost je u jasnoći, granicama i tome da se redovito održavaju.
               </p>
             </section>
           </>

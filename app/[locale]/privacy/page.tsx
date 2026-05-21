@@ -19,20 +19,20 @@ const copy = {
     description:
       "Politika privatnosti za HOTFIX d.o.o. web stranicu: koje podatke prikupljamo putem kontakt forme i analitike te kako ih koristimo.",
     eyebrow: "pravne informacije",
-    updated: "Zadnje ažuriranje: siječanj 2026.",
+    updated: "Posljednje ažuriranje: siječanj 2026.",
     breadcrumbHome: "Početna",
     sections: [
       {
         title: "Uvod",
         paragraphs: [
-          "HOTFIX d.o.o. poštuje vašu privatnost. Ova politika objašnjava koje podatke prikupljamo kada koristite našu web stranicu ili nam pošaljete upit, zašto ih koristimo i kako nas možete kontaktirati u vezi privatnosti.",
+          "HOTFIX d.o.o. poštuje vašu privatnost. Ova politika objašnjava koje podatke prikupljamo kada koristite našu web stranicu ili nam pošaljete upit, zašto ih koristimo i kako nas možete kontaktirati u vezi s privatnošću.",
         ],
       },
       {
         title: "Podaci koje prikupljamo",
         paragraphs: [
           "Kada nas kontaktirate putem web stranice, prikupljamo:",
-          "Također koristimo Google Analytics 4 za osnovno razumijevanje korištenja web stranice: prikaze stranica, posjete blogu, klikove na kontakt pozive na akciju, klikove na email linkove, podatke o pregledniku i uređaju te približnu lokaciju izvedenu iz IP adrese.",
+          "Također koristimo Google Analytics 4 za osnovno razumijevanje korištenja web stranice: prikaze stranica, posjete blogu, klikove na kontakt gumbe (CTA), klikove na email linkove, podatke o pregledniku i uređaju te približnu lokaciju izvedenu iz IP adrese.",
         ],
         items: [
           "ime i prezime",

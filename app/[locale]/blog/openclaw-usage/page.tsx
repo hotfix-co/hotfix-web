@@ -50,11 +50,11 @@ export default async function OpenClawUsageArticle({ params }: { params: Promise
   const ctaTitle =
     loc === "en"
       ? "Want to automate manual engineering tasks?"
-      : "Želite automatizirati ručne engineering zadatke?";
+      : "Želite automatizirati repetitivne developerske zadatke?";
   const ctaDescription =
     loc === "en"
       ? "We help teams turn repetitive tasks into controlled workflows: from GitHub issue intake to release checklists, runbooks, and AI-assisted processes."
-      : "Pomažemo timovima pretvoriti ponavljive zadatke u kontrolirane workflowe: od GitHub issue intakea do release checklisti, runbooka i AI-assisted procesa.";
+      : "Pomažemo timovima da repetitivne zadatke pretvore u kontrolirane workflowe: od GitHub issue intakea do release checklisti, runbooka i procesa potpomognutih AI-em.";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
@@ -151,12 +151,11 @@ export default async function OpenClawUsageArticle({ params }: { params: Promise
                 Dobar GitHub issue obično nastane u pogrešnom trenutku: dok ste na
                 mobitelu, na sastanku ili usred testiranja. Ako tada otvorite GitHub
                 i pokušate napisati naslov, opis, repro korake i očekivano ponašanje,
-                vrlo lako odustanete ili ostavite bilješku koja kasnije više nema
-                dovoljno konteksta.
+                lako odustanem ili ostavim bilješku kojoj kasnije fali konteksta.
               </p>
               <p>
                 Zato sam složio mali workflow s OpenClawom i Signalom. Cilj nije
-                &quot;AI koji sam vodi projekt&quot;, nego puno skromnija stvar: uhvatiti
+                &quot;AI koji sam vodi projekt&quot;, nego nešto puno skromnije: uhvatiti
                 kratku bilješku dok je svježa i pretvoriti je u dovoljno dobar issue
                 bez ručnog copy-pastea.
               </p>
@@ -164,7 +163,7 @@ export default async function OpenClawUsageArticle({ params }: { params: Promise
 
             <section className="space-y-5">
               <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--ink)]">
-                Workflow koji radi jer je namjerno uzak
+                Workflow koji radi jer je namjerno usko fokusiran
               </h2>
               <p>
                 Sustav ima četiri dijela: dedicirani Signal broj, allowlistu
@@ -181,22 +180,22 @@ export default async function OpenClawUsageArticle({ params }: { params: Promise
                 </p>
               </div>
               <p>
-                Skill iz toga napravi naslov, problem, kontekst, repro korake,
-                očekivano ponašanje, rizik i predložene labele. Agent ne pokušava
+                Skill iz te poruke izvuče naslov, opis problema, kontekst, repro korake,
+                očekivano ponašanje, rizik i prijedlog labela. Agent ne pokušava
                 riješiti bug. Samo priprema kvalitetan intake.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--ink)]">
-                Najvažniji dio je ograničenje ovlasti
+                Najvažnije je ograničiti ovlasti
               </h2>
               <p>
-                Kod ovakvih automatizacija nije dovoljno pitati &quot;može li agent ovo
+                Kod ovakve automatizacije nije dovoljno pitati &quot;može li agent ovo
                 napraviti?&quot;. Važnije je pitati &quot;što se događa kada dobije loš input
                 ili kada model krivo zaključi?&quot;. Zato agent ima usku ulogu: kreira
                 draft issue, ne dira kod, ne mijenja milestoneove i ne dodjeljuje
-                prioritet bez pravila.
+                prioritet bez jasnih pravila.
               </p>
               <ul className="list-inside list-disc space-y-2 text-[15px] text-[var(--ink-mute)]">
                 <li>Signal pošiljatelji su ograničeni allowlistom.</li>
@@ -211,8 +210,7 @@ export default async function OpenClawUsageArticle({ params }: { params: Promise
                 Gdje je stvarna vrijednost
               </h2>
               <p>
-                Vrijednost nije u tome što AI &quot;piše issuee&quot;. Vrijednost je u tome
-                što se mali problemi ne gube, a tim dobiva konzistentan format koji
+                Vrijednost nije u tome da AI piše issueve. Poanta je da se mali problemi ne gube, a tim dobiva konzistentan format koji
                 je dovoljno dobar za trijažu. To smanjuje mentalni trošak prijave
                 buga i povećava šansu da se problem riješi dok je kontekst još
                 svjež.
@@ -220,7 +218,7 @@ export default async function OpenClawUsageArticle({ params }: { params: Promise
               <p>
                 Ovo je dobar primjer <Link href={ROUTES.productivity} className="text-[var(--primary)]">engineering produktivnosti</Link>:
                 ne uvodi se velika platforma, nego se uklanja jedno ponavljivo trenje
-                iz procesa. Takve male automatizacije često daju bolji povrat od
+                iz procesa. Takve male automatizacije često se više isplate od
                 velikih &quot;AI transformacija&quot; koje nitko ne koristi.
               </p>
             </section>

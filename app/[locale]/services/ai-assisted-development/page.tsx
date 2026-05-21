@@ -22,10 +22,10 @@ const copy = {
   hr: {
     title: "Engineering produktivnost",
     description:
-      "Consulting za engineering produktivnost: CI/CD, automatizacija, developer tooling, Claude Code workflowi, observability i bolji delivery procesi.",
+      "Consulting za engineering produktivnost: CI/CD, automatizacija, developer tooling, Claude Code workflowi, observability i bolji procesi isporuke.",
     ogTitle: "Engineering produktivnost i delivery procesi | HOTFIX d.o.o.",
     ogDescription:
-      "CI/CD, tooling, automatizacija, AI-assisted development workflowi i procesi koji smanjuju trenje u software timu.",
+      "CI/CD, tooling, automatizacija, AI-assisted development workflowi i procesi koji smanjuju usporavanja u razvojnom timu.",
     keywords: [
       "engineering produktivnost",
       "software delivery",
@@ -54,24 +54,24 @@ const copy = {
       {
         question: "Možete li uključiti AI coding alate?",
         answer:
-          "Da. Claude Code i slične alate uvodimo kroz jasne standarde, skills, review pravila, sigurnosna ograničenja i mjerne točke.",
+          "Da. Claude Code i slične alate uvodimo uz jasne standarde, skills, review pravila, sigurnosna ograničenja i mjerne točke.",
       },
     ],
     eyebrow: "engineering produktivnost",
-    heroTitle: "Manje trenja u razvoju, više kvalitetne isporuke.",
+    heroTitle: "Manje zastoja u razvoju, više kvalitetne isporuke.",
     heroDescription:
-      "Pomažemo timovima urediti CI/CD, release proces, onboarding, automatizacije i AI-assisted development workflowe tako da brzina ne ide na račun kvalitete.",
+      "Pomažemo timovima posložiti CI/CD, release proces, onboarding, automatizacije i AI-assisted development workflowe tako da brzina ne ide na račun kvalitete.",
     deliverTitle: "Što isporučujemo",
     deliverItems: [
       "CI/CD pipelineove, repo templateove i automatizirane release korake.",
       "Onboarding dokumentaciju i tooling za brže uključivanje developera.",
-      "Automatizacije koje uklanjaju ponavljivi ručni rad.",
+      "Automatizacije koje uklanjaju repetitivan ručni rad.",
       "Observability, dashboards i operativne runbooke.",
       "Claude Code skills, review workflowe i AI-assisted development standarde.",
     ],
     auditTitle: "Audit procesa, zatim ciljane promjene",
     auditBody:
-      "Ne počinjemo kupnjom alata. Prvo gledamo gdje proces zapinje, koje ručne korake tim ponavlja i koji dio deliveryja stvara najveći rizik.",
+      "Ne počinjemo kupnjom alata. Prvo gledamo gdje proces zapinje, koje ručne korake tim ponavlja i koji dio isporuke stvara najveći rizik.",
     auditItems: [
       "Kratki audit repozitorija, CI-ja, reviewa i release procesa.",
       "Prioritizacija promjena prema učinku i riziku.",

@@ -311,7 +311,7 @@ export const contactFAQSchema: WithContext<FAQPage> = {
       name: 'Na kakvim projektima radite?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Radimo na AI adopciji, software arhitekturi, internim alatima, web i mobile aplikacijama, backend sustavima, integracijama, automatizacijama i modernizaciji postojećeg softwarea.',
+        text: 'Radimo na uvođenju AI-ja, softverskoj arhitekturi, internim alatima, web i mobile aplikacijama, backend sustavima, integracijama, automatizacijama i modernizaciji postojećeg softvera.',
       },
     },
     {

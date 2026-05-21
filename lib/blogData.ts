@@ -58,14 +58,14 @@ const blogPostsHr: BlogPost[] = [
     description:
       "Praktičan okvir za uvođenje AI coding alata u software tim: gdje početi, koje guardraile postaviti i kako mjeriti stvarnu vrijednost.",
     excerpt:
-      "AI u razvojnom procesu ne počinje kupnjom alata. Počinje od workflowa, rizika, review pravila i jasnog odgovora na pitanje gdje tim stvarno gubi vrijeme.",
+      "Uvođenje AI-ja u razvoj ne počinje kupnjom alata. Počinje od workflowa, rizika, review pravila i jasnog odgovora na pitanje gdje tim stvarno gubi vrijeme.",
     publishedAt: "2026-05-14",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
     },
     tags: [
-      "AI adopcija",
+      "Uvođenje AI-ja",
       "Claude Code",
       "Software delivery",
       "Code review",
@@ -79,7 +79,7 @@ const blogPostsHr: BlogPost[] = [
     description:
       "Kako modernizirati postojeći codebase kroz male, kontrolirane promjene umjesto velikog rewrita koji zaustavlja delivery.",
     excerpt:
-      "Najopasnija modernizacija je ona koja obećava čisti početak. U praksi bolji rezultat često dolazi iz jasnih granica, inkrementalnih promjena i paralelnog deliveryja.",
+      "Najopasnija modernizacija je ona koja obećava čisti početak. Bolji rezultat obično dolazi iz jasnih granica, inkrementalnih promjena i paralelne isporuke.",
     publishedAt: "2026-05-14",
     author: {
       name: "Josip Budalić",
@@ -115,7 +115,7 @@ const blogPostsHr: BlogPost[] = [
     description:
       "Praktičan workflow za pretvaranje kratkih bilješki iz Signala u jasne GitHub issuee, uz ograničen pristup i kontrolu kvalitete.",
     excerpt:
-      "Pisanje dobrog GitHub issuea na mobitelu je sporo. OpenClaw, Signal i mali custom skill pretvaraju kratku bilješku u strukturiran issue bez širenja ovlasti.",
+      "Pisanje dobrog GitHub issue-a na mobitelu je sporo. OpenClaw, Signal i mali custom skill pretvaraju kratku bilješku u strukturiran issue bez širenja ovlasti.",
     publishedAt: "2026-03-27",
     author: {
       name: "Josip Budalić",
@@ -145,7 +145,7 @@ const blogPostsHr: BlogPost[] = [
     description:
       "Kako skills uklanjaju ponavljanje, čuvaju timske konvencije i pomažu da AI coding alati daju konzistentnije rezultate.",
     excerpt:
-      "Ako svaki developer iznova objašnjava AI alatu iste konvencije, proces nije skaliran. Skills pretvaraju ponavljive upute u verzionirani timski standard.",
+      "Ako svaki developer iznova objašnjava AI alatu iste konvencije, proces ne skalira. Skills pretvaraju ponavljive upute u verzionirani timski standard.",
     publishedAt: "2026-02-12",
     updatedAt: "2026-02-14",
     author: {
@@ -167,7 +167,7 @@ const blogPostsHr: BlogPost[] = [
     description:
       "Veći context window ne rješava loš proces. Ovo su lekcije iz AI coding rada gdje je previše konteksta stvaralo više šuma nego vrijednosti.",
     excerpt:
-      "Veliki context window zvuči kao rješenje: ubaci sve i pusti model da odluči. U praksi višak konteksta često sakrije problem, oslabi fokus i poveća rizik krivog zaključka.",
+      "Veliki context window zvuči kao rješenje: ubaci sve i pusti model da odluči. Stvarnost je drugačija: višak konteksta često sakrije problem, oslabi fokus i poveća rizik krivog zaključka.",
     publishedAt: "2026-01-11",
     author: {
       name: "Josip Budalić",

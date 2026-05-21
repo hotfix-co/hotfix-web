@@ -195,14 +195,14 @@ export default async function SoftwareModernizationArticle({ params }: { params:
           <>
             <section className="space-y-5">
               <p className="text-[20px] leading-[1.55] text-[var(--ink-secondary)]">
-                Modernizacija često krene iz stvarne boli: sustav je spor za
-                mijenjanje, testovi ne štite dovoljno, deployment je stresan ili
+                Modernizacija obično kreće od konkretnog problema: sustav se
+                teško mijenja, testovi ne štite dovoljno, deployment je stresan ili
                 se novi featurei grade oko starog koda umjesto kroz njega. To je
                 dobar razlog za promjenu, ali ne i dokaz da treba krenuti u rewrite.
               </p>
               <p>
-                Veliki rewrite zvuči uredno jer obećava čisti početak. U praksi
-                često zaustavi delivery, kasno pokaže rizike i završi utrkom između
+                Veliki rewrite zvuči primamljivo jer obećava da krećete ispočetka.
+                Često zaustavi delivery, kasno pokaže rizike i završi utrkom između
                 starog sustava koji još treba održavati i novog koji još nije spreman.
               </p>
             </section>
@@ -230,13 +230,13 @@ export default async function SoftwareModernizationArticle({ params }: { params:
 
             <section className="space-y-5">
               <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--ink)]">
-                Modernizirajte kroz granice koje se mogu provjeriti
+                Modernizirajte u malim, mjerljivim koracima
               </h2>
               <p>
                 Najbolje modernizacije imaju jasnu granicu: jedan modul, jedan API,
                 jedan workflow ili jedan dio infrastrukture. Takva promjena ima
-                mjerljiv kraj i može se pustiti u produkciju bez čekanja da cijeli
-                sustav bude prepisan.
+                mjerljiv kraj i može se pustiti u produkciju bez čekanja da se
+                prepiše cijeli sustav.
               </p>
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="card-feature-light">
@@ -249,11 +249,11 @@ export default async function SoftwareModernizationArticle({ params }: { params:
                   </ul>
                 </div>
                 <div className="card-cream-band">
-                  <h3 className="mb-3 text-[20px] font-bold text-[var(--ink)]">Rizični signali</h3>
+                  <h3 className="mb-3 text-[20px] font-bold text-[var(--ink)]">Crvene zastavice</h3>
                   <ul className="list-inside list-disc space-y-2 text-[15px] text-[var(--ink-mute)]">
                     <li>plan nema inkrementalni release</li>
                     <li>novi sustav mjesecima nema korisnike</li>
-                    <li>feature razvoj stoji dok rewrite traje</li>
+                    <li>razvoj featurea stoji dok rewrite traje</li>
                     <li>uspjeh se mjeri novim stackom, ne boljim deliveryjem</li>
                   </ul>
                 </div>
@@ -262,17 +262,17 @@ export default async function SoftwareModernizationArticle({ params }: { params:
 
             <section className="space-y-5">
               <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--ink)]">
-                AI može pomoći, ali ne mijenja engineering odgovornost
+                AI može pomoći, ali ne skida inženjersku odgovornost
               </h2>
               <p>
                 AI alati mogu ubrzati analizu codebasea, pripremu testova,
-                dokumentiranje postojećeg ponašanja i refaktore s jasnim opsegom.
+                dokumentiranje postojećeg ponašanja i ograničene refaktore.
                 To je korisno, ali samo ako tim zna što provjerava. Modernizacija je
                 previše važna da bi se prepustila velikom automatskom patchu bez
                 razumijevanja granica sustava.
               </p>
               <p>
-                U praksi AI najviše pomaže kada je spojen s dobrim <Link href={ROUTES.services} className="text-[var(--primary)]">software consulting</Link> procesom:
+                AI najviše pomaže kada je spojen s dobrim <Link href={ROUTES.services} className="text-[var(--primary)]">software consulting</Link> procesom:
                 prvo se definira cilj i rizik, zatim se alat koristi za bržu analizu
                 i kontrolirane promjene.
               </p>
@@ -283,14 +283,13 @@ export default async function SoftwareModernizationArticle({ params }: { params:
                 Zaključak
               </h2>
               <p>
-                Modernizacija bez zastoja znači da delivery ostaje živ dok se sustav
+                Modernizacija bez zastoja znači da delivery ne staje dok se sustav
                 poboljšava. To traži disciplinu: mali opseg, jasne granice, testove,
                 observability i odluke koje se mogu objasniti timu.
               </p>
               <p>
                 Cilj nije imati najnoviji stack. Cilj je codebase koji se lakše
-                mijenja, sigurnije isporučuje i bolje podržava posao koji software
-                treba raditi.
+                mijenja, sigurnije isporučuje i bolje služi biznisu iza njega.
               </p>
             </section>
           </>

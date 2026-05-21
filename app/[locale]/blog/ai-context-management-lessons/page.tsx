@@ -50,11 +50,11 @@ export default async function AIContextManagementArticle({ params }: { params: P
   const ctaTitle =
     loc === "en"
       ? "AI workflow stuck because of too much context?"
-      : "AI workflow zapinje zbog previše konteksta?";
+      : "AI workflow vam zastaje pod teretom konteksta?";
   const ctaDescription =
     loc === "en"
       ? "We help teams design AI-assisted development processes, context boundaries, specifications, and evaluations that reduce noise."
-      : "Pomažemo timovima dizajnirati AI-assisted development proces, granice konteksta, specifikacije i evaluacije koje smanjuju šum.";
+      : "Pomažemo timovima posložiti AI-assisted development procese, granice konteksta, specifikacije i evaluacije koje smanjuju šum.";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
@@ -166,11 +166,11 @@ export default async function AIContextManagementArticle({ params }: { params: P
               <p className="text-[20px] leading-[1.55] text-[var(--ink-secondary)]">
                 Veliki context window zvuči kao san: ubacite dokumentaciju, cijeli
                 codebase, prošle odluke, logove i razgovor, pa model &quot;ima sve&quot;.
-                U praksi, &quot;sve&quot; često znači i puno nevažnog, zastarjelog ili
+                &quot;Sve&quot; u praksi često znači hrpu nevažnog, zastarjelog ili
                 kontradiktornog konteksta.
               </p>
               <p>
-                Nakon dovoljno AI coding sesija postane jasno da problem nije samo
+                Nakon dovoljno AI coding sesija postaje jasno da problem nije samo
                 kapacitet konteksta. Problem je kvaliteta konteksta, trenutak kada ga
                 uvodite i jasna odluka što model zapravo treba napraviti.
               </p>
@@ -184,12 +184,12 @@ export default async function AIContextManagementArticle({ params }: { params: P
                 Model ne zna uvijek što je najvažnije. Ako mu date deset mogućih
                 smjerova, često će pokušati zadovoljiti sve. To može proizvesti
                 implementaciju koja izgleda marljivo, ali rješava krivi problem ili
-                vuče odluke iz dokumentacije koja više nije važeća.
+                donosi odluke na temelju zastarjele dokumentacije.
               </p>
               <div className="card-feature-light">
                 <h3 className="mb-3 text-[20px] font-bold text-[var(--ink)]">Loš signal u kontekstu</h3>
                 <ul className="list-inside list-disc space-y-2 text-[15px] text-[var(--ink-mute)]">
-                  <li>stare arhitekturne odluke bez oznake da su zastarjele</li>
+                  <li>stare arhitektonske odluke bez oznake da su zastarjele</li>
                   <li>nedovršeni eksperimenti koji izgledaju kao standard</li>
                   <li>previše tool definicija koje nisu relevantne za zadatak</li>
                   <li>duga povijest razgovora puna promjena smjera</li>
@@ -208,7 +208,7 @@ export default async function AIContextManagementArticle({ params }: { params: P
                 zatražiti ili pročitati ciljano.
               </p>
               <p>
-                To je sličan princip kao kod software arhitekture: granice postoje
+                Isti princip vrijedi kod softverske arhitekture: granice postoje
                 da bi smanjile broj stvari koje morate držati u glavi odjednom.
                 AI workflow bez granica brzo postane spor, skup i nepredvidljiv.
               </p>
@@ -216,11 +216,11 @@ export default async function AIContextManagementArticle({ params }: { params: P
 
             <section className="space-y-5">
               <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--ink)]">
-                Specifikacija pobjeđuje gomilu povijesti
+                Specifikacija je vrjednija od hrpe konteksta
               </h2>
               <p>
                 Ako zadatak nije jasno definiran, model će popuniti praznine. Veći
-                kontekst tada samo daje više materijala za pogrešno popunjavanje.
+                kontekst mu tada samo daje više prostora da pogriješi.
                 Kratka specifikacija s ciljem, non-goals, edge caseovima i acceptance
                 kriterijima često vrijedi više od tisuća linija razgovora.
               </p>
@@ -229,22 +229,22 @@ export default async function AIContextManagementArticle({ params }: { params: P
                 <Link href={BLOG_ARTICLE_ROUTES.specDrivenDevelopment} className="text-[var(--primary)]">
                   spec-driven pristupom
                 </Link>
-                . Specifikacija modelu daje namjeru, a selektivni kontekst mu daje
-                dovoljno lokalnog znanja za implementaciju.
+                . Specifikacija modelu daje namjeru, a selektivni kontekst dovoljno
+                lokalnog znanja za implementaciju.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--ink)]">
-                Praktičan checklist prije velike AI sesije
+                Praktičan checklist prije ozbiljne AI sesije
               </h2>
               <div className="card-cream-band">
                 <ul className="list-inside list-disc space-y-2 text-[15px] text-[var(--ink-mute)]">
-                  <li>Koja je jedna odluka ili promjena koju želim dobiti?</li>
+                  <li>Koju jednu odluku ili promjenu želim donijeti?</li>
                   <li>Koji fileovi su stvarno relevantni?</li>
                   <li>Koji dokumenti su zastarjeli ili kontradiktorni?</li>
                   <li>Koji output očekujem: patch, plan, review ili istraživanje?</li>
-                  <li>Koji rizici moraju biti provjereni prije završetka?</li>
+                  <li>Što treba provjeriti prije završetka?</li>
                 </ul>
               </div>
             </section>
@@ -255,14 +255,14 @@ export default async function AIContextManagementArticle({ params }: { params: P
               </h2>
               <p>
                 Veliki context window je koristan, ali nije strategija. Strategija je
-                znati što model treba napraviti, koje informacije su mu potrebne i
-                koje informacije mu smetaju.
+                znati što model treba napraviti, koje informacije su mu potrebne, a
+                koje mu smetaju.
               </p>
               <p>
                 Timovi koji žele ozbiljno koristiti AI alate trebaju razmišljati o
                 context managementu kao o dijelu engineering procesa: specifikacije,
-                relevantni izvori, jasne granice i review. Bez toga, veći kontekst
-                samo povećava površinu za pogrešan zaključak.
+                relevantni izvori, jasne granice i review. Bez toga, više konteksta
+                samo znači više prilika za krivi zaključak.
               </p>
             </section>
           </>

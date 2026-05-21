@@ -54,7 +54,7 @@ export default async function NotebookLMWorkflowArticle({ params }: { params: Pr
   const ctaDescription =
     loc === "en"
       ? "We help teams build AI research and knowledge workflows that end up as useful documents, decisions, and reusable materials."
-      : "Pomažemo timovima složiti AI research i knowledge workflowe koji završavaju korisnim dokumentima, odlukama i reusable materijalima.";
+      : "Pomažemo timovima složiti AI research i knowledge workflowe koji završavaju korisnim dokumentima, odlukama i materijalima koji se mogu ponovno koristiti.";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
@@ -161,7 +161,7 @@ export default async function NotebookLMWorkflowArticle({ params }: { params: Pr
           <>
             <section className="space-y-5">
               <p className="text-[20px] leading-[1.55] text-[var(--ink-secondary)]">
-                Najgori način učenja nove teme je otvoriti dvadeset tabova, pročitati
+                Najgori način da naučite novu temu je otvoriti dvadeset tabova, pročitati
                 polovicu i nadati se da će mozak sam posložiti strukturu. To obično
                 završi bookmark mapom kojoj se nikad ne vratite.
               </p>
@@ -180,7 +180,7 @@ export default async function NotebookLMWorkflowArticle({ params }: { params: Pr
               <p>
                 &quot;Nauči me o RAG-u&quot; je preširoko. Bolje pitanje je: &quot;Kako procijeniti
                 ima li RAG smisla za internu bazu dokumenata s osjetljivim podacima?&quot;
-                Dobro pitanje odmah mijenja tip izvora koje tražite, kriterije
+                Dobro pitanje odmah mijenja koje izvore tražite, kriterije
                 kvalitete i završni output.
               </p>
               <div className="card-feature-light">
@@ -205,10 +205,10 @@ export default async function NotebookLMWorkflowArticle({ params }: { params: Pr
                 kvalitetan paket materijala.
               </p>
               <p>
-                Zatim kroz notebooklm-py stvaram NotebookLM notebook s kuriranim
+                Zatim preko notebooklm-py radim NotebookLM notebook s kuriranim
                 izvorima. NotebookLM je koristan jer odgovore veže uz izvore i dobro
-                radi sintezu većeg broja dokumenata. Time smanjujem rizik da se
-                zaključak temelji na jednom uvjerljivom, ali slabom tekstu.
+                radi sintezu većeg broja dokumenata. Tako je manja šansa da zaključak
+                izvučem iz jednog uvjerljivog, ali slabog teksta.
               </p>
             </section>
 
@@ -217,9 +217,9 @@ export default async function NotebookLMWorkflowArticle({ params }: { params: Pr
                 Završne bilješke moraju biti upotrebljive
               </h2>
               <p>
-                Najvažniji dio workflowa je izvoz zaključaka u format koji se može
-                koristiti u radu. Ako bilješke ostanu u alatu u kojem su nastale,
-                često se izgube. Zato finalni output ide u Obsidian kao kratki
+                Najvažnije je izvući zaključke u format koji se stvarno koristi dalje
+                u radu. Ako bilješke ostanu u alatu u kojem su nastale,
+                često se izgube. Zato završni output ide u Obsidian kao kratki
                 dokument s odlukama, otvorenim pitanjima i linkovima na izvore.
               </p>
               <div className="card-cream-band">
@@ -240,14 +240,14 @@ export default async function NotebookLMWorkflowArticle({ params }: { params: Pr
               </h2>
               <p>
                 Isti obrazac vrijedi za timove koji moraju brzo procijeniti novu
-                tehnologiju, vendor alat, AI use case ili arhitekturnu odluku.
+                tehnologiju, vendor alat, AI use case ili arhitektonsku odluku.
                 Problem nije nedostatak sadržaja. Problem je pretvaranje sadržaja u
                 odluku koju tim razumije i može braniti.
               </p>
               <p>
-                U consulting radu ovakav workflow pomaže pripremiti discovery,
+                U konzultantskom radu ovakav workflow pomaže pripremiti discovery,
                 usporediti opcije i dokumentirati tradeoffe prije nego što odluka
-                postane skupi refaktor.
+                postane skup refaktor.
               </p>
             </section>
 
@@ -259,7 +259,7 @@ export default async function NotebookLMWorkflowArticle({ params }: { params: Pr
                 AI research workflow vrijedi samo ako završava korisnim znanjem.
                 Claude, NotebookLM i Obsidian su samo alati. Prava vrijednost je u
                 disciplini: dobro pitanje, kurirani izvori, provjerljiva sinteza i
-                bilješke koje se vraćaju u stvarne odluke.
+                bilješke koje stvarno utječu na odluke.
               </p>
             </section>
           </>

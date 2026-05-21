@@ -28,7 +28,7 @@ const copy = {
       },
       {
         title: "Korištenje web stranice",
-        body: "Web stranica služi za informiranje o HOTFIX d.o.o. i našim AI i software consulting uslugama. Ne smijete je koristiti za nezakonite, štetne ili neovlaštene aktivnosti.",
+        body: "Web stranica služi za informiranje o HOTFIX d.o.o. i našim uslugama AI i software consultinga. Ne smijete je koristiti za nezakonite, štetne ili neovlaštene aktivnosti.",
       },
       {
         title: "Intelektualno vlasništvo",

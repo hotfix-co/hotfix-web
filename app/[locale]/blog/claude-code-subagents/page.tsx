@@ -64,10 +64,10 @@ export default async function ClaudeCodeSubagentsArticle({ params }: { params: P
       <BlogArticleLayout
         post={currentPost}
         locale={loc}
-        ctaTitle={loc === "en" ? "Need a better AI-assisted code review?" : "Trebate kvalitetniji AI-assisted code review?"}
+        ctaTitle={loc === "en" ? "Need a better AI-assisted code review?" : "Treba vam bolji AI-assisted code review?"}
         ctaDescription={loc === "en"
           ? "We help teams introduce Claude Code workflows, subagents, skills, and review standards that speed up work without lowering quality."
-          : "Pomažemo timovima uvesti Claude Code workflowe, subagente, skills i review standarde koji ubrzavaju rad bez spuštanja kvalitete."}
+          : "Pomažemo timovima uvesti Claude Code workflowe, subagente, skillove i review standarde koji ubrzavaju rad bez spuštanja kvalitete."}
         ctaSource="blog_claude_code_subagents"
       >
         {locale === "en" ? (
@@ -175,16 +175,16 @@ Return findings as a prioritized list with file:line references.`}
             <section className="space-y-5">
               <p className="text-[20px] leading-[1.55] text-[var(--ink-secondary)]">
                 Jedna od korisnijih lekcija iz rada s Claude Codeom je da isti AI
-                agent koji je pomagao pisati feature nije uvijek najbolji reviewer
-                tog featurea. Zna za kompromise koje ste već prihvatili. Zna za
-                prečace koje je sam predložio. I često ima tendenciju potvrditi
-                smjer umjesto da ga dovoljno strogo preispita.
+                agent koji je pomagao u pisanju featurea nije uvijek najbolji reviewer
+                tog istog featurea. Zna za kompromise koje ste već prihvatili. Zna za
+                prečace koje je sam predložio. I često više potvrđuje smjer nego što
+                ga ozbiljno preispituje.
               </p>
               <p>
                 Zato za važnije promjene koristim odvojeni, svježi subagent s
                 jasnim read-only zadatkom. Ne zato što je magično pametniji, nego
-                zato što ulazi u codebase bez emocionalnog i konverzacijskog tereta
-                implementacije.
+                zato što ulazi u codebase bez balasta razgovora i odluka iz
+                implementacijske sesije.
               </p>
             </section>
 
@@ -193,15 +193,15 @@ Return findings as a prioritized list with file:line references.`}
                 Problem: implementacijski kontekst stvara slijepe točke
               </h2>
               <p>
-                Tijekom razvoja AI pomoćnik vidi svaku odluku: zašto je neki edge
+                Tijekom razvoja AI asistent vidi svaku odluku: zašto je neki edge
                 case odgođen, zašto test još nije dodan, zašto je integracija
-                napravljena jednostavnije nego što je prvotno planirano. Taj
-                kontekst je koristan dok gradite, ali može smetati kada tražite
+                ispala jednostavnija nego što smo prvotno planirali. Taj
+                kontekst koristan je dok razvijate, ali može smetati kad tražite
                 nepristran review.
               </p>
               <p>
-                Ako istu sesiju pitate &quot;reviewaj ovo&quot;, često dobijete pregled koji
-                zvuči razumno, ali propušta mjesta gdje je sama sesija već
+                Ako istu sesiju pitate &quot;reviewaj ovo&quot;, često ćete dobiti review koji
+                djeluje razumno, ali propušta mjesta gdje je sama sesija već
                 racionalizirala kompromis. To nije problem samo AI alata. I ljudski
                 developeri lakše brane vlastito rješenje nego tuđe.
               </p>
@@ -232,10 +232,10 @@ Vrati nalaze kao prioritiziranu listu s file:line referencama.`}
                 </pre>
               </div>
               <p>
-                Dobra formulacija je važna. &quot;Pregledaj kod&quot; je preširoko. &quot;Traži
+                Bitno je kako to formulirate. &quot;Pregledaj kod&quot; je preširoko. &quot;Traži
                 sigurnosne propuste, neobrađene edge caseove i rupe u testovima&quot; je
-                konkretno. Subagent ne mora znati cijelu povijest rada; mora znati
-                što točno treba osporiti.
+                konkretno. Subagent ne mora znati cijelu povijest sesije; mora znati
+                što točno treba preispitati.
               </p>
             </section>
 
@@ -270,7 +270,7 @@ Vrati nalaze kao prioritiziranu listu s file:line referencama.`}
                 Timski standard je važniji od jednokratnog trika
               </h2>
               <p>
-                Ako tim želi ozbiljno koristiti AI coding alate, ovakav workflow ne
+                Ako tim želi ozbiljno koristiti AI alate u razvoju, ovakav workflow ne
                 bi trebao ovisiti o nečijem pamćenju. Pravilo se može zapisati u
                 projektni <code>CLAUDE.md</code>, skill ili interni delivery
                 standard: za promjene iznad određene razine rizika koristi se
@@ -290,12 +290,11 @@ Vrati nalaze kao prioritiziranu listu s file:line referencama.`}
               </h2>
               <p>
                 Claude Code subagenti nisu zamjena za ljudski review, ali su vrlo
-                korisni kao dodatni sloj provjere. Najbolje rade kada im date uski
-                opseg, read-only pristup i kriterije koji odgovaraju riziku
-                promjene.
+                korisni kao dodatni sloj provjere. Najbolje rade s uskim opsegom,
+                read-only pristupom i kriterijima prilagođenima riziku.
               </p>
               <p>
-                U praksi, najveća vrijednost nije u samom subagentu nego u disciplini
+                Najveća vrijednost nije u samom subagentu nego u disciplini
                 koju workflow uvodi: jasno definirani kriteriji kvalitete, svježa
                 perspektiva i navika da AI-generated kod ne ide u produkciju bez
                 neovisne provjere.

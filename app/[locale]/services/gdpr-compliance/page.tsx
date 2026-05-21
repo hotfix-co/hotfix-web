@@ -43,31 +43,31 @@ const copy = {
       {
         question: "Pomažete li oko GDPR-a?",
         answer:
-          "Pomažemo tehnički urediti rukovanje podacima: minimizaciju podataka, pristupe, enkripciju, logiranje, dokumentaciju i odluke koje podržavaju compliance rad. Ne zamjenjujemo pravni savjet.",
+          "Pomažemo s tehničkom stranom rukovanja podacima: minimizacijom podataka, pristupima, enkripcijom, logiranjem, dokumentacijom i odlukama koje podržavaju compliance aktivnosti. Ne zamjenjujemo pravni savjet.",
       },
       {
         question: "Kako pristupate kvaliteti isporuke?",
         answer:
-          "Kombiniramo test strategiju, CI provjere, staging, observability, release checklistu i runbooke kako bi se problemi otkrivali prije korisnika.",
+          "Kombiniramo test strategiju, CI provjere, staging, observability, release checklistu i runbooke kako bi se problemi otkrili prije nego što dođu do korisnika.",
       },
       {
         question: "Možete li pomoći postojećem proizvodu?",
         answer:
-          "Da. Možemo napraviti review postojećeg softwarea, predložiti prioritete i implementirati promjene bez zaustavljanja razvoja.",
+          "Da. Možemo odraditi review postojećeg softvera, predložiti prioritete i implementirati promjene bez zaustavljanja razvoja.",
       },
     ],
     eyebrow: "privatnost i kvaliteta",
     heroTitle:
-      "Software koji odgovorno rukuje podacima i spremnije ide u produkciju.",
+      "Software koji odgovorno rukuje podacima i u produkciju ulazi s manje iznenađenja.",
     heroDescription:
-      "Pomažemo timovima ugraditi privatnost, sigurnost, testiranje, observability i incident readiness u razvojni proces prije nego što problemi postanu skupi.",
+      "Pomažemo timovima ugraditi privatnost, sigurnost, testiranje, observability i spremnost na incidente u razvojni proces prije nego što problemi postanu skupi.",
     helpTitle: "Kako pomažemo",
     helpItems: [
       "Arhitektura s privatnošću po dizajnu i threat modeling.",
       "Minimizacija podataka, enkripcija, pristupi i audit trail.",
       "Automatizirani testovi, CI i release checklisti.",
       "Observability, alerting i operativni runbookovi.",
-      "Dokumentacija odluka i predaja prema timu.",
+      "Dokumentacija odluka i predaja timu.",
     ],
     audienceTitle: "Za koga je ovo",
     audienceBody:

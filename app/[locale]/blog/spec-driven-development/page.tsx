@@ -54,7 +54,7 @@ export default async function SpecDrivenDevelopmentArticle({ params }: { params:
   const ctaDescription =
     loc === "en"
       ? "We help teams turn vague ideas into technical specifications, delivery plans, and AI-assisted workflows that can be properly reviewed."
-      : "Pomažemo timovima pretvoriti nejasne ideje u tehničke specifikacije, delivery planove i AI-assisted workflowe koji se mogu kvalitetno reviewati.";
+      : "Pomažemo timovima pretvoriti nejasne ideje u tehničke specifikacije, delivery planove i AI workflowe koji se mogu normalno reviewati.";
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: t("breadcrumbHome"), url: getLocalizedPath(ROUTES.home, loc) },
@@ -177,14 +177,14 @@ export default async function SpecDrivenDevelopmentArticle({ params }: { params:
           <>
             <section className="space-y-5">
               <p className="text-[20px] leading-[1.55] text-[var(--ink-secondary)]">
-                AI može ubrzati development, ali ne popravlja nejasan zahtjev. Ako
-                modelu date nedorečen problem, dobit ćete brže iteracije prema
-                nečemu što je možda &quot;skoro dobro&quot;, ali nije ono što korisnik ili tim
+                AI može ubrzati development, ali ne razjašnjava nejasan zahtjev. Ako
+                modelu date nejasan problem, dobit ćete brže iteracije nečega
+                što je možda &quot;skoro dobro&quot;, ali nije ono što korisnik ili tim
                 stvarno treba.
               </p>
               <p>
-                Spec-driven development je jednostavna protuteža: prije koda napišete
-                dovoljno jasnu specifikaciju da se zna što se gradi, što se ne gradi,
+                Spec-driven development je jednostavno rješenje: prije koda napišete
+                dovoljno jasnu specifikaciju da se zna što radite, što ne radite,
                 koji edge caseovi postoje i kako ćemo znati da je posao gotov.
               </p>
             </section>
@@ -219,10 +219,10 @@ export default async function SpecDrivenDevelopmentArticle({ params }: { params:
               <p>
                 AI modeli su dobri u popunjavanju praznina. To je korisno kada
                 tražite ideje, ali opasno kada gradite feature koji mora poštovati
-                postojeću arhitekturu, sigurnosna pravila i poslovne rubne slučajeve.
+                postojeću arhitekturu, sigurnosna pravila i poslovne edge caseove.
               </p>
               <p>
-                Specifikacija smanjuje broj praznina koje model mora pogađati. Ona
+                Specifikacija smanjuje praznine koje model mora popunjavati sam. Ona
                 također daje revieweru jasan okvir: review ne pita samo &quot;radi li kod&quot;,
                 nego &quot;rješava li kod dogovoreni problem na dogovoreni način&quot;.
               </p>
@@ -241,15 +241,15 @@ export default async function SpecDrivenDevelopmentArticle({ params }: { params:
               <div className="grid gap-4 md:grid-cols-3">
                 <div className="card-feature-light">
                   <h3 className="mb-3 text-[18px] font-bold text-[var(--ink)]">Markdown</h3>
-                  <p className="text-[15px] text-[var(--ink-mute)]">Najbrži za male i srednje featuree kada tim već ima dobru disciplinu.</p>
+                  <p className="text-[15px] text-[var(--ink-mute)]">Najbolji izbor za manje featurei kada tim već ima dobru disciplinu.</p>
                 </div>
                 <div className="card-feature-light">
                   <h3 className="mb-3 text-[18px] font-bold text-[var(--ink)]">spec-kit</h3>
-                  <p className="text-[15px] text-[var(--ink-mute)]">Koristan kada želite strukturiraniji AI-assisted tok od ideje do plana.</p>
+                  <p className="text-[15px] text-[var(--ink-mute)]">Koristan kada želite strukturiraniji AI-assisted workflow od ideje do plana.</p>
                 </div>
                 <div className="card-feature-light">
                   <h3 className="mb-3 text-[18px] font-bold text-[var(--ink)]">OpenSpec</h3>
-                  <p className="text-[15px] text-[var(--ink-mute)]">Dobar kada promjene imaju dug život i trebaju jasnu povijest odluka.</p>
+                  <p className="text-[15px] text-[var(--ink-mute)]">Dobar kad promjene traju dugo i kad treba jasna povijest odluka.</p>
                 </div>
               </div>
             </section>
@@ -261,8 +261,7 @@ export default async function SpecDrivenDevelopmentArticle({ params }: { params:
               <p>
                 Najveća greška je tretirati spec kao ugovor koji se ne smije
                 promijeniti. Dobar spec se mijenja kada naučite nešto novo, ali se
-                promjena bilježi. Time tim ne gubi kontekst zašto je odluka
-                promijenjena.
+                promjena bilježi. Tako tim ne gubi kontekst zašto smo promijenili smjer.
               </p>
               <p>
                 To je posebno važno kod AI workflowa. Model može predložiti bolji
@@ -277,21 +276,19 @@ export default async function SpecDrivenDevelopmentArticle({ params }: { params:
               </h2>
               <p>
                 Spec-driven development nije sporiji način rada. Spor je kaos koji
-                izgleda brzo u prvih nekoliko sati, a zatim pojede dane kroz
-                rework, nejasne review komentare i promjene smjera.
+                prvih par sati izgleda brzo, a onda pojede dane na rework,
+                nejasne review komentare i promjene smjera.
               </p>
               <p>
                 Kada AI uđe u proces, potreba za specifikacijom postaje veća, ne
-                manja. Dobro napisan spec daje modelu granice, timu shared context i
-                revieweru konkretne kriterije. To je temelj brzine koja ne žrtvuje
-                kontrolu.
+                manja. Dobro napisan spec modelu daje granice, a timu zajednički kontekst i jasne kriterije za review. Tako dobivate brzinu bez gubitka kontrole.
               </p>
               <p>
-                Za širi kontekst pogledajte i tekst o{" "}
+                Pogledajte i tekst o{" "}
                 <Link href={BLOG_ARTICLE_ROUTES.aiContextManagement} className="text-[var(--primary)]">
                   upravljanju AI kontekstom
                 </Link>
-                .
+                {" "}za širu sliku.
               </p>
             </section>
           </>

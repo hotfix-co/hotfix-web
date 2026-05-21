@@ -44,7 +44,7 @@ export async function generateMetadata({
     },
     description: isEn
       ? "AI consulting, Claude Code enablement, software architecture, custom development, and modernization — from a Croatian consulting firm."
-      : "AI consulting, Claude Code enablement, software arhitektura, custom development i modernizacija — iz hrvatske consulting tvrtke.",
+      : "AI consulting, Claude Code enablement, softverska arhitektura, custom development i modernizacija — iz hrvatske consulting tvrtke.",
     alternates: {
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.services),
@@ -59,7 +59,7 @@ export async function generateMetadata({
         : "AI i software consulting usluge | HOTFIX d.o.o.",
       description: isEn
         ? "From AI adoption and Claude Code workflows to architecture, custom development, integrations, and software modernization."
-        : "Od AI adopcije i Claude Code workflowa do arhitekture, custom developmenta, integracija i modernizacije softwarea.",
+        : "Od uvođenja AI-ja i Claude Code workflowa do arhitekture, custom developmenta, integracija i modernizacije softvera.",
       images: [
         {
           url: "/opengraph-image",
@@ -81,13 +81,13 @@ export async function generateMetadata({
     },
     keywords: [
       "AI consulting",
-      isEn ? "AI adoption" : "AI adopcija",
+      isEn ? "AI adoption" : "uvođenje AI-ja",
       "Claude Code consulting",
       isEn ? "multi-agent systems" : "multi-agent sustavi",
       "software consulting",
-      isEn ? "software architecture" : "software arhitektura",
+      isEn ? "software architecture" : "softverska arhitektura",
       "custom software development",
-      isEn ? "software modernization" : "modernizacija softwarea",
+      isEn ? "software modernization" : "modernizacija softvera",
       isEn ? "engineering processes" : "engineering procesi",
     ],
   };
@@ -371,7 +371,7 @@ export default async function ServicesPage({
             href={I18N_ROUTES.contact}
             source="services_page"
             className="button-primary-pill focus-ring"
-            aria-label={isEn ? "Contact HOTFIX d.o.o. to discuss an AI or software project" : "Kontaktirajte HOTFIX d.o.o. za razgovor o AI ili software projektu"}
+            aria-label={isEn ? "Contact HOTFIX d.o.o. to discuss an AI or software project" : "Kontaktirajte HOTFIX d.o.o. za razgovor o AI ili softverskom projektu"}
           >
             {t("darkCtaButton")}
           </ContactTrackedLink>

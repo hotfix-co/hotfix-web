@@ -25,10 +25,10 @@ const copy = {
       "AI consulting za tvrtke koje žele uvesti AI u stvarne procese: Claude Code, AI-assisted development, multi-agent sustavi i guardraili.",
     ogTitle: "AI consulting i AI-assisted development | HOTFIX d.o.o.",
     ogDescription:
-      "Praktična AI adopcija, Claude Code workflowi, multi-agent sustavi i produkcijski guardraili bez hypea.",
+      "Praktično uvođenje AI-ja, Claude Code workflowi, multi-agent sustavi i produkcijski guardraili — bez hypea.",
     keywords: [
       "AI consulting",
-      "AI adopcija",
+      "uvođenje AI-ja",
       "Claude Code consulting",
       "AI-assisted development",
       "multi-agent sustavi",
@@ -39,7 +39,7 @@ const copy = {
     breadcrumbServices: "Usluge",
     breadcrumbCurrent: "AI consulting",
     serviceDescription:
-      "AI adopcija, Claude Code enablement, multi-agent workflowi, guardraili, evaluacije i produkcijske integracije.",
+      "Uvođenje AI-ja, Claude Code enablement, multi-agent workflowi, guardraili, evaluacije i produkcijske integracije.",
     faq: [
       {
         question: "Kada multi-agent sustav ima smisla?",
@@ -63,7 +63,7 @@ const copy = {
       "Pomažemo procijeniti gdje AI ima smisla, kako ga sigurno integrirati u postojeći software i kako tim može koristiti Claude Code i slične alate bez gubitka kontrole nad kvalitetom.",
     helpTitle: "Gdje pomažemo",
     helpItems: [
-      "AI adoption strategija i izbor use caseova.",
+      "Strategija uvođenja AI-ja i odabir scenarija primjene.",
       "Claude Code, Codex i AI coding workflowi za timove.",
       "Multi-agent sustavi kada posao stvarno traži više koordiniranih uloga.",
       "Guardraili, evaluacije, testiranje i human-in-the-loop provjere.",
@@ -78,7 +78,7 @@ const copy = {
     ],
     audienceTitle: "Za koga je ovo",
     audienceBody:
-      "Za product i engineering timove koji imaju konkretan proces, postojeći codebase ili poslovni workflow u kojem AI može skratiti ručni rad, povećati kvalitetu ili ubrzati odlučivanje.",
+      "Za produktne i engineering timove koji imaju konkretan proces, postojeći codebase ili poslovni workflow u kojem AI može skratiti ručni rad, povećati kvalitetu ili ubrzati odlučivanje.",
     processTitle: "Proces",
     processItems: [
       "Mapiramo proces, podatke, rizike i očekivani učinak.",
@@ -89,7 +89,7 @@ const copy = {
     related: "Povezano:",
     relatedProductivity: "engineering produktivnost",
     relatedQuality: "privatnost i kvaliteta",
-    cta: "Dogovorite AI consulting razgovor",
+    cta: "Dogovorite razgovor o AI consultingu",
   },
   en: {
     title: "AI consulting and Claude Code workflows",

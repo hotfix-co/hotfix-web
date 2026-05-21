@@ -32,7 +32,7 @@ export async function generateMetadata({
     },
     description: isEn
       ? "Croatian AI and software consulting firm founded by Josip Budalić. We help teams make better technical decisions and modernize software."
-      : "Hrvatska AI i software consulting tvrtka koju vodi Josip Budalić. Pomažemo timovima donositi bolje tehničke odluke i modernizirati software.",
+      : "Hrvatska consulting tvrtka za AI i software koju vodi Josip Budalić. Pomažemo timovima donositi bolje tehničke odluke i modernizirati software.",
     alternates: {
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.about),
@@ -53,7 +53,7 @@ export async function generateMetadata({
           "Josip Budalić",
           "AI consulting Hrvatska",
           "software consulting Hrvatska",
-          "software arhitektura",
+          "softverska arhitektura",
           "Claude Code",
           "AI-assisted development",
           "softverska tvrtka Hrvatska",
@@ -68,7 +68,7 @@ export async function generateMetadata({
         : "O HOTFIX d.o.o. — AI i software consulting iz Hrvatske",
       description: isEn
         ? "Practical AI consulting, software architecture, engineering processes, and custom software development."
-        : "Praktičan AI consulting, software arhitektura, engineering procesi i custom software development.",
+        : "Praktičan AI consulting, softverska arhitektura, razvojni procesi i custom software development.",
       images: [
         {
           url: "/opengraph-image",
@@ -85,7 +85,7 @@ export async function generateMetadata({
         : "O HOTFIX d.o.o. — AI consulting iz Hrvatske",
       description: isEn
         ? "Croatian AI and software consulting firm founded by Josip Budalić."
-        : "Hrvatska AI i software consulting tvrtka koju vodi Josip Budalić.",
+        : "Hrvatska consulting tvrtka za AI i software koju vodi Josip Budalić.",
       images: ["/opengraph-image"],
     },
   };

@@ -67,7 +67,7 @@ export default async function AIAdoptionArticle({ params }: { params: Promise<{ 
     post,
     pathname: BLOG_ARTICLE_ROUTES.aiAdoption,
     locale: loc,
-    articleSection: isEn ? "AI adoption" : "AI adopcija",
+    articleSection: isEn ? "AI adoption" : "uvođenje AI-ja",
   });
 
   return (
@@ -203,13 +203,13 @@ export default async function AIAdoptionArticle({ params }: { params: Promise<{ 
           <>
             <section className="space-y-5">
               <p className="text-[20px] leading-[1.55] text-[var(--ink-secondary)]">
-                Najčešća greška kod AI adopcije u software timu je početi od alata.
+                Najčešća greška kod uvođenja AI-ja u razvojni tim je krenuti od alata.
                 Tim kupi pristup, nekoliko developera ubrza pojedine zadatke, a
                 zatim nitko ne zna što je standard, što je eksperiment i gdje počinje
                 rizik za codebase.
               </p>
               <p>
-                Bolji početak je mapirati postojeći razvojni proces: gdje nastaje
+                Bolje je krenuti od mapiranja postojećeg razvojnog procesa: gdje nastaje
                 čekanje, gdje se ponavlja ručni rad, gdje review kasni i gdje se
                 greške najčešće provuku. Tek nakon toga ima smisla odlučiti gdje AI
                 ulazi u workflow.
@@ -218,10 +218,10 @@ export default async function AIAdoptionArticle({ params }: { params: Promise<{ 
 
             <section className="space-y-5">
               <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--ink)]">
-                Počnite od jednog uskog workflowa
+                Počnite od jednog jasno omeđenog workflowa
               </h2>
               <p>
-                Dobar prvi AI workflow nije &quot;neka alat piše featuree&quot;. Bolji
+                Prvi dobar AI workflow nije &quot;neka alat piše featuree&quot;. Bolji
                 kandidati su poslovi s jasnim ulazom, jasnim izlazom i jednostavnom
                 provjerom kvalitete: priprema specifikacije, review edge caseova,
                 generiranje test matrice ili objašnjenje dijela codebasea novom
@@ -232,7 +232,7 @@ export default async function AIAdoptionArticle({ params }: { params: Promise<{ 
                 <ul className="list-inside list-disc space-y-2 text-[15px] text-[var(--ink-mute)]">
                   <li>jedan jasno definiran zadatak</li>
                   <li>poznate podatke i ograničen pristup</li>
-                  <li>pravila za review i ljudsku odgovornost</li>
+                  <li>pravila za review i jasnu odgovornost</li>
                   <li>mjeru uspjeha: manje čekanja, bolji testovi ili manje reworka</li>
                 </ul>
               </div>
@@ -243,17 +243,17 @@ export default async function AIAdoptionArticle({ params }: { params: Promise<{ 
                 Guardraili su dio procesa, ne dodatak na kraju
               </h2>
               <p>
-                AI coding alat ne bi trebao zaobilaziti pravila koja već vrijede za
+                AI alat za pisanje koda ne bi smio zaobilaziti pravila koja već vrijede za
                 ljude. Ako se promjena inače reviewa, testira i dokumentira, isto
                 vrijedi i kada je dio koda nastao uz Claude Code, Codex ili drugi
-                alat. Razlika je u tome što treba eksplicitnije zapisati granice.
+                alat. Razlika je u tome što granice treba zapisati eksplicitnije.
               </p>
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="card-feature-light">
                   <h3 className="mb-3 text-[20px] font-bold text-[var(--ink)]">Što definirati</h3>
                   <ul className="list-inside list-disc space-y-2 text-[15px] text-[var(--ink-mute)]">
                     <li>koje repozitorije i podatke alat smije vidjeti</li>
-                    <li>koje promjene traže ljudski review prije commita</li>
+                    <li>koje promjene moraju proći ljudski review prije commita</li>
                     <li>kada se koristi read-only subagent za provjeru</li>
                     <li>što se mora testirati prije mergea</li>
                   </ul>
@@ -263,7 +263,7 @@ export default async function AIAdoptionArticle({ params }: { params: Promise<{ 
                   <ul className="list-inside list-disc space-y-2 text-[15px] text-[var(--ink-mute)]">
                     <li>nejasno pravilo da &quot;developer procijeni sam&quot;</li>
                     <li>slanje osjetljivih podataka bez pregleda</li>
-                    <li>AI-generated promjene bez specifikacije</li>
+                    <li>promjene koje je generirao AI, bez specifikacije</li>
                     <li>mjerenje samo broja napisanih linija koda</li>
                   </ul>
                 </div>
@@ -272,19 +272,18 @@ export default async function AIAdoptionArticle({ params }: { params: Promise<{ 
 
             <section className="space-y-5">
               <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.64px] text-[var(--ink)]">
-                Mjerite učinak na delivery, ne dojam brzine
+                Mjerite utjecaj na isporuku, a ne osjećaj brzine
               </h2>
               <p>
                 AI često stvara osjećaj brzine jer se prvi draft pojavi brzo. Ali
                 stvarna vrijednost se vidi kasnije: je li review kraći, ima li manje
                 povratnih izmjena, jesu li testovi bolji i može li netko drugi
-                održavati rezultat za tri mjeseca.
+                za tri mjeseca preuzeti i održavati taj kod.
               </p>
               <p>
-                Zato AI adopciju treba vezati uz <Link href={ROUTES.productivity} className="text-[var(--primary)]">engineering produktivnost</Link> i
+                Zato uvođenje AI-ja treba vezati uz <Link href={ROUTES.productivity} className="text-[var(--primary)]">inženjersku produktivnost</Link> i
                 kvalitetu isporuke, a ne uz apstraktni cilj &quot;koristimo AI&quot;. Ako
-                alat ne poboljšava stvarni workflow, nije problem u developerima
-                nego u izboru use casea.
+                alat ne poboljšava stvarni workflow, nisu problem developeri nego izbor use casea.
               </p>
             </section>
 
@@ -293,14 +292,14 @@ export default async function AIAdoptionArticle({ params }: { params: Promise<{ 
                 Zaključak
               </h2>
               <p>
-                Odgovorna AI adopcija nije spora. Sporo je uvoditi alat bez pravila,
+                Odgovorno uvođenje AI-ja nije sporo. Sporo je uvoditi alat bez pravila,
                 pa kasnije popravljati sigurnosne rupe, loš kod i izgubljeno
-                povjerenje tima. Krenite od uskog workflowa, postavite guardraile,
+                povjerenje tima. Krenite od jednog jasno omeđenog workflowa, postavite guardraile,
                 mjerite učinak i širite tek ono što se pokazalo korisnim.
               </p>
               <p>
                 Za timove koji žele strukturiran početak, <Link href={ROUTES.aiConsulting} className="text-[var(--primary)]">AI consulting</Link> najviše
-                vrijedi kada poveže alat, proces i ownership u jedan održiv način
+                vrijedi kada poveže alat, proces i jasnu odgovornost u jedan održiv način
                 rada.
               </p>
             </section>

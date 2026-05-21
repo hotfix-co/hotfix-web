@@ -32,7 +32,7 @@ export async function generateMetadata({
     },
     description: isEn
       ? "Croatian AI and software consulting for product teams across the EU and US. Claude Code adoption, software architecture, modernization, and reliable delivery."
-      : "Hrvatski AI i software consulting za product timove iz EU i SAD-a. Claude Code adopcija, software arhitektura, modernizacija i pouzdana isporuka.",
+      : "Hrvatski AI i software consulting za produktne timove u EU-u i SAD-u. Uvođenje Claude Code-a, softverska arhitektura, modernizacija i pouzdana isporuka.",
     alternates: {
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.home),
@@ -47,7 +47,7 @@ export async function generateMetadata({
         : "HOTFIX d.o.o. — AI i software consulting iz Hrvatske",
       description: isEn
         ? "AI adoption, Claude Code workflows, architecture, modernization, and reliable delivery — by HOTFIX d.o.o., Zagreb."
-        : "AI adopcija, Claude Code workflowi, arhitektura, modernizacija i pouzdana isporuka — HOTFIX d.o.o., Zagreb.",
+        : "Uvođenje AI-ja, Claude Code workflowi, arhitektura, modernizacija i pouzdana isporuka — HOTFIX d.o.o., Zagreb.",
       images: [
         {
           url: "/opengraph-image",
@@ -64,7 +64,7 @@ export async function generateMetadata({
         : "HOTFIX d.o.o. — AI i software consulting",
       description: isEn
         ? "AI adoption, Claude Code workflows, architecture, modernization, and reliable delivery."
-        : "AI adopcija, Claude Code workflowi, arhitektura, modernizacija i pouzdana isporuka.",
+        : "Uvođenje AI-ja, Claude Code workflowi, arhitektura, modernizacija i pouzdana isporuka.",
       images: ["/opengraph-image"],
     },
     other: {
