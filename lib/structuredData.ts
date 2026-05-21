@@ -14,8 +14,7 @@ const ORG_SAME_AS: string[] = [
 ];
 
 const FOUNDER_SAME_AS: string[] = [
-  // 'https://www.linkedin.com/in/josipbudalic',
-  // 'https://github.com/josipbudalic',
+  'https://www.linkedin.com/in/josip-budali%C4%87-4bb4011b6/',
 ];
 
 const ORG_DESCRIPTION: Record<SiteLocale, string> = {

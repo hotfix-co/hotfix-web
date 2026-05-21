@@ -33,6 +33,17 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // Service slug renames (May 2026) — old EN slugs 301 to keyword-targeted slugs.
+      {
+        source: "/en/services/productivity",
+        destination: "/en/services/ai-assisted-development",
+        permanent: true,
+      },
+      {
+        source: "/en/services/gdpr-quality",
+        destination: "/en/services/gdpr-compliance",
+        permanent: true,
+      },
       // Croatian slugs on English-prefixed URLs should resolve to the English URL.
       {
         source: "/en/blog/claude-code-subagenti-code-review",

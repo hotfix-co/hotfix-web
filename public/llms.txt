@@ -76,8 +76,8 @@ CET, with strong overlap with US East Coast business hours.
 - About: https://www.hotfix-doo.com/about (HR: /o-nama)
 - Services overview: https://www.hotfix-doo.com/services (HR: /usluge)
 - AI consulting: https://www.hotfix-doo.com/services/ai-consulting (HR: /usluge/ai-savjetovanje)
-- Engineering productivity: https://www.hotfix-doo.com/services/productivity (HR: /usluge/engineering-produktivnost)
-- Privacy & quality: https://www.hotfix-doo.com/services/gdpr-quality (HR: /usluge/privatnost-i-kvaliteta)
+- Engineering productivity / AI-assisted development: https://www.hotfix-doo.com/services/ai-assisted-development (HR: /usluge/engineering-produktivnost)
+- Privacy, quality & GDPR compliance: https://www.hotfix-doo.com/services/gdpr-compliance (HR: /usluge/privatnost-i-kvaliteta)
 - Blog: https://www.hotfix-doo.com/blog
 - Contact: https://www.hotfix-doo.com/contact (HR: /kontakt)
 - Pricing & engagement model: https://www.hotfix-doo.com/pricing.md

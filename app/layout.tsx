@@ -94,6 +94,18 @@ export const metadata: Metadata = {
     images: [`${SITE_URL}/opengraph-image`],
   },
   category: 'technology',
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.BING_SITE_VERIFICATION
+      ? {
+          other: {
+            "msvalidate.01": process.env.BING_SITE_VERIFICATION,
+          },
+        }
+      : {}),
+  },
   other: {
     "apple-mobile-web-app-title": "HOTFIX d.o.o.",
   },

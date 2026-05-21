@@ -10,8 +10,8 @@ export const ROUTES = {
   about: "/about",
   services: "/services",
   aiConsulting: "/services/ai-consulting",
-  productivity: "/services/productivity",
-  quality: "/services/gdpr-quality",
+  productivity: "/services/ai-assisted-development",
+  quality: "/services/gdpr-compliance",
   blog: "/blog",
   contact: "/contact",
   privacy: "/privacy",
@@ -106,11 +106,11 @@ export const LOCALIZED_PATHNAMES = {
   },
   [ROUTES.productivity]: {
     hr: "/usluge/engineering-produktivnost",
-    en: "/services/productivity",
+    en: "/services/ai-assisted-development",
   },
   [ROUTES.quality]: {
     hr: "/usluge/privatnost-i-kvaliteta",
-    en: "/services/gdpr-quality",
+    en: "/services/gdpr-compliance",
   },
   [ROUTES.blog]: {
     hr: "/blog",

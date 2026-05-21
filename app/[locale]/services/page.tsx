@@ -18,8 +18,8 @@ import {
 
 const I18N_ROUTES = {
   aiConsulting: "/services/ai-consulting" as const,
-  quality: "/services/gdpr-quality" as const,
-  productivity: "/services/productivity" as const,
+  quality: "/services/gdpr-compliance" as const,
+  productivity: "/services/ai-assisted-development" as const,
   contact: "/contact" as const,
 };
 
