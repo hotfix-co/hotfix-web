@@ -12,11 +12,7 @@ export const SEO_LANGUAGE_KEYS = {
 } as const satisfies Record<SiteLocale, string>;
 
 function withLocalePrefix(pathname: string, locale: SiteLocale): string {
-  if (locale === "hr") {
-    return pathname;
-  }
-
-  return pathname === "/" ? "/en" : `/en${pathname}`;
+  return pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
 }
 
 export function getLocalizedPath(
@@ -38,6 +34,6 @@ export function getLanguageAlternates(pathname: InternalPathname) {
   return {
     [SEO_LANGUAGE_KEYS.hr]: getLocalizedUrl(pathname, "hr"),
     [SEO_LANGUAGE_KEYS.en]: getLocalizedUrl(pathname, "en"),
-    "x-default": getLocalizedUrl(pathname, "hr"),
+    "x-default": getLocalizedUrl(pathname, "en"),
   };
 }

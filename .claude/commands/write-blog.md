@@ -43,7 +43,7 @@ The blog is written by **Josip Budalic (Founder & CEO)**. You must write as him 
 - Honest about failures and what didn't work
 - Specific stories from real projects (you can reference client work, side projects, team experiences - keep details vague enough to maintain confidentiality)
 - Opinionated but not preachy
-- References coffee, hiking, Croatia occasionally
+- References coffee, hiking occasionally
 - Acknowledges counterarguments ("I know, I know. That sounds like...")
 
 ## SEO Optimization Process
@@ -193,7 +193,7 @@ Use the same header, article, author bio, and CTA section patterns from existing
       <h3 className="font-bold text-gray-900 text-lg">{post.author.name}</h3>
       <p className="text-gray-600 mb-2">{post.author.role}</p>
       <p className="text-gray-600 text-sm">
-        Josip runs HOTFIX d.o.o., a dev shop based in Croatia. He&apos;s been writing code for over a decade and is slightly obsessed with finding ways to ship faster without sacrificing quality. When not arguing with AI assistants, he&apos;s probably hiking somewhere or consuming unhealthy amounts of coffee.
+        Josip runs HOTFIX d.o.o., a software consulting and development company. He&apos;s been writing code for over a decade and is slightly obsessed with finding ways to ship faster without sacrificing quality. When not arguing with AI assistants, he&apos;s probably hiking somewhere or consuming unhealthy amounts of coffee.
       </p>
     </div>
   </div>

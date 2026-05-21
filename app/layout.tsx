@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   description:
     "AI and software consulting for companies that want to integrate AI into real processes, make clearer technical decisions, and deliver software more reliably.",
   keywords: [
-    "AI consulting Croatia",
+    "AI consulting",
     "software consulting",
     "Claude Code consulting",
     "AI-assisted development",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "HOTFIX d.o.o.",
-    title: "HOTFIX d.o.o. | AI & Software Consulting from Croatia",
+    title: "HOTFIX d.o.o. | AI & Software Consulting",
     description: "Practical AI and software consulting: AI adoption, Claude Code workflows, software architecture, custom development, and more reliable delivery.",
     images: [
       {

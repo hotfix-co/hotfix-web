@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "titleDefault": "HOTFIX d.o.o. | AI & Software Consulting from Croatia",
+    "titleDefault": "HOTFIX d.o.o. | AI & Software Consulting",
     "titleTemplate": "%s | HOTFIX d.o.o.",
     "description": "AI and software consulting for companies that want to integrate AI into real processes, make clearer technical decisions, and deliver software more reliably."
   },
@@ -82,13 +82,13 @@
   },
   "about": {
     "title": "About - AI & software consulting",
-    "description": "HOTFIX d.o.o. is a Croatian AI and software consulting company that helps teams make better technical decisions, modernize software, and deliver more reliably.",
+    "description": "HOTFIX d.o.o. is an AI and software consulting company that helps teams make better technical decisions, modernize software, and deliver more reliably.",
     "heroEyebrow": "about HOTFIX",
-    "heroTitle": "Practical software consulting from Croatia.",
+    "heroTitle": "Practical software consulting.",
     "heroDesc": "HOTFIX d.o.o. helps companies integrate AI into real workflows, streamline the development process, modernize existing software, and build solutions that remain maintainable after the first delivery.",
     "storyEyebrow": "story",
     "storyTitle": "We started from a simple idea: software should help the business, not produce new complexity.",
-    "storyP1": "HOTFIX d.o.o. was founded by <strong>Josip Budalić</strong> in Croatia, with a focus on product engineering, software architecture, and practical delivery. We work with companies that need a clearer technical direction, a better development process, or a reliable implementation partner.",
+    "storyP1": "HOTFIX d.o.o. was founded by <strong>Josip Budalić</strong>, with a focus on product engineering, software architecture, and practical delivery. We work with companies that need a clearer technical direction, a better development process, or a reliable implementation partner.",
     "storyP2": "We use AI where it genuinely shortens the path to a better result: in codebase analysis, specification preparation, review, automation, internal tools, and controlled AI-agent workflows. The focus remains on code quality, security, sustainability, and measurable impact.",
     "storyP3": "Beyond consulting, we also do traditional software development: backend, frontend, mobile, integrations, automations, and modernization. We choose technologies based on the problem, not the trend.",
     "clearDecisions": "Clear decisions",

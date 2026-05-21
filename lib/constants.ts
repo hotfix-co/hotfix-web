@@ -1,6 +1,6 @@
 export const SITE_URL = "https://www.hotfix-doo.com";
 
-export const SUPPORTED_LOCALES = ["hr", "en"] as const;
+export const SUPPORTED_LOCALES = ["en", "hr"] as const;
 export type SiteLocale = (typeof SUPPORTED_LOCALES)[number];
 
 // Internal pathnames used by next-intl routing.

@@ -98,7 +98,7 @@ export const websiteSchema: WithContext<WebSite> = {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
   },
-  inLanguage: 'hr-HR',
+  inLanguage: 'en',
 };
 
 export const localBusinessSchema: WithContext<LocalBusiness> = {
@@ -182,7 +182,7 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
 export function generateServiceSchema(
   serviceName: string,
   description: string,
-  locale: SiteLocale = "hr"
+  locale: SiteLocale = "en"
 ) {
   return {
     '@context': 'https://schema.org',
@@ -196,7 +196,7 @@ export function generateServiceSchema(
     },
     areaServed: {
       '@type': 'Place',
-      name: locale === "en" ? 'Croatia and international markets' : 'Hrvatska i međunarodna tržišta',
+      name: locale === "en" ? 'International markets' : 'Hrvatska i međunarodna tržišta',
     },
     inLanguage: locale === "en" ? 'en-US' : 'hr-HR',
     hasOfferCatalog: {
@@ -219,11 +219,11 @@ export function generateServiceSchema(
 export const aboutPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
-  '@id': `${getLocalizedUrl(ROUTES.about, "hr")}/#aboutpage`,
-  url: getLocalizedUrl(ROUTES.about, "hr"),
-  name: 'O HOTFIX d.o.o.',
-  description: 'HOTFIX d.o.o. je hrvatska AI i software consulting tvrtka usmjerena na praktičnu isporuku softwarea, arhitekturu, AI workflowe i modernizaciju.',
-  inLanguage: 'hr-HR',
+  '@id': `${getLocalizedUrl(ROUTES.about, "en")}/#aboutpage`,
+  url: getLocalizedUrl(ROUTES.about, "en"),
+  name: 'About HOTFIX d.o.o.',
+  description: 'HOTFIX d.o.o. is an AI and software consulting company focused on practical software delivery, architecture, AI workflows, and modernization.',
+  inLanguage: 'en',
   mainEntity: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
@@ -237,11 +237,11 @@ export const aboutPageSchema = {
 export const contactPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  '@id': `${getLocalizedUrl(ROUTES.contact, "hr")}/#contactpage`,
-  url: getLocalizedUrl(ROUTES.contact, "hr"),
-  name: 'Kontakt - HOTFIX d.o.o.',
-  description: 'Pošaljite upit za AI consulting, software consulting, custom development, modernizaciju ili poboljšanje engineering procesa.',
-  inLanguage: 'hr-HR',
+  '@id': `${getLocalizedUrl(ROUTES.contact, "en")}/#contactpage`,
+  url: getLocalizedUrl(ROUTES.contact, "en"),
+  name: 'Contact - HOTFIX d.o.o.',
+  description: 'Send an inquiry for AI consulting, software consulting, custom development, modernization, or engineering process improvement.',
+  inLanguage: 'en',
   mainEntity: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
