@@ -1,6 +1,3 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface AnimatedSectionProps {
@@ -14,20 +11,15 @@ export default function AnimatedSection({
   className = "",
   delay = 0,
 }: AnimatedSectionProps) {
-  const reduceMotion = useReducedMotion();
-
-  if (reduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
+  const delayClass =
+    delay >= 0.24 ? "fade-in-up-delay-3"
+      : delay >= 0.16 ? "fade-in-up-delay-2"
+      : delay >= 0.08 ? "fade-in-up-delay-1"
+      : "";
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
-    >
+    <div className={`fade-in-up ${delayClass} ${className}`.trim()}>
       {children}
-    </motion.div>
+    </div>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { ROUTES } from "@/lib/constants";
@@ -22,12 +21,7 @@ export default function Hero() {
       <div className="gradient-mesh absolute inset-x-0 top-0 -z-10 h-[62%]" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8 lg:py-24">
-        <motion.div
-          className="max-w-2xl"
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <div className="max-w-2xl fade-in-up">
           <span className="pill-tag-soft mb-7">{t("tagline")}</span>
           <h1
             id="home-hero"
@@ -73,14 +67,9 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="card-dashboard-mockup relative mx-auto hidden w-full max-w-[720px] overflow-hidden p-4 sm:p-6 md:block"
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
+        <div className="card-dashboard-mockup relative mx-auto hidden w-full max-w-[720px] overflow-hidden p-4 sm:p-6 md:block fade-in-up fade-in-up-delay-2">
           <div className="mb-4 flex items-center justify-between border-b border-[var(--hairline)] pb-4">
             <div className="flex items-center gap-2">
               <span className="h-2.5 w-2.5 rounded-full bg-[var(--primary-deep)]" />
@@ -152,7 +141,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
