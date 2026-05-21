@@ -20,7 +20,7 @@ export function generateStaticParams() {
 
 const copy = {
   hr: {
-    title: "Engineering produktivnost i software delivery procesi",
+    title: "Engineering produktivnost",
     description:
       "Consulting za engineering produktivnost: CI/CD, automatizacija, developer tooling, Claude Code workflowi, observability i bolji delivery procesi.",
     ogTitle: "Engineering produktivnost i delivery procesi | HOTFIX d.o.o.",
@@ -83,7 +83,7 @@ const copy = {
     relatedQuality: "privatnost i kvaliteta",
   },
   en: {
-    title: "Engineering productivity and software delivery processes",
+    title: "Engineering productivity",
     description:
       "Engineering productivity consulting: CI/CD, automation, developer tooling, Claude Code workflows, observability, and better delivery processes.",
     ogTitle: "Engineering productivity and delivery processes | HOTFIX d.o.o.",
@@ -181,6 +181,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      title: text.ogTitle,
+      description: text.ogDescription,
       images: ["/opengraph-image"],
     },
     keywords: [...text.keywords],

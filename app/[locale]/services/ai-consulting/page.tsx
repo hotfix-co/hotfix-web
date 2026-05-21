@@ -22,7 +22,7 @@ const copy = {
   hr: {
     title: "AI consulting i Claude Code workflowi",
     description:
-      "AI consulting za tvrtke koje žele uvesti AI u stvarne procese: Claude Code enablement, AI-assisted development, multi-agent sustavi, guardraili i integracije.",
+      "AI consulting za tvrtke koje žele uvesti AI u stvarne procese: Claude Code, AI-assisted development, multi-agent sustavi i guardraili.",
     ogTitle: "AI consulting i AI-assisted development | HOTFIX d.o.o.",
     ogDescription:
       "Praktična AI adopcija, Claude Code workflowi, multi-agent sustavi i produkcijski guardraili bez hypea.",
@@ -94,7 +94,7 @@ const copy = {
   en: {
     title: "AI consulting and Claude Code workflows",
     description:
-      "AI consulting for companies that want to bring AI into real processes: Claude Code enablement, AI-assisted development, multi-agent systems, guardrails, and integrations.",
+      "AI consulting for companies bringing AI into real processes: Claude Code, AI-assisted development, multi-agent systems, and guardrails.",
     ogTitle: "AI consulting and AI-assisted development | HOTFIX d.o.o.",
     ogDescription:
       "Practical AI adoption, Claude Code workflows, multi-agent systems, and production guardrails without hype.",
@@ -199,6 +199,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      title: text.ogTitle,
+      description: text.ogDescription,
       images: ["/opengraph-image"],
     },
     keywords: [...text.keywords],

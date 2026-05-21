@@ -1,0 +1,99 @@
+# HOTFIX d.o.o.
+
+> AI and software consulting firm based in Croatia. We help companies integrate
+> AI into real processes, modernize codebases, and deliver software more
+> reliably. Hands-on engineering plus consulting — not generic AI narratives.
+
+HOTFIX d.o.o. is a Croatian limited liability company (d.o.o.) operating
+bilingually in Croatian and English, serving clients across Croatia and the
+broader EU. Engagements are project-based or retainer, scoped after a discovery
+conversation. Working hours Mon–Fri, 09:00–17:00 CET.
+
+## What we do
+
+- **AI consulting & adoption** — assess where AI genuinely shortens the work,
+  set up guardrails, run evaluations, and integrate into production. Includes
+  Claude Code and Codex enablement, multi-agent workflows when they make sense,
+  and clear rules for review, security, and ownership.
+- **Software architecture & delivery process** — architecture review, technical
+  planning, CI/CD, testing, observability, release process, and codebase
+  modernization without stopping development.
+- **Engineering productivity** — repository templates, automations, Claude Code
+  skills, AI-assisted development standards, and runbooks that reduce friction
+  without lowering quality.
+- **Privacy, quality, production readiness** — privacy-by-design, GDPR-aligned
+  data handling, threat modeling, automated tests, observability, and
+  operational runbooks.
+- **Custom software development** — web (TypeScript, React, Next.js), backend
+  (.NET, Go, Python, Node.js), mobile (Kotlin, KMM, Swift), APIs, integrations,
+  internal tools, automations, and modernization of legacy systems.
+
+## Who we work with
+
+- CTOs, VPs of Engineering, and engineering leads at small-to-mid product
+  companies and scale-ups.
+- Founders and CEOs of small product companies who need a senior technical
+  partner who can both decide and build.
+- Product and engineering teams adopting AI-assisted development without losing
+  control of the codebase.
+- Compliance-conscious teams that need GDPR-aligned data handling and
+  production readiness.
+
+## What we are not
+
+- We do not sell generic "AI transformation" narratives.
+- We do not push a stack for marketing reasons.
+- We do not replace legal advice on GDPR — we cover the technical side.
+- We do not work on greenfield-only ideas without a real team or problem.
+
+## Engagement model
+
+- Every engagement is scoped after a discovery conversation. There is no public
+  price list — see /pricing.md for the engagement model.
+- Bilingual delivery in Croatian (HR) and English (EN).
+- Primary stack expertise: .NET, TypeScript, React, Next.js, Go, Python,
+  Kotlin, Swift, KMM, plus AI tooling (Claude Code, Codex, MCP, RAG,
+  multi-agent systems).
+- Lead-gen surface: book a call or send an inquiry from the website.
+
+## Founder
+
+- **Josip Budalić** — founder, software architect, and AI-assisted development
+  consultant. Background in .NET, React/TypeScript, Go, Kotlin/KMM, Swift,
+  Python, and modern AI coding workflows.
+
+## Contact
+
+- Email: ops@hotfix-doo.com
+- Website: https://www.hotfix-doo.com
+- Hours: Mon–Fri, 09:00–17:00 CET
+
+## Key pages
+
+- Home: https://www.hotfix-doo.com/
+- About: https://www.hotfix-doo.com/about (HR: /o-nama)
+- Services overview: https://www.hotfix-doo.com/services (HR: /usluge)
+- AI consulting: https://www.hotfix-doo.com/services/ai-consulting (HR: /usluge/ai-savjetovanje)
+- Engineering productivity: https://www.hotfix-doo.com/services/productivity (HR: /usluge/engineering-produktivnost)
+- Privacy & quality: https://www.hotfix-doo.com/services/gdpr-quality (HR: /usluge/privatnost-i-kvaliteta)
+- Blog: https://www.hotfix-doo.com/blog
+- Contact: https://www.hotfix-doo.com/contact (HR: /kontakt)
+- Pricing & engagement model: https://www.hotfix-doo.com/pricing.md
+
+## Blog topics
+
+Practical notes from AI-assisted development, Claude Code workflows,
+multi-agent systems, software delivery, specifications, automation, and
+engineering processes. Articles are written by people who actually build and
+maintain software in production.
+
+Selected articles:
+
+- Bringing AI into the development process without losing control
+- Software modernization without stopping development
+- Claude Code subagents for more objective code reviews
+- Claude Code skills: standardizing AI workflows in a team
+- Spec-driven development and AI: faster development without losing control
+- The big AI context trap: lessons from practice
+- NotebookLM workflow for faster learning without a pile of tabs
+- How I automate GitHub issue tracking with OpenClaw

@@ -1,8 +1,22 @@
-import { Organization, Person, WebSite, LocalBusiness, FAQPage, BreadcrumbList, WithContext } from 'schema-dts';
+import { Organization, Person, WebSite, FAQPage, BreadcrumbList, WithContext } from 'schema-dts';
 import { ROUTES, SITE_URL, type SiteLocale } from './constants';
 import { getLocalizedUrl } from './seo';
 
 const siteUrl = SITE_URL;
+
+// Optional social and profile URLs. Fill these in to strengthen Knowledge
+// Graph signals (Organization "sameAs" + Person "sameAs"). AI engines and
+// Google use these to disambiguate the entity and pull richer cards.
+// Leave entries empty to omit them from the schema.
+const ORG_SAME_AS: string[] = [
+  // 'https://www.linkedin.com/company/hotfix-doo',
+  // 'https://github.com/hotfix-doo',
+];
+
+const FOUNDER_SAME_AS: string[] = [
+  // 'https://www.linkedin.com/in/josipbudalic',
+  // 'https://github.com/josipbudalic',
+];
 
 const ORG_DESCRIPTION: Record<SiteLocale, string> = {
   hr: 'AI i software consulting tvrtka iz Hrvatske. HOTFIX d.o.o. pomaže timovima uvesti AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software.',
@@ -92,6 +106,7 @@ export function getOrganizationSchema(
       'KMM',
       'Python',
     ],
+    knowsLanguage: ['hr', 'en'],
     areaServed: [
       {
         '@type': 'Country',
@@ -102,6 +117,7 @@ export function getOrganizationSchema(
         name: AREA_SERVED_NAME[locale],
       },
     ],
+    ...(ORG_SAME_AS.length > 0 ? { sameAs: ORG_SAME_AS } : {}),
   };
 }
 
@@ -111,6 +127,8 @@ export function getFounderSchema(locale: SiteLocale = 'en'): WithContext<Person>
     '@type': 'Person',
     '@id': `${siteUrl}/#founder`,
     name: 'Josip Budalić',
+    givenName: 'Josip',
+    familyName: 'Budalić',
     jobTitle:
       locale === 'hr'
         ? 'Osnivač i software consultant'
@@ -121,6 +139,12 @@ export function getFounderSchema(locale: SiteLocale = 'en'): WithContext<Person>
       name: 'HOTFIX d.o.o.',
     },
     url: getLocalizedUrl(ROUTES.about, locale),
+    image: `${siteUrl}/opengraph-image`,
+    nationality: {
+      '@type': 'Country',
+      name: 'Croatia',
+    },
+    knowsLanguage: ['hr', 'en'],
     knowsAbout: [
       'Software architecture',
       'AI-assisted development',
@@ -133,6 +157,7 @@ export function getFounderSchema(locale: SiteLocale = 'en'): WithContext<Person>
       'Swift',
       'Python',
     ],
+    ...(FOUNDER_SAME_AS.length > 0 ? { sameAs: FOUNDER_SAME_AS } : {}),
   };
 }
 
@@ -153,16 +178,21 @@ export function getWebsiteSchema(locale: SiteLocale = 'en'): WithContext<WebSite
   };
 }
 
-export function getLocalBusinessSchema(
+// ProfessionalService is a more accurate type for a consultancy than the
+// generic LocalBusiness (which implies a storefront / foot traffic). It still
+// inherits all LocalBusiness fields, so rich-result eligibility is preserved.
+export function getProfessionalServiceSchema(
   locale: SiteLocale = 'en'
-): WithContext<LocalBusiness> {
+) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${siteUrl}/#localbusiness`,
+    '@type': 'ProfessionalService',
+    '@id': `${siteUrl}/#business`,
     name: 'HOTFIX d.o.o.',
+    legalName: 'HOTFIX d.o.o.',
+    alternateName: 'HOTFIX',
     description: ORG_DESCRIPTION[locale],
-    image: `${siteUrl}/logo.png`,
+    image: `${siteUrl}/opengraph-image`,
     logo: `${siteUrl}/logo.png`,
     url: siteUrl,
     email: 'ops@hotfix-doo.com',
@@ -177,11 +207,14 @@ export function getLocalBusinessSchema(
       closes: '17:00',
     },
     priceRange: '$$',
+    paymentAccepted: 'Bank transfer (EUR)',
+    currenciesAccepted: 'EUR',
     founder: {
       '@type': 'Person',
       '@id': `${siteUrl}/#founder`,
       name: 'Josip Budalić',
     },
+    inLanguage: ['hr-HR', 'en'],
     areaServed: [
       {
         '@type': 'Country',
@@ -192,14 +225,67 @@ export function getLocalBusinessSchema(
         name: AREA_SERVED_NAME[locale],
       },
     ],
+    serviceType: [
+      locale === 'en' ? 'AI consulting' : 'AI consulting',
+      locale === 'en' ? 'Software consulting' : 'Software consulting',
+      locale === 'en'
+        ? 'Custom software development'
+        : 'Custom software development',
+      locale === 'en' ? 'Software modernization' : 'Modernizacija softwarea',
+      locale === 'en'
+        ? 'Engineering productivity consulting'
+        : 'Engineering produktivnost',
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name:
+        locale === 'en'
+          ? 'AI and software consulting services'
+          : 'AI i software consulting usluge',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: locale === 'en' ? 'AI consulting' : 'AI consulting',
+            url: getLocalizedUrl(ROUTES.aiConsulting, locale),
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name:
+              locale === 'en'
+                ? 'Engineering productivity'
+                : 'Engineering produktivnost',
+            url: getLocalizedUrl(ROUTES.productivity, locale),
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name:
+              locale === 'en'
+                ? 'Privacy and quality'
+                : 'Privatnost i kvaliteta',
+            url: getLocalizedUrl(ROUTES.quality, locale),
+          },
+        },
+      ],
+    },
   };
 }
+
+// Backwards-compatible alias — some pages may still import this name.
+export const getLocalBusinessSchema = getProfessionalServiceSchema;
 
 // Backward-compatible exports (default to English, used where locale isn't available)
 export const organizationSchema = getOrganizationSchema('en');
 export const founderSchema = getFounderSchema('en');
 export const websiteSchema = getWebsiteSchema('en');
-export const localBusinessSchema = getLocalBusinessSchema('en');
+export const localBusinessSchema = getProfessionalServiceSchema('en');
 
 export const contactFAQSchema: WithContext<FAQPage> = {
   '@context': 'https://schema.org',
@@ -311,5 +397,40 @@ export function generateItemListSchema(
       url: `${siteUrl}${item.url}`,
       ...(item.description ? { description: item.description } : {}),
     })),
+  };
+}
+
+// Generic WebPage schema. Use on pages that don't have a more specific schema
+// (ContactPage, AboutPage, etc.) to give AI systems a clear page-level anchor.
+export function generateWebPageSchema({
+  url,
+  name,
+  description,
+  locale = 'en',
+  breadcrumbId,
+}: {
+  url: string;
+  name: string;
+  description: string;
+  locale?: SiteLocale;
+  breadcrumbId?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: SCHEMA_LANG[locale],
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+    },
+    about: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+    },
+    ...(breadcrumbId ? { breadcrumb: { '@id': breadcrumbId } } : {}),
   };
 }

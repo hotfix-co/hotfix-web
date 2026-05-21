@@ -27,7 +27,12 @@ export async function generateMetadata({
   const canonicalUrl = getLocalizedUrl(ROUTES.contact, loc);
 
   return {
-    title: t("title"),
+    title: {
+      absolute:
+        loc === "en"
+          ? "Contact HOTFIX d.o.o. — book a discovery call"
+          : "Kontakt HOTFIX d.o.o. — dogovorite razgovor",
+    },
     description: t("description"),
     alternates: {
       canonical: canonicalUrl,
@@ -68,6 +73,11 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      title:
+        loc === "en"
+          ? "Contact HOTFIX d.o.o. — book a discovery call"
+          : "Kontakt HOTFIX d.o.o. — dogovorite razgovor",
+      description: t("description"),
       images: ["/opengraph-image"],
     },
   };

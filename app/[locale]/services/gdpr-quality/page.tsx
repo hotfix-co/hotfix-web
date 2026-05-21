@@ -171,6 +171,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      title: text.ogTitle,
+      description: text.ogDescription,
       images: ["/opengraph-image"],
     },
     keywords: [...text.keywords],

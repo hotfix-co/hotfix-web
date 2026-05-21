@@ -25,12 +25,14 @@ export async function generateMetadata({
   const canonicalUrl = getLocalizedUrl(ROUTES.about, isEn ? "en" : "hr");
 
   return {
-    title: isEn
-      ? "About — AI & Software Consulting from Croatia"
-      : "O nama — AI i software consulting iz Hrvatske",
+    title: {
+      absolute: isEn
+        ? "About HOTFIX d.o.o. — AI consulting from Croatia"
+        : "O HOTFIX d.o.o. — AI consulting iz Hrvatske",
+    },
     description: isEn
-      ? "HOTFIX d.o.o. is a Croatian AI and software consulting firm. We help teams make better technical decisions, modernize software, and deliver reliably."
-      : "HOTFIX d.o.o. je hrvatska AI i software consulting tvrtka. Pomažemo timovima donositi bolje tehničke odluke, modernizirati software i pouzdano isporučivati.",
+      ? "Croatian AI and software consulting firm founded by Josip Budalić. We help teams make better technical decisions and modernize software."
+      : "Hrvatska AI i software consulting tvrtka koju vodi Josip Budalić. Pomažemo timovima donositi bolje tehničke odluke i modernizirati software.",
     alternates: {
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.about),
@@ -78,6 +80,12 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      title: isEn
+        ? "About HOTFIX d.o.o. — AI consulting from Croatia"
+        : "O HOTFIX d.o.o. — AI consulting iz Hrvatske",
+      description: isEn
+        ? "Croatian AI and software consulting firm founded by Josip Budalić."
+        : "Hrvatska AI i software consulting tvrtka koju vodi Josip Budalić.",
       images: ["/opengraph-image"],
     },
   };

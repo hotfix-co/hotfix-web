@@ -30,12 +30,14 @@ export async function generateMetadata({
   const canonicalUrl = getLocalizedUrl(ROUTES.blog, loc);
 
   return {
-    title: isEn
-      ? "Blog - AI, software delivery and engineering processes"
-      : "Blog - AI, software delivery i engineering procesi",
+    title: {
+      absolute: isEn
+        ? "Blog — AI, Claude Code & software delivery"
+        : "Blog — AI, Claude Code i software delivery",
+    },
     description: isEn
-      ? "Practical notes on AI-assisted development, Claude Code workflows, software delivery, specifications, automation, and engineering processes."
-      : "Praktične bilješke o AI-assisted developmentu, Claude Code workflowima, software deliveryju, specifikacijama, automatizaciji i engineering procesima.",
+      ? "Practical notes on AI-assisted development, Claude Code workflows, software delivery, specifications, and engineering processes."
+      : "Praktične bilješke o AI-assisted developmentu, Claude Code workflowima, software deliveryju i engineering procesima.",
     alternates: {
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.blog),
@@ -62,6 +64,12 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      title: isEn
+        ? "HOTFIX d.o.o. blog — AI and software engineering"
+        : "HOTFIX d.o.o. blog — AI i software engineering",
+      description: isEn
+        ? "Practical articles about AI workflows, Claude Code, and software delivery."
+        : "Praktični tekstovi o AI workflowima, Claude Codeu i software deliveryju.",
       images: ["/opengraph-image"],
     },
     keywords: [

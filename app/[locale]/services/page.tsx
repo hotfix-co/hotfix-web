@@ -37,12 +37,14 @@ export async function generateMetadata({
   const canonicalUrl = getLocalizedUrl(ROUTES.services, isEn ? "en" : "hr");
 
   return {
-    title: isEn
-      ? "Services - AI consulting, software consulting & development"
-      : "Usluge - AI consulting, software consulting i development",
+    title: {
+      absolute: isEn
+        ? "AI & software consulting services — HOTFIX d.o.o."
+        : "AI i software consulting usluge — HOTFIX d.o.o.",
+    },
     description: isEn
-      ? "AI consulting, Claude Code enablement, multi-agent systems, software architecture, engineering processes, custom software development, integrations, and modernization."
-      : "AI consulting, Claude Code enablement, multi-agent sustavi, software arhitektura, engineering procesi, custom software development, integracije i modernizacija.",
+      ? "AI consulting, Claude Code enablement, software architecture, custom development, and modernization — from a Croatian consulting firm."
+      : "AI consulting, Claude Code enablement, software arhitektura, custom development i modernizacija — iz hrvatske consulting tvrtke.",
     alternates: {
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.services),
@@ -69,6 +71,12 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      title: isEn
+        ? "AI & software consulting services"
+        : "AI i software consulting usluge",
+      description: isEn
+        ? "AI consulting, Claude Code, architecture, modernization, and custom development."
+        : "AI consulting, Claude Code, arhitektura, modernizacija i custom development.",
       images: ["/opengraph-image"],
     },
     keywords: [
