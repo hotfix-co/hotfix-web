@@ -17,6 +17,11 @@
   "footer": {
     "description": "AI and software consulting for companies that want clearer technical decisions, a better development process, and more reliable software delivery.",
     "navigation": "Navigation",
+    "servicesHeading": "Services",
+    "servicesAi": "AI consulting & Claude Code",
+    "servicesArchitecture": "Software architecture & delivery",
+    "servicesProductivity": "Engineering productivity",
+    "servicesQuality": "Privacy, quality & GDPR",
     "contact": "Contact",
     "hours": "Available Mon-Fri, 9:00-17:00 CET",
     "rights": "All rights reserved.",

@@ -14,7 +14,7 @@ import {
 } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const contentUpdatedAt = new Date("2026-05-14");
+  const contentUpdatedAt = new Date("2026-05-21");
 
   const routeEntries: Array<{
     path: InternalPathname;

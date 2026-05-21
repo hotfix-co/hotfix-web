@@ -18,12 +18,19 @@ export default function Footer() {
     { href: ROUTES.contact, label: navT("contact") },
   ];
 
+  const serviceLinks = [
+    { href: ROUTES.aiConsulting, label: t("servicesAi") },
+    { href: ROUTES.services, label: t("servicesArchitecture") },
+    { href: ROUTES.productivity, label: t("servicesProductivity") },
+    { href: ROUTES.quality, label: t("servicesQuality") },
+  ];
+
   return (
     <footer className="border-t border-[var(--hairline)] bg-white text-[var(--ink-mute)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
           {/* Brand block */}
-          <div className="md:col-span-6">
+          <div className="md:col-span-4">
             <div className="mb-3 text-[22px] font-light tracking-[-0.01em] text-[var(--ink)]">
               HOTFIX <span className="text-[var(--ink-mute)]">d.o.o.</span>
             </div>
@@ -39,8 +46,27 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Services */}
           <div className="md:col-span-3">
+            <h3 className="mb-4 text-[10px] uppercase tracking-[0.1em] text-[var(--ink-mute-2)]">
+              {t("servicesHeading")}
+            </h3>
+            <ul className="space-y-2.5">
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <IntlLink
+                    href={link.href}
+                    className="text-[14px] text-[var(--ink-secondary)] transition-colors hover:text-[var(--primary)]"
+                  >
+                    {link.label}
+                  </IntlLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Navigation */}
+          <div className="md:col-span-2">
             <h3 className="mb-4 text-[10px] uppercase tracking-[0.1em] text-[var(--ink-mute-2)]">
               {t("navigation")}
             </h3>

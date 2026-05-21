@@ -17,6 +17,11 @@
   "footer": {
     "description": "AI i software consulting za tvrtke koje žele jasnije tehničke odluke, kvalitetniji razvojni proces i pouzdaniju isporuku softwarea.",
     "navigation": "Navigacija",
+    "servicesHeading": "Usluge",
+    "servicesAi": "AI consulting i Claude Code",
+    "servicesArchitecture": "Software arhitektura i isporuka",
+    "servicesProductivity": "Engineering produktivnost",
+    "servicesQuality": "Privatnost, kvaliteta i GDPR",
     "contact": "Kontakt",
     "hours": "Dostupni smo pon-pet, 9:00-17:00 CET",
     "rights": "Sva prava pridržana.",
