@@ -27,12 +27,12 @@ export async function generateMetadata({
   return {
     title: {
       absolute: isEn
-        ? "HOTFIX d.o.o. — AI & Software Consulting from Croatia"
+        ? "HOTFIX d.o.o. — Nearshore AI & Software Consulting from Croatia"
         : "HOTFIX d.o.o. — AI i software consulting iz Hrvatske",
     },
     description: isEn
-      ? "Croatian AI and software consulting for product teams across the EU and US. Claude Code adoption, software architecture, modernization, and reliable delivery."
-      : "Hrvatski AI i software consulting za produktne timove u EU-u i SAD-u. Uvođenje Claude Code-a, softverska arhitektura, modernizacija i pouzdana isporuka.",
+      ? "Croatia-based AI and software consulting firm. AI adoption, Claude Code workflows, software architecture, and modernization for product teams in the EU and US."
+      : "Hrvatski AI i software consulting za produktne timove iz EU-a i SAD-a. Uvođenje Claude Code-a, softverska arhitektura, modernizacija i pouzdana isporuka.",
     alternates: {
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.home),
@@ -43,11 +43,11 @@ export async function generateMetadata({
       siteName: "HOTFIX d.o.o.",
       locale: isEn ? "en_US" : "hr_HR",
       title: isEn
-        ? "HOTFIX d.o.o. — AI & Software Consulting from Croatia"
+        ? "HOTFIX d.o.o. — Nearshore AI & Software Consulting from Croatia"
         : "HOTFIX d.o.o. — AI i software consulting iz Hrvatske",
       description: isEn
-        ? "AI adoption, Claude Code workflows, architecture, modernization, and reliable delivery — by HOTFIX d.o.o., Zagreb."
-        : "Uvođenje AI-ja, Claude Code workflowi, arhitektura, modernizacija i pouzdana isporuka — HOTFIX d.o.o., Zagreb.",
+        ? "AI and software consulting from Zagreb. AI adoption, Claude Code, architecture, and modernization for EU and US product teams."
+        : "Uvođenje AI-ja, Claude Code workflowi, arhitektura, modernizacija i pouzdana isporuka — HOTFIX d.o.o., Zagreb. Za product timove iz EU-a i SAD-a.",
       images: [
         {
           url: "/opengraph-image",
@@ -60,11 +60,11 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: isEn
-        ? "HOTFIX d.o.o. — AI & Software Consulting"
+        ? "HOTFIX d.o.o. — Nearshore AI & Software Consulting"
         : "HOTFIX d.o.o. — AI i software consulting",
       description: isEn
-        ? "AI adoption, Claude Code workflows, architecture, modernization, and reliable delivery."
-        : "Uvođenje AI-ja, Claude Code workflowi, arhitektura, modernizacija i pouzdana isporuka.",
+        ? "AI and software consulting from Croatia: AI adoption, Claude Code, architecture, modernization."
+        : "AI i software consulting iz Hrvatske za product timove iz EU-a i SAD-a.",
       images: ["/opengraph-image"],
     },
     other: {

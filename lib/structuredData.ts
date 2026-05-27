@@ -18,24 +18,30 @@ const FOUNDER_SAME_AS: string[] = [
 ];
 
 const ORG_DESCRIPTION: Record<SiteLocale, string> = {
-  hr: 'AI i software consulting tvrtka iz Hrvatske. HOTFIX d.o.o. pomaže timovima uvesti AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software.',
-  en: 'Croatian AI and software consulting firm. HOTFIX d.o.o. helps teams integrate AI into real processes, make clearer technical decisions, and deliver software more reliably.',
+  hr: 'AI i software consulting tvrtka iz Hrvatske. HOTFIX d.o.o. pomaže timovima iz EU i SAD-a uvesti AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software.',
+  en: 'Croatia-based AI and software consulting firm. HOTFIX d.o.o. helps EU and US product teams adopt AI in real workflows, modernize codebases, and deliver software more reliably.',
 };
 
 const WEBSITE_DESCRIPTION: Record<SiteLocale, string> = {
-  hr: 'AI i software consulting za tvrtke koje žele kvalitetniji razvojni proces, održivu arhitekturu i pouzdaniju isporuku softwarea.',
-  en: 'AI and software consulting for teams that want a better development process, sustainable architecture, and more reliable software delivery.',
-};
-
-const AREA_SERVED_NAME: Record<SiteLocale, string> = {
-  hr: 'Europska unija i Sjedinjene Američke Države',
-  en: 'European Union and United States',
+  hr: 'AI i software consulting iz Hrvatske za product timove iz EU-a i SAD-a koji žele kvalitetniji razvojni proces, održivu arhitekturu i pouzdaniju isporuku softvera.',
+  en: 'Nearshore AI and software consulting from Croatia for EU and US product teams that want a better development process, sustainable architecture, and more reliable software delivery.',
 };
 
 const SCHEMA_LANG: Record<SiteLocale, string> = {
   hr: 'hr-HR',
   en: 'en',
 };
+
+// Visible client framing in schema is intentionally HR + EU + US — that's
+// the prestige signal Balkan B2B buyers actually convert on. Balkan
+// targeting is handled by the invisible SEO layer (hr-HR locale, HR
+// content language, x-default → /hr, Croatian keywords), not by listing
+// BA/RS/SI/ME here.
+const AREA_SERVED_COUNTRIES = [
+  { '@type': 'Country' as const, name: 'Croatia' },
+  { '@type': 'Place' as const, name: 'European Union' },
+  { '@type': 'Country' as const, name: 'United States' },
+];
 
 export function getOrganizationSchema(
   locale: SiteLocale = 'en'
@@ -79,7 +85,7 @@ export function getOrganizationSchema(
       email: 'ops@hotfix-doo.com',
       contactType: 'customer support',
       availableLanguage: ['Croatian', 'English'],
-      areaServed: ['HR', 'EU', 'Worldwide'],
+      areaServed: ['HR', 'EU', 'US'],
     },
     knowsAbout: [
       'AI consulting',
@@ -106,24 +112,7 @@ export function getOrganizationSchema(
       'Python',
     ],
     knowsLanguage: ['hr', 'en'],
-    areaServed: [
-      {
-        '@type': 'Country',
-        name: 'Croatia',
-      },
-      {
-        '@type': 'Place',
-        name: 'European Union',
-      },
-      {
-        '@type': 'Country',
-        name: 'United States',
-      },
-      {
-        '@type': 'Place',
-        name: AREA_SERVED_NAME[locale],
-      },
-    ],
+    areaServed: AREA_SERVED_COUNTRIES,
     ...(ORG_SAME_AS.length > 0 ? { sameAs: ORG_SAME_AS } : {}),
   };
 }
@@ -222,24 +211,7 @@ export function getProfessionalServiceSchema(
       name: 'Josip Budalić',
     },
     inLanguage: ['hr-HR', 'en'],
-    areaServed: [
-      {
-        '@type': 'Country',
-        name: 'Croatia',
-      },
-      {
-        '@type': 'Place',
-        name: 'European Union',
-      },
-      {
-        '@type': 'Country',
-        name: 'United States',
-      },
-      {
-        '@type': 'Place',
-        name: AREA_SERVED_NAME[locale],
-      },
-    ],
+    areaServed: AREA_SERVED_COUNTRIES,
     serviceType: [
       locale === 'en' ? 'AI consulting' : 'AI consulting',
       locale === 'en' ? 'Software consulting' : 'Software consulting',
@@ -370,7 +342,7 @@ export function getHomepageWebPageSchema(locale: SiteLocale = 'en') {
     url,
     name:
       locale === 'en'
-        ? 'HOTFIX d.o.o. — AI & Software Consulting from Croatia'
+        ? 'HOTFIX d.o.o. — Nearshore AI & Software Consulting from Croatia'
         : 'HOTFIX d.o.o. — AI i software consulting iz Hrvatske',
     description: ORG_DESCRIPTION[locale],
     inLanguage: SCHEMA_LANG[locale],
@@ -420,10 +392,14 @@ export function generateServiceSchema(
       '@id': `${siteUrl}/#organization`,
       name: 'HOTFIX d.o.o.',
     },
-    areaServed: {
-      '@type': 'Place',
-      name: locale === 'en' ? 'Croatia and international markets' : 'Hrvatska i međunarodna tržišta',
-    },
+    areaServed:
+      locale === 'en'
+        ? AREA_SERVED_COUNTRIES
+        : [
+            { '@type': 'Country' as const, name: 'Hrvatska' },
+            { '@type': 'Place' as const, name: 'Europska unija' },
+            { '@type': 'Country' as const, name: 'Sjedinjene Američke Države' },
+          ],
     inLanguage: SCHEMA_LANG[locale],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

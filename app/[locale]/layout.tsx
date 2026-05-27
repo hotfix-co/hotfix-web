@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import Script from "next/script";
@@ -17,6 +18,63 @@ import type { SiteLocale } from "@/lib/constants";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+// Locale-aware meta keywords. Google ignores these for ranking, but other
+// crawlers (Bing, DuckDuckGo) still read them as a topical signal, and a
+// mismatched English list on an HR page hurts Google's locale inference.
+//
+// HR keywords target the Balkan market (HR + BA/RS via cross-intelligible
+// terms). EN keywords reposition the EN site as a Croatia-based nearshore
+// engineering partner instead of competing in the saturated global "AI
+// consulting" query space.
+const KEYWORDS_BY_LOCALE: Record<SiteLocale, string[]> = {
+  hr: [
+    "AI savjetovanje",
+    "AI konzalting",
+    "umjetna inteligencija",
+    "software consulting",
+    "razvoj softvera",
+    "izrada softvera po mjeri",
+    "Claude Code",
+    "AI-assisted development",
+    "modernizacija softvera",
+    "softverska arhitektura",
+    "softverska tvrtka",
+    "GDPR usklađenost",
+    "Zagreb",
+    "Hrvatska",
+    "HOTFIX d.o.o.",
+    "Josip Budalić",
+  ],
+  en: [
+    "nearshore consulting Croatia",
+    "Croatia software consulting",
+    "Balkans AI consultancy",
+    "AI consulting Croatia",
+    "Claude Code consulting",
+    "nearshore software consulting",
+    "Croatian software developers",
+    "AI-assisted development consulting",
+    "software architecture consulting",
+    "software modernization consulting",
+    "GDPR-compliant software development",
+    "Zagreb consulting firm",
+    "HOTFIX d.o.o.",
+    "Josip Budalić",
+  ],
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const loc: SiteLocale = locale === "en" ? "en" : "hr";
+  return {
+    keywords: KEYWORDS_BY_LOCALE[loc],
+  };
 }
 
 export default async function LocaleLayout({
