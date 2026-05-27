@@ -14,8 +14,17 @@ import {
 } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const contentUpdatedAt = new Date("2026-05-21");
+  // Use the current build time as the route-level lastmod. Every deploy
+  // refreshes the sitemap timestamp, prompting Google to re-evaluate the
+  // route pages. Justified by the ongoing SEO and copy iteration (Phase 1
+  // Balkan-first positioning) — these pages genuinely have updated
+  // metadata each build.
+  const contentUpdatedAt = new Date();
 
+  // Priorities tuned to push crawl budget toward pages that GSC flagged
+  // as "Discovered - currently not indexed" with Last crawled = N/A
+  // (i.e. never fetched). Bumped commercial and contact pages so Google
+  // prioritises them over thin secondary routes.
   const routeEntries: Array<{
     path: InternalPathname;
     changeFrequency: "monthly" | "weekly" | "yearly";
@@ -23,18 +32,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified?: Date;
   }> = [
     { path: ROUTES.home, changeFrequency: "monthly", priority: 1 },
-    { path: ROUTES.about, changeFrequency: "monthly", priority: 0.8 },
-    { path: ROUTES.services, changeFrequency: "monthly", priority: 0.8 },
-    { path: ROUTES.aiConsulting, changeFrequency: "monthly", priority: 0.75 },
-    { path: ROUTES.productivity, changeFrequency: "monthly", priority: 0.7 },
-    { path: ROUTES.quality, changeFrequency: "monthly", priority: 0.7 },
-    { path: ROUTES.contact, changeFrequency: "monthly", priority: 0.7 },
+    { path: ROUTES.about, changeFrequency: "monthly", priority: 0.9 },
+    { path: ROUTES.services, changeFrequency: "monthly", priority: 0.9 },
+    { path: ROUTES.aiConsulting, changeFrequency: "monthly", priority: 0.9 },
+    { path: ROUTES.productivity, changeFrequency: "monthly", priority: 0.9 },
+    { path: ROUTES.quality, changeFrequency: "monthly", priority: 0.9 },
+    { path: ROUTES.contact, changeFrequency: "monthly", priority: 0.85 },
     // /privacy and /terms are intentionally excluded — they are
     // noindex'd at the page level (see app/[locale]/privacy/page.tsx and
     // .../terms/page.tsx). Keeping them in the sitemap while telling
     // Google not to index them is a contradicting signal that wastes
     // crawl budget.
-    { path: ROUTES.blog, changeFrequency: "weekly", priority: 0.8 },
+    { path: ROUTES.blog, changeFrequency: "weekly", priority: 0.9 },
   ];
 
   const blogEntries = Object.entries(BLOG_ARTICLE_ROUTES).map(
@@ -50,7 +59,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       return {
         path: path as InternalPathname,
         changeFrequency: "monthly" as const,
-        priority: 0.7,
+        // Blog posts bumped from 0.7 → 0.85. They were the bulk of the
+        // GSC "never crawled" backlog; this signals Google that they are
+        // priority content even though they're newer than the routes.
+        priority: 0.85,
         lastModified: new Date(post?.updatedAt || post?.publishedAt || "2026-05-14"),
       };
     }

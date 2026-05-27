@@ -1,10 +1,16 @@
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import { Link } from "@/i18n/navigation";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import type { BlogPost, Locale } from "@/lib/blogData";
-import { formatDate } from "@/lib/blogData";
+import {
+  formatDate,
+  getBlogPosts,
+  slugToInternalBlogPath,
+} from "@/lib/blogData";
 import { ROUTES } from "@/lib/constants";
 import { useTranslations } from "next-intl";
+
+type IntlHref = ComponentProps<typeof Link>["href"];
 
 interface BlogArticleLayoutProps {
   post: BlogPost;
@@ -13,6 +19,27 @@ interface BlogArticleLayoutProps {
   ctaTitle?: string;
   ctaDescription?: string;
   ctaSource?: string;
+}
+
+// Pick the N most recent OTHER posts in the same locale. Internal links
+// from every blog post to 3 others push crawl budget toward articles that
+// would otherwise sit in GSC "Discovered - currently not indexed". Tag
+// overlap would be nicer, but recency + simplicity is good enough as a
+// first pass.
+function getRelatedPosts(
+  currentSlug: string,
+  locale: Locale,
+  limit = 3
+): BlogPost[] {
+  const all = getBlogPosts(locale);
+  return [...all]
+    .filter((p) => p.slug !== currentSlug)
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() -
+        new Date(a.publishedAt).getTime()
+    )
+    .slice(0, limit);
 }
 
 export default function BlogArticleLayout({
@@ -24,6 +51,10 @@ export default function BlogArticleLayout({
   ctaSource = "blog_post",
 }: BlogArticleLayoutProps) {
   const t = useTranslations("blog");
+
+  const relatedPosts = getRelatedPosts(post.slug, locale, 3);
+  const relatedHeading =
+    locale === "en" ? "Related notes" : "Povezane bilješke";
 
   const defaultCtaTitle =
     locale === "en"
@@ -111,6 +142,48 @@ export default function BlogArticleLayout({
           </div>
         </div>
       </article>
+
+      {relatedPosts.length > 0 ? (
+        <section
+          className="border-t border-[var(--hairline)] bg-[var(--canvas-soft)] py-16 md:py-20"
+          aria-labelledby={`${post.slug}-related`}
+        >
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <h2
+              id={`${post.slug}-related`}
+              className="mb-8 text-[24px] font-light leading-[1.15] tracking-[-0.015em] text-[var(--ink)] md:text-[28px]"
+            >
+              {relatedHeading}
+            </h2>
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+              {relatedPosts.map((related) => {
+                const relatedHref = slugToInternalBlogPath(
+                  related.slug
+                ) as IntlHref;
+                return (
+                  <Link
+                    key={related.slug}
+                    href={relatedHref}
+                    className="group block focus-ring rounded-[var(--radius-lg)]"
+                  >
+                    <article className="card-feature-light flex h-full flex-col">
+                      <h3 className="mb-2 text-[16px] font-light leading-[1.3] tracking-[-0.01em] text-[var(--ink)] transition-colors group-hover:text-[var(--primary-deep)]">
+                        {related.title}
+                      </h3>
+                      <p className="line-clamp-2 text-[13px] leading-[1.5] text-[var(--ink-mute)]">
+                        {related.excerpt}
+                      </p>
+                      <span className="mt-auto pt-3 text-[12px] tabular text-[var(--ink-mute)]">
+                        {related.readingTime}
+                      </span>
+                    </article>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section
         className="bg-[var(--brand-dark-900)] py-20 md:py-24"
