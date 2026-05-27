@@ -102,6 +102,7 @@ const blogPostsHr: BlogPost[] = [
     excerpt:
       "AI koji je pomagao pisati feature često dijeli iste slijepe točke. Zato za važniji review koristim odvojeni Claude Code subagent s jasnim, read-only zadatkom.",
     publishedAt: "2026-04-09",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
@@ -132,6 +133,7 @@ const blogPostsHr: BlogPost[] = [
     excerpt:
       "Hrpa otvorenih tabova nije znanje. Ovaj workflow koristi Claude za selekciju izvora, NotebookLM za sintezu i Obsidian za bilješke koje se vraćaju u svakodnevni rad.",
     publishedAt: "2026-03-18",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
@@ -147,7 +149,7 @@ const blogPostsHr: BlogPost[] = [
     excerpt:
       "Ako svaki developer iznova objašnjava AI alatu iste konvencije, proces ne skalira. Skills pretvaraju ponavljive upute u verzionirani timski standard.",
     publishedAt: "2026-02-12",
-    updatedAt: "2026-02-14",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
@@ -169,6 +171,7 @@ const blogPostsHr: BlogPost[] = [
     excerpt:
       "Veliki context window zvuči kao rješenje: ubaci sve i pusti model da odluči. Stvarnost je drugačija: višak konteksta često sakrije problem, oslabi fokus i poveća rizik krivog zaključka.",
     publishedAt: "2026-01-11",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
@@ -190,6 +193,7 @@ const blogPostsHr: BlogPost[] = [
     excerpt:
       "AI može ubrzati razvoj, ali bez specifikacije često ubrzava i kaos. Spec-driven pristup daje modelu jasne granice, a timu bolju osnovu za review.",
     publishedAt: "2026-01-07",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
@@ -258,6 +262,7 @@ const blogPostsEn: BlogPost[] = [
     excerpt:
       "The AI that helped write a feature often shares the same blind spots. That's why for important reviews, I use a separate Claude Code subagent with a clear, read-only task.",
     publishedAt: "2026-04-09",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
@@ -290,6 +295,7 @@ const blogPostsEn: BlogPost[] = [
     excerpt:
       "A pile of open tabs isn't knowledge. This workflow uses Claude for source selection, NotebookLM for synthesis, and Obsidian for notes that feed back into daily work.",
     publishedAt: "2026-03-18",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
@@ -306,7 +312,7 @@ const blogPostsEn: BlogPost[] = [
     excerpt:
       "If every developer re-explains the same conventions to the AI tool, the process hasn't scaled. Skills turn repetitive instructions into a versioned team standard.",
     publishedAt: "2026-02-12",
-    updatedAt: "2026-02-14",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
@@ -329,6 +335,7 @@ const blogPostsEn: BlogPost[] = [
     excerpt:
       "A large context window sounds like a solution: throw everything in and let the model decide. In practice, excess context often hides the problem, weakens focus, and increases the risk of wrong conclusions.",
     publishedAt: "2026-01-11",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",
@@ -351,6 +358,7 @@ const blogPostsEn: BlogPost[] = [
     excerpt:
       "AI can speed up development, but without specifications it often accelerates chaos. A spec-driven approach gives the model clear boundaries and the team a better basis for review.",
     publishedAt: "2026-01-07",
+    updatedAt: "2026-05-27",
     author: {
       name: "Josip Budalić",
       role: "HOTFIX tim",

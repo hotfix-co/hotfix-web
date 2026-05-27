@@ -149,8 +149,12 @@ export async function generateMetadata({
       canonical: canonicalUrl,
       languages: getLanguageAlternates(ROUTES.privacy),
     },
+    // Legal boilerplate has zero organic search value and was burning
+    // crawl budget while sitting in GSC "Discovered - currently not
+    // indexed" since March 2026. Tell Google explicitly not to index;
+    // sitemap entry removed in the same change.
     robots: {
-      index: true,
+      index: false,
       follow: true,
     },
   };
