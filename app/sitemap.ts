@@ -29,8 +29,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: ROUTES.productivity, changeFrequency: "monthly", priority: 0.7 },
     { path: ROUTES.quality, changeFrequency: "monthly", priority: 0.7 },
     { path: ROUTES.contact, changeFrequency: "monthly", priority: 0.7 },
-    { path: ROUTES.privacy, changeFrequency: "yearly", priority: 0.3 },
-    { path: ROUTES.terms, changeFrequency: "yearly", priority: 0.3 },
+    // /privacy and /terms are intentionally excluded — they are
+    // noindex'd at the page level (see app/[locale]/privacy/page.tsx and
+    // .../terms/page.tsx). Keeping them in the sitemap while telling
+    // Google not to index them is a contradicting signal that wastes
+    // crawl budget.
     { path: ROUTES.blog, changeFrequency: "weekly", priority: 0.8 },
   ];
 
