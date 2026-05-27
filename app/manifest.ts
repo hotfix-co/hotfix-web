@@ -14,16 +14,25 @@ export default function manifest(): MetadataRoute.Manifest {
     dir: "ltr",
     categories: ["business", "productivity", "developer"],
     icons: [
+      // Next.js emits /icon.png from app/icon.png as a 512x512 PNG of the
+      // square HOTFIX mark. Referencing it here makes the same image the
+      // PWA / Android home-screen icon, keeping a single source of truth.
       {
-        src: "/favicon.ico",
-        sizes: "any",
-        type: "image/x-icon",
-      },
-      {
-        src: "/logo.png",
+        src: "/icon.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
+      },
+      {
+        src: "/icon.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/apple-icon.png",
+        sizes: "180x180",
+        type: "image/png",
       },
     ],
   };

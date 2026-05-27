@@ -54,12 +54,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    shortcut: ["/favicon.ico"],
-  },
+  // Icons are auto-emitted by Next.js from app/icon.png and app/apple-icon.png
+  // (file-based metadata). Declaring them manually here would override the
+  // auto-detection with stale references to the old non-square favicon.ico.
+  // See: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
   openGraph: {
     type: "website",
     url: SITE_URL,

@@ -54,9 +54,13 @@ export function getOrganizationSchema(
     legalName: 'HOTFIX d.o.o.',
     alternateName: 'HOTFIX',
     url: siteUrl,
+    // Knowledge Panel logo. Google requires the image to actually match the
+    // declared dimensions, so we point at the auto-emitted square /icon.png
+    // (512x512) instead of /logo.png (772x666 with whitespace) where the
+    // declared dimensions used to lie.
     logo: {
       '@type': 'ImageObject',
-      url: `${siteUrl}/logo.png`,
+      url: `${siteUrl}/icon.png`,
       width: '512',
       height: '512',
     },
@@ -164,7 +168,12 @@ export function getWebsiteSchema(locale: SiteLocale = 'en'): WithContext<WebSite
     '@id': `${siteUrl}/#website`,
     url: siteUrl,
     name: 'HOTFIX d.o.o.',
-    alternateName: ['HOTFIX', 'HOTFIX consulting'],
+    // Per Google's documented fallback advice for site names: include the
+    // lowercase domain as an alternateName so that, if the site-name system
+    // isn't confident enough to use the preferred name, it picks the
+    // explicit domain string we approved rather than synthesising one.
+    // https://developers.google.com/search/docs/appearance/site-names
+    alternateName: ['HOTFIX', 'HOTFIX consulting', 'hotfix-doo.com'],
     description: WEBSITE_DESCRIPTION[locale],
     publisher: {
       '@type': 'Organization',
@@ -189,7 +198,7 @@ export function getProfessionalServiceSchema(
     alternateName: 'HOTFIX',
     description: ORG_DESCRIPTION[locale],
     image: `${siteUrl}/opengraph-image`,
-    logo: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/icon.png`,
     url: siteUrl,
     email: 'ops@hotfix-doo.com',
     address: {

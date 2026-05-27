@@ -11,7 +11,19 @@ export const SEO_LANGUAGE_KEYS = {
   en: "en",
 } as const satisfies Record<SiteLocale, string>;
 
+// Must mirror `defaultLocale` in i18n/routing.ts. Kept here as a typed
+// constant rather than imported from the routing object to avoid pulling
+// next-intl into edge-light contexts where seo helpers are used.
+const DEFAULT_LOCALE: SiteLocale = "hr";
+
 function withLocalePrefix(pathname: string, locale: SiteLocale): string {
+  // With `localePrefix: 'as-needed'` in the next-intl routing config, the
+  // default locale serves from the bare URL (no `/hr` prefix). This helper
+  // must match that behavior so canonical URLs, sitemap entries, hreflang
+  // alternates, and JSON-LD `url` fields all agree.
+  if (locale === DEFAULT_LOCALE) {
+    return pathname === "/" ? "/" : pathname;
+  }
   return pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
 }
 

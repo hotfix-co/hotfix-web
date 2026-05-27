@@ -33,6 +33,24 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // HR locale moved from `/hr/*` to the bare URL when we switched
+      // next-intl from `localePrefix: 'always'` to `'as-needed'` so the
+      // homepage `WebSite` schema would live on the root URL Google can
+      // pick a site name from. These 308 (permanent) redirects transfer
+      // link equity from the previously-indexed `/hr/*` URLs.
+      //
+      // Order matters in this array: the homepage redirect must precede
+      // the catch-all so `/hr` (no trailing path) is matched explicitly.
+      {
+        source: "/hr",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/hr/:path*",
+        destination: "/:path*",
+        permanent: true,
+      },
       // Service slug renames (May 2026) — old EN slugs 301 to keyword-targeted slugs.
       {
         source: "/en/services/productivity",
