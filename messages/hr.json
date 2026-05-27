@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "titleDefault": "HOTFIX d.o.o. | AI i software consulting iz Hrvatske",
+    "titleDefault": "HOTFIX d.o.o. | AI i software consulting | Zagreb",
     "titleTemplate": "%s | HOTFIX d.o.o.",
-    "description": "AI i software consulting za tvrtke koje žele uvesti AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software."
+    "description": "AI i software consulting za tvrtke u Hrvatskoj, BiH i regiji koje žele uvesti AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software."
   },
   "nav": {
     "home": "Početna",
@@ -33,8 +33,8 @@
   },
   "hero": {
     "tagline": "AI workflowi • Consulting • Engineering",
-    "subtitle": "AI i software consulting iz Hrvatske, za product timove iz EU i SAD-a koji žele brže tehničke odluke i pouzdaniju isporuku.",
-    "description": "HOTFIX d.o.o. pomaže timovima iz EU i SAD-a uvesti AI u stvarne workflowe, modernizirati codebase i isporučivati software bez gubitka kontrole nad kvalitetom, sigurnošću i ownershipom. Claude Code enablement, arhitektura i seniorski engineering.",
+    "subtitle": "AI i software consulting za product timove u Hrvatskoj, BiH, Srbiji i EU — brže tehničke odluke i pouzdanija isporuka.",
+    "description": "HOTFIX d.o.o. pomaže timovima u regiji i EU uvesti AI u stvarne workflowe, modernizirati codebase i isporučivati software bez gubitka kontrole nad kvalitetom, sigurnošću i ownershipom. Claude Code enablement, arhitektura i seniorski engineering.",
     "ctaServices": "Pogledajte usluge",
     "ctaContact": "Dogovorite razgovor",
     "techAI": "AI workflowi",
@@ -56,7 +56,7 @@
   },
   "home": {
     "introEyebrow": "tko smo",
-    "introBody": "HOTFIX d.o.o. je hrvatska boutique AI i software consulting tvrtka koju je 2022. osnovao Josip Budalić, sa sjedištem u Zagrebu i klijentima iz EU i SAD-a. Pomažemo timovima uvesti AI u stvarne workflowe, modernizirati legacy codebase i pouzdanije isporučivati software, dvojezično na hrvatskom i engleskom, pon–pet 09:00–17:00 CET, s dobrim preklapanjem s jutarnjim radnim vremenom istočne obale SAD-a.",
+    "introBody": "HOTFIX d.o.o. je boutique AI i software consulting tvrtka sa sjedištem u Zagrebu, koju je 2022. osnovao Josip Budalić. Radimo s product timovima u Hrvatskoj, BiH, Srbiji, široj regiji i EU; pomažemo uvesti AI u stvarne workflowe, modernizirati legacy codebase i pouzdanije isporučivati software. Radimo dvojezično na hrvatskom i engleskom, pon–pet 09:00–17:00 CET.",
     "eyebrow": "zašto HOTFIX",
     "title": "Seniorski engineering, ne PowerPoint.",
     "lede": "Ne prodajemo opće AI transformacije. Svaki angažman ima seniorsku odgovornost, bez juniorske offshore podizvedbe, i iz njega ostaju kod, runbookovi i dokumenti odluka kod internog tima.",
@@ -100,7 +100,7 @@
     "faqEyebrow": "često postavljena",
     "faqTitle": "Česta pitanja o suradnji s HOTFIX d.o.o.",
     "faq1Q": "Čime se točno HOTFIX d.o.o. bavi?",
-    "faq1A": "HOTFIX je hrvatska AI i software consulting tvrtka osnovana 2022. godine. Pomažemo product timovima iz EU i SAD-a uvesti AI u stvarne workflowe, modernizirati legacy codebase i pouzdanije isporučivati software. Radimo projektno ili na retaineru, uz opseg dogovoren nakon discovery razgovora.",
+    "faq1A": "HOTFIX je hrvatska AI i software consulting tvrtka osnovana 2022. godine, sa sjedištem u Zagrebu. Radimo s product timovima u Hrvatskoj, BiH, Srbiji, široj regiji i EU; pomažemo uvesti AI u stvarne workflowe, modernizirati legacy codebase i pouzdanije isporučivati software. Radimo projektno ili na retaineru, uz opseg dogovoren nakon discovery razgovora.",
     "faq2Q": "Kako se Claude Code ili Codex uvode u tim bez gubitka kvalitete koda?",
     "faq2A": "Postavljamo eksplicitna pravila za review, sigurnost i ownership, a zatim dodajemo skills, subagente i evaluacije koji odgovaraju postojećem procesu. Cilj je mjerljivo uvođenje uz obvezan code review i testove — AI ubrzava rad, ali ne zaobilazi disciplinu.",
     "faq3Q": "Možete li modernizirati legacy codebase bez zaustavljanja razvoja?",
@@ -108,7 +108,7 @@
     "faq4Q": "Razumijete li GDPR? Zamjenjujete li pravni savjet?",
     "faq4A": "Pokrivamo tehničku stranu GDPR-a: privatnost po dizajnu, minimizaciju podataka, kontrolu pristupa, audit trailove, threat modeling i release checkliste. Ne zamjenjujemo pravni savjet, ali brinemo da software podržava ono što pravnici traže.",
     "faq5Q": "Gdje ste smješteni i s kim radite?",
-    "faq5A": "HOTFIX d.o.o. ima sjedište u Zagrebu i radi s klijentima iz EU i SAD-a. Tipični klijenti su CTO-i, VP-ovi engineeringa i osnivači malih i srednjih product tvrtki i scale-upova kojima treba seniorski partner koji može i odlučiti i izgraditi. Radno vrijeme: pon–pet, 09:00–17:00 CET, s dobrim preklapanjem s jutarnjim radnim vremenom istočne obale SAD-a.",
+    "faq5A": "HOTFIX d.o.o. ima sjedište u Zagrebu i radi s klijentima u Hrvatskoj, BiH, Srbiji, široj regiji i EU. Tipični klijenti su CTO-i, VP-ovi engineeringa i osnivači malih i srednjih product tvrtki i scale-upova kojima treba seniorski partner koji može i odlučiti i izgraditi. Radno vrijeme: pon–pet, 09:00–17:00 CET.",
     "faq6Q": "Kako projekt počinje i koliko košta?",
     "faq6A": "Javite nam se s nekoliko rečenica konteksta — što gradite, gdje zapinje isporuka, što želite postići. Javljamo se s kratkim discovery razgovorom, a zatim pisanom ponudom s opsegom, deliverableima, rokom i cijenom u eurima. Nema javnog cjenika jer je svaki angažman skrojen prema problemu.",
     "ctaEyebrow": "sljedeći korak",
@@ -118,9 +118,9 @@
   },
   "about": {
     "title": "O nama - AI i software consulting",
-    "description": "HOTFIX d.o.o. je hrvatska AI i software consulting tvrtka koja pomaže timovima donositi bolje tehničke odluke, modernizirati software i pouzdanije isporučivati.",
+    "description": "HOTFIX d.o.o. je AI i software consulting tvrtka sa sjedištem u Zagrebu, koja radi s timovima u Hrvatskoj, BiH, Srbiji i široj regiji na boljim tehničkim odlukama, modernizaciji softvera i pouzdanijoj isporuci.",
     "heroEyebrow": "o tvrtki HOTFIX d.o.o.",
-    "heroTitle": "Praktičan software consulting iz Hrvatske.",
+    "heroTitle": "Praktičan software consulting iz Zagreba, za timove u regiji i EU.",
     "heroDesc": "HOTFIX d.o.o. pomaže tvrtkama uvesti AI u stvarne workflowe, urediti razvojni proces, modernizirati postojeći software i graditi rješenja koja se mogu održavati nakon prve isporuke.",
     "storyEyebrow": "priča",
     "storyTitle": "Krenuli smo od jednostavne ideje: software mora pomagati poslu, a ne proizvoditi novu kompleksnost.",

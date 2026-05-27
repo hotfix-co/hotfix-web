@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import Script from "next/script";
@@ -17,6 +18,63 @@ import type { SiteLocale } from "@/lib/constants";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+// Locale-aware meta keywords. Google ignores these for ranking, but other
+// crawlers (Bing, DuckDuckGo) still read them as a topical signal, and a
+// mismatched English list on an HR page hurts Google's locale inference.
+//
+// HR keywords target the Balkan market (HR + BA/RS via cross-intelligible
+// terms). EN keywords reposition the EN site as a Croatia-based nearshore
+// engineering partner instead of competing in the saturated global "AI
+// consulting" query space.
+const KEYWORDS_BY_LOCALE: Record<SiteLocale, string[]> = {
+  hr: [
+    "AI savjetovanje",
+    "AI konzalting",
+    "software consulting",
+    "razvoj softvera",
+    "izrada softvera po mjeri",
+    "Claude Code",
+    "AI-assisted development",
+    "modernizacija softvera",
+    "software arhitektura",
+    "tvrtka za razvoj softvera",
+    "GDPR usklađenost",
+    "Zagreb",
+    "Hrvatska",
+    "regija",
+    "HOTFIX d.o.o.",
+    "Josip Budalić",
+  ],
+  en: [
+    "nearshore engineering Croatia",
+    "Croatia software development",
+    "Balkans AI consultancy",
+    "AI consulting Croatia",
+    "Claude Code consulting",
+    "nearshore developers EU",
+    "Croatian software developers",
+    "AI-assisted development consulting",
+    "software architecture consulting",
+    "software modernization",
+    "GDPR-compliant software",
+    "Zagreb software company",
+    "HOTFIX d.o.o.",
+    "Josip Budalić",
+  ],
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const loc: SiteLocale = locale === "en" ? "en" : "hr";
+  return {
+    keywords: KEYWORDS_BY_LOCALE[loc],
+  };
 }
 
 export default async function LocaleLayout({

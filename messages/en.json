@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "titleDefault": "HOTFIX d.o.o. | AI & Software Consulting",
+    "titleDefault": "HOTFIX d.o.o. | Nearshore AI & Software Engineering from Croatia",
     "titleTemplate": "%s | HOTFIX d.o.o.",
-    "description": "AI and software consulting for companies that want to integrate AI into real processes, make clearer technical decisions, and deliver software more reliably."
+    "description": "Croatia-based nearshore engineering partner. AI adoption, Claude Code workflows, architecture, and modernization for EU and US product teams."
   },
   "nav": {
     "home": "Home",
@@ -33,8 +33,8 @@
   },
   "hero": {
     "tagline": "AI Workflows • Consulting • Engineering",
-    "subtitle": "AI and software consulting from Croatia — for product teams across the EU and US that want faster technical decisions and reliable delivery.",
-    "description": "HOTFIX d.o.o. helps EU and US teams adopt AI in real workflows, modernize codebases, and ship software without losing control of quality, security, or ownership. Claude Code enablement, architecture, and senior engineering.",
+    "subtitle": "Nearshore AI and software engineering from Croatia — for EU and US product teams that want faster technical decisions and reliable delivery.",
+    "description": "HOTFIX d.o.o. is a Zagreb-based nearshore engineering partner. We help EU and US teams adopt AI in real workflows, modernize codebases, and ship software without losing control of quality, security, or ownership. Claude Code enablement, architecture, and senior engineering — in your timezone.",
     "ctaServices": "View services",
     "ctaContact": "Book a call",
     "techAI": "AI workflows",
@@ -56,7 +56,7 @@
   },
   "home": {
     "introEyebrow": "who we are",
-    "introBody": "HOTFIX d.o.o. is a Croatian boutique AI and software consulting firm founded in 2022 by Josip Budalić, headquartered in Zagreb and working with product teams across the EU and the US. We help teams adopt AI in real workflows, modernize legacy codebases, and deliver software reliably — bilingual delivery in Croatian and English, Mon–Fri 09:00–17:00 CET, with strong overlap with US East Coast business hours.",
+    "introBody": "HOTFIX d.o.o. is a Zagreb-based nearshore engineering boutique founded in 2022 by Josip Budalić. We work with product teams across the EU and the US — bilingual delivery in Croatian and English, Mon–Fri 09:00–17:00 CET, with strong overlap with US East Coast business hours. We help teams adopt AI in real workflows, modernize legacy codebases, and deliver software reliably.",
     "eyebrow": "why HOTFIX",
     "title": "Senior engineering, not slide decks.",
     "lede": "We don't sell generic AI transformation narratives. Every engagement has senior ownership, never junior offshore subcontracting, and ships with code, runbooks, and decision docs the internal team owns.",
@@ -100,7 +100,7 @@
     "faqEyebrow": "frequently asked",
     "faqTitle": "Common questions about working with HOTFIX d.o.o.",
     "faq1Q": "What does HOTFIX d.o.o. actually do?",
-    "faq1A": "HOTFIX is a Croatian AI and software consulting firm founded in 2022. We help product teams across the EU and the US adopt AI in real workflows, modernize legacy codebases, and deliver software more reliably. Engagements are project-based or retainer, scoped after a discovery call.",
+    "faq1A": "HOTFIX is a Zagreb-based nearshore engineering boutique founded in 2022. We help product teams across the EU and the US adopt AI in real workflows, modernize legacy codebases, and deliver software more reliably. Engagements are project-based or retainer, scoped after a discovery call.",
     "faq2Q": "How do you introduce Claude Code or Codex into a team without losing code quality?",
     "faq2A": "We set explicit rules for review, security, and ownership, then add skills, subagents, and evaluations that fit the team's existing process. The goal is measurable adoption with code review and tests still binding — AI accelerates work, but does not bypass discipline.",
     "faq3Q": "Can you modernize a legacy codebase without stopping feature delivery?",

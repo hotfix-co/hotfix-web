@@ -34,21 +34,9 @@ export const metadata: Metadata = {
   },
   description:
     "HOTFIX d.o.o. is a Croatian AI and software consulting firm. We help teams adopt Claude Code, modernize codebases, and deliver software more reliably.",
-  keywords: [
-    "AI consulting",
-    "software consulting",
-    "Claude Code consulting",
-    "AI-assisted development",
-    "multi-agent systems",
-    "software architecture",
-    "custom software development",
-    "software modernization",
-    "engineering process consulting",
-    "HOTFIX d.o.o.",
-    "HOTFIX",
-    "Croatia",
-    "Hrvatska",
-  ],
+  // No keywords at the locale-agnostic root layer. Locale-aware keywords are
+  // emitted from app/[locale]/layout.tsx so HR pages don't ship an English
+  // keyword set (a signal Google reads as "this page is actually English").
   authors: [
     { name: "Josip Budalić", url: `${SITE_URL}/about` },
     { name: "HOTFIX d.o.o." },

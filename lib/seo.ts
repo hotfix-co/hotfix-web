@@ -34,6 +34,9 @@ export function getLanguageAlternates(pathname: InternalPathname) {
   return {
     [SEO_LANGUAGE_KEYS.hr]: getLocalizedUrl(pathname, "hr"),
     [SEO_LANGUAGE_KEYS.en]: getLocalizedUrl(pathname, "en"),
-    "x-default": getLocalizedUrl(pathname, "en"),
+    // x-default points to HR: the site's primary audience is the Balkan
+    // region (HR, BA, RS, ME, SI). When Google can't infer a language
+    // preference, serve Croatian, not English.
+    "x-default": getLocalizedUrl(pathname, "hr"),
   };
 }
