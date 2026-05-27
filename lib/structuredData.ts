@@ -19,12 +19,12 @@ const FOUNDER_SAME_AS: string[] = [
 
 const ORG_DESCRIPTION: Record<SiteLocale, string> = {
   hr: 'AI i software consulting tvrtka iz Hrvatske. HOTFIX d.o.o. pomaže timovima iz EU i SAD-a uvesti AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software.',
-  en: 'Croatia-based nearshore engineering partner. HOTFIX d.o.o. helps EU and US product teams adopt AI in real workflows, modernize codebases, and deliver software more reliably.',
+  en: 'Croatia-based AI and software consulting firm. HOTFIX d.o.o. helps EU and US product teams adopt AI in real workflows, modernize codebases, and deliver software more reliably.',
 };
 
 const WEBSITE_DESCRIPTION: Record<SiteLocale, string> = {
   hr: 'AI i software consulting iz Hrvatske za product timove iz EU-a i SAD-a koji žele kvalitetniji razvojni proces, održivu arhitekturu i pouzdaniju isporuku softvera.',
-  en: 'Nearshore AI and software engineering from Croatia for EU and US product teams that want a better development process, sustainable architecture, and more reliable software delivery.',
+  en: 'Nearshore AI and software consulting from Croatia for EU and US product teams that want a better development process, sustainable architecture, and more reliable software delivery.',
 };
 
 const SCHEMA_LANG: Record<SiteLocale, string> = {
@@ -342,7 +342,7 @@ export function getHomepageWebPageSchema(locale: SiteLocale = 'en') {
     url,
     name:
       locale === 'en'
-        ? 'HOTFIX d.o.o. — Nearshore AI & Software Engineering from Croatia'
+        ? 'HOTFIX d.o.o. — Nearshore AI & Software Consulting from Croatia'
         : 'HOTFIX d.o.o. — AI i software consulting iz Hrvatske',
     description: ORG_DESCRIPTION[locale],
     inLanguage: SCHEMA_LANG[locale],
