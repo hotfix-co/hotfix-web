@@ -18,13 +18,13 @@ const FOUNDER_SAME_AS: string[] = [
 ];
 
 const ORG_DESCRIPTION: Record<SiteLocale, string> = {
-  hr: 'AI i software consulting iz Zagreba. HOTFIX d.o.o. pomaže timovima u regiji i EU uvesti AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software.',
-  en: 'Croatia-based nearshore engineering partner. HOTFIX d.o.o. helps teams in the Balkans, EU, and US adopt AI in real workflows, modernize codebases, and deliver software more reliably.',
+  hr: 'AI i software consulting tvrtka iz Hrvatske. HOTFIX d.o.o. pomaže timovima iz EU i SAD-a uvesti AI u stvarne procese, donositi jasnije tehničke odluke i pouzdanije isporučivati software.',
+  en: 'Croatia-based nearshore engineering partner. HOTFIX d.o.o. helps EU and US product teams adopt AI in real workflows, modernize codebases, and deliver software more reliably.',
 };
 
 const WEBSITE_DESCRIPTION: Record<SiteLocale, string> = {
-  hr: 'AI i software consulting za tvrtke u Hrvatskoj, BiH i regiji koje žele kvalitetniji razvojni proces, održivu arhitekturu i pouzdaniju isporuku softvera.',
-  en: 'Nearshore AI and software engineering from Croatia for teams that want a better development process, sustainable architecture, and more reliable software delivery.',
+  hr: 'AI i software consulting iz Hrvatske za product timove iz EU-a i SAD-a koji žele kvalitetniji razvojni proces, održivu arhitekturu i pouzdaniju isporuku softvera.',
+  en: 'Nearshore AI and software engineering from Croatia for EU and US product teams that want a better development process, sustainable architecture, and more reliable software delivery.',
 };
 
 const SCHEMA_LANG: Record<SiteLocale, string> = {
@@ -32,16 +32,13 @@ const SCHEMA_LANG: Record<SiteLocale, string> = {
   en: 'en',
 };
 
-// Country-level areaServed entries. HR is the home market; BA/RS/SI/ME are
-// the Balkan markets we explicitly target. EU is a region-level signal so we
-// also rank for EU-wide intent. US stays so EN-locale nearshore positioning
-// keeps its US audience signal.
+// Visible client framing in schema is intentionally HR + EU + US — that's
+// the prestige signal Balkan B2B buyers actually convert on. Balkan
+// targeting is handled by the invisible SEO layer (hr-HR locale, HR
+// content language, x-default → /hr, Croatian keywords), not by listing
+// BA/RS/SI/ME here.
 const AREA_SERVED_COUNTRIES = [
   { '@type': 'Country' as const, name: 'Croatia' },
-  { '@type': 'Country' as const, name: 'Bosnia and Herzegovina' },
-  { '@type': 'Country' as const, name: 'Serbia' },
-  { '@type': 'Country' as const, name: 'Slovenia' },
-  { '@type': 'Country' as const, name: 'Montenegro' },
   { '@type': 'Place' as const, name: 'European Union' },
   { '@type': 'Country' as const, name: 'United States' },
 ];
@@ -88,7 +85,7 @@ export function getOrganizationSchema(
       email: 'ops@hotfix-doo.com',
       contactType: 'customer support',
       availableLanguage: ['Croatian', 'English'],
-      areaServed: ['HR', 'BA', 'RS', 'SI', 'ME', 'EU', 'US'],
+      areaServed: ['HR', 'EU', 'US'],
     },
     knowsAbout: [
       'AI consulting',
@@ -346,7 +343,7 @@ export function getHomepageWebPageSchema(locale: SiteLocale = 'en') {
     name:
       locale === 'en'
         ? 'HOTFIX d.o.o. — Nearshore AI & Software Engineering from Croatia'
-        : 'HOTFIX d.o.o. — AI i software consulting | Zagreb',
+        : 'HOTFIX d.o.o. — AI i software consulting iz Hrvatske',
     description: ORG_DESCRIPTION[locale],
     inLanguage: SCHEMA_LANG[locale],
     isPartOf: { '@id': `${siteUrl}/#website` },
@@ -400,11 +397,8 @@ export function generateServiceSchema(
         ? AREA_SERVED_COUNTRIES
         : [
             { '@type': 'Country' as const, name: 'Hrvatska' },
-            { '@type': 'Country' as const, name: 'Bosna i Hercegovina' },
-            { '@type': 'Country' as const, name: 'Srbija' },
-            { '@type': 'Country' as const, name: 'Slovenija' },
-            { '@type': 'Country' as const, name: 'Crna Gora' },
             { '@type': 'Place' as const, name: 'Europska unija' },
+            { '@type': 'Country' as const, name: 'Sjedinjene Američke Države' },
           ],
     inLanguage: SCHEMA_LANG[locale],
     hasOfferCatalog: {
