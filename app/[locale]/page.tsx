@@ -126,6 +126,13 @@ export default async function Home({
     },
   ];
 
+  const servicePhotoTones = [
+    "card-photo-warm",
+    "card-photo-sea",
+    "card-photo-night",
+    "card-photo-stone",
+  ];
+
   const engagementTypes = [
     { title: t("engagement1Title"), desc: t("engagement1Desc") },
     { title: t("engagement2Title"), desc: t("engagement2Desc") },
@@ -143,41 +150,38 @@ export default async function Home({
       <StructuredData data={homepageSchemas} />
       <Hero />
 
-      <section className="bg-white pt-12 pb-20 md:pt-20 md:pb-24" aria-labelledby="why-choose-us">
+      <section className="bg-white py-28 md:py-36" aria-labelledby="why-choose-us">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-10 max-w-3xl">
-            <span className="section-eyebrow mb-4 block">{t("introEyebrow")}</span>
-            <p className="text-[17px] leading-[1.55] text-[var(--ink-mute)] sm:text-[18px]">
-              {t("introBody")}
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection className="mb-12 max-w-3xl md:mb-14">
-            <span className="section-eyebrow mb-4 block">{t("eyebrow")}</span>
-            <h2 id="why-choose-us" className="section-title mb-5">
-              {t("title")}
-            </h2>
-            <p className="section-lede max-w-2xl">
+          <AnimatedSection className="mb-20 md:mb-28">
+            <p className="statement-text max-w-5xl">
+              <strong>
+                <span id="why-choose-us">{t("title")}</span>
+              </strong>{" "}
               {t("lede")}
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <AnimatedSection className="mb-14 max-w-3xl">
+            <span className="section-eyebrow mb-4 block">{t("introEyebrow")}</span>
+            <p className="text-[15px] leading-[1.6] text-[var(--ink-mute)]">
+              {t("introBody")}
+            </p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 gap-10 border-t border-[var(--hairline)] pt-12 md:grid-cols-3">
             {features.map((feature, index) => (
               <AnimatedSection key={index} delay={index * 0.08}>
-                <div className="card-feature-light h-full transition-transform duration-200 hover:-translate-y-1">
-                  <h3 className="mb-3 text-[22px] font-light leading-[1.15] tracking-[-0.22px] text-[var(--ink)]">
-                    {feature.title}
-                  </h3>
-                  <p className="text-[15px] leading-[1.5] text-[var(--ink-mute)]">{feature.description}</p>
-                </div>
+                <h3 className="mb-3 text-[20px] font-light leading-[1.2] tracking-[-0.2px] text-[var(--ink)]">
+                  {feature.title}
+                </h3>
+                <p className="text-[14px] leading-[1.55] text-[var(--ink-mute)]">{feature.description}</p>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[var(--canvas-soft)] py-24" aria-labelledby="our-services">
+      <section className="bg-white pb-28" aria-labelledby="our-services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="mb-14 max-w-3xl">
             <span className="section-eyebrow mb-4 block">{t("servicesEyebrow")}</span>
@@ -189,20 +193,17 @@ export default async function Home({
             </p>
           </AnimatedSection>
 
-          <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="mb-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
             {services.map((service, index) => (
               <AnimatedSection key={index} delay={index * 0.08}>
                 <Link
                   href={service.href}
-                  className="card-pricing flex h-full flex-col transition-transform duration-200 hover:-translate-y-1 focus-ring"
+                  className={`card-photo focus-ring h-full ${servicePhotoTones[index % servicePhotoTones.length]}`}
                 >
-                  <h3 className="mb-4 card-title-lg text-[var(--ink)]">
+                  <h3 className="max-w-[240px] text-[20px] font-light leading-[1.25] tracking-[-0.2px] text-white">
                     {service.title}
                   </h3>
-                  <p className="mb-6 text-[15px] leading-[1.5] text-[var(--ink-mute)]">
-                    {service.description}
-                  </p>
-                  <span className="mt-auto inline-flex items-center gap-2 text-[13px] font-medium text-[var(--primary-deep)]">
+                  <span className="mt-3 inline-flex items-center gap-2 text-[12px] text-white/80">
                     {service.cta}
                     <span aria-hidden>→</span>
                   </span>
@@ -217,6 +218,23 @@ export default async function Home({
               className="button-primary-pill focus-ring"
             >
               {t("viewServices")}
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section
+        className="interlude-dark grain-overlay relative flex min-h-[70svh] items-center justify-center overflow-hidden py-28 text-center"
+        aria-labelledby="interlude-heading"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="flex flex-col items-center">
+            <div className="interlude-orb mb-10" aria-hidden />
+            <p id="interlude-heading" className="mb-6 text-[17px] font-light text-white/90 sm:text-[19px]">
+              {t("interludeLine")}
+            </p>
+            <Link href={ROUTES.about} className="button-hero-ghost focus-ring">
+              {t("interludeCta")}
             </Link>
           </AnimatedSection>
         </div>
@@ -314,18 +332,16 @@ export default async function Home({
         </div>
       </section>
 
-      <section className="bg-white pb-24" aria-labelledby="cta-heading">
+      <section className="bg-white py-28 md:py-36" aria-labelledby="cta-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="card-cream-band grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <span className="section-eyebrow mb-4 block">{t("ctaEyebrow")}</span>
-              <h2 id="cta-heading" className="section-title mb-5">
-                {t("ctaTitle")}
-              </h2>
-              <p className="section-lede max-w-2xl">
-                {t("ctaLede")}
-              </p>
-            </div>
+          <AnimatedSection>
+            <span className="section-eyebrow mb-5 block">{t("ctaEyebrow")}</span>
+            <h2 id="cta-heading" className="cta-display mb-7 max-w-4xl">
+              {t("ctaTitle")}
+            </h2>
+            <p className="section-lede mb-10 max-w-2xl">
+              {t("ctaLede")}
+            </p>
             <ContactTrackedLink
               href={ROUTES.contact}
               source="home_cta"

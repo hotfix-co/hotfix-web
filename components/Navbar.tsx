@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
 import LanguagePicker from "@/components/LanguagePicker";
 import { ROUTES } from "@/lib/constants";
@@ -12,6 +12,18 @@ export default function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // The homepage hero is a dark cinematic image; the navbar sits transparent
+  // on top of it until the user scrolls past the fold.
+  const overHero = pathname === ROUTES.home && !scrolled && !mobileMenuOpen;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navigation = [
     { name: t("home"), href: ROUTES.home },
@@ -22,7 +34,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-[var(--hairline)] bg-white/90 backdrop-blur-md">
+    <nav
+      className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
+        overHero
+          ? "border-b border-transparent bg-transparent"
+          : "border-b border-[var(--hairline)] bg-white/90 backdrop-blur-md"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -39,7 +57,11 @@ export default function Navbar() {
               priority
               className="h-5 w-5 object-contain sm:h-6 sm:w-6"
             />
-            <span className="whitespace-nowrap text-[17px] font-medium tracking-[-0.005em] text-[var(--ink)] sm:text-[18px]">
+            <span
+              className={`whitespace-nowrap text-[17px] font-medium tracking-[-0.005em] sm:text-[18px] ${
+                overHero ? "text-white" : "text-[var(--ink)]"
+              }`}
+            >
               HOTFIX d.o.o.
             </span>
           </ContactTrackedLink>
@@ -52,9 +74,13 @@ export default function Navbar() {
                 href={item.href}
                 source="navbar"
                 className={`focus-ring rounded text-[14px] font-medium transition-colors ${
-                  pathname === item.href
-                    ? "text-[var(--primary)]"
-                    : "text-[var(--ink-mute-2)] hover:text-[var(--ink)]"
+                  overHero
+                    ? pathname === item.href
+                      ? "text-white"
+                      : "text-white/75 hover:text-white"
+                    : pathname === item.href
+                      ? "text-[var(--primary)]"
+                      : "text-[var(--ink-mute-2)] hover:text-[var(--ink)]"
                 }`}
               >
                 {item.name}
@@ -64,7 +90,7 @@ export default function Navbar() {
             <ContactTrackedLink
               href={ROUTES.contact}
               source="navbar"
-              className="button-primary-pill focus-ring whitespace-nowrap"
+              className={`${overHero ? "button-hero-ghost" : "button-primary-pill"} focus-ring whitespace-nowrap`}
             >
               {t("cta")}
             </ContactTrackedLink>
@@ -75,7 +101,11 @@ export default function Navbar() {
             <LanguagePicker />
             <button
               type="button"
-              className="focus-ring min-h-11 min-w-11 rounded-full text-[var(--ink-mute-2)] hover:bg-[var(--canvas-soft)] hover:text-[var(--ink)]"
+              className={`focus-ring min-h-11 min-w-11 rounded-full ${
+                overHero
+                  ? "text-white hover:bg-white/10"
+                  : "text-[var(--ink-mute-2)] hover:bg-[var(--canvas-soft)] hover:text-[var(--ink)]"
+              }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">

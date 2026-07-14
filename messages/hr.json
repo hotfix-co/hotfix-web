@@ -52,7 +52,9 @@
     "deadline": "Rok",
     "stable": "stabilno",
     "review": "pregled",
-    "beta": "beta"
+    "beta": "beta",
+    "headline": "Primijenjeni AI, isporučen iz Hrvatske",
+    "blurb": "HOTFIX pomaže EU i američkim product timovima uvesti AI u stvarne workflowe i pouzdano isporučivati softver — senior engineering, u vašoj vremenskoj zoni."
   },
   "home": {
     "introEyebrow": "tko smo",
@@ -114,7 +116,9 @@
     "ctaEyebrow": "sljedeći korak",
     "ctaTitle": "Imate codebase, proces ili AI ideju koju treba razraditi?",
     "ctaLede": "Pošaljite nam kratak opis. Javit ćemo se s jasnim prvim korakom (discovery, advisory ili implementacija) i pisanom ponudom ako postoji fit.",
-    "ctaButton": "Dogovorite razgovor"
+    "ctaButton": "Dogovorite razgovor",
+    "interludeLine": "AI u stvarnim workflowima. Ne u demoima.",
+    "interludeCta": "Pogledajte kako radimo"
   },
   "about": {
     "title": "O nama - AI i software consulting",

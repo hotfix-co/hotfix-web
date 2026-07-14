@@ -52,7 +52,9 @@
     "deadline": "Deadline",
     "stable": "stable",
     "review": "review",
-    "beta": "beta"
+    "beta": "beta",
+    "headline": "Applied AI, shipped from Croatia",
+    "blurb": "HOTFIX helps EU and US product teams adopt AI in real workflows and ship reliable software — senior engineering, in your timezone."
   },
   "home": {
     "introEyebrow": "who we are",
@@ -114,7 +116,9 @@
     "ctaEyebrow": "next step",
     "ctaTitle": "Have a codebase, process, or AI idea that needs grounding?",
     "ctaLede": "Send the context. We'll respond with a clear first step — discovery, advisory, or implementation — and a written proposal if there's fit.",
-    "ctaButton": "Book a discovery call"
+    "ctaButton": "Book a discovery call",
+    "interludeLine": "AI in real workflows. Not demos.",
+    "interludeCta": "See how we work"
   },
   "about": {
     "title": "About - AI & software consulting",
