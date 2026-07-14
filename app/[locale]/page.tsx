@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Hero from "@/components/Hero";
 import AnimatedSection from "@/components/AnimatedSection";
+import ScrollStatement from "@/components/ScrollStatement";
 import { Link } from "@/i18n/navigation";
 import StructuredData from "@/components/StructuredData";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
@@ -150,16 +151,13 @@ export default async function Home({
       <StructuredData data={homepageSchemas} />
       <Hero />
 
-      <section className="bg-white py-28 md:py-36" aria-labelledby="why-choose-us">
+      <section className="bg-white py-28 md:pb-36 md:pt-0" aria-labelledby="why-choose-us">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-20 md:mb-28">
-            <p className="statement-text max-w-5xl">
-              <strong>
-                <span id="why-choose-us">{t("title")}</span>
-              </strong>{" "}
-              {t("lede")}
-            </p>
-          </AnimatedSection>
+          <ScrollStatement
+            strong={t("title")}
+            rest={t("lede")}
+            headingId="why-choose-us"
+          />
 
           <AnimatedSection className="mb-14 max-w-3xl">
             <span className="section-eyebrow mb-4 block">{t("introEyebrow")}</span>

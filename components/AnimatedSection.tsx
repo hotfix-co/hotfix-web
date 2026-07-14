@@ -1,4 +1,7 @@
+"use client";
+
 import { ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -6,20 +9,30 @@ interface AnimatedSectionProps {
   delay?: number;
 }
 
+/**
+ * Reveals content when it scrolls into view: a quiet rise out of a
+ * slight blur, played once. Static under prefers-reduced-motion.
+ */
 export default function AnimatedSection({
   children,
   className = "",
   delay = 0,
 }: AnimatedSectionProps) {
-  const delayClass =
-    delay >= 0.24 ? "fade-in-up-delay-3"
-      : delay >= 0.16 ? "fade-in-up-delay-2"
-      : delay >= 0.08 ? "fade-in-up-delay-1"
-      : "";
+  const reduced = useReducedMotion();
+
+  if (reduced) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
-    <div className={`fade-in-up ${delayClass} ${className}`.trim()}>
+    <motion.div
+      className={className}
+      initial={{ opacity: 0.001, y: 24, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }

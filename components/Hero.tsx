@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import ContactTrackedLink from "@/components/ContactTrackedLink";
+import WordReveal from "@/components/WordReveal";
 import { ROUTES } from "@/lib/constants";
 
 export default function Hero() {
@@ -16,15 +17,15 @@ export default function Hero() {
       aria-labelledby="home-hero"
     >
       {/* Gradient stand-in for cinematic hero photography — see globals.css */}
-      <div className="hero-golden grain-overlay absolute inset-0 -z-10" />
+      <div className="hero-golden grain-overlay hero-zoom absolute inset-0 -z-10" />
       <div className="hero-golden-foot absolute inset-x-0 bottom-0 -z-10 h-[40%]" />
 
       <div className="mx-auto grid w-full max-w-7xl items-end gap-10 px-4 pb-16 pt-40 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16 lg:px-8 lg:pb-20">
-        <h1 id="home-hero" className="hero-display fade-in-up max-w-2xl">
-          {t("headline")}
+        <h1 id="home-hero" className="hero-display max-w-2xl">
+          <WordReveal text={t("headline")} baseDelay={0.25} step={0.09} />
         </h1>
 
-        <div className="fade-in-up fade-in-up-delay-1 max-w-sm">
+        <div className="fade-in-up fade-in-up-delay-3 max-w-sm">
           <p className="text-[15px] leading-[1.55] text-white/90">
             {t("blurb")}
           </p>
